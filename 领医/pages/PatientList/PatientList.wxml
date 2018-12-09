@@ -1,0 +1,32 @@
+
+<view class='wrap'>
+  <view class='item_head item_head_select' bindtap='addUser' data-type='change'>
+    <image class='avater'></image>
+    <view class='userRes'>
+      <view class='name'>王陆</view>
+      <view class='age'>年龄：5岁</view>
+      <view class='sex'>性别：男</view>
+    </view>
+    <view class='change'>
+      修改
+     <span class='iconfont icon-jiantou'></span>
+    </view>
+  </view>
+  <view class='item_head'>
+    <image class='avater'></image>
+    <view class='userRes'>
+      <view class='name'>王陆</view>
+      <view class='age'>年龄：5岁</view>
+      <view class='sex'>性别：男</view>
+    </view>
+    <view class='change'>
+      修改
+      <span class='iconfont icon-jiantou'></span>
+    </view>
+  </view>
+</view>
+
+
+<view class='add' bindtap='addUser' data-type='add'>
+    增加就诊人
+</view>

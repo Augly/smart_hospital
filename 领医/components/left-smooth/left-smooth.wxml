@@ -1,0 +1,6 @@
+<view class="item" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+  <slot></slot>
+  <view class="item-handle" style="right: {{styleRight}};">
+    <view class="item-del" catchtap='del'>删除</view>
+  </view>
+</view>

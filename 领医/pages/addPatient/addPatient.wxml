@@ -1,0 +1,37 @@
+
+<view class='wrap'>
+  <view class='tabBar'>
+    <view class='tabItem tabActive'>
+      儿童就诊人
+    </view>
+    <view class='line'></view>
+    <view class='tabItem'>
+      成人就诊人
+    </view>
+  </view>
+
+  <view class='avaterGroup'>
+    <view class='title'>添加头像</view>
+    <view class='avater'></view>
+  </view>
+
+  <view>
+    <view class='title'>姓名</view>
+    <input class='name' placeholder='请填写就诊人姓名'></input>
+  </view>
+
+  <view>
+    <view class='title'>性别</view>
+    <view class='sexGroup'>
+      <view class='sexItem sexItemActive'>男性</view>
+      <view class='sexItem'>女生</view>
+    </view>
+  </view>
+    <view>
+    <view class='title'>出生日期</view>
+    <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05'></input>
+  </view>
+
+  <view class='add'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>
+  <view class='del' wx-if="{{statusType=='change'}}">删除就诊人</view>
+</view>

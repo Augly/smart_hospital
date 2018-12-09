@@ -1,0 +1,53 @@
+<view class='headGroup'>
+  <view class='headItem active'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+  <view class='headItem'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+  <view class='headItem'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+  <view class='headItem'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+  <view class='headItem'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+  <view class='headItem'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+  <view class='headItem'>
+    <view class='day'>周二</view>
+    <view class='date'>9.30</view>
+  </view>
+</view>
+
+<view class='content'>
+  <view class='item'>
+    <view class='itemHead'>
+      <view class='headLogo'></view>
+      <view class='headTitle'>
+        <view class='title'>
+          王丽
+          <span class='minTitle'>心脏科</span>
+          <span class='minTitle'>心脏科</span>
+        </view>
+        <view class='adder'>广东省北京大学深圳医院</view>
+      </view>
+      <view class='bottonGroup'>前往挂号</view>
+    </view>
+    <view class='itemOther'>
+      <view class='otherHead'>工作时间</view>
+      <view class='otherData'>星期三
+        <span>09:00~16:00</span>
+      </view>
+    </view>
+  </view>
+</view>

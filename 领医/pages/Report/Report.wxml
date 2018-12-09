@@ -1,0 +1,24 @@
+
+<view class='wrap'>
+  <view class='title'>北京领医怡乐儿童医院</view>
+  <view class='noticeGroup'>
+    <text class='name'>姓名 : 王陆</text>
+    <text class='name'>性别 : 男</text>
+    <text class='name'>年龄 : 9</text>
+  </view>
+  <view class='date'>
+    2018-09-08-14:02
+  </view>
+  <view class='more'>
+    <view class='more_title'>检查所见：</view>
+    <view class='more_res'>有流行性感冒的预兆，扁条线红肿， 咳嗽有痰，鼻腔有炎症。
+    </view>
+  </view>
+  <view class='more'>
+    <view class='more_title'>检查意见：</view>
+    <view class='more_res'>医师建议进一步检查，按照医师的医嘱服药，安心静养。
+    </view>
+  </view>
+</view>
+
+<view class='tochat' bindtap='tochat'></view>

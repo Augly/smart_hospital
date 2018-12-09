@@ -1,0 +1,31 @@
+
+<view class='wrap'>
+  <view class='item_head' bindtap='select'>
+    <image class='avater'></image>
+    <view class='userRes'>
+      <view class='name'>王陆</view>
+      <view class='age'>年龄：5岁</view>
+      <view class='sex'>性别：男</view>
+    </view>
+    <view class='change'>
+      切换就诊人
+     <span class='iconfont icon-jiantou'></span>
+    </view>
+  </view>
+  <view class='item'>
+    <image class='avater'></image>
+    <view class='userRes'>
+      <view class='name'>王晶
+        <text class='zw'>心脏科</text>
+        <text class='zw'>心脏科</text>
+      </view>
+      <view class='res'>病情:心肌缺血</view>
+    </view>
+    <view class='buttonGroup'>
+      <view class='date'>
+        2018-11-20 1:04
+      </view>
+      <view class='lookCase' bindtap='lookCase'>查看病历</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,109 @@
+/* pages/case/case.wxss */
+
+.notitle {
+  width: 100%;
+  height: 220rpx;
+  background-color: #63dfc5;
+}
+
+.avater {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 120rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-top: 120rpx;
+  font-size: 40rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.mintitle {
+  text-align: center;
+  font-size: 24rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  line-height: 60rpx;
+  color: rgba(153, 153, 153, 1);
+}
+
+.list {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  margin-top: 100rpx;
+}
+
+.item {
+  width: 100%;
+  height: 100rpx;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left,.right{
+  width: 50%;
+  height: 100%;
+}
+.left{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.right{
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+}
+iconfont{
+ font-size: 28rpx;
+}
+.icon-man-copy{
+  color: #20C070;
+}
+.icon-phone{
+  color: #8796F2
+}
+.icon-wendang{
+  color: #FA7B51
+}
+.icon-gerenxinxi{
+  color: #FEC535
+}
+.icon-yisheng{
+  color: #49A0E5
+}
+.icon-jiantou{
+  color: #DCDBDE;
+}
+.itemTitle{
+  font-size:28rpx;
+font-family:MicrosoftYaHei;
+font-weight:400;
+color:rgba(51,51,51,1);
+text-indent: 30rpx;
+}
+.itemmintitle{
+  width: 100%;
+  text-align: right;
+  font-size: 24rpx;
+  color: rgba(153, 153, 153, 1);
+}
+
+.go{
+  width: 18rpx;
+  height: 32rpx;
+  background-color: red;
+  margin-left: auto;
+}

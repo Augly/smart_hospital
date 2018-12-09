@@ -1,0 +1,36 @@
+<view class='chatWrap'>
+  <view class='chatList'>
+    <image class='chatLogo'></image>
+    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+  </view>
+  <view class='chatListSelf'>
+
+    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+    <image class='chatLogo'></image>
+  </view>
+  <view class='chatList'>
+    <image class='chatLogo'></image>
+    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+  </view>
+  <view class='chatListSelf'>
+
+    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+    <image class='chatLogo'></image>
+  </view>
+  <view class='chatList'>
+    <image class='chatLogo'></image>
+    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+  </view>
+  <view class='chatListSelf'>
+
+    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+    <image class='chatLogo'></image>
+  </view>
+</view>
+
+<view class='bottomIpt'>
+  <input class='ipt'></input>
+  <view class='send'>
+    <span class='iconfont icon-fasong'></span>
+  </view>
+</view>

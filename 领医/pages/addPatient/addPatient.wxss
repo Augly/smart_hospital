@@ -1,0 +1,128 @@
+/* pages/addPatient/addPatient.wxss */
+
+.wrap {
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
+  padding: 0rpx 40rpx;
+}
+
+.tabBar {
+  width: 380rpx;
+  height: 64rpx;
+  border: 2rpx solid rgba(99, 223, 197, 1);
+  border-radius: 10rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabItem {
+  width: 189rpx;
+  height: 100%;
+  font-size: 24rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  text-align: center;
+  line-height: 64rpx;
+}
+
+.tabActive {
+  color: rgba(99, 223, 197, 1);
+}
+
+.line {
+  width: 2rpx;
+  height: 44rpx;
+  background-color: rgba(220, 219, 222, 1);
+}
+
+.avaterGroup {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.title {
+  font-size: 28rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  margin-bottom: 15rpx;
+  margin-top: 15rpx;
+}
+
+.avater {
+  width: 201rpx;
+  height: 201rpx;
+  background-color: red;
+  border-radius: 50%;
+  margin-left: 100rpx;
+}
+
+.name {
+  width: 100%;
+  height: 74rpx;
+  border: 2rpx solid rgba(153, 153, 153, 0.2);
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  font-size: 24rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+}
+
+.sexGroup {
+  display: flex;
+  align-items: center;
+}
+
+.sexItem {
+  width: 160rpx;
+  height: 74rpx;
+  border: 2rpx solid rgba(153, 153, 153, 0.2);
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  line-height: 74rpx;
+  text-align: center;
+  color: rgba(153, 153, 153, 1);
+  margin-right: 103rpx;
+}
+
+.sexItemActive {
+  color: rgba(99, 223, 197, 1);
+  border: 2rpx solid rgba(99, 223, 197, 1);
+}
+
+.add {
+  width: 100%;
+  height: 74rpx;
+  background-color: RGBA(99, 223, 197, 1);
+  font-size: 34rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 74rpx;
+  margin-top: 140rpx;
+}
+
+.del{
+   width: 100%;
+  height: 74rpx;
+  background-color: RGBA(241, 147, 180, 1);
+  font-size: 34rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 74rpx;
+  margin-top: 30rpx;
+}

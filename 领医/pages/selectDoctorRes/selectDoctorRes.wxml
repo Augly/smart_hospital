@@ -1,0 +1,31 @@
+<view class='content'>
+  <view class='item'>
+    <view class='itemHead'>
+      <view class='headLogo'></view>
+      <view class='headTitle'>
+        <view class='title'>
+          王丽
+          <span class='minTitle'>心脏科</span>
+          <span class='minTitle'>心脏科</span>
+        </view>
+        <view class='adder'>广东省北京大学深圳医院</view>
+      </view>
+    </view>
+    <view class='itemOther'>
+      <view class='otherHead'>工作时间</view>
+      <view class='otherData'>星期三
+        <span>09:00~16:00</span>
+      </view>
+    </view>
+    <view class='itemOther'>
+      <view class='otherHead'>就诊人</view>
+      <view class='otherData'>请选择就诊人</view>
+    </view>
+  </view>
+  <view class='tip'>
+      <view class='tipTitle'>挂号须知</view>
+      <view class='tipContent'>如果没有您需要的号，请返回查看其他一生的工作时间，请合理安排您的倒院时间以免过号。</view>
+  </view>
+</view>
+
+<view class='sure' bindtap='sure'>确 认 预 约</view>

@@ -1,0 +1,35 @@
+
+<view class='wrap'>
+  <view class='item' wx:for="[1,2,3,4,5,6]">
+    <view class='logo'></view>
+    <view class='res'>
+      <view class='res_left'>
+        <view class='d_name'>
+          王晶
+        </view>
+        <view class='d_k'>
+          <text class='ks'>心脏科 </text>
+          <text class='z_do'>主治医师 </text>
+        </view>
+        <view class='adder'>广东省北京大学深圳医院</view>
+        <view class='buttonGroup'>
+          <view class='look' bindtap='toRes'>查看医生</view>
+          <view class='ask'>快速询问</view>
+        </view>
+      </view>
+      <view class='res_right'>
+        <view class='res_right_title'>
+          已回答246位患者
+        </view>
+        <view class='starGroup'>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='gold'>4.0</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

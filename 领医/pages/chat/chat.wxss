@@ -1,0 +1,113 @@
+.chatWrap {
+  box-sizing: border-box;
+  padding: 50rpx 30rpx 150rpx 30rpx;
+}
+
+.chatLogo {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.chatList {
+  display: flex;
+  margin-top: 25rpx;
+}
+
+.chatListSelf {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25rpx;
+}
+
+.chatList .chatRes {
+  position: relative;
+  width: 516rpx;
+  box-sizing: border-box;
+  padding: 30rpx 40rpx;
+  background-color: rgba(99, 223, 197, 1);
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+.chatList .chatRes::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 13rpx 13rpx 13rpx 0;
+  border-style: solid;
+  border-color: transparent rgba(99, 223, 197, 1) transparent transparent; /*透明 灰 透明 透明 */
+  position: absolute;
+  left: -12rpx;
+}
+
+.chatListSelf .chatRes {
+  position: relative;
+  width: 516rpx;
+  box-sizing: border-box;
+  padding: 30rpx 40rpx;
+  background-color: rgba(99, 223, 197, 1);
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+}
+
+.chatListSelf .chatRes::before {
+  content: '1';
+  width: 0;
+  height: 0;
+  border-width: 13rpx 0rpx 13rpx 13rpx;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(99, 223, 197, 1); /*透明 灰 透明 透明 */
+  position: absolute;
+  right: -12rpx;
+}
+
+.bottomIpt {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  height: 118rpx;
+  background-color: rgba(241, 241, 241, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.ipt {
+  width: 580rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 3rpx 18rpx 3rpx rgba(0, 0, 0, 0.09);
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  color: rgba(0, 0, 0, 0.09);
+   margin-top: 18rpx;
+  margin-bottom: 18rpx;
+}
+
+.send {
+  width: 80rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 3rpx 18rpx 3rpx rgba(0, 0, 0, 0.09);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18rpx;
+}
+
+.icon-fasong {
+  font-size: 48rpx;
+  color: RGBA(99, 223, 197, 1);
+}

@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="message">
+    <left-smooth>
+      <view class="message-item">
+        <view class="message-title">您的病例已经上传完毕请注意查看！</view>
+        <view class="message-brief">在临床工作中,我们常常可以看到有些问题处方,出现adasdasdasdasdasdasdaswd</view>
+        <view class="message-right">
+          <view class="message-reminder"></view>
+          <view class="message-date">19:07</view>
+        </view>
+      </view>
+    </left-smooth>
+    <left-smooth>
+      <view class="message-item">
+        <view class="message-title">您的病例已经上传完毕请注意查看！</view>
+        <view class="message-brief">在临床工作中,我们常常可以看到有些问题处方,出现adasdasdasdasdasdasdaswd</view>
+        <view class="message-right">
+          <view class="message-reminder"></view>
+          <view class="message-date">19:07</view>
+        </view>
+      </view>
+    </left-smooth>
+    <left-smooth>
+      <view class="message-item">
+        <view class="message-title">您的病例已经上传完毕请注意查看！</view>
+        <view class="message-brief">在临床工作中,我们常常可以看到有些问题处方,出现adasdasdasdasdasdasdaswd</view>
+        <view class="message-right">
+          <view class="message-reminder"></view>
+          <view class="message-date">19:07</view>
+        </view>
+      </view>
+    </left-smooth>
+
+  </view>
+
+</view>

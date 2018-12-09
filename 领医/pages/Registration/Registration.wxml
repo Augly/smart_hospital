@@ -1,0 +1,57 @@
+
+<view class='wrap'>
+<view class='headGroup'>
+    <view class='tabBar'>
+    <view class="tabItem {{statusType=='waitIng'?'tabActive':''}}" bindtap='waitIng'>
+      未就诊列表
+    </view>
+    <view class='line'></view>
+    <view class="tabItem {{statusType=='waitIng'?'':'tabActive'}}" bindtap='patiented'>
+      已就诊列表
+    </view>
+  </view>
+</view>
+<view class='content'>
+   <view class='item' wx:for="[1,2,3,4,5,6]">
+    <view class='logo'></view>
+    <view class='res'>
+      <view class='res_left'>
+        <view class='d_name'>
+          王晶
+        </view>
+        <view class='d_k'>
+          <text class='ks'>心脏科 </text>
+          <text class='z_do'>主治医师 </text>
+        </view>
+        <view class='adder'>广东省北京大学深圳医院</view>
+        <view class='d_k'>
+          <text class='ks'>挂号类型: </text>
+          <text class='z_do'>门诊普通号 </text>
+        </view>
+         <view class='d_k'>
+          <text class='ks'>就诊人: </text>
+          <text class='z_do'>王陆</text>
+        </view>
+        <view class='buttonGroup'>
+          <view class='look' bindtap='cencel' wx-if="{{statusType=='waitIng'}}">取消预约</view>
+          <view class='ask' bindtap='toEvent' wx-if="{{statusType=='patiented'}}">评价医生</view>
+        </view>
+      </view>
+      <view class='res_right'>
+        <view class='res_right_title'>
+          已回答246位患者
+        </view>
+        <view class='starGroup'>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='star'></view>
+          <view class='gold'>4.0</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+ 
+</view>

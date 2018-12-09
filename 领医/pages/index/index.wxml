@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<!-- <navigation>{{clinic_name}}</navigation> -->
+<view class="container">
+  <view class="banner">
+    <swiper class="banner-swiper" indicator-dots="true" indicator-color="#EEEEEE" indicator-active-color="#63DFC5" autoplay="true" circular="true">
+      <block wx:for="{{banner_list}}">
+        <swiper-item>
+          <image class="banner-img" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='seachGroup'>
+      <view class='changes' bindtap='toChanges'>
+        <span class='iconfont icon-qiehuan'></span>
+        切换诊所
+      </view>
+      <view class="banner-search">
+        <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder"></input>
+      </view>
+      <view class="banner-inform" bindtap='toMessges'></view>
+    </view>
+  </view>
+
+  <view class="kim">
+    <navigator url="/pages/login/index">
+      <view class="kim-item">
+        <view class="kim-icon"></view>
+        <view class="kim-name">预约挂号</view>
+      </view>
+    </navigator>
+    <view class="kim-item" bindtap='toMydoctor'>
+      <view class="kim-icon"></view>
+      <view class="kim-name">我的医生</view>
+    </view>
+    <view class="kim-item">
+      <view class="kim-icon"></view>
+      <view class="kim-name">医师讲堂</view>
+    </view>
+    <view class="kim-item" bindtap='toProduce'>
+      <view class="kim-icon"></view>
+      <view class="kim-name">领医介绍</view>
+    </view>
+  </view>
+
+  <view class="guide" bindtap='selsect'></view>
+
+  <view class="hot">
+    <view class="hot-title">热门知识</view>
+    <view class="hot-gather">
+      <view class="hot-g-item">
+        <image class="hot-g-img" src="{{ImageHost}}/zi01.png"></image>
+        <view class="hot-g-title">秋季儿童疾病如何预防？</view>
+        <view class="hot-g-bottom">
+          <view class="hot-g-name">张医生</view>
+          <view class="hot-g-date">2018/11/12</view>
+        </view>
+      </view>
+      <view class="hot-g-item">
+        <image class="hot-g-img" src="{{ImageHost}}/zi01.png"></image>
+        <view class="hot-g-title">秋季儿童疾病如何预防？</view>
+        <view class="hot-g-bottom">
+          <view class="hot-g-name">张医生</view>
+          <view class="hot-g-date">2018/11/12</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- <bar></bar> -->

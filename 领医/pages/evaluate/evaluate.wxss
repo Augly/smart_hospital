@@ -1,0 +1,51 @@
+.evaluate {
+  width: 684rpx;
+  height: 258rpx;
+  background: rgba(255, 254, 255, 1);
+  box-shadow: 0rpx 7rpx 10rpx 0rpx rgba(0, 0, 0, 0.16);
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  margin: 0 auto;
+  margin-top: 56rpx;
+  box-sizing: border-box;
+  padding: 33rpx 27rpx;
+}
+.startWrap{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 32rpx 30rpx;
+}
+.iconfont{
+  font-size: 24rpx;
+  margin-right: 4rpx;
+}
+
+.icon-xingxing{
+  color: RGBA(255, 191, 18, 1);
+}
+.gold{
+  font-size:26rpx;
+font-family:PingFang-SC-Bold;
+color:rgba(153,153,153,1);
+}
+.bottom {
+  width: 632rpx;
+  height: 91rpx;
+  background: rgba(99, 223, 197, 1);
+  border-radius: 10rpx;
+  position: fixed;
+  bottom: 64rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 91rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(255, 255, 255, 1);
+}

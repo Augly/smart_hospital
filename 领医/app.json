@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/chat/chat",
+    "pages/evaluate/evaluate",
+    "pages/index/index",
+    "pages/Forum/Forum",
+    "pages/selectDoctorRes/selectDoctorRes",
+    "pages/selectDoctor/selectDoctor",
+    "pages/addPatient/addPatient",
+    "pages/PatientList/PatientList",
+    "pages/selsectPatient/selsectPatient",
+    "pages/lookCase/lookCase",
+    "pages/prescription/prescription",
+    "pages/Report/Report",
+    "pages/my/doctorRes/doctorRes",
+    "pages/my/my",
+    "pages/case/case",
+    "pages/Registration/Registration",
+    "pages/my/doctor/doctor",
+    
+    "pages/index/switchover/switchover",
+    "pages/index/message/message",
+    "pages/login/index",
+    "pages/Department/Department",
+    "pages/introduce/introduce"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#63DFC5",
+    "navigationBarTextStyle": "",
+    "navigationBarTitleText": "北京领医怡乐儿童门诊部",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/X-HOUME.png"
+      },
+      {
+        "pagePath": "pages/case/case",
+        "text": "病例",
+        "iconPath": "images/house.png",
+        "selectedIconPath": "images/X-HOUSE.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/man.png",
+        "selectedIconPath": "images/X-MAN.png"
+      }
+    ],
+    "color": "#cdcdcd",
+    "selectedColor": "#63DFC5",
+    "backgroundColor": "#ffffff"
+  }
+}

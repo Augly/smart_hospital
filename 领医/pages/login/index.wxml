@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container" style="background-image:url(http://www.kiss-me.top/lingyi/bak_zhuye_back.png)">
+
+  <view class="market">
+    <view class="market-main">北京领医</view>
+    <view class="market-minor">M e d i c a l c l i n i c</view>
+  </view>
+
+  <view class="login">
+    <form bindsubmit="formSubmit1">
+      <view class="login-group">
+        <view class="login-label">手机号</view>
+        <input class="login-input" type="text" confirm-type="next" placeholder="请输入您的手机号" bindinput="formPhone" value="{{formPhone}}" placeholder-class='login-input'></input>
+      </view>
+      <view class="login-group">
+        <view class="login-label">验证码</view>
+        <input class="login-input" type="text" confirm-type="next" placeholder="请输入您收到的短信验证码" bindinput="formCode" value="{{formCode}}" placeholder-class='login-input'></input>
+        <button class="login-button login-button-send" bindtap="SendCode">获取验证码</button>
+      </view>
+      <view class="login-group login-group-submit">
+        <button class="login-button" form-type="submit">立即登录</button>
+      </view>
+    </form>
+  </view>
+  <bar></bar>
+</view>

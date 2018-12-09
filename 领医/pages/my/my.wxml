@@ -1,0 +1,55 @@
+<view class='notitle'></view>
+<image src='http://www.kiss-me.top/lingyi/tx_txtxtx.png' class='avater'></image>
+<view class='title'>
+  我是一个兼职患者
+</view>
+<view class='mintitle'>saqd15a151as5</view>
+
+
+<view class='list'>
+  <view class='item'>
+    <view class='left'>
+       <span class='iconfont icon-man-copy'></span>
+      <view class='itemTitle'>我的昵称</view>
+    </view>
+    <view class='right'>
+      <view class='itemmintitle'>昵称</view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <span class='iconfont icon-phone'></span>
+      <view class='itemTitle'>我的手机</view>
+    </view>
+    <view class='right'>
+      <view class='itemmintitle'>昵称</view>
+    </view>
+  </view>
+  <view class='item' bindtap='toRegistration'>
+    <view class='left'>
+      <span class='iconfont icon-wendang'></span>
+      <view class='itemTitle'>挂号列表</view>
+    </view>
+    <view class='right'>
+      <span class='iconfont icon-jiantou'></span>
+    </view>
+  </view>
+  <view class='item' bindtap='toPatient'>
+    <view class='left'>
+      <span class='iconfont icon-gerenxinxi'></span>
+      <view class='itemTitle'>就诊人管理</view>
+    </view>
+    <view class='right'>
+     <span class='iconfont icon-jiantou'></span>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <span class='iconfont icon-yisheng'></span>
+      <view class='itemTitle'>我的医生</view>
+    </view>
+    <view class='right'>
+      <view class='itemmintitle'>昵称</view>
+    </view>
+  </view>
+</view>

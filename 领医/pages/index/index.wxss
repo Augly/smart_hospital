@@ -1,0 +1,191 @@
+/**index.wxss**/
+.container{
+  background: rgba(255,255,255,1);
+}
+
+.banner{
+  width: 100%;
+  height: 347rpx;
+  z-index: 100;
+  position: relative;
+  box-shadow:0rpx 6rpx 21rpx 3rpx rgba(0, 0, 0, 0.1);
+}
+.banner-swiper{
+  width: 100%;
+  height: 347rpx;
+}
+.banner-img{
+  width: 100%;
+  height: 100%;
+}
+.seachGroup{
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+}
+.banner-search{
+  width:450rpx;
+  height:60rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 6rpx 17rpx 3rpx rgba(0, 0, 0, 0.14);
+  border-radius:30rpx;
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie02.png);
+  background-repeat: no-repeat;
+  background-size: 23rpx 30rpx;
+  background-position: 24rpx 17rpx;
+}
+.banner-input{
+  width: 330rpx;
+  height: 60rpx;
+  padding-left: 86rpx;
+  font-size: 20rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color:rgba(153,153,153,1);
+}
+.banner-input-placeholder{
+  font-size: 20rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color:rgba(153,153,153,1);
+}
+.banner-inform{
+  width: 60rpx;
+  height: 60rpx;
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie03.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.kim{
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+  position: hidden;
+  clear: both;
+}
+.kim-item{
+  float: left;
+  margin: 36rpx 0rpx 33rpx 73rpx;
+}
+.kim-item:first-child{
+  margin-left: 20rpx;
+}
+.kim-icon{
+  width: 123rpx;
+  height: 123rpx;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.kim-item:nth-child(1) .kim-icon{
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie04.png);
+}
+.kim-item:nth-child(2) .kim-icon{
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie05.png);
+}
+.kim-item:nth-child(3) .kim-icon{
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie06.png);
+}
+.kim-item:nth-child(4) .kim-icon{
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie07.png);
+}
+.kim-name{
+  height: 27rpx;
+  line-height: 27rpx;
+  font-size: 28rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color: rgba(51,51,51,1);
+}
+
+.guide{
+  width: 750rpx;
+  height: 221rpx;
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie08.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow:0px 3px 18px 3px rgba(0, 0, 0, 0.1);
+}
+
+.hot{
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+}
+.hot-title{
+  padding: 20rpx 0 20rpx 75rpx;
+  height:31rpx;
+  line-height: 31rpx;
+  font-size:31rpx;
+  font-family:Adobe Heiti Std R;
+  font-weight:80700;
+  color:rgba(51,51,51,1);
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie09.png);
+  background-repeat: no-repeat;
+  background-size: 35rpx 25rpx;
+  background-position: 32rpx 24rpx;
+}
+.hot-gather{
+  overflow: hidden;
+}
+.hot-g-item{
+  width: 330rpx;
+  height: 205rpx;
+  float: left;
+  margin: 21rpx 0 21rpx 30rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 3rpx 18rpx 3rpx rgba(0, 0, 0, 0.06);
+}
+.hot-g-img{
+  display: block;
+  width: 130rpx;
+  height: 96rpx;
+  margin: 19rpx auto 0 auto;
+}
+.hot-g-title{
+  height: 22rpx;
+  font-size: 22rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(102,102,102,1);
+  padding: 16rpx 0;
+}
+.hot-g-bottom{
+  overflow: hidden;
+  height:19rpx;
+  line-height: 18rpx;
+  font-size:18rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+}
+.hot-g-name{
+  float: left;
+  color:rgba(153,153,153,1);
+}
+.hot-g-date{
+  float: right;
+  color:rgba(102,102,102,1);
+}
+
+.changes{
+  font-size:20rpx;
+font-family:PingFang-SC-Bold;
+color:rgba(255,255,255,1);
+  width:127rpx;
+height:38rpx;
+background:rgba(0,0,0,0.5);
+border-radius:10rpx;
+line-height: 38rpx;
+text-align: center;
+}
+.changes .icon-qiehuan{
+  font-size:20rpx;
+font-family:PingFang-SC-Bold;
+color:rgba(255,255,255,1);
+}
