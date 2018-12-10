@@ -1,9 +1,13 @@
 {
   "pages": [
+    "pages/login/index",
+    "pages/messages/messages",
+    "pages/Helpdesk/Helpdesk",
+    "pages/Forum/Forum",
+    "pages/ForumRes/ForumRes",
+    "pages/index/index",
     "pages/chat/chat",
     "pages/evaluate/evaluate",
-    "pages/index/index",
-    "pages/Forum/Forum",
     "pages/selectDoctorRes/selectDoctorRes",
     "pages/selectDoctor/selectDoctor",
     "pages/addPatient/addPatient",
@@ -17,10 +21,8 @@
     "pages/case/case",
     "pages/Registration/Registration",
     "pages/my/doctor/doctor",
-    
     "pages/index/switchover/switchover",
     "pages/index/message/message",
-    "pages/login/index",
     "pages/Department/Department",
     "pages/introduce/introduce"
   ],

@@ -67,5 +67,19 @@ Page({
     this.setData({
       selectIndex: e.currentTarget.dataset.index
     })
+  },
+  submit(){
+    wx.showToast({
+      title: '评价成功',
+      duration: 2000,
+      mask: true,
+      success: function(res) {
+        wx.navigateBack({
+          delta: 1,
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

@@ -19,7 +19,7 @@
     </view>
     <view class='itemOther'>
       <view class='otherHead'>就诊人</view>
-      <view class='otherData'>请选择就诊人</view>
+      <view class='otherData' bindtap='toselect'>请选择就诊人</view>
     </view>
   </view>
   <view class='tip'>

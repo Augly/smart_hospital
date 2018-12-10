@@ -60,7 +60,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 29rpx;
+  margin-right: 26rpx;
   margin-top: 17rpx;
 }
 

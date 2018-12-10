@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    statusType:null
+    statusType:null,
+    selectIndex:0
   },
 
   /**
@@ -65,5 +66,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 选择切换
+   */
+  selectType(e){
+    this.setData({
+      selectIndex: e.currentTarget.dataset.index
+    })
+  },
+  scope(){
+    wx.showToast({
+      title: this.data.statusType=='add'?'添加成功!':'修改成功',
+      duration: 1000,
+      mask: true,
+      success: function(res) {
+       setTimeout(function(){
+         wx.navigateBack({
+           delta: 1,
+         })
+       },1000)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

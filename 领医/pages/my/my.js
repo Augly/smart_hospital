@@ -80,5 +80,13 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  tomyDoctor(){
+    wx.navigateTo({
+      url: '/pages/my/doctor/doctor',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

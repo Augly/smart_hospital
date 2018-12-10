@@ -1,4 +1,4 @@
-// pages/Forum/Forum.js
+// pages/ForumRes/ForumRes.js
 Page({
 
   /**
@@ -62,14 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  toRes(){
-    //详情页
-    wx.navigateTo({
-      url: '/pages/ForumRes/ForumRes',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
   }
 })

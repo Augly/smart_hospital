@@ -41,7 +41,7 @@
         </view>
         <view class='adder'>广东省北京大学深圳医院</view>
       </view>
-      <view class='bottonGroup'>前往挂号</view>
+      <view class='bottonGroup' bindtap='toRes'>前往挂号</view>
     </view>
     <view class='itemOther'>
       <view class='otherHead'>工作时间</view>

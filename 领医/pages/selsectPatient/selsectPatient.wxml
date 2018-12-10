@@ -12,7 +12,7 @@
      <span class='iconfont icon-jiantou'></span>
     </view>
   </view>
-  <view class='item_head'>
+  <view class='item_head' bindtap='select' data-type='change'>
     <image class='avater'></image>
     <view class='userRes'>
       <view class='name'>王陆</view>

@@ -14,7 +14,7 @@
         <view class='adder'>广东省北京大学深圳医院</view>
         <view class='buttonGroup'>
           <view class='look' bindtap='toRes'>查看医生</view>
-          <view class='ask'>快速询问</view>
+          <view class='ask' bindtap='tochat'>快速询问</view>
         </view>
       </view>
       <view class='res_right'>

@@ -75,5 +75,11 @@ Page({
   },
   toEvent(){
     console.log('去评价')
+    wx.navigateTo({
+      url: '/pages/evaluate/evaluate',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

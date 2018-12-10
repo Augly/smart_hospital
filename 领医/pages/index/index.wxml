@@ -22,17 +22,17 @@
   </view>
 
   <view class="kim">
-    <navigator url="/pages/login/index">
-      <view class="kim-item">
+   
+      <view class="kim-item" bindtap='selsect'>
         <view class="kim-icon"></view>
         <view class="kim-name">预约挂号</view>
       </view>
-    </navigator>
+
     <view class="kim-item" bindtap='toMydoctor'>
       <view class="kim-icon"></view>
       <view class="kim-name">我的医生</view>
     </view>
-    <view class="kim-item">
+    <view class="kim-item" bindtap='ysjt'>
       <view class="kim-icon"></view>
       <view class="kim-name">医师讲堂</view>
     </view>
@@ -42,12 +42,12 @@
     </view>
   </view>
 
-  <view class="guide" bindtap='selsect'></view>
+  <view class="guide" bindtap='todao'></view>
 
   <view class="hot">
     <view class="hot-title">热门知识</view>
     <view class="hot-gather">
-      <view class="hot-g-item">
+      <view class="hot-g-item" bindtap='toRes'>
         <image class="hot-g-img" src="{{ImageHost}}/zi01.png"></image>
         <view class="hot-g-title">秋季儿童疾病如何预防？</view>
         <view class="hot-g-bottom">
@@ -55,7 +55,7 @@
           <view class="hot-g-date">2018/11/12</view>
         </view>
       </view>
-      <view class="hot-g-item">
+      <view class="hot-g-item" bindtap='toRes'>
         <image class="hot-g-img" src="{{ImageHost}}/zi01.png"></image>
         <view class="hot-g-title">秋季儿童疾病如何预防？</view>
         <view class="hot-g-bottom">

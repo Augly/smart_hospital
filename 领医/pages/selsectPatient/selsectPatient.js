@@ -5,14 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    type:'0'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    if (options.changes && options.changes=='1'){
+      this.setData({
+        type:'1'
+      })
+    } 
+    // if (options.changes && options.changes == '2') {
+    //   this.setData({
+    //     type: '1'
+    //   })
+    // }
   },
 
   /**
@@ -64,12 +74,19 @@ Page({
 
   },
   select(){
-    wx.navigateTo({
-      url: '/pages/Department/Department',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    console.log(this.data.type)
+    if (this.data.type=='1'){
+     wx.navigateBack({
+       delta: 1,
+     })
+    }else{
+      wx.navigateTo({
+        url: '/pages/Department/Department',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   addUser(event) {
     wx.navigateTo({

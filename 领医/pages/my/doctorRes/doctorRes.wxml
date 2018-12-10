@@ -53,7 +53,7 @@
       </view>
     </view>
     <view class='dataItem button'>
-      <view class='ask'>
+      <view class='ask' bindtap='tochat'>
         快速询问
       </view>
     </view>
@@ -76,6 +76,25 @@
       主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。
     </view>
   </view>
+
+  <view class='goodT'>
+    <view class='goodTTitle'>
+      诊所信息
+    </view>
+    <view class='itemlist'>
+      <span class='iconfont icon-yiyuan1'></span>
+      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
+    </view>
+    <view class='itemlist'>
+      <span class='iconfont icon-dianhua'></span>
+      <view class='item_res'>联系电话（手机）：17633369350</view>
+    </view>
+    <view class='itemlist'>
+     <span class='iconfont icon-weizhi'></span>
+      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
+    </view>
+  </view>
+
   <view class='goodT'>
     <view class='goodTTitle'>
       患者评价
@@ -93,9 +112,6 @@
     </view>
   </view>
   <view class='goodT'>
-    <view class='goodTTitle'>
-      患者评价
-    </view>
     <view class='describe'>
       主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。
     </view>
@@ -109,25 +125,5 @@
     </view>
   </view>
 
-  <view class='goodT'>
-    <view class='goodTTitle'>
-      诊所信息
-    </view>
-    <view class='itemlist'>
-      <view class='item_logo'></view>
-      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
-    </view>
-    <view class='itemlist'>
-      <view class='item_logo'></view>
-      <view class='item_res'>联系电话（手机）：17633369350</view>
-    </view>
-    <view class='itemlist'>
-      <view class='item_logo'></view>
-      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
-    </view>
-    <view class='itemlist'>
-      <view class='item_logo'></view>
-      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
-    </view>
-  </view>
+  
 </view>

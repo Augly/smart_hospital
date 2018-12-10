@@ -1,7 +1,10 @@
 <view class='notitle'></view>
-<image src='http://www.kiss-me.top/lingyi/tx_txtxtx.png' class='avater'></image>
+<view class='avtarWrap'>
+  <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg' class='avater'></image>
+</view>
+
 <view class='title'>
-  我是一个兼职患者
+  zero
 </view>
 <view class='mintitle'>saqd15a151as5</view>
 
@@ -9,11 +12,11 @@
 <view class='list'>
   <view class='item'>
     <view class='left'>
-       <span class='iconfont icon-man-copy'></span>
+      <span class='iconfont icon-man-copy'></span>
       <view class='itemTitle'>我的昵称</view>
     </view>
     <view class='right'>
-      <view class='itemmintitle'>昵称</view>
+      <view class='itemmintitle'>zero</view>
     </view>
   </view>
   <view class='item'>
@@ -22,7 +25,7 @@
       <view class='itemTitle'>我的手机</view>
     </view>
     <view class='right'>
-      <view class='itemmintitle'>昵称</view>
+      <view class='itemmintitle'>17633369350</view>
     </view>
   </view>
   <view class='item' bindtap='toRegistration'>
@@ -40,16 +43,16 @@
       <view class='itemTitle'>就诊人管理</view>
     </view>
     <view class='right'>
-     <span class='iconfont icon-jiantou'></span>
+      <span class='iconfont icon-jiantou'></span>
     </view>
   </view>
-  <view class='item'>
+  <view class='item' bindtap='tomyDoctor'>
     <view class='left'>
       <span class='iconfont icon-yisheng'></span>
       <view class='itemTitle'>我的医生</view>
     </view>
     <view class='right'>
-      <view class='itemmintitle'>昵称</view>
+      <span class='iconfont icon-jiantou'></span>
     </view>
   </view>
 </view>

@@ -70,5 +70,30 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  ysjt(){
+    wx.navigateTo({
+      url: '/pages/Forum/Forum',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  todao(){
+    //去导诊台
+    wx.navigateTo({
+      url: "/pages/Helpdesk/Helpdesk",
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  toRes(){
+    wx.navigateTo({
+      url: '/pages/ForumRes/ForumRes',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

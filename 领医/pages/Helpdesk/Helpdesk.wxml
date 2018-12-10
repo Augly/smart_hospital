@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="switchover">
+    <view class="switchover-head">
+      <view class="switchover-img">
+        <image src="{{ImageHost}}/zi02.png"></image>
+      </view>
+      <view class="switchover-text">
+        <view class="switchover-headline switchover-headline-head">
+          <view class="switchover-headline-s">当前诊所：</view>北京领医怡乐儿童医院</view>
+        <view class="switchover-subhead switchover-subhead-head">
+          <view class="switchover-subhead-b">热门科室 :</view>血液 ，脑科 ，胸科</view>
+      </view>
+    </view>
+    <view class='content'>
+      <scroll-view scroll-y class='tabList' style='height:{{height}}px'>
+        <view class='list listActive'>
+          儿内科
+        </view>
+        <view class='list'>
+          儿内科
+        </view>
+        <view class='list'>
+          儿内科
+        </view>
+        <view class='list'>
+          儿内科
+        </view>
+        <view class='list'>
+          儿内科
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y class='resList' style='height:{{height}}px'>
+        <view class='resItem' bindtap='toMess'>
+          <view class='left'>
+            <view class='name'>
+              王晶
+              <span>主治医师</span>
+            </view>
+            <view class='res'>
+              擅长：先天性心脏病
+            </view>
+          </view>
+          <view class='right'>
+            前往 <span class='iconfont icon-jiantou'></span>
+          </view>
+        </view>
+        <view class='resItem' bindtap='toMess'>
+          <view class='left'>
+            <view class='name'>
+              王晶
+              <span>主治医师</span>
+            </view>
+            <view class='res'>
+              擅长：先天性心脏病
+            </view>
+          </view>
+          <view class='right'>
+            前往 <span class='iconfont icon-jiantou'></span>
+          </view>
+        </view>
+        <view class='resItem' bindtap='toMess'>
+          <view class='left'>
+            <view class='name'>
+              王晶
+              <span>主治医师</span>
+            </view>
+            <view class='res'>
+              擅长：先天性心脏病
+            </view>
+          </view>
+          <view class='right'>
+            前往 <span class='iconfont icon-jiantou'></span>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

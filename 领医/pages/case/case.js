@@ -73,7 +73,7 @@ Page({
   },
   select(){
     wx.navigateTo({
-      url: '/pages/selsectPatient/selsectPatient',
+      url: "/pages/selsectPatient/selsectPatient?changes=1",
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

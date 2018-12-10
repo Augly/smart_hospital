@@ -62,5 +62,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  tochat() {
+    wx.navigateTo({
+      url: '/pages/chat/chat',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   }
 })

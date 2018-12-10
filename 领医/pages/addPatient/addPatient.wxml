@@ -1,11 +1,11 @@
 
 <view class='wrap'>
   <view class='tabBar'>
-    <view class='tabItem tabActive'>
+    <view class="tabItem {{selectIndex=='0'?'tabActive':''}}" bindtap='selectType' data-index='0'>
       儿童就诊人
     </view>
     <view class='line'></view>
-    <view class='tabItem'>
+    <view class="tabItem {{selectIndex!='0'?'tabActive':''}}" bindtap='selectType' data-index='1'>
       成人就诊人
     </view>
   </view>
@@ -32,6 +32,6 @@
     <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05'></input>
   </view>
 
-  <view class='add'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>
+  <view class='add' bindtap='scope'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>
   <view class='del' wx-if="{{statusType=='change'}}">删除就诊人</view>
 </view>

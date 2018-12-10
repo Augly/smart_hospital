@@ -24,7 +24,10 @@ page {
   height: 82rpx;
   background-color: red;
 }
-
+.iconfont {
+  font-size:38rpx;
+  color: RGBA(100, 223, 197, 1);
+}
 .res {
   width: 550rpx;
   height: 100%;

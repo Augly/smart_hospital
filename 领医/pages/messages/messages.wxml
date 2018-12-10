@@ -1,0 +1,49 @@
+<view class='chatWrap'>
+  <view class='list'>
+    <view class='userRes'>
+      <view class='avatr'></view>
+      <view class='main'>
+        <view class='title'>
+          提问者：
+          <span class='minTitle'>我是一个兼职患者</span>
+        </view>
+        <view class='date'>2017-08-10 19:52:00</view>
+      </view>
+    </view>
+    <view class='content'>
+      <view class='content_title'>
+        医师解答描述：
+      </view>
+      <view class='content_main'> 医生您好我的孩子发烧了迟迟不退怎么办，如何快速降 温退烧？医生您好我的孩子发烧了迟迟不退怎么办，如何 快速降温退烧？
+      </view>
+    </view>
+  </view>
+   <view class='list self'>
+    <view class='userRes'>
+      <view class='avatr'></view>
+      <view class='main'>
+        <view class='title'>
+          回答医师：
+          <span class='minTitle'>王晶</span>
+        </view>
+        <view class='date'>2017-08-10 19:52:00</view>
+      </view>
+    </view>
+    <view class='content'>
+      <view class='content_title'>
+        医师解答描述：
+      </view>
+      <view class='content_main'> 	如果发烧，超过38.5度，需要注意及时对症治疗，可以
+多喝水不要吃辛辣刺激的食物多吃新鲜蔬菜水果，如果没
+有退烧药物，可以使用温水擦洗。
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='bottomIpt'>
+  <input class='ipt'></input>
+  <view class='send'>
+    <span class='iconfont icon-fasong'></span>
+  </view>
+</view>

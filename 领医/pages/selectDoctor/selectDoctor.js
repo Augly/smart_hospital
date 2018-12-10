@@ -62,5 +62,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 详情
+   */
+  toRes(){
+    wx.navigateTo({
+      url: '/pages/selectDoctorRes/selectDoctorRes',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
+
 })
