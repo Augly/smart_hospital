@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type:'0'
+    type:'0',
+    list:[{
+      id:'1',
+      name:'测试',   //姓名
+      avater:'',  //头像
+      age:'18',  //年龄
+      sex:'男', //性别
+    },
+      {
+        id: '1',
+        name: '测试',   //姓名
+        avater: '',  //头像
+        age: '18',  //年龄
+        sex: '男', //性别
+      }
+    ],
+    selectIndex:0
   },
 
   /**
@@ -18,11 +34,6 @@ Page({
         type:'1'
       })
     } 
-    // if (options.changes && options.changes == '2') {
-    //   this.setData({
-    //     type: '1'
-    //   })
-    // }
   },
 
   /**
@@ -73,20 +84,23 @@ Page({
   onShareAppMessage: function () {
 
   },
-  select(){
-    console.log(this.data.type)
-    if (this.data.type=='1'){
-     wx.navigateBack({
-       delta: 1,
-     })
-    }else{
-      wx.navigateTo({
-        url: '/pages/Department/Department',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }
+  select(e){
+    console.log(e.currentTarget.dataset.id)   //id/
+    this.setData({
+      selectIndex: e.currentTarget.dataset.index
+    })
+    // if (this.data.type=='1'){
+    //  wx.navigateBack({
+    //    delta: 1,
+    //  })
+    // }else{
+    //   wx.navigateTo({
+    //     url: '/pages/Department/Department',
+    //     success: function (res) { },
+    //     fail: function (res) { },
+    //     complete: function (res) { },
+    //   })
+    // }
   },
   addUser(event) {
     wx.navigateTo({
