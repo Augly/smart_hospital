@@ -1,6 +1,5 @@
 //获取应用实例
 const app = getApp();
-
 Page({
 
   data: {
@@ -14,6 +13,10 @@ Page({
     clinic_name: '',
     clinic_laboratory: '',
   },
+  /**跳转去我的医生
+   * @methon toMydoctor
+   * @params
+   */
   toMydoctor(){
     wx.navigateTo({
       url: '/pages/my/doctor/doctor',
@@ -23,6 +26,13 @@ Page({
     })
   },
   onLoad: function (options) {
+    //读取全局变量获取医院名称
+    wx.setNavigationBarTitle({
+      title: options.clinic_name,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
     if (options.clinic_id) {
       app.clinic_id = options.clinic_id;
       app.clinic_name = options.clinic_name;
@@ -39,6 +49,10 @@ Page({
       clinic_laboratory: app.clinic_laboratory
     });
   },
+   /**跳转去消息列表
+   * @methon toMessges
+   * @params
+   */
   toMessges(){
     wx.navigateTo({
       url: '/pages/index/message/message',
@@ -47,6 +61,10 @@ Page({
       complete: function(res) {},
     })
   },
+   /**跳转去诊所切换以便切换诊所
+   * @methon toChanges
+   * @params
+   */
   toChanges(){
     wx.navigateTo({
       url: '/pages/index/switchover/switchover',
@@ -55,6 +73,9 @@ Page({
       complete: function(res) {},
     })
   },
+  /**跳转去预约挂号
+   * @methon selsect
+   */
   selsect(){
     wx.navigateTo({
       url: '/pages/selsectPatient/selsectPatient',
@@ -63,6 +84,10 @@ Page({
       complete: function(res) {},
     })
   },
+  /**跳转去领医介绍
+   * @methon toProduce
+   * @params
+   */
   toProduce(){
     wx.navigateTo({
       url: '/pages/introduce/introduce',
@@ -71,6 +96,10 @@ Page({
       complete: function(res) {},
     })
   },
+  /**跳转去医师讲堂
+   * @methon ysjt
+   * @params
+   */
   ysjt(){
     wx.navigateTo({
       url: '/pages/Forum/Forum',
@@ -79,8 +108,11 @@ Page({
       complete: function(res) {},
     })
   },
+  /**跳转去导诊台
+   * @methon todao
+   * @params
+   */
   todao(){
-    //去导诊台
     wx.navigateTo({
       url: "/pages/Helpdesk/Helpdesk",
       success: function(res) {},
@@ -88,6 +120,10 @@ Page({
       complete: function(res) {},
     })
   },
+   /**跳转去知识详情
+   * @methon todao
+   * @params
+   */
   toRes(){
     wx.navigateTo({
       url: '/pages/ForumRes/ForumRes',
@@ -95,5 +131,13 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  /**
+   * 去搜索页面
+   * @methon toserch
+   * @params
+   */
+  toserch(){
+    console.log('去搜索页面')
   }
 })

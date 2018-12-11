@@ -14,7 +14,6 @@ Page({
     clinic_name: '',
     clinic_laboratory: ''
   },
-
   onLoad: function (options) {
     this.setData({
       clinic_id: app.clinic_id,
@@ -22,19 +21,21 @@ Page({
       clinic_laboratory: app.clinic_laboratory
     });
   },
+  /**
+   * 切换当前医院并记录值赋值给全局
+   * @Methon tochanges
+   */
   tochanges(e){
     this.setData({
-      clinic_id: e.currentTarget.dataset.id,
-      clinic_name: e.currentTarget.dataset.name,
-      clinic_laboratory: e.currentTarget.dataset.laboratory
+      clinic_id: e.currentTarget.dataset.id,  //医院id
+      clinic_name: e.currentTarget.dataset.name,  //医院名称
+      clinic_laboratory: e.currentTarget.dataset.laboratory //主要科室
     })
+    // 切换成功后500毫秒返回index页并传值过去
     setTimeout(()=>{
-      wx.switchTab({
-        url: "/pages/index/index?clinic_id=" + e.currentTarget.dataset.id + "&clinic_name=" + e.currentTarget.dataset.name + "&clinic_laboratory=" + e.currentTarget.dataset.laboratory,
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
+     wx.navigateBack({
+       delta: 1,
+     })
     },500)
   }
 })

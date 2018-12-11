@@ -63,8 +63,10 @@ Page({
   onShareAppMessage: function () {
 
   },
+  /**就诊人管理
+   * @methon toPatient
+   */
   toPatient(){
-    //就诊人管理
     wx.navigateTo({
       url: '/pages/PatientList/PatientList',
       success: function(res) {},
@@ -72,8 +74,10 @@ Page({
       complete: function(res) {},
     })
   },
+  /**挂号列表
+   * @methon toPatient
+   */
   toRegistration(){
-    //挂号列表
     wx.navigateTo({
       url: '/pages/Registration/Registration',
       success: function(res) {},
@@ -81,6 +85,9 @@ Page({
       complete: function(res) {},
     })
   },
+   /**我的医生
+   * @methon tomyDoctor
+   */
   tomyDoctor(){
     wx.navigateTo({
       url: '/pages/my/doctor/doctor',

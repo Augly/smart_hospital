@@ -110,7 +110,7 @@ text-indent: 30rpx;
 .itemmintitle{
   width: 100%;
   text-align: right;
-  font-size: 24rpx;
+  font-size: 24rpx; 
   color: rgba(153, 153, 153, 1);
 }
 

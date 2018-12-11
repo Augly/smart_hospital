@@ -23,8 +23,8 @@
   <view>
     <view class='title'>性别</view>
     <view class='sexGroup'>
-      <view class='sexItem sexItemActive'>男性</view>
-      <view class='sexItem'>女生</view>
+      <view class="sexItem {{sex=='1'?'sexItemActive':''}}" data-sex='1' bindtap='selectSex'>男性</view>
+      <view class="sexItem {{sex=='2'?'sexItemActive':''}}" data-sex='2' bindtap='selectSex'>女生</view>
     </view>
   </view>
     <view>

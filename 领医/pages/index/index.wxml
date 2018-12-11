@@ -14,7 +14,7 @@
         <span class='iconfont icon-qiehuan'></span>
         切换诊所
       </view>
-      <view class="banner-search">
+      <view class="banner-search" bindtap='toserch'>
         <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder"></input>
       </view>
       <view class="banner-inform" bindtap='toMessges'></view>
@@ -22,7 +22,6 @@
   </view>
 
   <view class="kim">
-   
       <view class="kim-item" bindtap='selsect'>
         <view class="kim-icon"></view>
         <view class="kim-name">预约挂号</view>

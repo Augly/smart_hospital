@@ -6,7 +6,8 @@ Page({
   data: {
     ImageHost: app.ImageHost,
     formPhone: '',
-    formCode: ''
+    formCode: '',
+    code:'发送验证码'
   },
   //监听表单phone
   formPhone: function (e) {
@@ -25,19 +26,28 @@ Page({
     wx.switchTab({
       url: '/pages/index/index',
     })
-    // app.postRequest('/account/login_submit', {
-    //   phone: this.data.formPhone,
-    //   code: this.data.formCode
-    // });
-    // this.setData({
-    //   formPhone: '',
-    //   formCode: ''
-    // });
   },
   //发送短信验证码
   SendCode: function(){
-    app.postRequest('/account/send_code', {
-      phone: this.data.formPhone
-    });
+    //验证码读秒
+    if(this.data.code=='发送验证码'){
+      this.setData({
+        code:60
+      })
+      let st = setInterval(() => {
+        let n=this.data.code--
+        if(n==1){
+          this.setData({
+            code:'发送验证码'
+          })
+          clearInterval(st)
+        }else{
+          n--
+          this.setData({
+            code: n
+          })
+        } 
+      }, 1000)
+    }
   }
 })

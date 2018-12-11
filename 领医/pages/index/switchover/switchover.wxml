@@ -16,13 +16,15 @@
         <view class='switchover-right'>
           <view class="switchover-headline">{{value.clinic_name}}</view>
           <view class="switchover-subhead">
-            <view class="switchover-subhead-b">科室：<span class='mintitle'>{{value.clinic_laboratory}}</span></view>
+            <view class="switchover-subhead-b">科室：
+              <span class='mintitle'>{{value.clinic_laboratory}}</span>
+            </view>
           </view>
         </view>
         <view class='change'>
-      选择
-      <span class='iconfont icon-jiantou'></span>
-    </view>
+          选择
+          <span class='iconfont icon-jiantou'></span>
+        </view>
       </view>
 
     </view>

@@ -6,14 +6,15 @@ Page({
    */
   data: {
     statusType:null,
-    selectIndex:0
+    selectIndex:0,
+    sex:'1'    //性别默认男
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    //通过上一个页面传值接收type参数以此判断本页面事进行添加还是修改
     this.setData({
       statusType:options.type
     })
@@ -69,12 +70,32 @@ Page({
   },
   /**
    * 选择切换
+   * @Methon selectType
+   * @params event
+   * @return{
+   *    e.currentTarget.dataset.index  //儿童为0，成人为1
+   * }
    */
   selectType(e){
     this.setData({
       selectIndex: e.currentTarget.dataset.index
     })
   },
+  /**
+   * 选择性别
+   * @methon selectSex
+   */
+  selectSex(e){
+    this.setData({
+      sex:e.currentTarget.dataset.sex
+    })
+  },
+  /**
+   * 根据statusType判断事添加还是修改 
+   * @Methon scope
+   * @params 
+   * @return 
+   */
   scope(){
     wx.showToast({
       title: this.data.statusType=='add'?'添加成功!':'修改成功',
