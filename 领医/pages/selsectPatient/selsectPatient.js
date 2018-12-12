@@ -89,18 +89,18 @@ Page({
     this.setData({
       selectIndex: e.currentTarget.dataset.index
     })
-    // if (this.data.type=='1'){
-    //  wx.navigateBack({
-    //    delta: 1,
-    //  })
-    // }else{
-    //   wx.navigateTo({
-    //     url: '/pages/Department/Department',
-    //     success: function (res) { },
-    //     fail: function (res) { },
-    //     complete: function (res) { },
-    //   })
-    // }
+    if (this.data.type=='1'){
+     wx.navigateBack({
+       delta: 1,
+     })
+    }else{
+      wx.navigateTo({
+        url: '/pages/Department/Department',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   addUser(event) {
     wx.navigateTo({

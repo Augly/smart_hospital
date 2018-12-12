@@ -1,33 +1,29 @@
 
 <view class='wrap'>
-  <view class='item' wx:for="[1,2,3,4,5,6]">
-    <view class='logo'></view>
+  <view class='item' wx:for="{{list}}" wx:for-itwm='item' wx:for-index="index">
+    <image class='logo' src='{{item.avtar}}'></image>
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
-          王晶
+          {{item.name}}
         </view>
         <view class='d_k'>
-          <text class='ks'>心脏科 </text>
-          <text class='z_do'>主治医师 </text>
+          <text class='ks'>{{item.ks}}</text>
+          <text class='z_do'>{{item.zw}}</text>
         </view>
-        <view class='adder'>广东省北京大学深圳医院</view>
+        <view class='adder'>{{item.adder}}</view>
         <view class='buttonGroup'>
-          <view class='look' bindtap='toRes'>查看医生</view>
-          <view class='ask' bindtap='tochat'>快速询问</view>
+          <view class='look' bindtap='toRes' data-id='{{item.id}}'>查看医生</view>
+          <view class='ask' bindtap='tochat' data-id='{{item.id}}'>快速询问</view>
         </view>
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-          已回答246位患者
+          已回答{{item.askNum}}位患者
         </view>
         <view class='starGroup'>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='gold'>4.0</view>
+          <span class="iconfont {{myindex<item.gold?'icon-xingxing':'icon-xingxingxian'}}"   wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+          <view class='gold'>{{item.gold}}.0</view>
         </view>
       </view>
     </view>
