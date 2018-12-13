@@ -7,7 +7,7 @@
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .chatList {

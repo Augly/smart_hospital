@@ -1,17 +1,16 @@
-
 <view class='wrap'>
   <view class='item'>
-    <view class='logo'></view>
+    <image class='logo' src="{{doctor.avtar}}"></image>
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
-          王晶
+          {{doctor.name}}
         </view>
         <view class='d_k'>
-          <text class='ks'>心脏科 </text>
-          <text class='z_do'>主治医师 </text>
+          <text class='ks'> {{doctor.ks}} </text>
+          <text class='z_do'> {{doctor.zw}}</text>
         </view>
-        <view class='adder'>广东省北京大学深圳医院</view>
+        <view class='adder'> {{doctor.adder}}</view>
         <!-- <view class='buttonGroup'>
           <view class='look'>查看医生</view>
           <view class='ask'>快速询问</view>
@@ -19,15 +18,11 @@
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-          已回答246位患者
+          已回答 {{doctor.askNum}}位患者
         </view>
         <view class='starGroup'>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='gold'>4.0</view>
+          <span class="iconfont {{myindex<doctor.gold?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+          <view class='gold'>{{doctor.gold}}.0</view>
         </view>
       </view>
     </view>
@@ -36,7 +31,7 @@
   <view class='dataGroup'>
     <view class='dataItem'>
       <view class='dataNum'>
-        246
+        {{doctor.askNum}}
         <text class='popr'>位</text>
       </view>
       <view class='dataTitle'>
@@ -45,7 +40,7 @@
     </view>
     <view class='dataItem'>
       <view class='dataNum'>
-        246
+        {{doctor.askedNum}}
         <text class='popr'>个</text>
       </view>
       <view class='dataTitle'>
@@ -65,15 +60,13 @@
       擅长疾病
     </view>
     <view class='tagGroup'>
-      <text class='tag'> 肺炎</text>
-      <text class='tag'> 肺炎</text>
-      <text class='tag'> 肺炎</text>
+      <text class='tag' wx:for="{{doctor.patentList}}" wx:for-index="index" wx:for-item="item"> {{item}}</text>
     </view>
     <view class='goodTTitle'>
       个人简介
     </view>
     <view class='describe'>
-      主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。
+      {{doctor.product}}
     </view>
   </view>
 
@@ -83,15 +76,15 @@
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-yiyuan1'></span>
-      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
+      <view class='item_res'>{{hosRes.name}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-dianhua'></span>
-      <view class='item_res'>联系电话（手机）：17633369350</view>
+      <view class='item_res'>联系电话（手机）：{{hosRes.tel}}</view>
     </view>
     <view class='itemlist'>
-     <span class='iconfont icon-weizhi'></span>
-      <view class='item_res'>中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院</view>
+      <span class='iconfont icon-weizhi'></span>
+      <view class='item_res'>{{hosRes.adder}}</view>
     </view>
   </view>
 
@@ -100,30 +93,20 @@
       患者评价
     </view>
     <view class='describe'>
-      主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。
+      {{doctor.evaList[0].res}}
     </view>
     <view class='starGroup' style='justify-content:flex-end;'>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='gold' style='color:#999999;margin-left:9rpx'>4.0</view>
+      <span class="iconfont {{myindex<doctor.evaList[0].gold?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+      <view class='gold' style='color:#999999;margin-left:9rpx'> {{doctor.evaList[0].gold}}.0</view>
     </view>
   </view>
-  <view class='goodT'>
+  <view class='goodT' wx:for="{{doctor.evaList}}" wx:for-index="index" wx:for-item="item" wx:if="{{index!=0}}">
     <view class='describe'>
-      主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。
+      {{item.res}}
     </view>
     <view class='starGroup' style='justify-content:flex-end;'>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='star'></view>
-      <view class='gold' style='color:#999999;margin-left:9rpx'>4.0</view>
+      <span class="iconfont {{myindex<item.gold?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+      <view class='gold' style='color:#999999;margin-left:9rpx'> {{item.gold}}.0</view>
     </view>
   </view>
-
-  
 </view>

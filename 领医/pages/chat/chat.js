@@ -4,7 +4,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    uid:1,
+    chatList:[{
+      avtar:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',
+      content:'最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么',
+      id:1
+    }, {
+        avtar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',
+        content: '最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么',
+        id: 2
+      }]
   },
 
   /**

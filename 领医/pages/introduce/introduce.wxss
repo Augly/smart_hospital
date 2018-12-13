@@ -24,6 +24,7 @@ page {
   box-sizing: border-box;
   padding: 0rpx 50rpx;
   margin-top: 60rpx;
+  display: flex;
 }
 
 .res_list .iconfont {

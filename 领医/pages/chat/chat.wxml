@@ -1,31 +1,14 @@
 <view class='chatWrap'>
-  <view class='chatList'>
-    <image class='chatLogo'></image>
-    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
+  <view class='chatList' wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:if="{{item.id==uid}}">
+    <image class='chatLogo' src='{{item.avtar}}'></image>
+    <view class='chatRes'>{{item.content}}</view>
   </view>
-  <view class='chatListSelf'>
 
-    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
-    <image class='chatLogo'></image>
+  <view class='chatListSelf' wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:if="{{item.id!=uid}}">
+     <view class='chatRes'>{{item.content}}</view>
+     <image class='chatLogo' src='{{item.avtar}}'></image>
   </view>
-  <view class='chatList'>
-    <image class='chatLogo'></image>
-    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
-  </view>
-  <view class='chatListSelf'>
 
-    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
-    <image class='chatLogo'></image>
-  </view>
-  <view class='chatList'>
-    <image class='chatLogo'></image>
-    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
-  </view>
-  <view class='chatListSelf'>
-
-    <view class='chatRes'>最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么</view>
-    <image class='chatLogo'></image>
-  </view>
 </view>
 
 <view class='bottomIpt'>

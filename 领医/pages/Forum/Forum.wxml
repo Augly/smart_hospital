@@ -1,25 +1,11 @@
-<view class='list' bindtap='toRes'>
-  <view class='list_logo'></view>
+<view class='list' bindtap='toRes' wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+  <image class='list_logo' src='{{item.logo}}'></image>
   <view class='list_Res'>
-    <view class='title'>秋季儿童疾病如何预防？</view>
-    <view class='res'>炎热的夏季渐行渐远，我们将 很快步入清爽、干燥的秋天。 秋天的气候多变、空气干燥， 早晚温差大，宝宝容易出现感 冒、流鼻涕、咳嗽....
-    </view>
+    <view class='title'>{{item.title}}</view>
+    <view class='res'>{{item.content}}</view>
   </view>
   <view class='list_Other'>
-    <view class='doctor_name'>张医生</view>
-    <view class='date'>2018/11/12</view>
-  </view>
-</view>
-
-<view class='list'>
-  <view class='list_logo'></view>
-  <view class='list_Res'>
-    <view class='title'>秋季儿童疾病如何预防？</view>
-    <view class='res'>炎热的夏季渐行渐远，我们将 很快步入清爽、干燥的秋天。 秋天的气候多变、空气干燥， 早晚温差大，宝宝容易出现感 冒、流鼻涕、咳嗽....
-    </view>
-  </view>
-  <view class='list_Other'>
-    <view class='doctor_name'>张医生</view>
-    <view class='date'>2018/11/12</view>
+    <view class='doctor_name'>{{item.autor}}</view>
+    <view class='date'>{{item.date}}</view>
   </view>
 </view>

@@ -9,15 +9,15 @@
 <view class='res'>
   <view class='res_list'>
     <span class='iconfont icon-yiyuan1'></span>
-    北京领医怡乐门诊部
+    {{hosRes.name}}
   </view>
   <view class='res_list'>
     <span class='iconfont icon-dianhua'></span>
-    北京领医怡乐门诊部
+    联系电话（手机）：{{hosRes.tel}}
   </view>
   <view class='res_list'>
     <span class='iconfont icon-weizhi'></span>
-    北京领医怡乐门诊部
+    {{hosRes.adder}}
   </view>
 </view>
 
@@ -25,18 +25,13 @@
 <view class='ks'>
   <view class='title'>科室</view>
   <view class='taglist'>
-    <view class='tag'>儿科</view>
-    <view class='tag'>儿科</view>
-    <view class='tag'>儿科</view>
-    <view class='tag'>儿科</view>
-    <view class='tag'>儿科</view>
-    <view class='tag'>儿科</view>
+    <view class='tag' wx:for="{{ks}}" wx:for-item="item" wx:for-index="index">{{item}}</view>
   </view>
 </view>
 
 <view class='ks'>
   <view class='title'>医院简介</view>
   <view class='produce'>
-    主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。
+    {{product}}
   </view>
 </view>

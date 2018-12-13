@@ -257,3 +257,14 @@ margin-top: 36rpx;
 font-weight:normal;
 color:rgba(153,153,153,1);
 }
+.iconfont{
+  font-size: 24rpx;
+  margin-right: 4rpx;
+}
+
+.icon-xingxing{
+  color: RGBA(255, 191, 18, 1);
+}
+.icon-xingxingxian{
+  color: rgba(0, 0, 0, 1)
+}
