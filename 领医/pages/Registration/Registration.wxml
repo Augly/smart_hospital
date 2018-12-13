@@ -42,12 +42,8 @@
           已回答246位患者
         </view>
         <view class='starGroup'>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='star'></view>
-          <view class='gold'>4.0</view>
+          <span class="iconfont {{myindex<item.gold?'icon-xingxing':'icon-xingxingxian'}}"   wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+          <view class='gold'>{{item.gold}}.0</view>
         </view>
       </view>
     </view>

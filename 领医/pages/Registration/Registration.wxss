@@ -178,3 +178,11 @@ color:rgba(153,153,153,1);
 .icon-xingxing{
   color: RGBA(255, 191, 18, 1);
 }
+.iconfont{
+  font-size: 24rpx;
+  margin-right: 4rpx;
+}
+
+.icon-xingxing{
+  color: RGBA(255, 191, 18, 1);
+}

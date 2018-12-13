@@ -5,7 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    selectIndex:0,
+    dataList: [{
+      mon: '周一',
+      date: '12.06'
+    }, {
+      mon: '周二',
+      date: '12.07'
+    }, {
+      mon: '周三',
+      date: '12.08'
+    }, {
+      mon: '周四',
+      date: '12.09'
+    }, {
+      mon: '周五',
+      date: '12.10'
+    }, {
+      mon: '周六',
+      date: '12.11'
+    }, {
+      mon: '周日',
+      date: '12.12'
+    }]
   },
 
   /**
@@ -14,7 +36,11 @@ Page({
   onLoad: function (options) {
 
   },
-
+  selectDay(e){
+    this.setData({
+      selectIndex:e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -26,7 +52,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.setNavigationBarTitle({
+      title: '选择医生',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**
@@ -66,12 +97,12 @@ Page({
   /**
    * 详情
    */
-  toRes(){
+  toRes() {
     wx.navigateTo({
       url: '/pages/selectDoctorRes/selectDoctorRes',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }
 

@@ -26,7 +26,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.setNavigationBarTitle({
+      title: '预约挂号',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**
@@ -71,7 +76,13 @@ Page({
       image: '',
       duration: 2000,
       mask: true,
-      success: function(res) {},
+      success: function(res) {
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1,
+          })
+        })
+      },
       fail: function(res) {},
       complete: function(res) {},
     })

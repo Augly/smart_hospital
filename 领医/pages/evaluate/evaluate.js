@@ -74,9 +74,11 @@ Page({
       duration: 2000,
       mask: true,
       success: function(res) {
-        wx.navigateBack({
-          delta: 1,
-        })
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1,
+          })
+        },1000)
       },
       fail: function(res) {},
       complete: function(res) {},

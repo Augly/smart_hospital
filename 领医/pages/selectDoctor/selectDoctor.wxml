@@ -1,31 +1,7 @@
 <view class='headGroup'>
-  <view class='headItem active'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
-  </view>
-  <view class='headItem'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
-  </view>
-  <view class='headItem'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
-  </view>
-  <view class='headItem'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
-  </view>
-  <view class='headItem'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
-  </view>
-  <view class='headItem'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
-  </view>
-  <view class='headItem'>
-    <view class='day'>周二</view>
-    <view class='date'>9.30</view>
+  <view class="headItem {{selectIndex==index?'active':''}}" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" bindtap='selectDay' data-index="{{index}}">
+    <view class='day'>{{item.mon}}</view>
+    <view class='date'>{{item.date}}</view>
   </view>
 </view>
 

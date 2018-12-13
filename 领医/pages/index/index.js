@@ -13,6 +13,14 @@ Page({
     clinic_name: '',
     clinic_laboratory: '',
   },
+  onShow:function(){
+    wx.setNavigationBarTitle({
+      title: '医院首页可变化',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   /**跳转去我的医生
    * @methon toMydoctor
    * @params

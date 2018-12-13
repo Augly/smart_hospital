@@ -16,7 +16,14 @@ Page({
     clinic_name: '',
     clinic_laboratory: ''
   },
-
+  onShow:function(){
+    wx.setNavigationBarTitle({
+      title: '导诊台',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   onLoad: function (options) {
     let that=this
     wx.getSystemInfo({

@@ -18,6 +18,12 @@ Page({
     this.setData({
       statusType:options.type
     })
+    wx.setNavigationBarTitle({
+      title: this.data.statusType == 'add' ? '添加就诊人!' : '修改就诊人',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**

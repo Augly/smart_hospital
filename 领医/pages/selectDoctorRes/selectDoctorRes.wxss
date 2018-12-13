@@ -52,7 +52,7 @@ page {
 .headLogo {
   width: 82rpx;
   height: 82rpx;
-  background-color: red;
+  /* background-color: red; */
   border-radius: 50%;
 }
 

@@ -55,6 +55,14 @@ del(e){
     title: '删除成功!',
   })
 },
+onShow:function(){
+  wx.setNavigationBarTitle({
+    title: '消息列表',
+    success: function (res) { },
+    fail: function (res) { },
+    complete: function (res) { },
+  })
+},
   res(e){
     console.log(1)
     wx.navigateTo({
