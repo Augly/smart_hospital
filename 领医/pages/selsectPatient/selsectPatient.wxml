@@ -1,7 +1,7 @@
 
 <view class='wrap'>
   <view class="item_head {{selectIndex==index?'item_head_select':''}}" bindtap='select' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" data-id="{{item.id}}" data-index='{{index}}'> 
-    <image class='avater'></image>
+    <image class='avater' src='{{item.avater}}'></image>
     <view class='userRes'>
       <view class='name'>{{item.name}}</view>
       <view class='age'>年龄：{{item.age}}岁</view>

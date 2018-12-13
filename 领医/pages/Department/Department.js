@@ -28,13 +28,14 @@ Page({
       clinic_name: e.currentTarget.dataset.name,
       clinic_laboratory: e.currentTarget.dataset.laboratory
     })
-    setTimeout(() => {
-      wx.navigateTo({
-        url: "/pages/selectDoctor/selectDoctor",
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }, 500)
+    wx.navigateTo({
+      url: "/pages/selectDoctor/selectDoctor",
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+    // setTimeout(() => {
+      
+    // }, 500)
   }
 })

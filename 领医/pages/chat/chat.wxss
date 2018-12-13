@@ -42,7 +42,7 @@
   border-style: solid;
   border-color: transparent rgba(99, 223, 197, 1) transparent transparent; /*透明 灰 透明 透明 */
   position: absolute;
-  left: -12rpx;
+  left: -9rpx;
 }
 
 .chatListSelf .chatRes {
@@ -66,7 +66,7 @@
   border-style: solid;
   border-color: transparent transparent transparent rgba(99, 223, 197, 1); /*透明 灰 透明 透明 */
   position: absolute;
-  right: -12rpx;
+  right: -9rpx;
 }
 
 .bottomIpt {

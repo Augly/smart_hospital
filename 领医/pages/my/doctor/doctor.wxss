@@ -18,7 +18,8 @@
 .logo {
   width: 82rpx;
   height: 82rpx;
-  background-color: red;
+  border-radius:50%; 
+  /* background-color: red; */
 }
 
 .res {

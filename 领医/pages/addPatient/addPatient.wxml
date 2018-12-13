@@ -12,7 +12,7 @@
 
   <view class='avaterGroup'>
     <view class='title'>添加头像</view>
-    <view class='avater'></view>
+    <image class='avater' src='http://www.kiss-me.top/lingyi/icon_xiugaitxx.png'></image>
   </view>
 
   <view>

@@ -12,7 +12,7 @@
 .list_logo {
   width: 244rpx;
   height: 184rpx;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .list_Res {

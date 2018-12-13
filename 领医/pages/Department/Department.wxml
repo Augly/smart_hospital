@@ -6,23 +6,25 @@
       </view>
       <view class="switchover-text">
         <view class="switchover-headline switchover-headline-head">
-          <view class="switchover-headline-s">当前诊所：</view>{{clinic_name}}</view>
+          <view class="switchover-headline-s">当前科室：</view>{{clinic_name}}</view>
         <view class="switchover-subhead switchover-subhead-head">
-          <view class="switchover-subhead-b">主治医师：</view>{{clinic_laboratory}}</view>
+          <view class="switchover-subhead-b">热门科室：</view>{{clinic_laboratory}}</view>
       </view>
     </view>
     <view class='content'>
       <view class="switchover-item  {{clinic_id==value.clinic_id?'switchover-item-hover':''}}" wx:for="{{clinicList}}" wx:for-index="key" wx:for-item="value" bindtap='tochanges' data-name="{{value.clinic_name}}" data-id="{{value.clinic_id}}" data-laboratory="{{value.clinic_laboratory}}">
         <view class='switchover-right'>
           <view class="switchover-headline">{{value.clinic_name}}</view>
-          <view class="switchover-subhead">
-            <view class="switchover-subhead-c">医科：<span class='mintitle'>{{value.clinic_laboratory}}</span></view>
-          </view>
+          <!-- <view class="switchover-subhead">
+            <view class="switchover-subhead-c">医科：
+              <span class='mintitle'>{{value.clinic_laboratory}}</span>
+            </view>
+          </view> -->
         </view>
         <view class='change'>
-      选择
-      <span class='iconfont icon-jiantou'></span>
-    </view>
+          选择
+          <span class='iconfont icon-jiantou'></span>
+        </view>
       </view>
 
     </view>

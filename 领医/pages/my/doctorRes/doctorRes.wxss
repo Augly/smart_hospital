@@ -22,9 +22,10 @@ page {
 .logo {
   width: 82rpx;
   height: 82rpx;
-  background-color: red;
+  /* background-color: red; */
+  border-radius:50%; 
 }
-.iconfont {
+.itemlist .iconfont {
   font-size:38rpx;
   color: RGBA(100, 223, 197, 1);
 }

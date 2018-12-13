@@ -5,17 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    select:0,
     list: [{
       id: '1',
       name: '测试',   //姓名
-      avater: '',  //头像
+      avater: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',  //头像
       age: '18',  //年龄
       sex: '男', //性别
     },
     {
       id: '1',
       name: '测试',   //姓名
-      avater: '',  //头像
+      avater: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',  //头像
       age: '18',  //年龄
       sex: '男', //性别
     }

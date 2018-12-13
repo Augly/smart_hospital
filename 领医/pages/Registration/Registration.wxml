@@ -12,15 +12,15 @@
   </view>
 </view>
 <view class='content'>
-   <view class='item' wx:for="[1,2,3,4,5,6]">
-    <view class='logo'></view>
+   <view class='item' wx:for="{{list}}" wx:for-item="item" :wx:for-index="index">
+    <image src='{{item.avator}}' class='logo'></image>
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
-          王晶
+          {{item.name}}
         </view>
         <view class='d_k'>
-          <text class='ks'>心脏科 </text>
+          <text class='ks'>{{item.ks}}</text>
           <text class='z_do'>主治医师 </text>
         </view>
         <view class='adder'>广东省北京大学深圳医院</view>

@@ -3,20 +3,19 @@
 
   </view>
   <view class="banner-search">
-    <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder"></input>
+    <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder" bindinput='getValue'></input>
   </view>
-  <view class='serchTitle'>取消</view>
+  <view class='serchTitle'>{{value!=''?'搜索':'取消'}}</view>
 </view>
 <view class='content'>
   <view class='title'>医生</view>
   <view class='tag_doctor'>
-    <span class='tag'>
-      王晶晶
+    <span class='tag' wx:for="{{doctorList}}" wx:for-index="inde" wx:for-item="item">
+      {{item}}
     </span>
   </view>
   <view class='title'>科室</view>
   <view class='tag_doctor'>
-    <view class='tag_View'>外科专科</view>
-      <view class='tag_View'>外科专科</view>
+    <view class='tag_View' wx:for="{{ks}}" wx:for-index="index" wx:for-item="item" style="background:{{colorList[index%6]}}">{{item}}</view>
   </view>
 </view>

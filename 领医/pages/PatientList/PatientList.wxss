@@ -17,7 +17,6 @@
 .avater {
   width: 81rpx;
   height: 81rpx;
-  background-color: red;
   border-radius: 50%;
 }
 

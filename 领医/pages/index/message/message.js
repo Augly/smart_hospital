@@ -48,6 +48,20 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
     });
+  },
+del(e){
+  console.log(e)
+  wx.showToast({
+    title: '删除成功!',
+  })
+},
+  res(e){
+    console.log(1)
+    wx.navigateTo({
+      url: '/pages/notice/notice',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
-
 })

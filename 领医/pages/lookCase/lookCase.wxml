@@ -1,4 +1,3 @@
-
 <view class='wrap'>
   <view class='title'>北京领医怡乐儿童医院</view>
   <view class='noticeGroup'>
@@ -44,15 +43,11 @@
 
   <view class='otherGroup'>
     <view class='lookPort'>
-      <view class='icon'>
-
-      </view>
+      <image src='http://www.kiss-me.top/lingyi/icon_chakanbg.png' class='icon'></image>
       <view class='lookCase' bindtap='report'>查看报告</view>
     </view>
     <view class='lookPort'>
-      <view class='icon'>
-
-      </view>
+      <image src='http://www.kiss-me.top/lingyi/icon_chakancf.png' class='icon'></image>
       <view class='lookCase' bindtap='prescription'>查看处方</view>
     </view>
   </view>

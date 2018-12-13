@@ -33,7 +33,9 @@ Component({
       }
     },
     del(){
-      console.log('删除')
+      const myEventDetail = {} // detail对象，提供给事件监听函数
+      const myEventOption = {} // 触发事件的选项
+      this.triggerEvent('del', myEventDetail, myEventOption)
     },
     //触摸时触发，手指在屏幕上每移动一次，触发一次
     touchM: function (e) {
@@ -61,7 +63,7 @@ Component({
       }
     },
     touchE: function (e) {
-      console.log("touchE" + e);
+      console.log(e);
       var that = this
       if (e.changedTouches.length == 1) {
         //手指移动结束后触摸点位置的X坐标

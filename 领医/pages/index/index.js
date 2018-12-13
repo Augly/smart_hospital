@@ -27,12 +27,12 @@ Page({
   },
   onLoad: function (options) {
     //读取全局变量获取医院名称
-    wx.setNavigationBarTitle({
-      title: options.clinic_name,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    // wx.setNavigationBarTitle({
+    //   title: options.clinic_name,
+    //   success: function(res) {},
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
     if (options.clinic_id) {
       app.clinic_id = options.clinic_id;
       app.clinic_name = options.clinic_name;
@@ -139,5 +139,11 @@ Page({
    */
   toserch(){
     console.log('去搜索页面')
+    wx.navigateTo({
+      url: '/pages/search/search',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })
