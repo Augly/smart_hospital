@@ -1,0 +1,103 @@
+.seachGroup {
+  box-sizing: border-box;
+  padding: 0rpx 40rpx;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-search {
+  width: 480rpx;
+  height: 60rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 6rpx 17rpx 3rpx rgba(0, 0, 0, 0.14);
+  border-radius: 30rpx;
+  background-image: url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie02.png);
+  background-repeat: no-repeat;
+  background-size: 23rpx 30rpx;
+  background-position: 24rpx 17rpx;
+}
+
+.banner-input {
+  width: 330rpx;
+  height: 60rpx;
+  padding-left: 86rpx;
+  font-size: 20rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color: rgba(153, 153, 153, 1);
+}
+
+.banner-input-placeholder {
+  font-size: 20rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color: rgba(153, 153, 153, 1);
+}
+
+.banner-inform {
+  width: 60rpx;
+  height: 60rpx;
+  background-image: url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie03.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.serchTitle {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Bold;
+  color: rgba(153, 153, 153, 1);
+}
+
+.content {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 40rpx 24rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  margin-top: 30rpx;
+}
+
+.tag_doctor {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 12rpx 22rpx;
+  background: rgba(255, 254, 255, 1);
+  box-shadow: 0px 7px 10px 0px rgba(99, 223, 196, 0.12);
+  border-radius: 24px;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(173, 173, 173, 1);
+  margin-top: 30rpx;
+  margin-right: 20rpx;
+}
+
+.tag_View {
+  box-sizing: border-box;
+  padding: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 116rpx;
+  height: 116rpx;
+  border-radius:50%; 
+  background-color: red;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  margin-top: 30rpx;
+  margin-right: 30rpx;
+}

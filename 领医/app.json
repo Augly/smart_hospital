@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/login/index",
     "pages/messages/messages",
     "pages/Helpdesk/Helpdesk",
@@ -25,6 +26,7 @@
     "pages/index/message/message",
     "pages/Department/Department",
     "pages/introduce/introduce"
+    
   ],
   "window": {
     "navigationBarBackgroundColor": "#63DFC5",

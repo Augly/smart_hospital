@@ -1,0 +1,22 @@
+<view class='seachGroup'>
+  <view class='changes' bindtap='toChanges'>
+
+  </view>
+  <view class="banner-search">
+    <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder"></input>
+  </view>
+  <view class='serchTitle'>取消</view>
+</view>
+<view class='content'>
+  <view class='title'>医生</view>
+  <view class='tag_doctor'>
+    <span class='tag'>
+      王晶晶
+    </span>
+  </view>
+  <view class='title'>科室</view>
+  <view class='tag_doctor'>
+    <view class='tag_View'>外科专科</view>
+      <view class='tag_View'>外科专科</view>
+  </view>
+</view>
