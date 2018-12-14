@@ -9,7 +9,8 @@ Page({
     name: '测试',   //姓名
     avater: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',  //头像
     age: '18',  //年龄
-    sex: '男', //性别
+    sex: '男', //性别,
+    type: 1
   },
 
   /**
@@ -35,6 +36,24 @@ Page({
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
+    })
+    wx.getStorage({
+      key: 'type',
+      success:(res)=>{
+        this.setData({
+          type: 0
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
     })
   },
 

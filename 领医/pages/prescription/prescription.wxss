@@ -87,9 +87,9 @@
 }
 
 .tochat{
-  width: 385rpx;
+  width: 340rpx;
   height: 405rpx;
-  background-color: red;
+  /* background-color: red; */
   position: fixed;
   right: 0;
   bottom: 0;

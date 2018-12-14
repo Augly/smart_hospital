@@ -7,7 +7,7 @@ Page({
     ImageHost: app.ImageHost,
     formPhone: '',
     formCode: '',
-    code:'发送验证码'
+    code:'发送验证码',
   },
   //监听表单phone
   formPhone: function (e) {
@@ -23,9 +23,21 @@ Page({
   },
   //表单提交事件
   formSubmit1: function (event) {
-    wx.switchTab({
-      url: '/pages/index/index',
+    wx.setStorage({
+      key: 'type',
+      data: '0',
+      success: function(res) {
+        wx.switchTab({
+          url: '/pages/index/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
     })
+
   },
   //发送短信验证码
   SendCode: function(){

@@ -48,3 +48,6 @@ image{
 
 .icon-weizhi:before { content: "\e60c"; }
 
+::-webkit-scrollbar {
+    display: none;
+}

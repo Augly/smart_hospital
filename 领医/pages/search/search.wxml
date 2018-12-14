@@ -5,7 +5,7 @@
   <view class="banner-search">
     <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder" bindinput='getValue'></input>
   </view>
-  <view class='serchTitle'>{{value!=''?'搜索':'取消'}}</view>
+  <view class='serchTitle' bindtap='scope'>{{value!=''?'搜索':'取消'}}</view>
 </view>
 <view class='content'>
   <view class='title'>医生</view>

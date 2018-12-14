@@ -1,6 +1,6 @@
 
 <view class='wrap'>
-  <view class='tabBar'>
+  <view class='tabBar' wx-if="{{statusType!='change'}}">
     <view class="tabItem {{selectIndex=='0'?'tabActive':''}}" bindtap='selectType' data-index='0'>
       儿童就诊人
     </view>

@@ -1,5 +1,5 @@
 
-<view class='wrap'>
+<view class='wrap' wx:if="{{type==0}}">
   <view class='item_head' bindtap='select'>
     <image class='avater' src='{{avater}}'></image>
     <view class='userRes'>

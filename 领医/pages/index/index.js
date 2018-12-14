@@ -26,12 +26,28 @@ Page({
    * @params
    */
   toMydoctor(){
-    wx.navigateTo({
-      url: '/pages/my/doctor/doctor',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+    wx.getStorage({
+      key: 'type',
+      success: function (res) {
+        wx.navigateTo({
+          url: '/pages/my/doctor/doctor',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
     })
+   
   },
   onLoad: function (options) {
     //读取全局变量获取医院名称
@@ -62,12 +78,28 @@ Page({
    * @params
    */
   toMessges(){
-    wx.navigateTo({
-      url: '/pages/index/message/message',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+    wx.getStorage({
+      key: 'type',
+      success: function (res) {
+        wx.navigateTo({
+          url: '/pages/index/message/message',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
     })
+
   },
    /**跳转去诊所切换以便切换诊所
    * @methon toChanges
@@ -85,12 +117,28 @@ Page({
    * @methon selsect
    */
   selsect(){
-    wx.navigateTo({
-      url: '/pages/selsectPatient/selsectPatient',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+    wx.getStorage({
+      key: 'type',
+      success: function (res) {
+        wx.navigateTo({
+          url: '/pages/selsectPatient/selsectPatient',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
     })
+
   },
   /**跳转去领医介绍
    * @methon toProduce
@@ -121,12 +169,28 @@ Page({
    * @params
    */
   todao(){
-    wx.navigateTo({
-      url: "/pages/Helpdesk/Helpdesk",
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+    wx.getStorage({
+      key: 'type',
+      success: function (res) {
+        wx.navigateTo({
+          url: "/pages/Helpdesk/Helpdesk",
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
     })
+
   },
    /**跳转去知识详情
    * @methon todao

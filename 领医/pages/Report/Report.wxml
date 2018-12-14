@@ -21,4 +21,4 @@
   </view>
 </view>
 
-<view class='tochat' bindtap='tochat'></view>
+<image class='tochat' bindtap='tochat' src='/images/120896888757042458.png'></image>

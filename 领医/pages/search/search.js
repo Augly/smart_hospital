@@ -74,5 +74,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  scope(){
+    if(this.data.value!=''){
+
+    }else{
+      wx.navigateBack({
+        delta: 1,
+      })
+    }
   }
 })

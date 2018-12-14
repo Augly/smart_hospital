@@ -4,8 +4,42 @@ const app = getApp();
 Page({
 
   data: {
-    height:0,
+    height: 0,
     ImageHost: app.ImageHost,
+    selectIndex: 0,
+    slideList: [{
+      title: '外科',
+    }, {
+      title: '儿童科'
+    }, {
+      title: '儿童科'
+    }, {
+      title: '儿童科'
+    }, {
+      title: '儿童科'
+    }, {
+      title: '儿童科'
+    }, {
+      title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }, {
+        title: '儿童科'
+      }],
     clinicList: [
       { clinic_id: '1', clinic_name: '儿外科', clinic_laboratory: '骨科专科' },
       { clinic_id: '2', clinic_name: '儿内科  ', clinic_laboratory: '皮肤病专科' },
@@ -16,7 +50,7 @@ Page({
     clinic_name: '',
     clinic_laboratory: ''
   },
-  onShow:function(){
+  onShow: function () {
     wx.setNavigationBarTitle({
       title: '导诊台',
       success: function (res) { },
@@ -24,17 +58,22 @@ Page({
       complete: function (res) { },
     })
   },
+  select(e){
+    this.setData({
+      selectIndex: e.currentTarget.dataset.index
+    })
+  },
   onLoad: function (options) {
-    let that=this
+    let that = this
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         console.log(res)
         that.setData({
-          height: res.windowHeight-210*res.windowWidth/750
+          height: res.windowHeight - 210 * res.windowWidth / 750
         })
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function (res) { },
+      complete: function (res) { },
     })
     this.setData({
       clinic_id: app.clinic_id,
@@ -42,12 +81,12 @@ Page({
       clinic_laboratory: app.clinic_laboratory
     });
   },
-  toMess(){
+  toMess() {
     wx.navigateTo({
       url: '/pages/messages/messages',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   tochanges(e) {
