@@ -1,11 +1,11 @@
 //主域名
-const https = "https://imtest.tuoketong.com"
+const https = "http://lingyiil.dazhu-ltd.cn/index.php/api/"
 
 /**
  * 时间转换
  */
 function timeFormatNotime(time) {
-  var date = new Date(time),
+  var date = new Date(time*1000),
     curDate = new Date(),
     year = date.getFullYear(),
     month = date.getMonth() + 1,
@@ -19,13 +19,15 @@ function timeFormatNotime(time) {
     minute = '0' + minute
   }
   if (year < curYear) {
-    timeStr = year + '年' + month + '月' + day + '日' + hour + ':' + minute;
+    // timeStr = year + '年' + month + '月' + day + '日' + hour + ':' + minute;
+    timeStr = year + '/' + month + '/' + day;
   } else {
     var pastTime = curDate - date,
       pastH = pastTime / 3600000;
 
     if (pastH > curHour) {
-      timeStr = month + '月' + day + '日 ' + '' + hour + '时' + minute + '分';
+      // timeStr = month + '月' + day + '日 ' + '' + hour + '时' + minute + '分';
+      timeStr = year + '/' + month + '/' + day;
     } else if (pastH >= 1) {
       timeStr = '今天 ' + hour + ':' + minute + '分';
     } else {
@@ -276,18 +278,12 @@ function gitToken(successData) {
 /**
  * 自定义request请求基类
  */
-function ajax(Type, params, url, successData, errorData, completeData) {
-  console.log(wx.getStorageSync('token'))
+function ajax(Type, params, url, successData, errorData, completeData,imgurl) {
   var methonType = "application/json";
   // methonType = "application/x-www-form-urlencoded"
   //访问的主域名
-  var https = "https://imtest.tuoketong.com"
+  var https = "http://lingyiil.dazhu-ltd.cn/index.php/api/"
   if (Type === 'PUT') {
-    // var p = Object.keys(params).map(function (key) {
-    //   return encodeURIComponent(key) + "=" + encodeURIComponent(params[key]);
-    // }).join("&");
-    // url += '?' + p;
-    // params = {}
     methonType = "application/x-www-form-urlencoded"
   }
   if (Type == 'FORM') {
@@ -296,30 +292,30 @@ function ajax(Type, params, url, successData, errorData, completeData) {
   if (Type == "POST") {
     methonType = "application/x-www-form-urlencoded"
   }
-  if (wx.getStorageSync('token') == '') {
-    gitToken((res) => {
-      ajax(Type, params, url, successData, errorData, completeData)
-    })
-  } else {
-    wx.showLoading({
-      title: '数据加载中',
-      mask: true,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+  wx.showLoading({
+    title: '数据加载中',
+    mask: true,
+    success: function (res) { },
+    fail: function (res) { },
+    complete: function (res) { },
+  })
+  if(Type!='img'){
     wx.request({
       url: https + url,
       method: Type,
       header: {
         'content-type': methonType,
-        'S-type': 'm',
-        'S-token': wx.getStorageSync('token')
+        // 'S-type': 'm',
+        // 'S-token': wx.getStorageSync('token')
       },
       data: params,
       success: (res) => {
-        successData(res)
         wx.hideLoading()
+        if (res.data.code == 1) {
+          successData(res)
+        } else {
+          mytoast(res.data.msg)
+        }
       },
       error(res) {
         if (errorData) {
@@ -332,7 +328,39 @@ function ajax(Type, params, url, successData, errorData, completeData) {
         }
       }
     })
+  }else{
+    if (imgurl){
+      console.log(imgurl)
+      wx.uploadFile({
+        url: https + url, 
+        filePath: imgurl,
+        name: 'patient_portrait',
+        formData:params,
+        success: (res) => {
+          wx.hideLoading()
+          if (res.statusCode == 200) {
+            successData(res)
+          } else {
+            mytoast(res.data.msg)
+          }
+        },
+        error(res) {
+          if (errorData) {
+            errorData(res)
+          }
+        },
+        complete(res) {
+          if (completeData) {
+            completeData(res)
+          }
+        }
+      })
+    }
+    
   }
+
+
+  
 
 
 
@@ -343,18 +371,10 @@ function ajax(Type, params, url, successData, errorData, completeData) {
 //导出模块
 module.exports = {
   https: https,
-  token: token,
+  ajax:ajax,
   rem: rem,
-  getData: getData,
-  resList: resList,
-  minclassification: minclassification,
-  chatrecord: chatrecord,
-  recordOver: recordOver,
-  timeFormatNotime: timeFormatNotime,
-  sessionKey: sessionKey,
-  getTelephone: getTelephone,
-  saveInfo: saveInfo,
   chooseImage: chooseImage,
-  uploadfile: uploadfile,
-  mytoast: mytoast
+  getData: getData,
+  mytoast: mytoast,
+  timeFormatNotime: timeFormatNotime
 }

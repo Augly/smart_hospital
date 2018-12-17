@@ -1,13 +1,12 @@
 <view wx:if="{{type==0}}">
   <view class='notitle'></view>
 <view class='avtarWrap'>
-  <image src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg' class='avater'></image>
+  <image src='{{allData.user_portrait}}' class='avater'></image>
 </view>
 
 <view class='title'>
-  zero
+  {{allData.user_nickname}}
 </view>
-<view class='mintitle'>saqd15a151as5</view>
 
 
 <view class='list'>
@@ -17,7 +16,7 @@
       <view class='itemTitle'>我的昵称</view>
     </view>
     <view class='right'>
-      <view class='itemmintitle'>zero</view>
+      <view class='itemmintitle'>{{allData.user_nickname}}</view>
     </view>
   </view>
   <view class='item'>
@@ -26,7 +25,7 @@
       <view class='itemTitle'>我的手机</view>
     </view>
     <view class='right'>
-      <view class='itemmintitle'>17633369350</view>
+      <view class='itemmintitle'>{{allData.user_phone}}</view>
     </view>
   </view>
   <view class='item' bindtap='toRegistration'>

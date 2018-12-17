@@ -1,4 +1,5 @@
 // pages/introduce/introduce.js
+const app=getApp()
 Page({
 
   /**
@@ -27,7 +28,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.ajax('POST',{
 
+    },'Index/clinic_intro',res=>{
+      console.log(res)
+    })
   },
 
   /**

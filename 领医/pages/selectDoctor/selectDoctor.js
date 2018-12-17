@@ -1,4 +1,5 @@
 // pages/selectDoctor/selectDoctor.js
+const app=getApp()
 Page({
 
   /**
@@ -27,14 +28,28 @@ Page({
     }, {
       mon: '周日',
       date: '12.12'
-    }]
+    }],
+    doctorList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST',{
+      user_token:app.globalData.user_token,
+      clinic_id: app.globalData.clinic_id,
+      subjects_id: options.subjects_id,
+      office_time:''
+    },'Index/choice_doctor_list',res=>{
+      console.log(res)
+      this.setData({
+        doctorList: res.data.data.doctor.map(res=>{
+          res.office_time = app.time(res.office_time)
+          return res
+        })
+      })
+    })
   },
   selectDay(e){
     this.setData({
@@ -97,9 +112,10 @@ Page({
   /**
    * 详情
    */
-  toRes() {
+  toRes(e) {
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/selectDoctorRes/selectDoctorRes',
+      url: `/pages/selectDoctorRes/selectDoctorRes?doctor_id=${e.currentTarget.dataset.id}&office_time=${e.currentTarget.dataset.timeid}`,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

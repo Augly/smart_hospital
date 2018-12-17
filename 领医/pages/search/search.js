@@ -1,13 +1,15 @@
 // pages/search/search.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    clinic_id:'',
     value:'',
     doctorList:['王晶晶','仇益阳'],
-    ks: ['外科', '外科专科', '外科', '外科专科', '外科', '外科专科', '外科', '外科专科'],
+    subjects: ['外科', '外科专科', '外科', '外科专科', '外科', '外科专科', '外科', '外科专科'],
     colorList: ['rgba(255,245,245,1)', 'rgba(243, 249, 253, 1)', 'rgba(252, 252, 252, 1)', 'rgba(255, 248, 241, 1)', 'rgba(246, 247, 248, 1)', 'rgba(244, 251, 243, 1)', 'rgba(240, 252, 254, 1)','rgba(255, 251, 232, 1)']
   },
 
@@ -15,7 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      clinic_id:options.clinic_id
+    })
   },
   getValue(e){
     this.setData({
@@ -77,11 +81,29 @@ Page({
   },
   scope(){
     if(this.data.value!=''){
-
+      app.ajax('POST',{
+        seek: this.data.value,
+        clinic_id: this.data.clinic_id
+      },'Index/seek',(res)=>{
+        if(res.data.code==1){
+          this.setData({
+            doctorList: res.data.data.doctor,
+            subjects: res.data.data.subjects
+          })
+        }else{
+          app.toast(res.data.msg)
+        }
+      })
     }else{
       wx.navigateBack({
         delta: 1,
       })
     }
+  },
+  tosubject(e){
+    //去科室详情
+  },
+  todoctor(e){
+    //去医生详情
   }
 })

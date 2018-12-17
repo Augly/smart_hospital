@@ -1,4 +1,5 @@
 // pages/addPatient/addPatient.js
+const app=getApp()
 Page({
 
   /**
@@ -6,24 +7,40 @@ Page({
    */
   data: {
     statusType:null,
-    selectIndex:0,
-    sex:'1'    //性别默认男
+    selectIndex:1,
+    sex:'1' ,   //性别默认男
+    alldata:null,
+    patient_birthday:'1995-02-01',
+    imgUrl:'',
+    name:'仇益阳'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.user_token)
     //通过上一个页面传值接收type参数以此判断本页面事进行添加还是修改
     this.setData({
       statusType:options.type
     })
     wx.setNavigationBarTitle({
-      title: this.data.statusType == 'add' ? '添加就诊人!' : '修改就诊人',
+      title: this.data.statusType == 'add' ? '添加就诊人' : '修改就诊人',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
+    // //获取就诊人信息
+    // app.ajax('POST', {
+    //   patient_id: app.globalData.user_token,   //就诊人id
+    // }, 'User/patient_update', res => {
+    //   this.setData({
+    //     alldata:res.data.data,
+    //     selectIndex: res.data.data.patient_type,
+    //     sex: res.data.data.patient_sex,
+    //     patient_birthday: res.data.data.patient_birthday
+    //   })
+    // })
   },
 
   /**
@@ -32,7 +49,14 @@ Page({
   onReady: function () {
 
   },
-
+  selectAVatr(){
+    app.configure.chooseImage(res=>{
+      console.log(res)
+      this.setData({
+        imgUrl: res.tempFilePaths[0]
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -96,6 +120,26 @@ Page({
       sex:e.currentTarget.dataset.sex
     })
   },
+  del(){
+    app.ajax('POST', {
+      patient_id: ''  //就诊人id
+    }, 'User/patient_delete', res => {
+      wx.showToast({
+        title: res.data.msg,
+        duration: 1000,
+        mask: true,
+        success: function (res) {
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }, 1000)
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    })
+  },
   /**
    * 根据statusType判断事添加还是修改 
    * @Methon scope
@@ -103,19 +147,73 @@ Page({
    * @return 
    */
   scope(){
-    wx.showToast({
-      title: this.data.statusType=='add'?'添加成功!':'修改成功',
-      duration: 1000,
-      mask: true,
-      success: function(res) {
-       setTimeout(function(){
-         wx.navigateBack({
-           delta: 1,
-         })
-       },1000)
-      },
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    if(this.data.statusType=='add'){
+      if(this.data.imgUrl==''){
+        app.toast('请上传头像')
+        return false
+      }
+      if (this.data.name == '') {
+        app.toast('请输入姓名')
+        return false
+      }
+      if (this.data.patient_birthday == '') {
+        app.toast('请输入出生年月')
+        return false
+      }
+      app.ajax('img',{
+        user_token: app.globalData.user_token,
+        patient_type: this.data.selectIndex,   //就诊人类别1:儿童2:成人
+        patient_sex: this.data.sex,   //就诊人性别
+        patient_realname:this.data.name, //就诊人姓名
+        patient_birthday:this.data.patient_birthday  //就诊人生日
+      },'User/patient_add',res=>{
+        wx.showToast({
+          title: this.data.statusType == 'add' ? '添加成功!' : '修改成功',
+          duration: 1000,
+          mask: true,
+          success: function (res) {
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 1000)
+          },
+          fail: function (res) {
+            console.log(res)
+           },
+          complete: function (res) {
+            console.log(res)
+           },
+        })
+      },(res)=>{
+        console.log(res)
+      },(res)=>{
+        console.log(res)
+      },this.data.imgUrl)
+    }else{
+      app.ajax('post', {
+        patient_id: '',   //就诊人id
+        user_token: '',
+        patient_type: '',   //就诊人类别1:儿童2:成人
+        patient_sex: '',   //就诊人性别
+        patient_realname: '', //就诊人姓名
+        patient_birthday: ''  //就诊人生日
+      }, 'User/patient_update_execute', res => {
+        wx.showToast({
+          title: this.data.statusType == 'add' ? '添加成功!' : '修改成功',
+          duration: 1000,
+          mask: true,
+          success: function (res) {
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 1000)
+          },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },this.data.imgUrl)
+    }
   }
 })

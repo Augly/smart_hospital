@@ -55,6 +55,9 @@
   font-family: PingFang-SC-Bold;
   color: rgba(153, 153, 153, 1);
   margin-top: 48rpx;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .date {

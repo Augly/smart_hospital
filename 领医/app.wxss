@@ -51,3 +51,10 @@ image{
 ::-webkit-scrollbar {
     display: none;
 }
+
+.nodata{
+  line-height: 200rpx;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+}

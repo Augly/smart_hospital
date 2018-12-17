@@ -1,18 +1,26 @@
 // pages/my/my.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    type:1
+    type:1,
+    allData:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    app.ajax('POST',{
+      user_token: app.globalData.user_token
+    },'User/user_details',res=>{
+      this.setData({
+        allData:res.data.data.user
+      })
+    })
   },
 
   /**
@@ -33,7 +41,7 @@ Page({
       complete: function (res) { },
     })
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success:(res)=>{
           this.setData({
             type:0
@@ -98,7 +106,7 @@ Page({
    */
   toPatient(){
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: '/pages/PatientList/PatientList',
@@ -125,7 +133,7 @@ Page({
    */
   toRegistration(){
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: '/pages/Registration/Registration',
@@ -152,7 +160,7 @@ Page({
    */
   tomyDoctor(){
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: '/pages/my/doctor/doctor',

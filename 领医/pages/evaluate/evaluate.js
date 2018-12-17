@@ -1,3 +1,4 @@
+const app=getApp()
 Page({
 
   /**
@@ -5,7 +6,8 @@ Page({
    */
   data: {
     starList:[1,2,3,4,5],
-    selectIndex:4
+    selectIndex:4,
+    content:''   //内容
   },
 
   /**
@@ -13,6 +15,11 @@ Page({
    */
   onLoad: function (options) {
     
+  },
+  getValue(e){
+    this.setData({
+      content:e.detail.value
+    })
   },
 
   /**
@@ -69,19 +76,26 @@ Page({
     })
   },
   submit(){
-    wx.showToast({
-      title: '评价成功',
-      duration: 2000,
-      mask: true,
-      success: function(res) {
-        setTimeout(()=>{
-          wx.navigateBack({
-            delta: 1,
-          })
-        },1000)
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+    app.ajax('POST', {
+      doctor_id: options.id,
+      evaluation_count: this.data.content,
+      evaluation_level: this.data.selectIndex,
+      user_token: ''
+    }, 'User/doctor_evaluation', res => {
+      wx.showToast({
+        title: '评价成功',
+        duration: 2000,
+        mask: true,
+        success: function (res) {
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }, 1000)
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     })
   }
 })

@@ -1,23 +1,24 @@
 
 <view class='wrap'>
   <view class='tabBar' wx-if="{{statusType!='change'}}">
-    <view class="tabItem {{selectIndex=='0'?'tabActive':''}}" bindtap='selectType' data-index='0'>
+    <view class="tabItem {{selectIndex=='1'?'tabActive':''}}" bindtap='selectType' data-index='1'>
       儿童就诊人
     </view>
     <view class='line'></view>
-    <view class="tabItem {{selectIndex!='0'?'tabActive':''}}" bindtap='selectType' data-index='1'>
+    <view class="tabItem {{selectIndex=='2'?'tabActive':''}}" bindtap='selectType' data-index='2'>
       成人就诊人
     </view>
   </view>
 
   <view class='avaterGroup'>
     <view class='title'>添加头像</view>
-    <image class='avater' src='http://www.kiss-me.top/lingyi/icon_xiugaitxx.png'></image>
+    <image class='avater' wx:if="{{imgUrl==''}}" src='http://www.kiss-me.top/lingyi/icon_xiugaitxx.png' bindtap='selectAVatr'></image>
+    <image class='avater' wx:else src='{{imgUrl}}'></image>
   </view>
 
   <view>
     <view class='title'>姓名</view>
-    <input class='name' placeholder='请填写就诊人姓名'></input>
+    <input class='name' placeholder='请填写就诊人姓名' value='{{name}}'></input>
   </view>
 
   <view>
@@ -29,9 +30,9 @@
   </view>
     <view>
     <view class='title'>出生日期</view>
-    <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05'></input>
+    <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05' value='{{patient_birthday}}'></input>
   </view>
 
   <view class='add' bindtap='scope'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>
-  <view class='del' wx-if="{{statusType=='change'}}">删除就诊人</view>
+  <view class='del' wx-if="{{statusType=='change'}}" bindtap='del'>删除就诊人</view>
 </view>

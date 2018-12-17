@@ -3,19 +3,16 @@ const app = getApp();
 Page({
 
   data: {
-    banner_list: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-    ],
+    banner_list: [],
     ImageHost: app.ImageHost,
-    clinic_id: '',
-    clinic_name: '',
-    clinic_laboratory: '',
+    clinic_id: app.globalData.clinic_id,
+    clinic_name: app.globalData.clinic_name,
+    clinic_laboratory: app.globalData.clinic_laboratory,
+    lecture: []
   },
-  onShow:function(){
+  onShow: function () {
     wx.setNavigationBarTitle({
-      title: '医院首页可变化',
+      title: app.globalData.clinic_name,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -25,9 +22,9 @@ Page({
    * @methon toMydoctor
    * @params
    */
-  toMydoctor(){
+  toMydoctor() {
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: '/pages/my/doctor/doctor',
@@ -47,15 +44,46 @@ Page({
       },
       complete: function (res) { console.log(res) },
     })
-   
+
   },
   onLoad: function (options) {
     //读取全局变量获取医院名称
-    // wx.setNavigationBarTitle({
-    //   title: options.clinic_name,
-    //   success: function(res) {},
-    //   fail: function(res) {},
-    //   complete: function(res) {},
+    app.ajax('POST', {}, 'Index/Index', (res) => {
+      if (res.data.code == 1) {
+        res.data.data.lecture = res.data.data.lecture.map((item) => {
+          item.lecture_craetetime = app.time(item.lecture_craetetime)
+          return item
+        })
+        wx.setNavigationBarTitle({
+          title: res.data.data.clinic.clinic_name,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+        app.globalData.clinic_id = res.data.data.clinic.clinic_id
+        app.globalData.clinic_name = res.data.data.clinic.clinic_name
+        app.globalData.clinic_laboratory = res.data.data.clinic.hot_subjects
+        this.setData({
+          banner_list: res.data.data.banner,
+          lecture: res.data.data.lecture,
+          clinic: res.data.data.clinic,
+          clinic_id: res.data.data.clinic.clinic_id,
+          clinic_name: res.data.data.clinic.clinic_name,
+          clinic_laboratory: res.data.data.clinic.hot_subjects,
+        })
+      }
+    })
+    //获取未读消息数
+    // app.ajax('POST', {
+    //   user_token:''
+    // }, 'Index/user_message_unread', (res) => {
+    //   if (res.data.code == 1) {
+    //     this.setData({
+    //       unread:res.data.data
+    //     })
+    //   }else{
+    //     app.toast(res.data.msg)
+    //   }
     // })
     if (options.clinic_id) {
       app.clinic_id = options.clinic_id;
@@ -68,18 +96,18 @@ Page({
       app.clinic_laboratory = '内科，外科，脑科，心脏科';
     }
     this.setData({
-      clinic_id: app.clinic_id,
-      clinic_name: app.clinic_name,
-      clinic_laboratory: app.clinic_laboratory
+      clinic_id: app.globalData.clinic_id,
+      clinic_name: app.globalData.clinic_name,
+      clinic_laboratory: app.globalData.clinic_laboratory
     });
   },
-   /**跳转去消息列表
-   * @methon toMessges
-   * @params
-   */
-  toMessges(){
+  /**跳转去消息列表
+  * @methon toMessges
+  * @params
+  */
+  toMessges() {
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: '/pages/index/message/message',
@@ -101,24 +129,24 @@ Page({
     })
 
   },
-   /**跳转去诊所切换以便切换诊所
-   * @methon toChanges
-   * @params
-   */
-  toChanges(){
+  /**跳转去诊所切换以便切换诊所
+  * @methon toChanges
+  * @params
+  */
+  toChanges() {
     wx.navigateTo({
-      url: '/pages/index/switchover/switchover',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: `/pages/index/switchover/switchover?clinic_id=${this.data.clinic.clinic_id}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   /**跳转去预约挂号
    * @methon selsect
    */
-  selsect(){
+  selsect() {
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: '/pages/selsectPatient/selsectPatient',
@@ -144,33 +172,33 @@ Page({
    * @methon toProduce
    * @params
    */
-  toProduce(){
+  toProduce() {
     wx.navigateTo({
       url: '/pages/introduce/introduce',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   /**跳转去医师讲堂
    * @methon ysjt
    * @params
    */
-  ysjt(){
+  ysjt() {
     wx.navigateTo({
       url: '/pages/Forum/Forum',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   /**跳转去导诊台
    * @methon todao
    * @params
    */
-  todao(){
+  todao() {
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success: function (res) {
         wx.navigateTo({
           url: "/pages/Helpdesk/Helpdesk",
@@ -192,16 +220,16 @@ Page({
     })
 
   },
-   /**跳转去知识详情
-   * @methon todao
-   * @params
-   */
-  toRes(){
+  /**跳转去知识详情
+  * @methon todao
+  * @params
+  */
+  toRes(e) {
     wx.navigateTo({
-      url: '/pages/ForumRes/ForumRes',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: `/pages/ForumRes/ForumRes?id=${e.currentTarget.dataset.id}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   /**
@@ -209,13 +237,12 @@ Page({
    * @methon toserch
    * @params
    */
-  toserch(){
-    console.log('去搜索页面')
+  toserch() {
     wx.navigateTo({
-      url: '/pages/search/search',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: `/pages/search/search?clinic_id=${this.data.clinic.clinic_id}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }
 })

@@ -1,42 +1,52 @@
-//app.js
+const configure=require('./utils/util.js')
 App({
+  time: configure.timeFormatNotime,
+  ajax:configure.ajax,
+  configure:configure,
+  toast: configure.mytoast,
   lanhu: 'http://www.kiss-me.top/lingyi/',
   RequestHost: 'https://lingyiil.dazhu-ltd.cn/program',
-  ImageHost: 'https://lingyiil.dazhu-ltd.cn/public/static/program/images',
-  clinic_id: '',
-  clinic_name: '',
-  clinic_laboratory: '',
-  
-  //公共post表单提交方法
-  postRequest: function (url,data){
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
-    wx.request({
-      method: 'POST',
-      url: this.RequestHost + url,
-      data: data,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+  ImageHost: 'http://lingyiil.dazhu-ltd.cn/public/uploads/',
+  /**
+   * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+   */
+  onLaunch: function () {
+    wx.getStorage({
+      key: 'user_token',
+      success: res=>{
+        this.globalData.user_token=res.data
       },
-      success: function (res) {
-        var resData = res.data;
-        wx.hideLoading();
-        wx.showToast({
-          title: resData.msg,
-          icon: 'none',
-          mask: true
-        });
+      fail: function(res) {
+        console.log(res)
       },
-      fail: function () {
-        wx.hideLoading();
-        wx.showToast({
-          title: '请检查网络连接',
-          icon: 'none',
-          mask: true
-        });
-      }
-    });
+      complete: function(res) {},
+    })
+  },
+
+  /**
+   * 当小程序启动，或从后台进入前台显示，会触发 onShow
+   */
+  onShow: function (options) {
+    
+  },
+
+  /**
+   * 当小程序从前台进入后台，会触发 onHide
+   */
+  onHide: function () {
+    
+  },
+
+  /**
+   * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
+   */
+  onError: function (msg) {
+    
+  },
+  globalData:{
+    user_token:'',
+    clinic_id: '',
+    clinic_name: '',
+    clinic_laboratory: '',
   }
 })

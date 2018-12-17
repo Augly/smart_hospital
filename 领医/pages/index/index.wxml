@@ -3,9 +3,9 @@
 <view class="container">
   <view class="banner">
     <swiper class="banner-swiper" indicator-dots="true" indicator-color="#EEEEEE" indicator-active-color="#63DFC5" autoplay="true" circular="true">
-      <block wx:for="{{banner_list}}">
+      <block wx:for="{{banner_list}}" wx:key>
         <swiper-item>
-          <image class="banner-img" src="{{item}}"></image>
+          <image class="banner-img" src="{{ImageHost}}{{item.banner_count}}"></image>
         </swiper-item>
       </block>
     </swiper>
@@ -46,20 +46,12 @@
   <view class="hot">
     <view class="hot-title">热门知识</view>
     <view class="hot-gather">
-      <view class="hot-g-item" bindtap='toRes'>
-        <image class="hot-g-img" src="{{ImageHost}}/zi01.png"></image>
-        <view class="hot-g-title">秋季儿童疾病如何预防？</view>
+      <view class="hot-g-item" wx:for="{{lecture}}" wx:for-item="item" wx:for-index="index" wx:key bindtap='toRes' data-id='{{item.lecture_id}}'>
+        <image class="hot-g-img" src="{{ImageHost}}{{item.lecture_cover}}"></image>
+        <view class="hot-g-title">{{item.lecture_title}}</view>
         <view class="hot-g-bottom">
-          <view class="hot-g-name">张医生</view>
-          <view class="hot-g-date">2018/11/12</view>
-        </view>
-      </view>
-      <view class="hot-g-item" bindtap='toRes'>
-        <image class="hot-g-img" src="{{ImageHost}}/zi01.png"></image>
-        <view class="hot-g-title">秋季儿童疾病如何预防？</view>
-        <view class="hot-g-bottom">
-          <view class="hot-g-name">张医生</view>
-          <view class="hot-g-date">2018/11/12</view>
+          <view class="hot-g-name">{{item.lecture_doctor}}</view>
+          <view class="hot-g-date">{{item.lecture_craetetime}}</view>
         </view>
       </view>
     </view>

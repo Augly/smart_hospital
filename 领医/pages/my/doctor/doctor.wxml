@@ -5,13 +5,13 @@
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
-          {{item.name}}
+          {{item.doctor_name}}
         </view>
         <view class='d_k'>
-          <text class='ks'>{{item.ks}}</text>
-          <text class='z_do'>{{item.zw}}</text>
+          <text class='ks'>{{item.doctor_skill}}</text>
+          <text class='z_do'>{{item.doctor_rank}}</text>
         </view>
-        <view class='adder'>{{item.adder}}</view>
+        <view class='adder'>{{item.clinic}}</view>
         <view class='buttonGroup'>
           <view class='look' bindtap='toRes' data-id='{{item.id}}'>查看医生</view>
           <view class='ask' bindtap='tochat' data-id='{{item.id}}'>快速询问</view>
@@ -19,7 +19,7 @@
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-          已回答{{item.askNum}}位患者
+          已回答{{item.solve_number}}位患者
         </view>
         <view class='starGroup'>
           <span class="iconfont {{myindex<item.gold?'icon-xingxing':'icon-xingxingxian'}}"   wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
@@ -28,4 +28,5 @@
       </view>
     </view>
   </view>
+  <view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
 </view>

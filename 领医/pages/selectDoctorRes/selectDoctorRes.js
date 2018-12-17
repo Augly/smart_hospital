@@ -1,18 +1,23 @@
 // pages/selectDoctorRes/selectDoctorRes.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    doctor:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST', {},'Index/choice_doctor',res=>{
+      this.setData({
+        doctor: res.data.data.doctor
+      })
+    })
   },
 
   /**

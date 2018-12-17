@@ -38,7 +38,7 @@ Page({
       complete: function (res) { },
     })
     wx.getStorage({
-      key: 'type',
+      key: 'user_token',
       success:(res)=>{
         this.setData({
           type: 0

@@ -1,4 +1,5 @@
 // pages/PatientList/PatientList.js
+const app=getApp()
 Page({
 
   /**
@@ -28,7 +29,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST',{
+      user_token:'',
+      patient_type:1
+    },'User/patient_list',(res)=>{
+      this.setData({
+        list:res.data.data
+      })
+    })
   },
 
   /**
@@ -86,7 +94,7 @@ Page({
   },
   addUser(event){
     wx.navigateTo({
-      url: '/pages/addPatient/addPatient?type=' + event.currentTarget.dataset.type,
+      url: `/pages/addPatient/addPatient?type=${event.currentTarget.dataset.type}&id=${event.currentTarget.dataset.id}`,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

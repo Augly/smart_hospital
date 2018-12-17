@@ -1,4 +1,5 @@
 // pages/my/doctorRes/doctorRes.js
+const app=getApp()
 Page({
 
   /**
@@ -34,7 +35,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST',{
+      user_token: '',    //用户令牌
+      doctor_id: '',     //医生id
+      paging: '',         //分页页数
+      clinic_id: ''        //诊所id
+    },'User/my_doctor_details',res=>{
+      this.setData({
+        doctor:res.data.data
+      })
+    })
   },
 
   /**

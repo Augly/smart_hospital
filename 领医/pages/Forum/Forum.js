@@ -1,33 +1,27 @@
 // pages/Forum/Forum.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {
-        logo:'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1377889435,3331746090&fm=173&app=25&f=JPEG?w=218&h=146&s=6062BB47384386D698C1E10303003082',
-        title:'秋季儿童疾病如何预防?',
-        content:'炎热的夏季渐行渐远，我们将 很快步入清爽、干燥的秋天。 秋天的气候多变、空气干燥， 早晚温差大，宝宝容易出现感 冒、流鼻涕、咳嗽炎热的夏季渐行渐远，我们将 很快步入清爽、干燥的秋天。 秋天的气候多变、空气干燥， 早晚温差大，宝宝容易出现感 冒、流鼻涕、咳嗽',
-        autor:'仇益阳',
-        date:'2018/11/12'
-      },
-      {
-        logo: 'https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1377889435,3331746090&fm=173&app=25&f=JPEG?w=218&h=146&s=6062BB47384386D698C1E10303003082',
-        title: '秋季儿童疾病如何预防?',
-        content: '炎热的夏季渐行渐远，我们将 很快步入清爽、干燥的秋天。 秋天的气候多变、空气干燥， 早晚温差大，宝宝容易出现感 冒、流鼻涕、咳嗽炎热的夏季渐行渐远，我们将 很快步入清爽、干燥的秋天。 秋天的气候多变、空气干燥， 早晚温差大，宝宝容易出现感 冒、流鼻涕、咳嗽',
-        autor: '仇益阳',
-        date: '2018/11/12'
-      }
-    ]
+    list:[],
+    ImageHost: app.ImageHost
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST', {},'Index/doctor_article',(res)=>{
+      this.setData({
+        list:res.data.data.map(res=>{
+          res.lecture_craetetime = app.time(res.lecture_craetetime)
+          return res
+        })
+      })
+    })
   },
 
   /**

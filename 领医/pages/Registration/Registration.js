@@ -1,4 +1,5 @@
 // pages/Registration/Registration.js
+const app=getApp()
 Page({
 
   /**
@@ -85,22 +86,36 @@ Page({
     this.setData({
       statusType: 'waitIng'
     })
+    app.ajax('POST',{
+      user_token:''
+    },'User/not_diagnose',res=>{
+      this.setData({
+        list:res.data.data
+      })
+    })
   },
   patiented(){
     this.setData({
       statusType: 'patiented'
     })
+    app.ajax('POST', {
+      user_token: ''
+    }, 'User/already_diagnose', res => {
+      this.setData({
+        list: res.data.data
+      })
+    })
   },
-  cencel(){
+  cencel(e){
+    console.log(e)
     wx.showToast({
       title: '取消成功!',
       mask:true
     })
   },
-  toEvent(){
-    console.log('去评价')
+  toEvent(e){
     wx.navigateTo({
-      url: '/pages/evaluate/evaluate',
+      url: '`/pages/evaluate/evaluate?id=${e.currentTarget.dataset.id}`',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
