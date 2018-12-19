@@ -1,3 +1,58 @@
+<!-- <view class='wrap'>
+  <view class='title'>北京领医怡乐儿童医院</view>
+  <view class='noticeGroup'>
+    <text class='name'>姓名 : 王陆</text>
+    <text class='name'>性别 : 男</text>
+    <text class='name'>年龄 : 9</text>
+  </view>
+  <view class='date'>
+    2018-09-08-14:02
+  </view>
+  <view>
+    <view class='mintitle'>【主诉】</view>
+    <view class='res'>
+      胸痛间接性发作3天左右
+    </view>
+  </view>
+  <view>
+    <view class='mintitle'>【既往史】</view>
+    <view class='res'>
+      无高血压，否认眼部疾病，否认肾脏衰竭，否恩出血 性疾病，有车祸史
+    </view>
+  </view>
+  <view>
+    <view class='mintitle'>【辅助检查】</view>
+    <view class='res'>
+      <view class='resList'>心电图 : II.III.AVP.V4`V6导联T波倒置</view>
+      <view class='resList'>心肌酶 : 拒查</view>
+    </view>
+  </view>
+  <view>
+    <view class='mintitle'>【诊疗意见】</view>
+    <view class='res'>
+      <view class='resList'>建议进一步检查明确病因</view>
+    </view>
+  </view>
+  <view>
+    <view class='mintitle'>【初步开药】</view>
+    <view class='res'>
+      <view class='resList'>盐酸地尔硫卓片 30mg 饭前口服 TID X3</view>
+      <view class='resList'>阿司匹林肠溶片 30mg 饭前口服 QD X3</view>
+    </view>
+  </view>
+
+  <view class='otherGroup'>
+    <view class='lookPort'>
+      <image src='http://www.kiss-me.top/lingyi/icon_chakanbg.png' class='icon'></image>
+      <view class='lookCase' bindtap='report'>查看报告</view>
+    </view>
+    <view class='lookPort'>
+      <image src='http://www.kiss-me.top/lingyi/icon_chakancf.png' class='icon'></image>
+      <view class='lookCase' bindtap='prescription'>查看处方</view>
+    </view>
+  </view>
+</view> -->
+
 <view class='wrap'>
   <view class='title'>北京领医怡乐儿童医院</view>
   <view class='noticeGroup'>

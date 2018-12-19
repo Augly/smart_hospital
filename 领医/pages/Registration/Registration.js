@@ -9,7 +9,8 @@ Page({
     statusType: 'waitIng',
     starList:[1,2,3,4,5],
     list: [],
-    listed:[]
+    listed:[],
+    imgurl: app.ImageHost
   },
 
   /**
@@ -21,14 +22,20 @@ Page({
     },'User/not_diagnose',res=>{
       console.log(res)
       this.setData({
-        listed:res.data.data
+        listed:res.data.data.map(item=>{
+          item.evaluation_level = Math.ceil(item.evaluation_level)
+          return item
+        })
       })
     })
     app.ajax('POST', {
       user_token: app.globalData.user_token
     }, 'User/already_diagnose', res => {
       this.setData({
-        list: res.data.data
+        list: res.data.data.map(item=>{
+          item.evaluation_level = Math.ceil(item.evaluation_level)
+          return item
+        })
       })
     })
   },
@@ -94,7 +101,7 @@ Page({
       user_token:app.globalData.user_token
     },'User/not_diagnose',res=>{
       this.setData({
-        list:res.data.data
+        list: res.data.data
       })
     })
   },
@@ -107,6 +114,7 @@ Page({
     }, 'User/already_diagnose', res => {
       this.setData({
         list: res.data.data
+        
       })
     })
   },

@@ -13,7 +13,7 @@
   <view class='avaterGroup'>
     <view class='title'>{{statusType == 'add'?'选择头像':'修改头像'}}</view>
     <image class='avater' wx:if="{{imgUrl==''}}" src='http://www.kiss-me.top/lingyi/icon_xiugaitxx.png' bindtap='selectAVatr'></image>
-    <image class='avater' wx:else src='{{imgUrl}}'></image>
+    <image class='avater' bindtap='selectAVatr' wx:else src='{{imgUrl}}'></image>
   </view>
 
   <view>

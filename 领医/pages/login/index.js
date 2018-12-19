@@ -20,6 +20,14 @@ Page({
       formCode: e.detail.value
     })
   },
+  toindex(){
+    wx.reLaunch({
+      url: '/pages/index/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   //表单提交事件
   formSubmit1: function (event) {
     var phone = /^1(3|4|5|7|8)\d{9}$/;

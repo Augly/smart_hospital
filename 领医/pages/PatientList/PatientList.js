@@ -25,12 +25,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    wx.setNavigationBarTitle({
-      title: '就诊人管理',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
-    })
     app.ajax(
       'POST',
       {
@@ -90,7 +84,7 @@ Page({
           selectIndex: this.data.list[e.currentTarget.dataset.index].patient_id
         })
         wx.navigateTo({
-          url: `/pages/addPatient/addPatient?type=change&patient_id=${this.data.selectIndex}`,
+          url: `/pages/case/case?patient_id=${this.data.selectIndex}`,
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) { }

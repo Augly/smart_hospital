@@ -1,1 +1,13 @@
 /* pages/notice/notice.wxss */
+.wrap{
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.title{
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.content{
+  font-size: 18rpx;
+}

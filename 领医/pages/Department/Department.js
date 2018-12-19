@@ -8,7 +8,8 @@ Page({
     clinic_id: '',
     selectIndex:0,
     clinic_name: '',
-    clinic_laboratory: ''
+    clinic_laboratory: '',
+    show:false
   },
 
   onLoad: function (options) {
@@ -23,7 +24,8 @@ Page({
     },'Index/select_subjects',res=>{
       console.log(res)
       this.setData({
-        clinicList: res.data.data.subjects
+        clinicList: res.data.data.subjects,
+        show:true
       })
     })
   },

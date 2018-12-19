@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="background-image:url(http://www.kiss-me.top/lingyi/bak_zhuye_back.png)">
+<view class="container" style="background-image:url(http://www.kiss-me.top/lingyi/login.png)">
 
   <view class="market">
     <view class="market-main">北京领医</view>
@@ -19,6 +19,9 @@
       </view>
       <view class="login-group login-group-submit">
         <button class="login-button" form-type="submit">立即登录</button>
+      </view>
+      <view class='returnWrap'>
+         <view class='return' bindtap='toindex'>回到首页</view>
       </view>
     </form>
   </view>

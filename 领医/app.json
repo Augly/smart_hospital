@@ -28,7 +28,6 @@
     "pages/index/message/message",
     "pages/Department/Department",
     "pages/introduce/introduce"
-    
   ],
   "window": {
     "navigationBarBackgroundColor": "#63DFC5",
@@ -46,7 +45,7 @@
         "selectedIconPath": "images/X-HOUME.png"
       },
       {
-        "pagePath": "pages/case/case",
+        "pagePath": "pages/PatientList/PatientList",
         "text": "病例",
         "iconPath": "images/house.png",
         "selectedIconPath": "images/X-HOUSE.png"

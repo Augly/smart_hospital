@@ -8,7 +8,8 @@ Page({
   data: {
     doctor:null,
     notice:null,
-    
+    array:['8:00-10:00','14:00-16:00'],
+    index:0
   },
 
   /**
@@ -35,8 +36,21 @@ Page({
         notice: res.data.data.notice
       })
     })
+    app.ajax('POST', {
+      doctor_id: options.doctor_id,
+    }, 'Index/doctor_quantum', res => {
+      console.log(res)
+      // this.setData({
+      //   doctor: res.data.data.doctor,
+      //   notice: res.data.data.notice
+      // })
+    })
   },
-
+  bindPickerChange(e) {
+    this.setData({
+      index: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

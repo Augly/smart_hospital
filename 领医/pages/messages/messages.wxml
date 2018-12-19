@@ -1,23 +1,24 @@
 <view class='chatWrap'>
-  <view class='list'>
+<view wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+  <!-- <view class='list'>
     <view class='userRes'>
-      <image class='avatr' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg'></image>
+      <image class='avatr' src='{{item.user_portrait}}'></image>
       <view class='main'>
         <view class='title'>
           提问者：
-          <span class='minTitle'>我是一个兼职患者</span>
+          <span class='minTitle'>{{item.user_nickname}}</span>
         </view>
-        <view class='date'>2017-08-10 19:52:00</view>
+        <view class='date'>{{item.inquiry_time}}</view>
       </view>
     </view>
     <view class='content'>
       <view class='content_title'>
-        医师解答描述：
+        {{item.inquiry_title}}
       </view>
-      <view class='content_main'> 医生您好我的孩子发烧了迟迟不退怎么办，如何快速降 温退烧？医生您好我的孩子发烧了迟迟不退怎么办，如何 快速降温退烧？
+      <view class='content_main'> {item.inquiry_count}}
       </view>
     </view>
-  </view>
+  </view> -->
    <view class='list self'>
     <view class='userRes'>
       <image class='avatr' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg'></image>
@@ -40,10 +41,10 @@
     </view>
   </view>
 </view>
-
+</view>
 <view class='bottomIpt'>
-  <input class='ipt'></input>
-  <view class='send'>
+  <input class='ipt' bindinput='getValue'></input>
+  <view class='send' bindtap='send'>
     <span class='iconfont icon-fasong'></span>
   </view>
 </view>

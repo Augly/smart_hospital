@@ -5,14 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    res:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST',{
+      user_message_id: options.userMessageid
+    },'Index/message_unread_find',res=>{
+      this.setData({
+        res:res.data.data
+      })
+    })
   },
 
   /**

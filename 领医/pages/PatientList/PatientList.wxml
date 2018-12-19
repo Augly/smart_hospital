@@ -16,6 +16,6 @@
 <view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
 
 
-<view class='add' bindtap='addUser' data-type='add'>
+<!-- <view class='add' bindtap='addUser' data-type='add'>
     增加就诊人
-</view>
+</view> -->

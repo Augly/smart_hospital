@@ -56,7 +56,7 @@ onShow:function(){
   res(e){
     console.log(1)
     wx.navigateTo({
-      url: '/pages/notice/notice',
+      url: '/pages/notice/notice?userMessageid=' + e.currentTarget.dataset.userMessageid,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

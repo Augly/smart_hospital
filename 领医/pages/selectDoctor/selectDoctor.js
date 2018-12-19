@@ -8,21 +8,24 @@ Page({
   data: {
     selectIndex:0,
     dataList: [],
-    doctorList:[]
+    doctorList:[],
+    subjects_id:0,
+    imgUrl: app.ImageHost
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      subjects_id: options.subjects_id
+    })
     app.ajax('POST',{
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: options.subjects_id,
-      office_time:''
+      office_time: new Date().getTime()
     },'Index/choice_doctor_list',res=>{
-      console.log(res)
       this.setData({
         doctorList: res.data.data.doctor.map(res=>{
           res.office_time = app.time(res.office_time)
@@ -36,6 +39,20 @@ Page({
     this.setData({
       selectIndex:e.currentTarget.dataset.index
     })
+    console.log(this.data.dataList[e.currentTarget.dataset.index])
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      clinic_id: app.globalData.clinic_id,
+      subjects_id: this.data.subjects_id,
+      office_time: this.data.dataList[e.currentTarget.dataset.index].value
+    }, 'Index/choice_doctor_list', res => {
+      this.setData({
+        doctorList: res.data.data.doctor.map(res => {
+          res.office_time = app.time(res.office_time)
+          return res
+        })
+      })
+    })
   },
   GetDateStr(AddDayCount) {
     var dd = new Date();
@@ -44,10 +61,12 @@ Page({
     let m = dd.getMonth() + 1;//获取当前月份的日期
     let d = dd.getDate();
     let w = dd.getDay();
+    let s = dd.getTime();
     let week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
     return {
       mon: week[w],
-      date: `${m}.${d}`
+      date: `${m}.${d}`,
+      value: s 
     }
   },
   //获取今天为起点得往后七天日期星期

@@ -18,7 +18,10 @@ Page({
       user_token:app.globalData.user_token
     },'User/my_doctor',(res)=>{
       this.setData({
-        list:res.data.data
+        list:res.data.data.map(item=>{
+          item.evaluation_level = Math.ceil(item.evaluation_level)
+          return item
+        })
       })
     })
   },
@@ -84,7 +87,7 @@ Page({
   toRes(e) {
     console.log(e.currentTarget.dataset.id) //此处为医生id
     wx.navigateTo({
-      url: '/pages/my/doctorRes/doctorRes',
+      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorId + '&clinic_id=' + e.currentTarget.dataset.doctorId + '&evaluation_level=' + e.currentTarget.dataset.level,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

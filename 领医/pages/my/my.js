@@ -7,7 +7,8 @@ Page({
    */
   data: {
     type:1,
-    allData:null
+    allData:null,
+    show:false
   },
 
   /**
@@ -18,7 +19,8 @@ Page({
       user_token: app.globalData.user_token
     },'User/user_details',res=>{
       this.setData({
-        allData:res.data.data.user
+        allData:res.data.data.user,
+        show:true
       })
     })
   },
@@ -130,7 +132,7 @@ Page({
   toPatient(){
     if (app.globalData.user_token != '') {
       wx.navigateTo({
-        url: '/pages/PatientList/PatientList',
+        url: '/pages/selsectPatient/selsectPatient?type=2',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

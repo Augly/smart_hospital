@@ -21,6 +21,13 @@
       <view class='otherHead'>就诊人</view>
       <view class='otherData' bindtap='toselect'>{{userid.patient_realname?userid.patient_realname:'请选择就诊人'}}</view>
     </view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class='itemOther'>
+      <view class='otherHead'>选择就诊时间</view>
+      <view class='otherData'>{{array[index]}}</view>
+    </view>
+  </picker>
+    
   </view>
   <view class='tip'>
       <view class='tipTitle'>挂号须知</view>

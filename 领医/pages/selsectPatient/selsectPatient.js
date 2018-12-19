@@ -8,19 +8,17 @@ Page({
     type: '0',
     ImageHost: app.ImageHost,
     selectIndex: 0,
-    list: []
+    list: [],
+    show:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(options)
-    // if (options.changes && options.changes == '1') {
-    //   this.setData({
-    //     type: '1'
-    //   })
-    // }
+    this.setData({
+      type:options.type  //如果为1进行科室选择进行预约
+    })
   },
 
   /**
@@ -61,6 +59,9 @@ Page({
               })
             }
           }
+          this.setData({
+            show:true
+          })
         } else {
           app.toast(res.data.msg)
         }
@@ -102,15 +103,18 @@ Page({
           selectIndex: this.data.list[e.currentTarget.dataset.index].patient_id
         })
         if (this.data.type == '1') {
-          wx.navigateBack({
-            delta: 1
-          })
-        } else {
           wx.navigateTo({
             url: '/pages/Department/Department',
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
+          })
+        } else {
+          wx.navigateTo({
+            url: `/pages/addPatient/addPatient?type=change&patient_id=${this.data.selectIndex}`,
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { }
           })
         }
       },

@@ -1,31 +1,19 @@
 
-<view class='wrap' wx:if="{{type==0}}">
-  <view class='item_head' bindtap='select'>
-    <image class='avater' src='{{avater}}'></image>
+<view class='wrap'>
+  <view class='item' wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+    <image class='avater' src='{{imgUrl}}{{item.doctor_portrait}}'></image>
     <view class='userRes'>
-      <view class='name'>王陆</view>
-      <view class='age'>年龄：5岁</view>
-      <view class='sex'>性别：男</view>
-    </view>
-    <view class='change'>
-      切换就诊人
-     <span class='iconfont icon-jiantou'></span>
-    </view>
-  </view>
-  <view class='item'>
-    <image class='avater' src='{{avater}}'></image>
-    <view class='userRes'>
-      <view class='name'>王晶
+      <view class='name'>{{item.doctor_name}}
         <text class='zw'>心脏科</text>
-        <text class='zw'>心脏科</text>
+        <text class='zw'>{{item.doctor_rank}}</text>
       </view>
-      <view class='res'>病情:心肌缺血</view>
+      <view class='res'>病情:{{item.history_content}}</view>
     </view>
     <view class='buttonGroup'>
       <view class='date'>
-        2018-11-20 1:04
+        {{item.history_createtime}}
       </view>
-      <view class='lookCase' bindtap='lookCase'>查看病历</view>
+      <view class='lookCase' bindtap='lookCase' data-id='{{item.patient_id}}'>查看病历</view>
     </view>
   </view>
 </view>

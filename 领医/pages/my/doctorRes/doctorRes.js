@@ -7,6 +7,7 @@ Page({
    */
   data: {
     starList: [1, 2, 3, 4, 5],
+    evaluation_level:0,
     doctor:{
       name:'王晶',
       ks:'心脏科',
@@ -28,7 +29,8 @@ Page({
       adder:'中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院',
       tel:'17633369350',
       name:'中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院'
-    }
+    },
+    pageNum:1
   },  
 
   /**
@@ -36,13 +38,14 @@ Page({
    */
   onLoad: function (options) {
     app.ajax('POST',{
-      user_token: '',    //用户令牌
-      doctor_id: '',     //医生id
-      paging: '',         //分页页数
-      clinic_id: ''        //诊所id
+      user_token:app.globalData.user_token,    //用户令牌
+      doctor_id: options.doctorId,     //医生id
+      paging: this.pageNum,         //分页页数
+      clinic_id: options.clinic_id        //诊所id
     },'User/my_doctor_details',res=>{
       this.setData({
-        doctor:res.data.data
+        doctor:res.data.data,
+        evaluation_level: options.evaluation_level
       })
     })
   },

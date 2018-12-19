@@ -1,23 +1,30 @@
 // pages/case/case.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    id: '1',
-    name: '测试',   //姓名
-    avater: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',  //头像
-    age: '18',  //年龄
-    sex: '男', //性别,
-    type: 1
+    list:[],
+    imgUrl: app.ImageHost
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST',{
+      user_token:app.globalData.user_token,
+      patient_id: options.patient_id
+    },'User/history_list',res=>{
+      this.setData({
+        list:res.data.data.map(item=>{
+          item.history_createtime = app.time(item.history_createtime)
+          return item
+        })
+      })
+    })
   },
 
   /**
@@ -37,24 +44,7 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-    wx.getStorage({
-      key: 'user_token',
-      success:(res)=>{
-        this.setData({
-          type: 0
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.reLaunch({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
+
   },
 
   /**
@@ -91,9 +81,9 @@ Page({
   onShareAppMessage: function () {
 
   },
-  lookCase(){
+  lookCase(e){
     wx.navigateTo({
-      url: '/pages/lookCase/lookCase',
+      url: '/pages/lookCase/lookCase?patient_id=' + e.currentTarget.dataset.patient_id,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
