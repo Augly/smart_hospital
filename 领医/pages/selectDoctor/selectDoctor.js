@@ -7,28 +7,7 @@ Page({
    */
   data: {
     selectIndex:0,
-    dataList: [{
-      mon: '周一',
-      date: '12.06'
-    }, {
-      mon: '周二',
-      date: '12.07'
-    }, {
-      mon: '周三',
-      date: '12.08'
-    }, {
-      mon: '周四',
-      date: '12.09'
-    }, {
-      mon: '周五',
-      date: '12.10'
-    }, {
-      mon: '周六',
-      date: '12.11'
-    }, {
-      mon: '周日',
-      date: '12.12'
-    }],
+    dataList: [],
     doctorList:[]
   },
 
@@ -36,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     app.ajax('POST',{
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
@@ -50,10 +30,35 @@ Page({
         })
       })
     })
+    this.gitData()
   },
   selectDay(e){
     this.setData({
       selectIndex:e.currentTarget.dataset.index
+    })
+  },
+  GetDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
+    let y = dd.getFullYear();
+    let m = dd.getMonth() + 1;//获取当前月份的日期
+    let d = dd.getDate();
+    let w = dd.getDay();
+    let week = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+    return {
+      mon: week[w],
+      date: `${m}.${d}`
+    }
+  },
+  //获取今天为起点得往后七天日期星期
+  gitData() {
+    let datalist = []
+    for (let s = 0; s < 7; s++) {
+      datalist.push(this.GetDateStr(s))
+    }
+    console.log(datalist)
+    this.setData({
+      dataList: datalist
     })
   },
   /**
@@ -115,7 +120,7 @@ Page({
   toRes(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: `/pages/selectDoctorRes/selectDoctorRes?doctor_id=${e.currentTarget.dataset.id}&office_time=${e.currentTarget.dataset.timeid}`,
+      url: `/pages/selectDoctorRes/selectDoctorRes?doctor_id=${e.currentTarget.dataset.id}&office_time=${e.currentTarget.dataset.timeid}&subjects_id=${this.data.subjects_id}`,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

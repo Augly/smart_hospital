@@ -10,9 +10,10 @@ Page({
     selectIndex:1,
     sex:'1' ,   //性别默认男
     alldata:null,
-    patient_birthday:'1995-02-01',
+    patient_birthday:'',
     imgUrl:'',
-    name:'仇益阳'
+    name:'',
+    ImageHost: app.ImageHost
   },
 
   /**
@@ -30,19 +31,36 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-    // //获取就诊人信息
-    // app.ajax('POST', {
-    //   patient_id: app.globalData.user_token,   //就诊人id
-    // }, 'User/patient_update', res => {
-    //   this.setData({
-    //     alldata:res.data.data,
-    //     selectIndex: res.data.data.patient_type,
-    //     sex: res.data.data.patient_sex,
-    //     patient_birthday: res.data.data.patient_birthday
-    //   })
-    // })
-  },
+    if (this.data.statusType != 'add'){
+      this.setData({
+        patient_id: options.patient_id
+      })
+      // //获取就诊人信息
+      app.ajax('POST', {
+        patient_id: options.patient_id,   //就诊人id
+      }, 'User/patient_update', res => {
+        console.log(res)
+        this.setData({
+          imgUrl: this.data.ImageHost+res.data.data.patient_portrait,
+          name: res.data.data.patient_realname,
+          // selectIndex: res.data.data.patient_type,
+          sex: res.data.data.patient_sex,
+          patient_birthday: res.data.data.patient_birthday
+        })
+      })
+    }
 
+  },
+  getName(e){
+    this.setData({
+      name:e.detail.value
+    })
+  },
+  getbirth(e){
+    this.setData({
+      patient_birthday:e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -122,13 +140,15 @@ Page({
   },
   del(){
     app.ajax('POST', {
-      patient_id: ''  //就诊人id
+      patient_id: this.data.patient_id  //就诊人id
     }, 'User/patient_delete', res => {
       wx.showToast({
         title: res.data.msg,
         duration: 1000,
         mask: true,
         success: function (res) {
+          wx.clearStorage('userId')
+          app.globalData.userId=''
           setTimeout(function () {
             wx.navigateBack({
               delta: 1,
@@ -160,6 +180,7 @@ Page({
         app.toast('请输入出生年月')
         return false
       }
+      console.log(11)
       app.ajax('img',{
         user_token: app.globalData.user_token,
         patient_type: this.data.selectIndex,   //就诊人类别1:儿童2:成人

@@ -1,4 +1,4 @@
-<view class='list' bindtap='toRes' wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+<view class='list' bindtap='toRes' data-id='{{item.lecture_id}}' wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
   <image class='list_logo' src='{{ImageHost}}{{item.lecture_cover}}'></image>
   <view class='list_Res'>
     <view class='title'>{{item.lecture_title}}</view>

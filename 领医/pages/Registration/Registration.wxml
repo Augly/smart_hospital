@@ -1,6 +1,6 @@
 
 <view class='wrap'>
-<view class='headGroup'>
+<!-- <view class='headGroup'>
     <view class='tabBar'>
     <view class="tabItem {{statusType=='waitIng'?'tabActive':''}}" bindtap='waitIng'>
       未就诊列表
@@ -10,23 +10,23 @@
       已就诊列表
     </view>
   </view>
-</view>
+</view> -->
 <view class='content'>
    <view class='item' wx:for="{{list}}" wx:for-item="item" :wx:for-index="index">
-    <image src='{{item.avator}}' class='logo'></image>
+    <image src='{{item.doctor_portrait}}' class='logo'></image>
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
           {{item.doctor_name}}
         </view>
         <view class='d_k'>
-          <text class='ks'>{{item.subjects_name}}</text>
+          <text class='ks'>{{item.doctor_name}}</text>
           <text class='z_do'>{{item.doctor_rank}} </text>
         </view>
         <view class='adder'>{{item.clinic_name}}</view>
         <view class='d_k'>
           <text class='ks'>挂号类型: </text>
-          <text class='z_do'>门诊普通号 </text>
+          <text class='z_do'>{{item.registration_status==1?'挂号':'到场'}} </text>
         </view>
          <view class='d_k'>
           <text class='ks'>就诊人: </text>
@@ -35,6 +35,42 @@
         <view class='buttonGroup'>
           <view class='look' bindtap='cencel' wx-if="{{statusType=='waitIng'}}" data-id='2'>取消预约</view>
           <view class='ask' bindtap='toEvent' wx-if="{{statusType=='patiented'}}" data-id='{{item.doctor_id}}'>评价医生</view>
+        </view>
+      </view>
+      <view class='res_right'>
+        <view class='res_right_title'>
+          {{item.solve}}位患者已评星
+        </view>
+        <view class='starGroup'>
+          <span class="iconfont {{myindex<item.gold?'icon-xingxing':'icon-xingxingxian'}}"   wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+          <view class='gold'>{{item.gold}}.0</view>
+        </view>
+      </view>
+    </view>
+  </view>
+     <view class='item' wx:for="{{listed}}" wx:for-item="item" :wx:for-index="index">
+    <image src='{{item.avator}}' class='logo'></image>
+    <view class='res'>
+      <view class='res_left'>
+        <view class='d_name'>
+          {{item.doctor_name}}
+        </view>
+        <view class='d_k'>
+          <text class='ks'>{{item.doctor_name}}</text>
+          <text class='z_do'>{{item.doctor_rank}} </text>
+        </view>
+        <view class='adder'>{{item.clinic_name}}</view>
+        <view class='d_k'>
+          <text class='ks'>挂号类型: </text>
+          <text class='z_do'>{{item.registration_status==1?'挂号':'到场'}} </text>
+        </view>
+         <view class='d_k'>
+          <text class='ks'>就诊人: </text>
+          <text class='z_do'>{{item.registration_patient_name}}</text>
+        </view>
+        <view class='buttonGroup'>
+          <view class='look' bindtap='cencel' wx-if="{{item.registration_status=='1'}}" data-id='2'>取消预约</view>
+          <view class='ask' bindtap='toEvent' wx-if="{{item.registration_status=='2'}}" data-id='{{item.doctor_id}}'>评价医生</view>
         </view>
       </view>
       <view class='res_right'>

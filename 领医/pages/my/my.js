@@ -22,7 +22,23 @@ Page({
       })
     })
   },
+  changesA() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: (res) => {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        // var tempFilePaths = res.tempFilePaths
+        let all = this.data.allData
+        all.user_portrait = res.tempFilePaths[0]
+        this.setData({
+          allData: all
+        })
+      }
+    })
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -42,7 +58,7 @@ Page({
     })
     wx.getStorage({
       key: 'user_token',
-      success:(res)=>{
+      success:res=>{
           this.setData({
             type:0
           })
@@ -58,7 +74,13 @@ Page({
       complete: function (res) { console.log(res) },
     })
   },
-
+  getName(e){
+    let all = this.data.allData
+    all.user_nickname = e.detail.value
+    this.setData({
+      allData: all
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -87,7 +109,8 @@ Page({
 
   },
   out(){
-    wx.clearStorage('type')
+    wx.clearStorage('user_token')
+    app.globalData.user_token = ''
     wx.switchTab({
         url: "/pages/index/index",
         success: function(res) {},
@@ -105,81 +128,61 @@ Page({
    * @methon toPatient
    */
   toPatient(){
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: '/pages/PatientList/PatientList',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.navigateTo({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if (app.globalData.user_token != '') {
+      wx.navigateTo({
+        url: '/pages/PatientList/PatientList',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   /**挂号列表
    * @methon toPatient
    */
   toRegistration(){
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: '/pages/Registration/Registration',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.navigateTo({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if (app.globalData.user_token != '') {
+      wx.navigateTo({
+        url: '/pages/Registration/Registration',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   },
    /**我的医生
    * @methon tomyDoctor
    */
   tomyDoctor(){
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: '/pages/my/doctor/doctor',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.navigateTo({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if (app.globalData.user_token != '') {
+      wx.navigateTo({
+        url: '/pages/my/doctor/doctor',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   }
 })

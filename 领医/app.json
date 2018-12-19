@@ -4,6 +4,7 @@
     "pages/login/index",
     "pages/search/search",
     "pages/notice/notice",
+    "pages/message/message",
     "pages/messages/messages",
     "pages/Helpdesk/Helpdesk",
     "pages/Forum/Forum",

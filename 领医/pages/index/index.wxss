@@ -67,9 +67,14 @@
   overflow: hidden;
   position: hidden;
   clear: both;
+
 }
 .kim-item{
   float: left;
+    display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin: 36rpx 0rpx 33rpx 73rpx;
 }
 .kim-item:first-child{
@@ -128,6 +133,8 @@
   background-repeat: no-repeat;
   background-size: 35rpx 25rpx;
   background-position: 32rpx 24rpx;
+  display: flex;
+  align-items: center;
 }
 .hot-gather{
   overflow: hidden;
@@ -155,6 +162,9 @@
   font-weight: bold;
   color: rgba(102,102,102,1);
   padding: 16rpx 0;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 .hot-g-bottom{
   overflow: hidden;

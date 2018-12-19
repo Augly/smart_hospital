@@ -41,11 +41,13 @@ page{
 }
 .login-group{
   width: 100%;
-  margin-top: 85rpx;
+  margin-top: 72.5rpx;
+  padding-top: 12.5rpx;
   position: relative;
 }
 .login-group-submit{
   margin-top: 141rpx;
+  padding-top: 12rpx;
 }
 .login-label{
   height: 25rpx;
@@ -85,7 +87,7 @@ page{
 }
 .login-button-send{
   position: absolute;
-  top: -12.5rpx;
+  top:0rpx;
   right: 0;
   width: 160rpx;
   height: 50rpx;

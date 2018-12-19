@@ -1,4 +1,6 @@
 // pages/ForumRes/ForumRes.js
+var WxParse = require('../../wxParse/wxParse.js');
+const app=getApp()
 Page({
 
   /**
@@ -12,7 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id)
+    app.ajax('POST',{
+      lecture_id:options.id
+    },'Introduce/classroom_details',res=>{
+      console.log(res)
+      WxParse.wxParse('article', 'html', res.data.data.lecture_content, this, 0);
+    })
   },
 
   /**

@@ -1,3 +1,8 @@
+
+
+
+
+
 const configure=require('./utils/util.js')
 App({
   time: configure.timeFormatNotime,
@@ -11,23 +16,34 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function () {
-    wx.getStorage({
-      key: 'user_token',
-      success: res=>{
-        this.globalData.user_token=res.data
-      },
-      fail: function(res) {
-        console.log(res)
-      },
-      complete: function(res) {},
-    })
+
   },
 
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
   onShow: function (options) {
-    
+    wx.getStorage({
+      key: 'user_token',
+      success: res => {
+        this.globalData.user_token = res.data
+      },
+      fail: function (res) {
+        console.log(res)
+      },
+      complete: function (res) { },
+    })
+    wx.getStorage({
+      key: 'userId',
+      success: res => {
+        console.log(res.data)
+        this.globalData.userId = res.data
+      },
+      fail: function (res) {
+
+      },
+      complete: function (res) { },
+    })
   },
 
   /**
@@ -48,5 +64,6 @@ App({
     clinic_id: '',
     clinic_name: '',
     clinic_laboratory: '',
+    userId:''
   }
 })

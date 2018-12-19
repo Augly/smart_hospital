@@ -6,11 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-    ],
+    imgUrls: [],
+    ImageHost:app.ImageHost,
     indicatorDots: false,
     autoplay: false,
     interval: 1000,
@@ -31,7 +28,16 @@ Page({
     app.ajax('POST',{
 
     },'Index/clinic_intro',res=>{
-      console.log(res)
+      this.setData({
+        ks: res.data.data[0].hot_department.split('，'),
+        product: res.data.data[0].clinic_introduce,
+        hosRes:{
+          adder: res.data.data[0].clinic_site,
+          tel: res.data.data[0].clinic_phone,
+          name: res.data.data[0].clinic_title
+        },
+        imgUrls: [this.data.ImageHost+res.data.data[0].banner]
+      })
     })
   },
 

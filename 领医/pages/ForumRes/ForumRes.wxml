@@ -1,1 +1,4 @@
-这是富文本页
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class='content' >
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

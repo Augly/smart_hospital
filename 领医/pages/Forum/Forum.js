@@ -77,13 +77,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-  toRes(){
-    //详情页
+  toRes(e) {
     wx.navigateTo({
-      url: '/pages/ForumRes/ForumRes',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: `/pages/ForumRes/ForumRes?id=${e.currentTarget.dataset.id}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
-  }
+  },
 })

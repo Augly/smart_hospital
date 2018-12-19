@@ -4,8 +4,8 @@ Page({
 
   data: {
     ImageHost: app.ImageHost,
-    formPhone: '17633369350',
-    formCode: '446399',
+    formPhone: '',
+    formCode: '',
     code: '发送验证码',
   },
   //监听表单phone
@@ -29,11 +29,13 @@ Page({
           phone: this.data.formPhone,
           code: this.data.formCode
         }, 'Login/user_login', (res) => {
+          app.globalData.user_token = res.data.data.user_token
           if (res.data.code == 1) {
             wx.setStorage({
               key: 'user_token',
               data: res.data.data.user_token,
               success: res=> {
+                
                 wx.switchTab({
                   url: '/pages/index/index',
                   success: function (res) { 

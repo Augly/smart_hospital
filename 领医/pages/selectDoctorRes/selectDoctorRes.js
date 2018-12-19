@@ -6,16 +6,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    doctor:null
+    doctor:null,
+    notice:null,
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.ajax('POST', {},'Index/choice_doctor',res=>{
+    console.log(app.globalData.userId)
+    this.setData({
+      userid: app.globalData.userId,
+      subjects_id: options.subjects_id,
+      doctor_id: options.doctor_id,
+      office_time: options.office_time,
+    })
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      clinic_id:app.globalData.clinic_id,
+      subjects_id: options.subjects_id,
+      doctor_id: options.doctor_id,
+      office_time: options.office_time
+    },'Index/choice_doctor',res=>{
+      res.data.data.doctor.office_time = app.time(res.data.data.doctor.office_time)
       this.setData({
-        doctor: res.data.data.doctor
+        doctor: res.data.data.doctor,
+        notice: res.data.data.notice
       })
     })
   },
@@ -75,21 +92,21 @@ Page({
   },
   //确认预约
   sure(){
-    wx.showToast({
-      title: '预约成功',
-      icon:'success',
-      image: '',
-      duration: 2000,
-      mask: true,
-      success: function(res) {
-        setTimeout(()=>{
+    app.ajax('POST',{
+      user_token: app.globalData.user_token,
+      clinic_id: app.globalData.clinic_id,
+      subjects_id: this.data.subjects_id,
+      doctor_id:this.data.doctor_id,
+      office_time: this.data.office_time,
+      patient_id:this.data.userid.patient_id
+    },'Index/choice_registration',res=>{
+      app.toast(res.data.msg, res => {
+        setTimeout(() => {
           wx.navigateBack({
             delta: 1,
           })
         })
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+      })
     })
   },
   /**

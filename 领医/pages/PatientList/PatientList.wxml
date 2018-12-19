@@ -1,10 +1,10 @@
 
 <view class='wrap'>
-  <view class="item_head {{select==index?'item_head_select':''}}" bindtap='addUser' data-type='change' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" data-id="{{item.patient_id}}">
-    <image class='avater' src='{{item.patient_portrait}}'></image>
+  <view class="item_head {{selectIndex==item.patient_id?'item_head_select':''}}" bindtap='select' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" data-id="{{item.patient_id}}" data-index='{{index}}'> 
+    <image class='avater' src='{{ImageHost}}{{item.patient_portrait}}'></image>
     <view class='userRes'>
       <view class='name'>{{item.patient_realname}}</view>
-      <view class='age'>年龄：{{item.age}}岁</view>
+      <view class='age'>年龄：{{item.patient_age}}岁</view>
       <view class='sex'>性别：{{item.patient_sex==1?'男':'女'}}</view>
     </view>
     <view class='change'>
@@ -13,6 +13,7 @@
     </view>
   </view>
 </view>
+<view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
 
 
 <view class='add' bindtap='addUser' data-type='add'>

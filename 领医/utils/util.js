@@ -1,5 +1,5 @@
 //主域名
-const https = "http://lingyiil.dazhu-ltd.cn/index.php/api/"
+const https = "https://lingyiil.dazhu-ltd.cn/index.php/api/"
 
 /**
  * 时间转换
@@ -30,6 +30,43 @@ function timeFormatNotime(time) {
       timeStr = year + '/' + month + '/' + day;
     } else if (pastH >= 1) {
       timeStr = '今天 ' + hour + ':' + minute + '分';
+    } else {
+      var pastM = curDate.getMinutes() - minute;
+      if (pastM > 1) {
+        timeStr = pastM + '分钟前';
+      } else {
+        timeStr = '刚刚';
+      }
+    }
+  }
+  return timeStr;
+}
+function timeForm(time) {
+  var date = new Date(time * 1000),
+    curDate = new Date(),
+    year = date.getFullYear(),
+    month = date.getMonth() + 1,
+    day = date.getDate(),
+    hour = date.getHours(),
+    minute = date.getMinutes(),
+    curYear = curDate.getFullYear(),
+    curHour = curDate.getHours(),
+    timeStr;
+  if (minute < 10) {
+    minute = '0' + minute
+  }
+  if (year < curYear) {
+    // timeStr = year + '年' + month + '月' + day + '日' + hour + ':' + minute;
+    timeStr = year + ':' + month + ':' + day;
+  } else {
+    var pastTime = curDate - date,
+      pastH = pastTime / 3600000;
+
+    if (pastH > curHour) {
+      // timeStr = month + '月' + day + '日 ' + '' + hour + '时' + minute + '分';
+      timeStr = year + ':' + month + ':' + day;
+    } else if (pastH >= 1) {
+      timeStr =hour + ':' + minute + '分';
     } else {
       var pastM = curDate.getMinutes() - minute;
       if (pastM > 1) {
@@ -282,7 +319,7 @@ function ajax(Type, params, url, successData, errorData, completeData,imgurl) {
   var methonType = "application/json";
   // methonType = "application/x-www-form-urlencoded"
   //访问的主域名
-  var https = "http://lingyiil.dazhu-ltd.cn/index.php/api/"
+  var https = "https://lingyiil.dazhu-ltd.cn/index.php/api/"
   if (Type === 'PUT') {
     methonType = "application/x-www-form-urlencoded"
   }
@@ -376,5 +413,6 @@ module.exports = {
   chooseImage: chooseImage,
   getData: getData,
   mytoast: mytoast,
-  timeFormatNotime: timeFormatNotime
+  timeFormatNotime: timeFormatNotime,
+  timeForm: timeForm
 }

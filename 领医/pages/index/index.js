@@ -23,28 +23,21 @@ Page({
    * @params
    */
   toMydoctor() {
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: '/pages/my/doctor/doctor',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.reLaunch({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if(app.globalData.user_token!=''){
+      wx.navigateTo({
+        url: '/pages/my/doctor/doctor',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   onLoad: function (options) {
     //读取全局变量获取医院名称
@@ -106,28 +99,21 @@ Page({
   * @params
   */
   toMessges() {
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: '/pages/index/message/message',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.reLaunch({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if (app.globalData.user_token!='') {
+      wx.navigateTo({
+        url: '/pages/index/message/message',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   /**跳转去诊所切换以便切换诊所
   * @methon toChanges
@@ -145,28 +131,21 @@ Page({
    * @methon selsect
    */
   selsect() {
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: '/pages/selsectPatient/selsectPatient',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.reLaunch({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if (app.globalData.user_token!='') {
+      wx.navigateTo({
+        url: '/pages/selsectPatient/selsectPatient',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   /**跳转去领医介绍
    * @methon toProduce
@@ -197,28 +176,21 @@ Page({
    * @params
    */
   todao() {
-    wx.getStorage({
-      key: 'user_token',
-      success: function (res) {
-        wx.navigateTo({
-          url: "/pages/Helpdesk/Helpdesk",
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      fail: function (res) {
-        console.log(res)
-        wx.reLaunch({
-          url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      },
-      complete: function (res) { console.log(res) },
-    })
-
+    if (app.globalData.user_token != '') {
+      wx.navigateTo({
+        url: '/pages/messages/messages',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
   /**跳转去知识详情
   * @methon todao
