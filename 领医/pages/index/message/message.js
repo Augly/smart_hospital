@@ -43,7 +43,7 @@ del(e){
   console.log(e)
   wx.showToast({
     title: '删除成功!',
-  })
+  })``
 },
 onShow:function(){
   wx.setNavigationBarTitle({

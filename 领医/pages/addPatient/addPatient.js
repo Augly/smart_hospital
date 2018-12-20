@@ -43,7 +43,8 @@ Page({
         this.setData({
           imgUrl: this.data.ImageHost+res.data.data.patient_portrait,
           name: res.data.data.patient_realname,
-          // selectIndex: res.data.data.patient_type,
+          selectIndex: res.data.data.patient_type,
+          patient_type: res.data.data.patient_type,
           sex: res.data.data.patient_sex,
           patient_birthday: res.data.data.patient_birthday
         })
@@ -213,12 +214,13 @@ Page({
       },this.data.imgUrl)
     }else{
       app.ajax('post', {
-        patient_id: '',   //就诊人id
-        user_token: '',
-        patient_type: '',   //就诊人类别1:儿童2:成人
-        patient_sex: '',   //就诊人性别
-        patient_realname: '', //就诊人姓名
-        patient_birthday: ''  //就诊人生日
+        patient_id: this.data.patient_id,
+        user_token: app.globalData.user_token,
+        patient_type: this.data.patient_type,   //就诊人类别1:儿童2:成人
+        patient_sex: this.data.sex,   //就诊人性别
+        patient_realname: this.data.name, //就诊人姓名
+        patient_birthday: this.data.patient_birthday,  //就诊人生日
+        patient_portrait: this.data.patient_portrait
       }, 'User/patient_update_execute', res => {
         wx.showToast({
           title: this.data.statusType == 'add' ? '添加成功!' : '修改成功',

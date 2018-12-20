@@ -6,7 +6,7 @@
         <view class='title'>
           {{doctor.doctor_name}}
           <span class='minTitle'> {{doctor.subjects_name}}</span>
-          <!-- <span class='minTitle'>心脏科</span> -->
+          <span class='minTitle'>{{doctor.doctor_position}}</span>
         </view>
         <view class='adder'>{{doctor.clinic_name}}</view>
       </view>

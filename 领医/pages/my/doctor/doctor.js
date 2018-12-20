@@ -7,7 +7,8 @@ Page({
    */
   data: {
     starList: [1, 2, 3, 4, 5],
-    list: []
+    list: [],
+    imgUrl: app.ImageHost
   },
 
   /**
@@ -87,7 +88,7 @@ Page({
   toRes(e) {
     console.log(e.currentTarget.dataset.id) //此处为医生id
     wx.navigateTo({
-      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorId + '&clinic_id=' + e.currentTarget.dataset.doctorId + '&evaluation_level=' + e.currentTarget.dataset.level,
+      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorid + '&clinic_id=' + e.currentTarget.dataset.clinicid + '&evaluation_level=' + e.currentTarget.dataset.level,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

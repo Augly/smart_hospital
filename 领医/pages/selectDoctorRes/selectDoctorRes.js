@@ -22,6 +22,7 @@ Page({
       subjects_id: options.subjects_id,
       doctor_id: options.doctor_id,
       office_time: options.office_time,
+      date: options.date
     })
     app.ajax('POST', {
       user_token: app.globalData.user_token,
@@ -30,21 +31,23 @@ Page({
       doctor_id: options.doctor_id,
       office_time: options.office_time
     },'Index/choice_doctor',res=>{
-      res.data.data.doctor.office_time = app.time(res.data.data.doctor.office_time)
+      // res.data.data.doctor.office_time = app.time(res.data.data.doctor.office_time)
+      // console.log(res.data.data.doctor.office_time.split('-'))
       this.setData({
         doctor: res.data.data.doctor,
-        notice: res.data.data.notice
+        notice: res.data.data.notice,
+        array: [res.data.data.doctor.office_time.split('~')[0]]
       })
     })
-    app.ajax('POST', {
-      doctor_id: options.doctor_id,
-    }, 'Index/doctor_quantum', res => {
-      console.log(res)
-      // this.setData({
-      //   doctor: res.data.data.doctor,
-      //   notice: res.data.data.notice
-      // })
-    })
+    // app.ajax('POST', {
+    //   doctor_id: options.doctor_id,
+    // }, 'Index/doctor_quantum', res => {
+    //   console.log(res)
+    //   // this.setData({
+    //   //   doctor: res.data.data.doctor,
+    //   //   notice: res.data.data.notice
+    //   // })
+    // })
   },
   bindPickerChange(e) {
     this.setData({
@@ -112,6 +115,7 @@ Page({
       subjects_id: this.data.subjects_id,
       doctor_id:this.data.doctor_id,
       office_time: this.data.office_time,
+      quantum_time: this.data.date + this.data.array[this.data.index],
       patient_id:this.data.userid.patient_id
     },'Index/choice_registration',res=>{
       app.toast(res.data.msg, res => {

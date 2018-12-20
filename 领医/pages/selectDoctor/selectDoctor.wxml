@@ -17,7 +17,7 @@
         </view>
         <view class='adder'>{{item.clinic_name}}</view>
       </view>
-      <view class='bottonGroup' bindtap='toRes' data-id='{{item.doctor_id}}' data-timeid='{{item.office_time_id}}'>前往挂号</view>
+      <view class='bottonGroup' bindtap='toRes' data-id='{{item.doctor_id}}' data-timeid='{{item.office_time_id}}' data-date="{{dataList[selectIndex].more}}">前往挂号</view>
     </view>
     <view class='itemOther'>
       <view class='otherHead'>工作时间</view>

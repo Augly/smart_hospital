@@ -27,10 +27,11 @@ Page({
       office_time: new Date().getTime()
     },'Index/choice_doctor_list',res=>{
       this.setData({
-        doctorList: res.data.data.doctor.map(res=>{
-          res.office_time = app.time(res.office_time)
-          return res
-        })
+        doctorList: res.data.data.doctor
+        // doctorList: res.data.data.doctor.map(res=>{
+        //   res.office_time = app.time(res.office_time)
+        //   return res
+        // })
       })
     })
     this.gitData()
@@ -47,10 +48,11 @@ Page({
       office_time: this.data.dataList[e.currentTarget.dataset.index].value
     }, 'Index/choice_doctor_list', res => {
       this.setData({
-        doctorList: res.data.data.doctor.map(res => {
-          res.office_time = app.time(res.office_time)
-          return res
-        })
+        doctorList: res.data.data.doctor
+        // doctorList: res.data.data.doctor.map(res => {
+        //   res.office_time = app.time(res.office_time)
+        //   return res
+        // })
       })
     })
   },
@@ -66,7 +68,8 @@ Page({
     return {
       mon: week[w],
       date: `${m}.${d}`,
-      value: s 
+      value: s,
+      more:`${y}-${m}-${d}`
     }
   },
   //获取今天为起点得往后七天日期星期
@@ -139,7 +142,7 @@ Page({
   toRes(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: `/pages/selectDoctorRes/selectDoctorRes?doctor_id=${e.currentTarget.dataset.id}&office_time=${e.currentTarget.dataset.timeid}&subjects_id=${this.data.subjects_id}`,
+      url: `/pages/selectDoctorRes/selectDoctorRes?doctor_id=${e.currentTarget.dataset.id}&office_time=${e.currentTarget.dataset.timeid}&subjects_id=${this.data.subjects_id}&date=${e.currentTarget.dataset.date}`,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

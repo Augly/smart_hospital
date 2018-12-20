@@ -30,17 +30,19 @@ Page({
       tel:'17633369350',
       name:'中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院'
     },
-    pageNum:1
+    pageNum:1,
+    imgUrl: app.ImageHost
   },  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     app.ajax('POST',{
       user_token:app.globalData.user_token,    //用户令牌
       doctor_id: options.doctorId,     //医生id
-      paging: this.pageNum,         //分页页数
+      paging: this.data.pageNum,         //分页页数
       clinic_id: options.clinic_id        //诊所id
     },'User/my_doctor_details',res=>{
       this.setData({

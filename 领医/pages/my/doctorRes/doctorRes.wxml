@@ -1,6 +1,6 @@
 <view class='wrap'>
   <view class='item'>
-    <image class='logo' src="{{doctor.information.avtar}}"></image>
+    <image class='logo' src="{{imgUrl}}{{doctor.information.doctor_portrait}}"></image>
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>

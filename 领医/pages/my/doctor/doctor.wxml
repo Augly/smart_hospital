@@ -1,7 +1,7 @@
 
 <view class='wrap'>
   <view class='item' wx:for="{{list}}" wx:for-itwm='item' wx:for-index="index">
-    <image class='logo' src='{{item.doctor_portrait}}'></image>
+    <image class='logo' src='{{imgUrl}}{{item.doctor_portrait}}'></image>
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
@@ -13,7 +13,7 @@
         </view>
         <view class='adder'>{{item.clinic}}</view>
         <view class='buttonGroup'>
-          <view class='look' bindtap='toRes' data-doctorId='{{item.doctor_id}}' data-clinicId='{{item.clinic_id}}' data-level="{{item.evaluation_level}}">查看医生</view>
+          <view class='look' bindtap='toRes' data-doctorid='{{item.doctor_id}}' data-clinicid='{{item.clinic_id}}' data-level="{{item.evaluation_level}}">查看医生</view>
           <view class='ask' bindtap='tochat' data-id='{{item.id}}'>快速询问</view>
         </view>
       </view>
