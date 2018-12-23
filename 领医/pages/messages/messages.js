@@ -1,4 +1,4 @@
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -6,7 +6,8 @@ Page({
    */
   data: {
     myheight: '',
-    content:'',
+    height: 0,
+    content: '',
     list: []
   },
 
@@ -17,7 +18,7 @@ Page({
     this.getHeight(0)
     this.gitData()
   },
-  gitData(){
+  gitData() {
     app.ajax('POST', {
       user_token: app.globalData.user_token,
     }, 'Index/hospital_guide', res => {
@@ -41,6 +42,23 @@ Page({
       })
     })
   },
+  //监听input获得焦点
+
+  bindfocus: function (e) {
+    this.setData({
+      height: e.detail.height
+    })
+  },
+
+  //监听input失去焦点
+
+  bindblur: function (e) {
+
+    this.setData({
+      height: 0
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -52,7 +70,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -61,20 +79,20 @@ Page({
   onHide: function () {
 
   },
-  getValue(e){
+  getValue(e) {
     this.setData({
-      content:e.detail.value
+      content: e.detail.value
     })
   },
-  send(){
-    if(this.data.content!=''){
-      app.ajax('POST',{
-        user_token:app.globalData.user_token,
+  send() {
+    if (this.data.content != '') {
+      app.ajax('POST', {
+        user_token: app.globalData.user_token,
         inquiry_count: this.data.content
-      },'Index/hospital_guide_add',res=>{
+      }, 'Index/hospital_guide_add', res => {
         this.gitData()
       })
-    }else{
+    } else {
       app.toast('请输入内容')
     }
   },
@@ -84,12 +102,12 @@ Page({
   onUnload: function () {
 
   },
-  tores(e){
+  tores(e) {
     wx.navigateTo({
       url: `/pages/messagesRes/messagesRes?id=${e.currentTarget.dataset.id}`,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   /**

@@ -14,8 +14,15 @@
   <view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
 </scroll-view>
 
-<view class='bottomIpt'>
+<!-- <view class='bottomIpt'>
   <input class='ipt' bindinput='getValue'></input>
+  <view class='send' bindtap='send'>
+    <span class='iconfont icon-fasong'></span>
+  </view>
+</view> -->
+
+<view class='bottomIpt' style='bottom:{{height}}px'>
+  <input class='ipt' adjust-position='{{list.length>2?true:false}}' bindfocus='bindfocus' bindblur='bindblur' bindinput='getValue'></input>
   <view class='send' bindtap='send'>
     <span class='iconfont icon-fasong'></span>
   </view>
