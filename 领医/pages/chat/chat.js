@@ -24,12 +24,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '正在链接...',
-      mask: true,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+    // wx.showLoading({
+    //   title: '正在链接...',
+    //   mask: true,
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
+    wx.showModal({
+      title: '敬请期待',
+      showCancel: true,
+      cancelText: '明白',
+      confirmText: '知道了',
+      success: function(res) {
+        wx.navigateBack({
+          delta: 1,
+        })
+      },
+      fail: function(res) {
+        wx.navigateBack({
+          delta: 1,
+        })
+      },
+      complete: function(res) {
+        wx.navigateBack({
+          delta: 1,
+        })
+      },
     })
     if (timeGroup) {
       clearInterval(timeGroup)
