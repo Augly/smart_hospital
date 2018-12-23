@@ -1,3 +1,4 @@
+
 // pages/Registration/Registration.js
 const app=getApp()
 Page({
@@ -119,10 +120,16 @@ Page({
     })
   },
   cencel(e){
-    console.log(e)
-    wx.showToast({
-      title: '取消成功!',
-      mask:true
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      registration_id:e.currentTarget.dataset.id
+    }, 'User/cancel_registration', res => {
+      let list = this.data.listed
+      list.splice(e.currentTarget.dataset.index,1)
+      console.log(list)
+      this.setData({
+        listed: list
+      })
     })
   },
   toEvent(e){

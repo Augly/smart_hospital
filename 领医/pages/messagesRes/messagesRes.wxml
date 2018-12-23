@@ -1,0 +1,27 @@
+<view class='chatWrap'>
+    <view class='list'>
+      <view class='content'>
+        <view class='content_title'>
+          患者咨询描述：
+        </view>
+        <view class='content_main'>{{alldata.inquiry_count}}</view>
+        <view class='dataGreoup'>
+        <view class='data'>{{alldata.inquiry_time}}</view>
+      </view>
+      </view>
+    </view>
+    <view class='list self' wx:if="{{alldata.answer_people_name!=''&&alldata.answer_people_name!=null&&alldata.answer_people_name!=undefined}}">
+      <view class='content'>
+        <view class='content_title'>
+          回答医师： <text class='colg'>{{alldata.answer_people_name}}</text>
+        </view>
+        <view class='content_main'>{{alldata.inquiry_answer}}</view>
+        <view class='dataGreoup'>
+        <view class='data'>{{alldata.answer_time}}</view>
+      </view>
+      </view>
+    </view>
+    <view class='nodata' wx:if="{{alldata.answer_people_name==''||alldata.answer_people_name==null||alldata.answer_people_name==undefined}}">
+      暂无回答 <text class='colb' bindtap='togh'>前去挂号</text>
+    </view>
+</view>

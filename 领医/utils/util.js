@@ -57,14 +57,14 @@ function timeForm(time) {
   }
   if (year < curYear) {
     // timeStr = year + '年' + month + '月' + day + '日' + hour + ':' + minute;
-    timeStr = year + ':' + month + ':' + day;
+    timeStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;;
   } else {
     var pastTime = curDate - date,
       pastH = pastTime / 3600000;
 
     if (pastH > curHour) {
       // timeStr = month + '月' + day + '日 ' + '' + hour + '时' + minute + '分';
-      timeStr = year + ':' + month + ':' + day;
+      timeStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;;
     } else if (pastH >= 1) {
       timeStr =hour + ':' + minute + '分';
     } else {
@@ -215,7 +215,9 @@ function mytoast(main, successData) {
 
       }, 1500)
     },
-    fail: function (res) { },
+    fail: function (res) { 
+      console.log(res)
+    },
     complete: function (res) { },
   })
 }
@@ -367,18 +369,18 @@ function ajax(Type, params, url, successData, errorData, completeData,imgurl) {
     })
   }else{
     if (imgurl){
-      console.log(imgurl)
       wx.uploadFile({
         url: https + url, 
         filePath: imgurl,
-        name: 'patient_portrait',
+        name: 'file',
         formData:params,
         success: (res) => {
           wx.hideLoading()
-          if (res.statusCode == 200) {
-            successData(res)
+          var data=JSON.parse(res.data)
+          if (data.code == 1) {
+            successData(data)
           } else {
-            mytoast(res.data.msg)
+            mytoast(data.msg)
           }
         },
         error(res) {

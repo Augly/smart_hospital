@@ -13,7 +13,7 @@
         </view>
         <view class='adder'>{{item.clinic}}</view>
         <view class='buttonGroup'>
-          <view class='look' bindtap='toRes' data-doctorid='{{item.doctor_id}}' data-clinicid='{{item.clinic_id}}' data-level="{{item.evaluation_level}}">查看医生</view>
+          <view class='look' bindtap='toRes' data-doctorid='{{item.doctor_id}}'>查看医生</view>
           <view class='ask' bindtap='tochat' data-id='{{item.id}}'>快速询问</view>
         </view>
       </view>

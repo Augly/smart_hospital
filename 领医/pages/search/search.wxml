@@ -10,12 +10,12 @@
 <view class='content'>
   <view class='title'>医生</view>
   <view class='tag_doctor'>
-    <span class='tag' wx:for="{{doctorList}}" wx:for-index="inde" wx:for-item="item">
+    <span class='tag' wx:for="{{doctorList}}" wx:for-index="inde" wx:for-item="item" bindtap="" bindtap='toRes' data-doctorid='{{item.doctor_id}}'>
       {{item.doctor_name}}
     </span>
   </view>
   <view class='title'>科室</view>
   <view class='tag_doctor'>
-    <view class='tag_View' wx:for="{{ks}}" wx:for-index="index" wx:for-item="item" style="background:{{colorList[index%6]}}"> {{item.subjects_name}}</view>
+    <view class='tag_View' wx:for="{{ks}}" wx:for-index="index" wx:for-item="item" data-id="{{item.subjects_id}}" style="background:{{colorList[index%6]}}" bindtap='tosub'> {{item.subjects_name}}</view>
   </view>
 </view>

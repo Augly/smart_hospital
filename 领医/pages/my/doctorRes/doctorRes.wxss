@@ -211,20 +211,21 @@ page {
 
 .tagGroup {
   margin-top: 32rpx;
+  padding-top: 4rpx;
   padding-bottom: 50rpx;
 }
 
 .tag {
-  padding: 11rpx 45rpx 11rpx 45rpx;
+  padding: 9rpx 45rpx 9rpx 45rpx;
   height: 52rpx;
   line-height: 52rpx;
   font-size: 28rpx;
   font-family: PingFang-SC-Bold;
   /* font-weight:bold; */
   color: rgba(99, 223, 197, 1);
-
+  box-sizing: border-box;
   border: 2rpx solid rgba(230, 230, 230, 1);
-  border-radius: 52rpx;
+  border-radius: 54rpx;
   margin-right: 33rpx;
 }
 

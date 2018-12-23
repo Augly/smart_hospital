@@ -7,7 +7,7 @@
           {{doctor.information.doctor_name}}
         </view>
         <view class='d_k'>
-          <text class='ks'> {{doctor.information.skilled_skill}} </text>
+          <text class='ks'> {{doctor.information.subjects_name}} </text>
           <text class='z_do'> {{doctor.information.doctor_rank}}</text>
         </view>
         <view class='adder'> {{doctor.information.clinic}}</view>
@@ -21,8 +21,8 @@
           已回答 {{doctor.solve_number.solve_number}}位患者
         </view>
         <view class='starGroup'>
-          <span class="iconfont {{myindex<evaluation_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
-          <view class='gold'>{{evaluation_level}}.0</view>
+          <span class="iconfont {{myindex<doctor.information.doctor_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+          <view class='gold'>{{doctor.information.doctor_level}}.0</view>
         </view>
       </view>
     </view>
@@ -60,7 +60,8 @@
       擅长疾病
     </view>
     <view class='tagGroup'>
-      <text class='tag' wx:for="{{doctor.patentList}}" wx:for-index="index" wx:for-item="item"> {{item}}</text>
+      <!-- <text class='tag' wx:for="{{doctor.patentList}}" wx:for-index="index" wx:for-item="item"> {{item}}</text> -->
+      <text class='tag'> {{doctor.information.skilled_skill}}</text>
     </view>
     <view class='goodTTitle'>
       个人简介
@@ -92,15 +93,16 @@
     <view class='goodTTitle'>
       患者评价
     </view>
-    <view class='describe'>
+     <view class='nodata' wx:if="{{doctor.comment.length==0}}">暂无评论</view>
+    <view class='describe' wx:if="{{doctor.comment.length>0}}">
       {{doctor.comment[0].comment_count}}
     </view>
-    <view class='starGroup' style='justify-content:flex-end;'>
+    <view class='starGroup' style='justify-content:flex-end;' wx:if="{{doctor.comment.length>0}}">
       <span class="iconfont {{myindex<doctor.comment[0].comment_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
       <view class='gold' style='color:#999999;margin-left:9rpx'> {{doctor.comment[0].comment_level}}.0</view>
     </view>
   </view>
-  <view class='goodT' wx:for="{{doctor.comment}}" wx:for-index="index" wx:for-item="item" wx:if="{{index!=0}}">
+  <view class='goodT' wx:for="{{doctor.comment}}" wx:for-index="index" wx:for-item="item" wx:if="{{index!=0&&doctor.comment.length>1}}">
     <view class='describe'>
       {{item.comment_count}}
     </view>
@@ -109,4 +111,5 @@
       <view class='gold' style='color:#999999;margin-left:9rpx'> {{item.comment_level}}.0</view>
     </view>
   </view>
+ 
 </view>

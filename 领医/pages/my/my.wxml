@@ -4,7 +4,7 @@
       <i class='iconfont icon-xiangjipaizhao' bindtap='changesA'></i>
     </view>
     <view class='avtarWrap'>
-      <image src='{{allData.user_portrait}}' class='avater'></image>
+      <image src='{{ImageHost}}{{allData.user_portrait}}' class='avater'></image>
     </view>
 
     <view class='title'>
@@ -19,7 +19,7 @@
           <view class='itemTitle'>我的昵称</view>
         </view>
         <view class='right'>
-          <input class='name' value='{{allData.user_nickname}}' bindinput='getName'></input>
+          <input class='name' value='{{allData.user_nickname}}' bindinput='getName' bindblur='send'></input>
         </view>
       </view>
       <view class='item'>

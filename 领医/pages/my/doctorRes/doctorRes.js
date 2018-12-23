@@ -7,7 +7,6 @@ Page({
    */
   data: {
     starList: [1, 2, 3, 4, 5],
-    evaluation_level:0,
     doctor:{
       name:'王晶',
       ks:'心脏科',
@@ -31,7 +30,7 @@ Page({
       name:'中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院'
     },
     pageNum:1,
-    imgUrl: app.ImageHost
+    imgUrl: app.ImageHost,
   },  
 
   /**
@@ -39,15 +38,22 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    app.ajax('POST',{
-      user_token:app.globalData.user_token,    //用户令牌
-      doctor_id: options.doctorId,     //医生id
+    this.setData({
+      doctor_id: options.doctorId,
+      clinic_id: app.globalData.clinic_id,
+    })
+    this.gitData()
+  },
+  gitData(){
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,    //用户令牌
+      doctor_id: this.data.doctor_id,     //医生id
       paging: this.data.pageNum,         //分页页数
-      clinic_id: options.clinic_id        //诊所id
-    },'User/my_doctor_details',res=>{
+      clinic_id: this.data.clinic_id        //诊所id
+    }, 'User/my_doctor_details', res => {
       this.setData({
-        doctor:res.data.data,
-        evaluation_level: options.evaluation_level
+        doctor: res.data.data,
+        pageNum: 1 + this.data.pageNum
       })
     })
   },
@@ -84,19 +90,51 @@ Page({
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+  //下拉刷新
   onPullDownRefresh: function () {
-
+    console.log('--------下拉刷新-------');
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    // 隐藏导航栏加载框  
+    this.setData({
+      pageNum:1
+    })
+    this.gitData()
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作  
+    wx.stopPullDownRefresh();
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  //上拉加载
   onReachBottom: function () {
-
+    console.log('--------触底加载-------');
+    wx.showLoading({
+      title: '玩命加载中',
+      mask: true,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,    //用户令牌
+      doctor_id: this.data.doctor_id,     //医生id
+      paging: this.data.pageNum,         //分页页数
+      clinic_id: this.data.clinic_id        //诊所id
+    }, 'User/my_doctor_details', res => {
+      wx.hideLoading()
+      let alldata=this.data.doctor
+      if(res.data.data.comment.length==0){
+        wx.showToast({
+          title: '暂无更多',
+          mask: true,
+        })
+      }else{
+        alldata.comment.concat(res.data.data.comment)
+        this.setData({
+          doctor:alldata,
+          pageNum: 1 + this.data.pageNum
+        })
+      }
+    })
   },
 
   /**

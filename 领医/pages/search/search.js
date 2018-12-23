@@ -16,15 +16,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getData()
+  },
+  getData(){
     app.ajax('POST', {
-      seek: '',
+      seek: this.data.value,
       clinic_id: app.globalData.clinic_id
     }, 'Index/seek', res => {
       console.log(res)
       this.setData({
-        doctorList:res.data.data.doctor,
+        doctorList: res.data.data.doctor,
         ks: res.data.data.subjects
       })
+    })
+  },
+  toRes(e) {
+    wx.navigateTo({
+      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorid + '&clinic_id=' + e.currentTarget.dataset.clinicid + '&evaluation_level=' + e.currentTarget.dataset.level,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   getValue(e) {
@@ -32,6 +43,15 @@ Page({
       value: e.detail.value
     })
   },
+  tosub(e){
+      wx.navigateTo({
+    url: `/pages/selectDoctor/selectDoctor?subjects_id=${e.currentTarget.dataset.id}`,
+    success: function (res) { },
+    fail: function (res) { },
+    complete: function (res) { },
+  })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -87,7 +107,7 @@ Page({
   },
   scope() {
     if (this.data.value != '') {
-
+      this.getData()
     } else {
       wx.navigateBack({
         delta: 1,

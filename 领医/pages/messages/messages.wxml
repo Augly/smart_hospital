@@ -1,47 +1,19 @@
-<view class='chatWrap'>
-<view wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
-  <!-- <view class='list'>
-    <view class='userRes'>
-      <image class='avatr' src='{{item.user_portrait}}'></image>
-      <view class='main'>
-        <view class='title'>
-          提问者：
-          <span class='minTitle'>{{item.user_nickname}}</span>
-        </view>
-        <view class='date'>{{item.inquiry_time}}</view>
-      </view>
-    </view>
+<scroll-view style='width:100%;height:{{myheight}}px' scroll-y scroll-into-view="a{{myTop}}" scroll-with-animation class='chatWrap'>
+  <view class='list' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" id='a{{index}}' bindtap='tores' data-id='{{item.inquiry_id}}'>
     <view class='content'>
       <view class='content_title'>
-        {{item.inquiry_title}}
+        患者咨询描述：
       </view>
-      <view class='content_main'> {item.inquiry_count}}
-      </view>
-    </view>
-  </view> -->
-   <view class='list self'>
-    <view class='userRes'>
-      <image class='avatr' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg'></image>
-      <view class='main'>
-        <view class='title'>
-          回答医师：
-          <span class='minTitle'>王晶</span>
-        </view>
-        <view class='date'>2017-08-10 19:52:00</view>
-      </view>
-    </view>
-    <view class='content'>
-      <view class='content_title'>
-        医师解答描述：
-      </view>
-      <view class='content_main'> 	如果发烧，超过38.5度，需要注意及时对症治疗，可以
-多喝水不要吃辛辣刺激的食物多吃新鲜蔬菜水果，如果没
-有退烧药物，可以使用温水擦洗。
+      <view class='content_main'>{{item.inquiry_count}}</view>
+      <view class='dataGreoup'>
+        <view class='data'>{{item.inquiry_time}}</view>
+        <view class="status {{item.inquiry_type==1?'':'cor'}}">{{item.inquiry_type==1?'暂无回答':'已得到解答'}}</view>
       </view>
     </view>
   </view>
-</view>
-</view>
+  <view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
+</scroll-view>
+
 <view class='bottomIpt'>
   <input class='ipt' bindinput='getValue'></input>
   <view class='send' bindtap='send'>

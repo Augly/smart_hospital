@@ -16,7 +16,8 @@ Page({
    */
   onLoad: function(options) {
     app.ajax('POST',{
-      user_token:app.globalData.user_token
+      user_token:app.globalData.user_token,
+      clinic_id:app.globalData.clinic_id
     },'User/my_doctor',(res)=>{
       this.setData({
         list:res.data.data.map(item=>{
@@ -86,7 +87,6 @@ Page({
    * 
    */
   toRes(e) {
-    console.log(e.currentTarget.dataset.id) //此处为医生id
     wx.navigateTo({
       url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorid + '&clinic_id=' + e.currentTarget.dataset.clinicid + '&evaluation_level=' + e.currentTarget.dataset.level,
       success: function(res) {},

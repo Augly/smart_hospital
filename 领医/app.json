@@ -6,6 +6,7 @@
     "pages/notice/notice",
     "pages/message/message",
     "pages/messages/messages",
+    "pages/messagesRes/messagesRes",
     "pages/Helpdesk/Helpdesk",
     "pages/Forum/Forum",
     "pages/ForumRes/ForumRes",

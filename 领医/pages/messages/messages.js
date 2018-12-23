@@ -5,44 +5,42 @@ Page({
    * 页面的初始数据
    */
   data: {
+    myheight: '',
     content:'',
-    list: [
-      {
-        "uid": 1,
-        "fid": 1,
-        "inquiry_title": "得了感冒怎么办？",
-        "inquiry_count": "受寒了",
-        "inquiry_answer": "多喝热水",
-        "inquiry_time": 4294967295,
-        "answer_time": 654654646,
-        "user_nickname": "涅凡尘",
-        "user_portrait": "20181208/8893ed59293a5e308512676e58ce8e16.jpg",
-        "answer_people_name": "王医生",
-        "answer_people_pic": "456524455"
-      },
-      {
-        "uid": 1,
-        "fid": 0,
-        "inquiry_title": "这是问题标题",
-        "inquiry_count": "问题描述",
-        "inquiry_answer": "",
-        "inquiry_time": 1544672719,
-        "answer_time": 4294967295,
-        "user_nickname": "涅凡尘",
-        "user_portrait": "20181208/8893ed59293a5e308512676e58ce8e16.jpg",
-        "answer_people_name": null,
-        "answer_people_pic": null
-      }
-    ]
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getHeight(0)
+    this.gitData()
   },
-
+  gitData(){
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+    }, 'Index/hospital_guide', res => {
+      this.setData({
+        list: res.data.data.inquiry.map(item => {
+          item.inquiry_time = app.configure.timeForm(item.inquiry_time)
+          return item
+        })
+      })
+      setTimeout(() => {
+        this.setData({
+          myTop: this.data.list.length - 1,
+        })
+      }, 300)
+    })
+  },
+  getHeight(h) {
+    app.configure.rem(h, (res) => {
+      this.setData({
+        myheight: res
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -69,17 +67,16 @@ Page({
     })
   },
   send(){
-    app.toast('接口有问题,待修复')
-    // if(this.data.content!=''){
-    //   app.ajax('POST',{
-    //     user_token:app.globalData.user_token,
-    //     inquiry_count: this.data.inquiry_count
-    //   },'Index/hospital_guide_add',res=>{
-    //     app.toast('接口有问题,待修复')
-    //   })
-    // }else{
-    //   app.toast('请输入内容')
-    // }
+    if(this.data.content!=''){
+      app.ajax('POST',{
+        user_token:app.globalData.user_token,
+        inquiry_count: this.data.content
+      },'Index/hospital_guide_add',res=>{
+        this.gitData()
+      })
+    }else{
+      app.toast('请输入内容')
+    }
   },
   /**
    * 生命周期函数--监听页面卸载
@@ -87,7 +84,14 @@ Page({
   onUnload: function () {
 
   },
-
+  tores(e){
+    wx.navigateTo({
+      url: `/pages/messagesRes/messagesRes?id=${e.currentTarget.dataset.id}`,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

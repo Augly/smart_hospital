@@ -1,8 +1,3 @@
-
-
-
-
-
 const configure=require('./utils/util.js')
 App({
   time: configure.timeFormatNotime,
