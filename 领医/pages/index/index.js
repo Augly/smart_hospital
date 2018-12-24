@@ -133,7 +133,7 @@ Page({
   selsect() {
     if (app.globalData.user_token!='') {
       wx.navigateTo({
-        url: '/pages/selsectPatient/selsectPatient?type=1',
+        url: `/pages/index/switchover/switchover?clinic_id=${this.data.clinic.clinic_id}`,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

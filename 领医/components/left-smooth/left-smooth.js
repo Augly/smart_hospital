@@ -9,6 +9,10 @@ Component({
       type: String,
       value: '96',
       observer: function (newVal, oldVal, changedPath) { }
+    },
+    myindex:{
+      type: null,
+      value:''
     }
   },
   // 组件的初始数据
@@ -33,7 +37,10 @@ Component({
       }
     },
     del(){
-      const myEventDetail = {} // detail对象，提供给事件监听函数
+      console.log(this.data.myindex)
+      const myEventDetail = {
+        myindex: this.data.myindex
+      } // detail对象，提供给事件监听函数
       const myEventOption = {} // 触发事件的选项
       this.triggerEvent('del', myEventDetail, myEventOption)
     },

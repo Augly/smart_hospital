@@ -8,7 +8,7 @@ Page({
   data: {
     type: 1,
     allData: null,
-    show: false,
+    // show: false,
     ImageHost: app.ImageHost
   },
 

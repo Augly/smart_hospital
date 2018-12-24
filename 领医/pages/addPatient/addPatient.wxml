@@ -1,4 +1,3 @@
-
 <view class='wrap'>
   <view class='tabBar' wx-if="{{statusType!='change'}}">
     <view class="tabItem {{selectIndex=='1'?'tabActive':''}}" bindtap='selectType' data-index='1'>
@@ -20,6 +19,10 @@
     <view class='title'>姓名</view>
     <input class='name' placeholder='请填写就诊人姓名' value='{{name}}' bindinput='getName'></input>
   </view>
+  <view>
+    <view class='title'>年龄</view>
+    <input class='name' placeholder='请填写就诊人年龄' value='{{patient_age}}' bindinput='getAge'></input>
+  </view>
 
   <view>
     <view class='title'>性别</view>
@@ -28,11 +31,19 @@
       <view class="sexItem {{sex=='2'?'sexItemActive':''}}" data-sex='2' bindtap='selectSex'>女生</view>
     </view>
   </view>
-    <view>
+  <view>
+    <view class='title'>手机号 </view>
+    <input class='name' placeholder='请填写就诊人手机号' value='{{patient_phone}}' bindinput='getphone'></input>
+  </view>
+  <view>
     <view class='title'>出生日期</view>
     <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05' value='{{patient_birthday}}' bindinput='getbirth'></input>
   </view>
+  <view>
+    <view class='title'>身份证号码</view>
+    <input class='name' placeholder='请输入就诊人的身份证号' value='{{patient_card_number}}' bindinput='getID'></input>
+  </view>
 
   <view class='add' bindtap='scope'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>
-  <view class='del' wx-if="{{statusType=='change'}}" bindtap='del'>删除就诊人</view>
+  <!-- <view class='del' wx-if="{{statusType=='change'}}" bindtap='del'>删除就诊人</view> -->
 </view>

@@ -10,10 +10,10 @@
       </block>
     </swiper>
     <view class='seachGroup'>
-      <view class='changes' bindtap='toChanges'>
+      <!-- <view class='changes' bindtap='toChanges'>
         <span class='iconfont icon-qiehuan'></span>
         切换诊所
-      </view>
+      </view> -->
       <view class="banner-search" bindtap='toserch'>
         <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder"></input>
       </view>

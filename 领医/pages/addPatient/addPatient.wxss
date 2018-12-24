@@ -5,7 +5,7 @@
   overflow: hidden;
   padding-bottom: 100rpx;
   box-sizing: border-box;
-  padding: 0rpx 40rpx;
+  padding: 0rpx 40rpx 40rpx 40rpx;
 }
 
 .tabBar {
@@ -111,7 +111,7 @@
   color: rgba(255, 255, 255, 1);
   text-align: center;
   line-height: 74rpx;
-  margin-top: 140rpx;
+  margin-top: 21rpx;
 }
 
 .del{

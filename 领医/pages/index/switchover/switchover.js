@@ -52,8 +52,11 @@ Page({
     })
     // 切换成功后500毫秒返回index页并传值过去
     setTimeout(() => {
-      wx.navigateBack({
-        delta: 1,
+      wx.navigateTo({
+        url: '/pages/selsectPatient/selsectPatient?type=1',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
       })
     }, 500)
   }

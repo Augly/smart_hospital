@@ -52,14 +52,34 @@ Page({
     }
 
   },
+  //获取名字
   getName(e) {
     this.setData({
       name: e.detail.value
     })
   },
+  //获取生日
   getbirth(e) {
     this.setData({
       patient_birthday: e.detail.value
+    })
+  },
+  //获取年龄
+  getAge(e) {
+    this.setData({
+      patient_age: e.detail.value
+    })
+  },
+  //获取手机号
+  getphone(e) {
+    this.setData({
+      patient_phone: e.detail.value
+    })
+  },
+  //获取身份证
+  getID(e) {
+    this.setData({
+      patient_card_number: e.detail.value
     })
   },
   /**
@@ -186,6 +206,18 @@ Page({
       app.toast('请输入出生年月')
       return false
     }
+    if (this.data.patient_age == '') {
+      app.toast('请输入年龄')
+      return false
+    }
+    if (this.data.patient_phone == '') {
+      app.toast('请输入手机号')
+      return false
+    }
+    if (this.data.patient_card_number == '') {
+      app.toast('请输入身份证号')
+      return false
+    }
     if (this.data.statusType == 'add'){
       var data={
         user_token: app.globalData.user_token,
@@ -193,7 +225,9 @@ Page({
         patient_sex: this.data.sex, //就诊人性别
         patient_realname: this.data.name, //就诊人姓名
         patient_portrait: this.data.imgUrl, //就诊人头像
-        patient_birthday: this.data.patient_birthday //就诊人生日
+        patient_birthday: this.data.patient_birthday, //就诊人生日
+        patient_phone: this.data.patient_phone,  //就诊人手机号
+        
       }
       
     }else{
