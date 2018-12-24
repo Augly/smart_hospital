@@ -39,14 +39,16 @@ Page({
       app.ajax('POST', {
         patient_id: options.patient_id, //就诊人id
       }, 'User/patient_update', res => {
-        console.log(res)
         this.setData({
-          imgUrl: res.data.data.patient_portrait,
-          name: res.data.data.patient_realname,
-          selectIndex: res.data.data.patient_type,
-          patient_type: res.data.data.patient_type,
-          sex: res.data.data.patient_sex,
-          patient_birthday: res.data.data.patient_birthday
+          imgUrl: res.data.data.patient_portrait,  //头像
+          name: res.data.data.patient_realname,   //姓名
+          selectIndex: res.data.data.patient_type,    //就诊人类型
+          patient_type: res.data.data.patient_type,   //
+          sex: res.data.data.patient_sex,   //性别
+          patient_birthday: res.data.data.patient_birthday,   //生日
+          patient_card_number: res.data.data.patient_card_number,  //身份证号
+          patient_phone:res.data.data.patient_phone, //手机号
+          patient_age:res.data.data.patient_age  //年龄
         })
       })
     }
@@ -227,9 +229,9 @@ Page({
         patient_portrait: this.data.imgUrl, //就诊人头像
         patient_birthday: this.data.patient_birthday, //就诊人生日
         patient_phone: this.data.patient_phone,  //就诊人手机号
-        
+        patient_card_number: this.data.patient_card_number, //身份证号
+        patient_age: this.data.patient_age  //就诊人年龄
       }
-      
     }else{
       var data={
         user_token: app.globalData.user_token,
@@ -238,6 +240,9 @@ Page({
         patient_realname: this.data.name, //就诊人姓名
         patient_portrait: this.data.imgUrl, //就诊人头像
         patient_birthday: this.data.patient_birthday, //就诊人生日
+        patient_phone: this.data.patient_phone,  //就诊人手机号
+        patient_card_number: this.data.patient_card_number, //身份证号
+        patient_age: this.data.patient_age,  //就诊人年龄
         patient_id: this.data.patient_id
       }
     }

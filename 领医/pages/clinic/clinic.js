@@ -5,19 +5,14 @@ Page({
   data: {
     ImageHost: app.ImageHost,
     clinicList: [],
-    clinic_id: app.globalData.clinic_id,
-    clinic_name: app.globalData.clinic_name,
-    clinic_laboratory: app.globalData.clinic_laboratory
   },
   onLoad: function (options) {
     this.setData({
       clinic_id: app.globalData.clinic_id,
-      clinic_name: app.globalData.clinic_name,
-      clinic_laboratory: app.globalData.clinic_laboratory
     })
     app.ajax('POST', {
       clinic_id: app.globalData.clinic_id
-    }, 'Index/clinic_introduction', (res) => {
+    }, 'Index/clinic_switch', (res) => {
       if (res.data.code == 1) {
         this.setData({
           clinicList: res.data.data.list
@@ -40,18 +35,17 @@ Page({
    * @Methon tochanges
    */
   tochanges(e) {
-      app.globalData.clinic_id = e.currentTarget.dataset.id,
-      app.globalData.clinic_name = e.currentTarget.dataset.name,
-      app.globalData.clinic_laboratory = e.currentTarget.dataset.laboratory
+    // app.globalData.clinic_id = e.currentTarget.dataset.id,
+    //   app.globalData.clinic_name = e.currentTarget.dataset.name,
+    //   app.globalData.clinic_laboratory = e.currentTarget.dataset.laboratory
     this.setData({
       clinic_id: e.currentTarget.dataset.id,  //医院id
       clinic_name: e.currentTarget.dataset.name,  //医院名称
-      clinic_laboratory: e.currentTarget.dataset.laboratory //主要科室
     })
     // 切换成功后500毫秒返回index页并传值过去
     setTimeout(() => {
       wx.navigateTo({
-        url: '/pages/selsectPatient/selsectPatient?type=1',
+        url: `/pages/clinicPro/clinicPro?clinicId=${e.currentTarget.dataset.id}`,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

@@ -1,6 +1,9 @@
 {
   "pages": [
+    "pages/subjects/subjects",
     "pages/index/index",
+    "pages/clinic/clinic",
+    "pages/clinicPro/clinicPro",
     "pages/login/index",
     "pages/search/search",
     "pages/notice/notice",
@@ -48,6 +51,12 @@
       {
         "pagePath": "pages/PatientList/PatientList",
         "text": "病例",
+        "iconPath": "images/house.png",
+        "selectedIconPath": "images/X-HOUSE.png"
+      },
+      {
+        "pagePath": "pages/clinic/clinic",
+        "text": "诊所介绍",
         "iconPath": "images/house.png",
         "selectedIconPath": "images/X-HOUSE.png"
       },

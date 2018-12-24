@@ -1,0 +1,32 @@
+<!-- <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='slide-image' wx:if="{{imgUrls.length>2}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item class='slide-image'>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper> -->
+<!-- <block wx:for="{{imgUrls}}" wx:if="{{imgUrls.length<2}}">
+  <image src="{{item}}" class="slide-image" />
+</block> -->
+<image src="{{allData.test_clinic.clinic_picture}}" class="slide-image"></image>
+<view class='res'>
+  <view class='res_list'>
+    <span class='iconfont icon-yiyuan1'></span>{{allData.test_clinic.clinic_name}}</view>
+  <view class='res_list'>
+    <span class='iconfont icon-dianhua'></span>联系电话（手机）：{{allData.test_clinic.clinic_phone}}</view>
+  <view class='res_list'>
+    <span class='iconfont icon-weizhi'></span>{{allData.test_clinic.clinic_site}}</view>
+</view>
+
+
+<view class='ks'>
+  <view class='title'>科室</view>
+  <view class='taglist'>
+    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:for-index="index" data-subjectsId="{{item.subjects_id}}">{{item.subjects_name}}</view>
+  </view>
+</view>
+
+<view class='ks'>
+  <view class='title'>医院简介</view>
+  <view class='produce'>{{allData.test_clinic.clinic_intro}}</view>
+</view>
