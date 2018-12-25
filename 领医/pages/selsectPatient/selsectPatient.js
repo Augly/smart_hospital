@@ -19,10 +19,16 @@ Page({
     this.setData({
       type: options.type  //如果为1进行科室选择进行预约
     })
+    if(this.data.type==1){
+      wx.setNavigationBarTitle({
+        title: '选择就诊人',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { }
+      })
+    }
   },
   del(e) {
-    console.log(e)
-
     app.ajax('POST', {
       patient_id: e.detail.myindex //就诊人id
     }, 'User/patient_delete', res => {
@@ -84,12 +90,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '选择就诊人',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
-    })
+
     this.gitData()
   },
 

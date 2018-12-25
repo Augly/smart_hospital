@@ -24,7 +24,7 @@ Page({
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: options.subjects_id,
-      office_time: new Date().getTime()
+      // office_time: new Date().getTime()
     },'Index/choice_doctor_list',res=>{
       this.setData({
         doctorList: res.data.data.doctor

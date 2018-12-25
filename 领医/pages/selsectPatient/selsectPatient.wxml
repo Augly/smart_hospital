@@ -5,8 +5,8 @@
         <image class='avater' src='{{item.patient_portrait}}'></image>
         <view class='userRes'>
           <view class='name'>{{item.patient_realname}}</view>
-          <view class='age'>年龄：{{item.patient_age}}岁</view>
-          <view class='sex'>性别：{{item.patient_sex==1?'男':'女'}}</view>
+          <view class='age'>联系方式：{{item.patient_age}}岁</view>
+          <view class='sex'>出生年月：{{item.patient_birthday}}</view>
         </view>
         <view class='change'>
           {{type=='1'?'选择':'修改'}}

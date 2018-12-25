@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "left-smooth": "/components/left-smooth/left-smooth"
-  }
+  },
+  "navigationBarTitleText": "就诊人管理"
 }

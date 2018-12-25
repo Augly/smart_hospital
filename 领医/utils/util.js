@@ -78,6 +78,45 @@ function timeForm(time) {
   }
   return timeStr;
 }
+
+function timelist(time) {
+  var date = new Date(time * 1000),
+    curDate = new Date(),
+    year = date.getFullYear(),
+    month = date.getMonth() + 1,
+    day = date.getDate(),
+    hour = date.getHours(),
+    minute = date.getMinutes(),
+    curYear = curDate.getFullYear(),
+    curHour = curDate.getHours(),
+    timeStr;
+  timeStr =  hour + ':' + minute;
+  // if (minute < 10) {
+  //   minute = '0' + minute
+  // }
+  // if (year < curYear) {
+  //   // timeStr = year + '年' + month + '月' + day + '日' + hour + ':' + minute;
+  //   timeStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+  // } else {
+  //   var pastTime = curDate - date,
+  //     pastH = pastTime / 3600000;
+
+  //   if (pastH > curHour) {
+  //     // timeStr = month + '月' + day + '日 ' + '' + hour + '时' + minute + '分';
+  //     timeStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;;
+  //   } else if (pastH >= 1) {
+  //     timeStr = hour + ':' + minute + '分';
+  //   } else {
+  //     var pastM = curDate.getMinutes() - minute;
+  //     if (pastM > 1) {
+  //       timeStr = pastM + '分钟前';
+  //     } else {
+  //       timeStr = '刚刚';
+  //     }
+  //   }
+  // }
+  return timeStr;
+}
 /**
  * 封装自定义优美的toast
  */
@@ -416,5 +455,6 @@ module.exports = {
   getData: getData,
   mytoast: mytoast,
   timeFormatNotime: timeFormatNotime,
-  timeForm: timeForm
+  timeForm: timeForm,
+  timelist: timelist
 }

@@ -34,13 +34,16 @@ page {
 
 .item {
   width: 100%;
-  height: 250rpx;
+  /* height: 250rpx; */
   background-color: rgba(255, 255, 255, 1);
   margin-top: 20rpx;
   box-sizing: border-box;
   padding: 0rpx 30rpx;
 }
-
+.otherGroup{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
 .itemHead {
   padding: 26rpx 0rpx;
   height: 144rpx;
@@ -103,7 +106,7 @@ page {
 
 .itemOther {
   width: 100%;
-  height: 104rpx;
+  height: 50rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;

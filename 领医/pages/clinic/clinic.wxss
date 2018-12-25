@@ -80,7 +80,7 @@
   font-family: Adobe Heiti Std R;
   font-weight: normal;
   color: rgba(153, 153, 153, 1);
-  margin-top: 15rpx;
+  margin-top: 18rpx;
 }
 
 .switchover-subhead-head {

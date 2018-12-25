@@ -1,9 +1,9 @@
-<view class='headGroup'>
+<!-- <view class='headGroup'>
   <view class="headItem {{selectIndex==index?'active':''}}" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" bindtap='selectDay' data-index="{{index}}">
     <view class='day'>{{item.mon}}</view>
     <view class='date'>{{item.date}}</view>
   </view>
-</view>
+</view> -->
 
 <view class='content'>
   <view class='item' wx:for="{{doctorList}}" wx:for-index="index" wx:for-item="item" wx:key>
@@ -15,15 +15,24 @@
           <span class='minTitle'>{{item.subjects_name}}</span>
           <span class='minTitle'>{{item.doctor_position}}</span>
         </view>
-        <view class='adder'>{{item.clinic_name}}</view>
+        <view class='adder'>擅长：缺少擅长字段</view>
       </view>
       <view class='bottonGroup' bindtap='toRes' data-id='{{item.doctor_id}}' data-timeid='{{item.office_time_id}}' data-date="{{dataList[selectIndex].more}}">前往挂号</view>
     </view>
-    <view class='itemOther'>
+    <view class="otherGroup">
+          <view class='itemOther'>
       <view class='otherHead'>工作时间</view>
-      <view class='otherData'>{{dataList[selectIndex].mon}}
+      <view class='otherData'>
         <span>{{item.office_time}}</span>
       </view>
     </view>
+    <view class='itemOther'>
+      <view class='otherHead'>剩余号数</view>
+      <view class='otherData'>
+        <span>擅长：缺少剩余号数字段</span>
+      </view>
+    </view>
+    </view>
+
   </view>
 </view>

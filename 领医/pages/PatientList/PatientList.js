@@ -25,6 +25,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    this.gitData()
+  },
+  gitData() {
     app.ajax(
       'POST',
       {
@@ -42,19 +45,41 @@ Page({
               selectIndex: app.globalData.userId.patient_id
             })
           } else {
-            if (res.data.data.length>0){
+            if (res.data.data.length > 0) {
               this.setData({
                 selectIndex: res.data.data[0].patient_id
               })
             }
           }
+          this.setData({
+            show: true
+          })
         } else {
           app.toast(res.data.msg)
         }
       }
     )
   },
-
+  del(e) {
+    app.ajax('POST', {
+      patient_id: e.detail.myindex //就诊人id
+    }, 'User/patient_delete', res => {
+      wx.showToast({
+        title: res.data.msg,
+        duration: 1000,
+        mask: true,
+        success: res => {
+          if (app.globalData.userId.patient_id = e.detail.myindex) {
+            wx.clearStorage('userId')
+            app.globalData.userId = ''
+          }
+          this.gitData()
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

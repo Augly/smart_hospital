@@ -1,3 +1,6 @@
 {
+  "usingComponents": {
+    "left-smooth": "/components/left-smooth/left-smooth"
+  },
   "navigationBarTitleText": "选择就诊人"
 }

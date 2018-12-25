@@ -80,7 +80,7 @@
   font-family: Adobe Heiti Std R;
   font-weight: normal;
   color: rgba(153, 153, 153, 1);
-  margin-top: 42rpx;
+  margin-top: 25rpx;
 }
 
 .switchover-subhead-head {
@@ -95,8 +95,8 @@
 .switchover-subhead-c {
    font-size: 24rpx;
   font-weight: normal;
-  color: rgba(153, 153, 153, 1);
-  text-indent: 30rpx;
+  color: rgba(102, 102, 102, 1);
+  /* text-indent: 30rpx; */
 }
 .mintitle {
   font-size: 24rpx;
