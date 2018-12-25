@@ -88,7 +88,7 @@ Page({
    */
   toRes(e) {
     wx.navigateTo({
-      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorid + '&clinic_id=' + e.currentTarget.dataset.clinicid + '&evaluation_level=' + e.currentTarget.dataset.level,
+      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorid,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

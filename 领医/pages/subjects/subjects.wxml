@@ -1,26 +1,15 @@
-<view class="banner"></view>
+<image class='banner' src='{{imgurl}}{{alldata.test_subjects.subjects_details_pic}}'></image>
 <view class='content'>
   <view class='subName'>科室擅长疾病</view>
   <view class='all'>
-    <text>常见传染病</text>
-    <text>常见传染病</text>
+    {{alldata.test_subjects.subjects_details_presentations}}
   </view>
    <view class='subName' style='margin-top:10rpx;margin-bottom:10rpx;'>科室医生</view>
-    <view class='list'>
-      <image class='list_head'></image>
+    <view class='list' wx:for="{{alldata.doctor}}" wx:for-index="index" wx:for-item="item" bindtap='toRes' data-id="{{item.doctor_id}}">
+      <image class='list_head' src='{{imgurl}}{{item.doctor_portrait}}'></image>
       <view class='list_left'>
-        <view class='title'>王丽</view>
-        <view class='other'>擅长：慢性肺源性心脏病 </view>
-      </view>
-      <view class='list_right'>
-        查看 <span class='iconfont icon-jiantou'></span>
-      </view>
-    </view>
-    <view class='list'>
-      <image class='list_head'></image>
-      <view class='list_left'>
-        <view class='title'>王丽</view>
-        <view class='other'>擅长：慢性肺源性心脏病 </view>
+        <view class='title'>{{item.doctor_name}}</view>
+        <view class='other'>擅长：{{item.skilled_skill}} </view>
       </view>
       <view class='list_right'>
         查看 <span class='iconfont icon-jiantou'></span>

@@ -4,11 +4,7 @@
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
-          {{doctor.information.doctor_name}}
-        </view>
-        <view class='d_k'>
-          <text class='ks'> {{doctor.information.subjects_name}} </text>
-          <text class='z_do'> {{doctor.information.doctor_rank}}</text>
+          {{doctor.information.doctor_name}}<text class='z_do'> {{doctor.information.subjects_name}}</text>
         </view>
         <view class='adder'> {{doctor.information.clinic}}</view>
         <!-- <view class='buttonGroup'>
@@ -48,7 +44,10 @@
       </view>
     </view>
     <view class='dataItem button'>
-      <view class='ask' bindtap='tochat'>
+      <view class='gh' bindtap='tochat'>
+        前往挂号
+      </view>
+     <view class='ask' bindtap='tochat'>
         快速询问
       </view>
     </view>
@@ -81,11 +80,11 @@
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-dianhua'></span>
-      <view class='item_res'>联系电话（手机）：{{hosRes.tel}}</view>
+      <view class='item_res'>联系电话（手机）：{{doctor.clinic.clinic_phone}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-weizhi'></span>
-      <view class='item_res'>{{hosRes.adder}}</view>
+      <view class='item_res'>{{doctor.clinic.clinic_site}}</view>
     </view>
   </view>
 

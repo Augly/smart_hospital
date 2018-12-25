@@ -8,10 +8,9 @@
           {{item.doctor_name}}
         </view>
         <view class='d_k'>
-          <text class='ks'>{{item.doctor_skill}}</text>
-          <text class='z_do'>{{item.doctor_rank}}</text>
+          <text class='z_do'>擅长：{{item.doctor_skill}}</text>
         </view>
-        <view class='adder'>{{item.clinic}}</view>
+        <view class='adder'>{{item.clinic_name}}</view>
         <view class='buttonGroup'>
           <view class='look' bindtap='toRes' data-doctorid='{{item.doctor_id}}'>查看医生</view>
           <view class='ask' bindtap='tochat' data-id='{{item.id}}'>快速询问</view>

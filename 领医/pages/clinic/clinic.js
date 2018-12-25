@@ -24,7 +24,7 @@ Page({
   },
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '切换诊所',
+      title: '诊所列表',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

@@ -25,20 +25,12 @@ Page({
       })
     })
   },
-  toSetMy(){
+  toMessage() {
     wx.navigateTo({
-      url: '/pages/setMy/setMy',
+      url: '/pages/index/message/message',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
-    })
-  },
-  toMessage(){
-    wx.navigateTo({
-      url: '/pages/index/message/message',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
     })
   },
   changesA() {

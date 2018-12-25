@@ -10,9 +10,9 @@ page {
 
 .item {
   width: 100%;
-  height: 215rpx;
+  /* height: 215rpx; */
   box-sizing: border-box;
-  padding: 20rpx;
+  padding: 50rpx 20rpx 20rpx 20rpx;
   background-color: #63dfc5;
   /* box-shadow: 0px 3rpx 18rpx 3rpx rgba(0, 0, 0, 0.11); */
   display: flex;
@@ -23,12 +23,14 @@ page {
   width: 82rpx;
   height: 82rpx;
   /* background-color: red; */
-  border-radius:50%; 
+  border-radius: 50%;
 }
+
 .itemlist .iconfont {
-  font-size:38rpx;
+  font-size: 38rpx;
   color: RGBA(100, 223, 197, 1);
 }
+
 .res {
   width: 550rpx;
   height: 100%;
@@ -144,7 +146,7 @@ page {
 }
 
 .dataItem {
-  width: 250rpx;
+  width: 220rpx;
   height: 88rpx;
   box-sizing: border-box;
   border-right: 1rpx solid rgba(51, 51, 51, 0.1);
@@ -180,17 +182,34 @@ page {
 }
 
 .button {
+  width: 300rpx;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .ask {
-  width: 200rpx;
-  height: 65rpx;
   display: flex;
   align-items: center;
-  border-radius: 32.5rpx;
+  width: 119rpx;
+  height: 76rpx;
+  border: 2rpx solid rgba(112, 226, 202, 1);
+  border-radius: 22rpx;
+}
+
+.gh {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 119rpx;
+  height: 76rpx;
+  color: rgba(241, 147, 180, 1);
+  border: 2rpx solid rgba(241, 147, 180, 1);
+  border-radius: 22rpx;
 }
 
 .goodT {
@@ -229,44 +248,44 @@ page {
   margin-right: 33rpx;
 }
 
-.describe{
-  font-size:28rpx;
-font-family:PingFang-SC;
-/* font-weight:bold; */
-color:rgba(153,153,153,1);
-line-height:47rpx;
-margin-top: 36rpx;
-
+.describe {
+  font-size: 28rpx;
+  font-family: PingFang-SC;
+  /* font-weight:bold; */
+  color: rgba(153, 153, 153, 1);
+  line-height: 47rpx;
+  margin-top: 36rpx;
 }
 
-.itemlist{
+.itemlist {
   width: 100%;
   display: flex;
   margin-top: 30rpx;
 }
 
-
-.item_logo{
+.item_logo {
   width: 30rpx;
   height: 30rpx;
   background-color: red;
 }
 
-.item_res{
+.item_res {
   margin-left: 30rpx;
   width: 600rpx;
-  font-size:32rpx;
-font-weight:normal;
-color:rgba(153,153,153,1);
+  font-size: 32rpx;
+  font-weight: normal;
+  color: rgba(153, 153, 153, 1);
 }
-.iconfont{
+
+.iconfont {
   font-size: 24rpx;
   margin-right: 4rpx;
 }
 
-.icon-xingxing{
+.icon-xingxing {
   color: RGBA(255, 191, 18, 1);
 }
-.icon-xingxingxian{
-  color: rgba(0, 0, 0, 1)
+
+.icon-xingxingxian {
+  color: rgba(0, 0, 0, 1);
 }

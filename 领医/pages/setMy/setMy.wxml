@@ -1,0 +1,56 @@
+<view wx:if="{{show}}">
+  <view>
+    <view class='notitle'>
+      <i class='iconfont icon-xiangjipaizhao' bindtap='changesA'></i>
+    </view>
+    <view class='avtarWrap'>
+      <image src='{{ImageHost}}{{allData.user_portrait}}' class='avater'></image>
+    </view>
+
+    <!-- <view class='title'>
+      {{allData.user_nickname}}
+    </view> -->
+    <view class='list'>
+      <view class='item'>
+        <view class='left'>
+          <span class='iconfont icon-man-copy'></span>
+          <view class='itemTitle'>姓名</view>
+        </view>
+        <view class='right'>
+          <input class='name' value='{{allData.user_nickname}}' bindinput='getName'></input>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <span class='iconfont icon-man-copy'></span>
+          <view class='itemTitle'>性别</view>
+        </view>
+        <view class='right'>
+          <view class='name'>男</view>
+        </view>
+      </view>
+            <view class='item'>
+        <view class='left'>
+          <span class='iconfont icon-man-copy'></span>
+          <view class='itemTitle'>年龄</view>
+        </view>
+        <view class='right'>
+          <view class='name'>男</view>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <span class='iconfont icon-phone'></span>
+          <view class='itemTitle'>我的手机</view>
+        </view>
+        <view class='right'>
+          <view class='itemmintitle'>{{allData.user_phone}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='exit' bindtap='out'>
+      保 存 修 改
+    </view>
+  </view>
+</view>

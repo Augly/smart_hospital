@@ -1,7 +1,7 @@
 <view wx:if="{{show}}">
   <view>
     <view class='notitle'>
-      <i class='iconfont icon-xiangjipaizhao' bindtap='changesA'></i>
+      <!-- <i class='iconfont icon-xiangjipaizhao' bindtap='changesA'></i> -->
     </view>
     <view class='avtarWrap'>
       <image src='{{ImageHost}}{{allData.user_portrait}}' class='avater'></image>
@@ -13,7 +13,7 @@
 
 
     <view class='list'>
-      <view class='item'>
+      <!-- <view class='item'>
         <view class='left'>
           <span class='iconfont icon-man-copy'></span>
           <view class='itemTitle'>我的昵称</view>
@@ -30,7 +30,7 @@
         <view class='right'>
           <view class='itemmintitle'>{{allData.user_phone}}</view>
         </view>
-      </view>
+      </view> -->
       <view class='item' bindtap='toRegistration'>
         <view class='left'>
           <span class='iconfont icon-wendang'></span>
@@ -53,6 +53,24 @@
         <view class='left'>
           <span class='iconfont icon-yisheng'></span>
           <view class='itemTitle'>我的医生</view>
+        </view>
+        <view class='right'>
+          <span class='iconfont icon-jiantou'></span>
+        </view>
+      </view>
+      <view class='item' bindtap='toSetMy'>
+        <view class='left'>
+          <span class='iconfont icon-icon_edit'></span>
+          <view class='itemTitle'>修改个人信息</view>
+        </view>
+        <view class='right'>
+          <span class='iconfont icon-jiantou'></span>
+        </view>
+      </view>
+      <view class='item' bindtap='toMessage'>
+        <view class='left'>
+          <span class='iconfont icon-lingdang'></span>
+          <view class='itemTitle'>我的通知</view>
         </view>
         <view class='right'>
           <span class='iconfont icon-jiantou'></span>

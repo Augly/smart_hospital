@@ -1,18 +1,33 @@
 // pages/subjects/subjects.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgurl: app.ImageHost
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST',{
+      user_token: app.globalData.user_token,
+      clinic_id: app.globalData.clinic_id,
+      subjects_id: options.subjectsId
+    },'Index/subjects_introduce',res=>{
+      this.setData({
+        alldata:res.data.data
+      })
+      wx.setNavigationBarTitle({
+        title: res.data.data.test_subjects.subjects_name,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    })
   },
 
   /**
@@ -27,6 +42,14 @@ Page({
    */
   onShow: function () {
 
+  },
+  toRes(e) {
+    wx.navigateTo({
+      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**

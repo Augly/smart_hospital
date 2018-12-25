@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/subjects/subjects",
     "pages/index/index",
+    "pages/setMy/setMy",
+    
+    
+    "pages/subjects/subjects",
     "pages/clinic/clinic",
     "pages/clinicPro/clinicPro",
     "pages/login/index",
@@ -57,8 +60,8 @@
       {
         "pagePath": "pages/clinic/clinic",
         "text": "诊所介绍",
-        "iconPath": "images/house.png",
-        "selectedIconPath": "images/X-HOUSE.png"
+        "iconPath": "images/pro1.png",
+        "selectedIconPath": "images/pro2.png"
       },
       {
         "pagePath": "pages/my/my",

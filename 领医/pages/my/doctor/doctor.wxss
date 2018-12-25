@@ -64,7 +64,7 @@
   font-family: PingFang-SC-Bold;
   /* font-weight:bold; */
   color: rgba(153, 153, 153, 1);
-  margin-left: 21rpx;
+  margin-left: 0rpx;
 }
 
 .adder {

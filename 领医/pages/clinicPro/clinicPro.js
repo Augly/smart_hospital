@@ -33,7 +33,16 @@ Page({
       })
     })
   },
-
+  //去科室详情
+  tores(e){
+    console.log(e)
+    wx.navigateTo({
+      url: `/pages/subjects/subjects?subjectsId=${e.currentTarget.dataset.subjectsid}`,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -8,7 +8,7 @@
 <!-- <block wx:for="{{imgUrls}}" wx:if="{{imgUrls.length<2}}">
   <image src="{{item}}" class="slide-image" />
 </block> -->
-<image src="{{allData.test_clinic.clinic_picture}}" class="slide-image"></image>
+<image src="{{allData.test_clinic.clinic_picture}}" class="slide-image" wx:if="{{allData.test_clinic.clinic_picture!=''}}"></image>
 <view class='res'>
   <view class='res_list'>
     <span class='iconfont icon-yiyuan1'></span>{{allData.test_clinic.clinic_name}}</view>
@@ -22,7 +22,7 @@
 <view class='ks'>
   <view class='title'>科室</view>
   <view class='taglist'>
-    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:for-index="index" data-subjectsId="{{item.subjects_id}}">{{item.subjects_name}}</view>
+    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name}}</view>
   </view>
 </view>
 
