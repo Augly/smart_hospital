@@ -1,11 +1,11 @@
 <view class='wrap' wx:if="{{list.length>0}}">
-  <left-smooth bind:del='del' wx:for-index="index" wx:for="{{list}}" wx:for-item="item" myindex="{{item.patient_id}}">
+  <left-smooth bind:del='del' wx:for-index="index" wx:for="{{list}}" wx:key='' wx:for-item="item" myindex="{{item.patient_id}}">
     <view class="item_head {{selectIndex==item.patient_id?'item_head_select':''}}" bindtap='select' data-id="{{item.patient_id}}" data-index='{{index}}'>
       <image class='avater' src='{{item.patient_portrait}}'></image>
       
       <view class='userRes'>
-        <view class='name'>{{item.patient_realname}}</view>
-        <view class='age'>联系方式：{{item.patient_age}}岁</view>
+        <view class='name'>{{item.patient_realname}} <span class="iconfont {{item.patient_sex==1?'icon-nan':'icon-nv'}}"></span></view>
+        <view class='age'>联系方式：{{item.patient_phone}}</view>
         <view class='sex'>出生年月：{{item.patient_birthday}}</view>
       </view>
       <view class='change'>

@@ -1,5 +1,5 @@
 <view class='headGroup'>
-  <view class="headItem {{selectIndex==index?'active':''}}" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" bindtap='selectDay' data-index="{{index}}">
+  <view class="headItem {{selectIndex==index?'active':''}}" wx:for="{{dataList}}" wx:key='' wx:for-index="index" wx:for-item="item" bindtap='selectDay' data-index="{{index}}">
     <view class='day'>{{item.mon}}</view>
     <view class='date'>{{item.date}}</view>
   </view>
@@ -35,7 +35,7 @@
   </view>
 
 </view>
-<view class="allTime {{clickIndex==index?'clickActive':''}}" wx:for="{{quantumList}}" wx:for-item="item" wx:for-index="index" bindtap='clickTime' data-index='{{index}}' data-number='{{item.surplus_number}}'>
+<view class="allTime {{clickIndex==index?'clickActive':''}}" wx:for="{{quantumList}}" wx:key='' wx:for-item="item" wx:for-index="index" bindtap='clickTime' data-index='{{index}}' data-number='{{item.surplus_number}}'>
   <view class='time'>{{item.quantum_time}}~{{item.over_time}}</view>
   <view class='sy'>剩余 <text class="{{item.surplus_number==0?'corR':''}}">{{item.surplus_number}}</text> </view>
 </view>

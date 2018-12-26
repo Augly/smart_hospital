@@ -1,5 +1,5 @@
 <scroll-view style='width:100%;height:{{myheight}}px' scroll-y scroll-into-view="a{{myTop}}" scroll-with-animation class='chatWrap'>
-  <view class='list' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" id='a{{index}}' bindtap='tores' data-id='{{item.inquiry_id}}'>
+  <view class='list' wx:for="{{list}}" wx:key='' wx:for-index="index" wx:for-item="item" id='a{{index}}' bindtap='tores' data-id='{{item.inquiry_id}}'>
     <view class='content'>
       <view class='content_title'>
         患者咨询描述：

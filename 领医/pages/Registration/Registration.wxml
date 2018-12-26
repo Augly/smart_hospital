@@ -11,13 +11,11 @@
   </view>
 </view>
   <view class='content'>
-    <view class='item' wx:for="{{list}}" wx:for-item="item" :wx:for-index="index" wx:if="{{list.length>0}}">
+    <view class='item' wx:for="{{list}}" wx:key='' wx:for-item="item" :wx:for-index="index" wx:if="{{list.length>0}}">
       <image src='{{imgurl}}{{item.doctor_portrait}}' class='logo'></image>
       <view class='res'>
         <view class='res_left'>
-          <view class='d_name'>
-            {{item.doctor_name}}
-          </view>
+          <text class='d_name'>{{item.doctor_name}}</text>
           <view class='d_k'>
             <text class='ks'>{{item.doctor_name}}</text>
             <text class='z_do'>{{item.doctor_rank}} </text>

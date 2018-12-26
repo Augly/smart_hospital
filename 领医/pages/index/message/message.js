@@ -13,9 +13,10 @@ Page({
     app.ajax('POST',{
       user_token:app.globalData.user_token
     },'Index/user_message_list',res=>{
+      console.log(res.data.data)
       this.setData({
         messageList:res.data.data.map(res=>{
-          res.user_message_createtime = app.config.timeForm(res.user_message_createtime)
+          res.user_message_createtime = app.configure.timeall(res.user_message_createtime)
           return res
         })
       })
@@ -24,26 +25,35 @@ Page({
 
   //下拉刷新
   onPullDownRefresh: function () {
-    console.log('--------下拉刷新-------');
-    // 显示顶部刷新图标
-    wx.showNavigationBarLoading();
-    // 隐藏导航栏加载框  
-    wx.hideNavigationBarLoading();
-    // 停止下拉动作  
-    wx.stopPullDownRefresh();
+    // console.log('--------下拉刷新-------');
+    // // 显示顶部刷新图标
+    // wx.showNavigationBarLoading();
+    // // 隐藏导航栏加载框  
+    // wx.hideNavigationBarLoading();
+    // // 停止下拉动作  
+    // wx.stopPullDownRefresh();
   },
   //上拉加载
   onReachBottom: function () {
-    console.log('--------触底加载-------');
-    wx.showLoading({
-      title: '玩命加载中',
-    });
+    // console.log('--------触底加载-------');
+    // wx.showLoading({
+    //   title: '玩命加载中',
+    // });
   },
 del(e){
   console.log(e)
-  wx.showToast({
-    title: '删除成功!',
-  })``
+
+  
+  app.ajax('POST', {
+    user_message_id: this.data.messageList[e.detail.myindex].user_message_id
+  }, 'Index/message_del', res => {
+    let s = this.data.messageList
+    s.splice(e.detail.myindex,1)
+    this.setData({
+      messageList:s
+    })
+    app.toast('删除成功!')
+  })
 },
 onShow:function(){
   wx.setNavigationBarTitle({
@@ -54,9 +64,8 @@ onShow:function(){
   })
 },
   res(e){
-    console.log(1)
     wx.navigateTo({
-      url: '/pages/notice/notice',
+      url: `/pages/notice/notice?id=${e.currentTarget.dataset.id}`,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

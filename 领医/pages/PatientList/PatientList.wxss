@@ -34,7 +34,9 @@
   font-weight: normal;
   color: rgba(51, 51, 51, 1);
 }
-
+.name .iconfont{
+   font-size: 30rpx;
+}
 .age, .sex {
   font-size: 24rpx;
   font-weight: normal;

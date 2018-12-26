@@ -1,4 +1,5 @@
 // pages/notice/notice.js
+const app=getApp()
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     app.ajax('POST',{
-      user_message_id: options.userMessageid
+      user_message_id: options.id
     },'Index/message_unread_find',res=>{
       this.setData({
         res:res.data.data

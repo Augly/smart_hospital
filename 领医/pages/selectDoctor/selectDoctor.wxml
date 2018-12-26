@@ -1,12 +1,12 @@
 <!-- <view class='headGroup'>
-  <view class="headItem {{selectIndex==index?'active':''}}" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" bindtap='selectDay' data-index="{{index}}">
+  <view class="headItem {{selectIndex==index?'active':''}}" wx:for="{{dataList}}" wx:key='' wx:for-index="index" wx:for-item="item" bindtap='selectDay' data-index="{{index}}">
     <view class='day'>{{item.mon}}</view>
     <view class='date'>{{item.date}}</view>
   </view>
 </view> -->
 
 <view class='content'>
-  <view class='item' wx:for="{{doctorList}}" wx:for-index="index" wx:for-item="item" wx:key>
+  <view class='item' wx:for="{{doctorList}}" wx:key='' wx:for-index="index" wx:for-item="item" wx:key>
     <view class='itemHead'>
     <image class="headLogo" src='{{imgUrl}}{{item.doctor_portrait}}'></image>
       <view class='headTitle'>

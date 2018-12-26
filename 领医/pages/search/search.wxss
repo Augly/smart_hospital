@@ -9,15 +9,16 @@
 }
 
 .banner-search {
-  width: 480rpx;
-  height: 60rpx;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0rpx 6rpx 17rpx 3rpx rgba(0, 0, 0, 0.14);
-  border-radius: 30rpx;
-  background-image: url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie02.png);
+  width:450rpx;
+  height:60rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 6rpx 17rpx 3rpx rgba(0, 0, 0, 0.14);
+  border-radius:30rpx;
+  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie02.png);
   background-repeat: no-repeat;
   background-size: 23rpx 30rpx;
   background-position: 24rpx 17rpx;
+  /* margin-right: 60rpx; */
 }
 
 .banner-input {

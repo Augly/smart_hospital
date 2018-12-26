@@ -23,7 +23,7 @@
       <picker bindchange="bindPickerChangeSex" value="{{sexIndex}}" range="{{sexList}}" range-key='title'>
         <view class='item'>
           <view class='left'>
-            <span class='iconfont icon-man-copy'></span>
+            <span class='iconfont icon-xingbie'></span>
             <view class='itemTitle'>性别</view>
           </view>
           <view class='right'>
@@ -34,7 +34,7 @@
 
       <view class='item'>
         <view class='left'>
-          <span class='iconfont icon-man-copy'></span>
+          <span class='iconfont icon-shengri'></span>
           <view class='itemTitle'>年龄</view>
         </view>
         <view class='right'>

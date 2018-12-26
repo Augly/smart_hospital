@@ -1,5 +1,5 @@
 <!-- <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='slide-image' wx:if="{{imgUrls.length>2}}">
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{imgUrls}}" wx:key=''>
     <swiper-item class='slide-image'>
       <image src="{{item}}" class="slide-image" />
     </swiper-item>
@@ -22,7 +22,7 @@
 <view class='ks'>
   <view class='title'>科室</view>
   <view class='taglist'>
-    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
+    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:key='' wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
   </view>
 </view>
 

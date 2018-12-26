@@ -1,9 +1,9 @@
 <!-- <scroll-view style='width:100%;height:{{myheight}}px' scroll-y scroll-into-view="a{{myTop}}" scroll-with-animation class='chatWrap'>
-  <view class='chatList' wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:if="{{item.id==uid}}">
+  <view class='chatList' wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:if="{{item.id==uid}}" wx:key=''>
     <image class='chatLogo' src='{{item.avtar}}'></image>
     <view class='chatRes'>{{item.content}}</view>
   </view>
-  <view class='chatListSelf' wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:if="{{item.id!=uid}}">
+  <view class='chatListSelf' wx:for="{{chatList}}" wx:for-item="item" wx:for-index="index" wx:if="{{item.id!=uid}}" wx:key=''>
     <view class='chatRes'>{{item.content}}</view>
     <image class='chatLogo' src='{{item.avtar}}'></image>
   </view>

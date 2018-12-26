@@ -44,12 +44,12 @@ Page({
     })
   },
   tosub(e){
-      wx.navigateTo({
-    url: `/pages/selectDoctor/selectDoctor?subjects_id=${e.currentTarget.dataset.id}`,
-    success: function (res) { },
-    fail: function (res) { },
-    complete: function (res) { },
-  })
+    wx.navigateTo({
+      url: `/pages/subjects/subjects?subjectsId=${e.currentTarget.dataset.id}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**

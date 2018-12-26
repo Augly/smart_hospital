@@ -13,7 +13,7 @@
     </view>
     <view class='content'>
       <scroll-view scroll-y class='tabList' style='height:{{height}}px'>
-        <view class="list {{index==selectIndex?'listActive':''}}"   bindtap='select' data-index='{{index}}' wx:for="{{slideList}}" wx:for-index="index" wx:for-item="item">
+        <view class="list {{index==selectIndex?'listActive':''}}"   bindtap='select' data-index='{{index}}' wx:for="{{slideList}}" wx:key='' wx:for-index="index" wx:for-item="item">
           {{item.title}}
         </view>
       </scroll-view>

@@ -12,7 +12,7 @@
       </view>
     </view>
     <view class='content'>
-      <view class="switchover-item  {{clinic_id===value.clinic_id?'switchover-item-hover':''}}" wx:for="{{clinicList}}" wx:for-index="key" wx:for-item="value" bindtap='tochanges' data-name="{{value.clinic_name}}" data-id="{{value.clinic_id}}">
+      <view class="switchover-item  {{clinic_id===value.clinic_id?'switchover-item-hover':''}}" wx:for="{{clinicList}}" wx:key='' wx:for-index="key" wx:for-item="value" bindtap='tochanges' data-name="{{value.clinic_name}}" data-id="{{value.clinic_id}}">
         <view class='switchover-right'>
           <view class="switchover-headline">{{value.clinic_name}}</view>
           <view class="switchover-subhead">

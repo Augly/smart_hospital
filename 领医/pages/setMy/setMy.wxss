@@ -176,3 +176,9 @@ iconfont {
   right: 200rpx;
   bottom: 20rpx;
 }
+.icon-xingbie{
+  color: RGBA(212, 35, 122, 1)
+}
+.icon-shengri{
+  color: RGBA(147, 198, 118, 1)
+}

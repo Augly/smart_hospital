@@ -1,7 +1,7 @@
 <view class='startWrap'>
   <view class='title'>发表评论</view>
   <view>
-    <span class="iconfont {{item>selectIndex?'icon-xingxingxian':'icon-xingxing'}}" wx:for="{{starList}}" wx:for-index="index" wx:for-item="item" bindtap="evaClick" data-index="{{item}}"></span>
+    <span class="iconfont {{item>selectIndex?'icon-xingxingxian':'icon-xingxing'}}" wx:for="{{starList}}" wx:key='' wx:for-index="index" wx:for-item="item" bindtap="evaClick" data-index="{{item}}"></span>
   </view>
 
 

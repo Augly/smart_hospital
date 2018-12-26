@@ -1,5 +1,13 @@
 <!--pages/notice/notice.wxml-->
 <view class='wrap' wx:if="{{res}}">
-  <view class='title'></view>
-  <view class='content'></view>
+  <!-- <view class='title'>{{}}</view>
+  <view class='content'></view> -->
+  <view class='item' catchtap='res' data-id='{{item.user_message_id}}'>
+        <view class='item_head'>
+          <text class='time'>{{item.user_message_createtime}}</text>
+          <text class='send'>发件人：总控后台</text>
+        </view>
+        <view class='item_content'>{{res.user_message_content}}</view>
+      </view>
 </view>
+<image class='tochat'  src='/images/120896888757042458.png'></image>

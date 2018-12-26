@@ -1,11 +1,11 @@
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='slide-image' wx:if="{{imgUrls.length>2}}">
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{imgUrls}}" wx:key=''>
     <swiper-item class='slide-image'>
       <image src="{{item}}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>
-<block wx:for="{{imgUrls}}" wx:if="{{imgUrls.length<2}}">
+<block wx:for="{{imgUrls}}" wx:if="{{imgUrls.length<2}}" wx:key=''>
   <image src="{{item}}" class="slide-image" />
 </block>
 <view class='res'>

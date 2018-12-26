@@ -91,9 +91,9 @@ Page({
 
   },
   waitIng(){
-    this.setData({
-      list:[]
-    })
+    // this.setData({
+    //   list:[]
+    // })
     this.setData({
       statusType: 'waitIng'
     })
@@ -101,14 +101,17 @@ Page({
       user_token: app.globalData.user_token
     },'User/not_diagnose',res=>{
       this.setData({
-        list: res.data.data
+        list: res.data.data.map(item => {
+          item.evaluation_level = Math.ceil(item.evaluation_level)
+          return item
+        })
       })
     })
   },
   patiented(){
-    this.setData({
-      list: []
-    })
+    // this.setData({
+    //   list: []
+    // })
     this.setData({
       statusType: 'patiented'
     })
@@ -116,8 +119,10 @@ Page({
       user_token: app.globalData.user_token
     }, 'User/already_diagnose', res => {
       this.setData({
-        list: res.data.data
-        
+        list: res.data.data.map(item => {
+          item.evaluation_level = Math.ceil(item.evaluation_level)
+          return item
+        })
       })
     })
   },

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
 
-  <view class="message" wx:for="{{messageList}}" wx:for-index="index" wx:for-item="item">
+  <view class="message" wx:for="{{messageList}}" wx:key='' wx:for-index="index" wx:for-item="item">
     <left-smooth bind:del='del'>
       <view class="message-item" catchtap='res' data-userMessageid='{{item.user_message_id}}'>
         <view class="message-title">{{item.user_message_title}}</view>

@@ -1,6 +1,6 @@
 
 <view class='wrap'>
-  <view class='item' wx:for="{{list}}" wx:for-itwm='item' wx:for-index="index">
+  <view class='item' wx:for="{{list}}" wx:key='' wx:for-itwm='item' wx:for-index="index">
     <image class='logo' src='{{imgUrl}}{{item.doctor_portrait}}'></image>
     <view class='res'>
       <view class='res_left'>
