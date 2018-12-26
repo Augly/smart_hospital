@@ -1,7 +1,8 @@
-<view class='wrap'>
+<view class='wrap' wx:if="{{list.length>0}}">
   <left-smooth bind:del='del' wx:for-index="index" wx:for="{{list}}" wx:for-item="item" myindex="{{item.patient_id}}">
     <view class="item_head {{selectIndex==item.patient_id?'item_head_select':''}}" bindtap='select' data-id="{{item.patient_id}}" data-index='{{index}}'>
       <image class='avater' src='{{item.patient_portrait}}'></image>
+      
       <view class='userRes'>
         <view class='name'>{{item.patient_realname}}</view>
         <view class='age'>联系方式：{{item.patient_age}}岁</view>
@@ -14,7 +15,7 @@
     </view>
   </left-smooth>
 </view>
-<view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
+<nodata title='当前暂无就诊人' mintitle='前往添加' bind:togo='togo' data-type='add' wx:if="{{list.length==0}}"></nodata>
 
 
 <!-- <view class='add' bindtap='addUser' data-type='add'>

@@ -1,4 +1,4 @@
-const configure=require('./utils/util.js')
+  const configure=require('./utils/util.js')
 App({
   time: configure.timeFormatNotime,
   ajax:configure.ajax,

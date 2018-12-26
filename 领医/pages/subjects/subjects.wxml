@@ -1,8 +1,8 @@
-<image class='banner' src='{{imgurl}}{{alldata.test_subjects.subjects_details_pic}}'></image>
+<image class='banner' src='{{imgurl}}{{alldata.test_subjects.subjects_details_pic}}' v-if="{{alldata.test_subjects.subjects_details_pic!=''}}"></image>
 <view class='content'>
   <view class='subName'>科室擅长疾病</view>
   <view class='all'>
-    {{alldata.test_subjects.subjects_details_presentations}}
+    {{alldata.test_subjects.subjects_details_presentations==''?'未填写科室擅长疾病':alldata.test_subjects.subjects_details_presentations}}
   </view>
    <view class='subName' style='margin-top:10rpx;margin-bottom:10rpx;'>科室医生</view>
     <view class='list' wx:for="{{alldata.doctor}}" wx:for-index="index" wx:for-item="item" bindtap='toRes' data-id="{{item.doctor_id}}">

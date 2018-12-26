@@ -27,5 +27,5 @@
       </view>
     </view>
   </view>
-  <view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
+  <nodata title='暂无我的医生列表' mintitle='请移步预约挂号' bind:togo='togo' wx:if="{{list.length==0}}"></nodata>
 </view>

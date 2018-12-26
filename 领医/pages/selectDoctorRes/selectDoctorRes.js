@@ -10,8 +10,8 @@ Page({
     dataList: [],
     doctor: null,
     notice: null,
-    array: ['8:00-10:00', '14:00-16:00'],
-    index: 0
+    index: 0,
+    clickIndex:0
   },
   GetDateStr(AddDayCount) {
     var dd = new Date();
@@ -35,56 +35,31 @@ Page({
     for (let s = 0; s < 7; s++) {
       datalist.push(this.GetDateStr(s))
     }
-    console.log(datalist)
     this.setData({
       dataList: datalist
     })
+  },
+  clickTime(e){
+    if (e.currentTarget.dataset.number!=0){
+      this.setData({
+        clickIndex: e.currentTarget.dataset.index
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userId)
     this.setData({
       userid: app.globalData.userId,
       subjects_id: options.subjects_id,
       doctor_id: options.doctor_id,
-      office_time: options.office_time,
-      date: options.date
     })
     this.gitData()
-
-    // app.ajax('POST', {
-    //   doctor_id: options.doctor_id,
-    // }, 'Index/doctor_quantum', res => {
-    //   console.log(res)
-    //   // this.setData({
-    //   //   doctor: res.data.data.doctor,
-    //   //   notice: res.data.data.notice
-    //   // })
-    // })
   },
   selectDay(e) {
     this.setData({
       selectIndex: e.currentTarget.dataset.index
-    })
-    app.ajax('POST', {
-      user_token: app.globalData.user_token,
-      clinic_id: app.globalData.clinic_id,
-      subjects_id: this.data.subjects_id,
-      doctor_id: this.data.doctor_id,
-      office_time: this.data.dataList[e.currentTarget.dataset.index].more
-    }, 'Index/select_time', res => {
-      this.setData({
-        doctor: res.data.data.doctor,
-        notice: res.data.data.notice,
-        timeList: res.data.data.office_time.map(item => {
-          item.office_start_time = app.configure.timelist(item.office_start_time)
-          item.office_over_time = app.configure.timelist(item.office_over_time)
-          return item
-        }),
-        quantumList: res.data.data.quantum
-      })
     })
   },
   bindPickerChange(e) {
@@ -102,10 +77,7 @@ Page({
       clinic_id: app.globalData.clinic_id,
       subjects_id: this.data.subjects_id,
       doctor_id: this.data.doctor_id,
-      office_time: this.GetDateStr(0).more
     }, 'Index/select_time', res => {
-      // res.data.data.doctor.office_time = app.time(res.data.data.doctor.office_time)
-      // console.log(res.data.data.doctor.office_time.split('-'))
       this.setData({
         doctor: res.data.data.doctor,
         notice: res.data.data.notice,
@@ -129,6 +101,7 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+    this.gitData()
   },
 
   /**
@@ -172,8 +145,7 @@ Page({
       clinic_id: app.globalData.clinic_id,
       subjects_id: this.data.subjects_id,
       doctor_id: this.data.doctor_id,
-      office_time: this.data.office_time,
-      quantum_time: this.data.date + this.data.array[this.data.index],
+      quantum_time: `${this.data.dataList[this.data.selectIndex].more} ${this.data.quantumList[this.data.clickIndex].quantum_time}`,
       patient_id: this.data.userid.patient_id
     }, 'Index/choice_registration', res => {
       app.toast(res.data.msg, res => {
@@ -190,7 +162,7 @@ Page({
    */
   toselect() {
     wx.navigateTo({
-      url: '/pages/selsectPatient/selsectPatient?changes=1',
+      url: '/pages/selsectPatient/selsectPatient?type=3',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

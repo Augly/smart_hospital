@@ -19,7 +19,7 @@ Page({
     this.setData({
       type: options.type  //如果为1进行科室选择进行预约
     })
-    if(this.data.type==1){
+    if (this.data.type == 1 || this.data.type == 3){
       wx.setNavigationBarTitle({
         title: '选择就诊人',
         success: function (res) { },
@@ -27,6 +27,14 @@ Page({
         complete: function (res) { }
       })
     }
+  },
+  togo(){
+    wx.navigateTo({
+      url: `/pages/addPatient/addPatient?type=add`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { }
+    })
   },
   del(e) {
     app.ajax('POST', {
@@ -134,6 +142,10 @@ Page({
             fail: function (res) { },
             complete: function (res) { },
           })
+        }else if(this.data.type == '3') {
+          wx.navigateBack({
+            delta: 1,
+          })
         } else {
           wx.navigateTo({
             url: `/pages/addPatient/addPatient?type=change&patient_id=${this.data.selectIndex}`,
@@ -149,6 +161,7 @@ Page({
 
   },
   addUser(event) {
+    console.log(111)
     wx.navigateTo({
       url: `/pages/addPatient/addPatient?type=${
         event.currentTarget.dataset.type

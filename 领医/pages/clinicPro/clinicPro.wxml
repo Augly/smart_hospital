@@ -11,22 +11,22 @@
 <image src="{{allData.test_clinic.clinic_picture}}" class="slide-image" wx:if="{{allData.test_clinic.clinic_picture!=''}}"></image>
 <view class='res'>
   <view class='res_list'>
-    <span class='iconfont icon-yiyuan1'></span>{{allData.test_clinic.clinic_name}}</view>
+    <span class='iconfont icon-yiyuan1'></span>{{allData.test_clinic.clinic_name==''?'未填写诊所名称':allData.test_clinic.clinic_name}}</view>
   <view class='res_list'>
-    <span class='iconfont icon-dianhua'></span>联系电话（手机）：{{allData.test_clinic.clinic_phone}}</view>
+    <span class='iconfont icon-dianhua'></span>联系电话（手机）：{{allData.test_clinic.clinic_phone==''?'未填写电话':allData.test_clinic.clinic_phone}}</view>
   <view class='res_list'>
-    <span class='iconfont icon-weizhi'></span>{{allData.test_clinic.clinic_site}}</view>
+    <span class='iconfont icon-weizhi'></span>{{allData.test_clinic.clinic_site==''?'未填写地址':allData.test_clinic.clinic_site}}</view>
 </view>
 
 
 <view class='ks'>
   <view class='title'>科室</view>
   <view class='taglist'>
-    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name}}</view>
+    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
   </view>
 </view>
 
 <view class='ks'>
   <view class='title'>医院简介</view>
-  <view class='produce'>{{allData.test_clinic.clinic_intro}}</view>
+  <view class='produce'>{{allData.test_clinic.clinic_intro==''?'未填写医院简介':allData.test_clinic.clinic_intro}}</view>
 </view>

@@ -10,7 +10,6 @@ Page({
     statusType: 'waitIng',
     starList:[1,2,3,4,5],
     list: [],
-    listed:[],
     imgurl: app.ImageHost
   },
 
@@ -23,24 +22,21 @@ Page({
     },'User/not_diagnose',res=>{
       console.log(res)
       this.setData({
-        listed:res.data.data.map(item=>{
-          item.evaluation_level = Math.ceil(item.evaluation_level)
-          return item
-        })
-      })
-    })
-    app.ajax('POST', {
-      user_token: app.globalData.user_token
-    }, 'User/already_diagnose', res => {
-      this.setData({
-        list: res.data.data.map(item=>{
+        list:res.data.data.map(item=>{
           item.evaluation_level = Math.ceil(item.evaluation_level)
           return item
         })
       })
     })
   },
-
+  togo(){
+    wx.navigateTo({
+      url: '/pages/index/switchover/switchover',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -96,10 +92,13 @@ Page({
   },
   waitIng(){
     this.setData({
+      list:[]
+    })
+    this.setData({
       statusType: 'waitIng'
     })
     app.ajax('POST',{
-      user_token:app.globalData.user_token
+      user_token: app.globalData.user_token
     },'User/not_diagnose',res=>{
       this.setData({
         list: res.data.data
@@ -108,10 +107,13 @@ Page({
   },
   patiented(){
     this.setData({
+      list: []
+    })
+    this.setData({
       statusType: 'patiented'
     })
     app.ajax('POST', {
-      user_token: ''
+      user_token: app.globalData.user_token
     }, 'User/already_diagnose', res => {
       this.setData({
         list: res.data.data
@@ -126,15 +128,14 @@ Page({
     }, 'User/cancel_registration', res => {
       let list = this.data.listed
       list.splice(e.currentTarget.dataset.index,1)
-      console.log(list)
       this.setData({
-        listed: list
+        list: list
       })
     })
   },
   toEvent(e){
     wx.navigateTo({
-      url: '`/pages/evaluate/evaluate?id=${e.currentTarget.dataset.id}`',
+      url: `/pages/evaluate/evaluate?id=${e.currentTarget.dataset.id}`,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

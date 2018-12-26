@@ -89,6 +89,14 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+    app.ajax('POST', {
+      user_token: app.globalData.user_token
+    }, 'User/user_information', res => {
+      this.setData({
+        allData: res.data.data,
+        show: true
+      })
+    })
     wx.getStorage({
       key: 'user_token',
       success: res => {

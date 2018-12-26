@@ -130,3 +130,7 @@ page {
 .otherData span {
   margin-left: 20rpx;
 }
+.colorR{
+  color:rgba(153, 153, 153, 1);
+  border: 1rpx solid rgba(153, 153, 153, 1);
+}

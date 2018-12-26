@@ -27,6 +27,14 @@ Page({
   onShow: function() {
     this.gitData()
   },
+  togo() {
+    wx.navigateTo({
+      url: `/pages/addPatient/addPatient?type=add`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { }
+    })
+  },
   gitData() {
     app.ajax(
       'POST',

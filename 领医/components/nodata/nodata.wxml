@@ -1,0 +1,8 @@
+<view class='nodataWrap'>
+  <image src='/images/nodata.png' class='nodataImg'></image>
+  <p class="nodataTitle">{{title}}
+    <span class='other' bindtap='togo'>{{mintitle}}
+      <span class='iconfont icon-jiantou'></span>
+    </span>
+  </p>
+</view>

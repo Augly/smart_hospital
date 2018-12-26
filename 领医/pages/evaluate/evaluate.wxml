@@ -1,10 +1,15 @@
-<textarea class="evaluate" placeholder='请输入评价' bindinput='getValue'></textarea>
 <view class='startWrap'>
-<span class="gold">评分：</span>
-  <span class="iconfont {{item>selectIndex?'icon-xingxingxian':'icon-xingxing'}}" wx:for="{{starList}}" wx:for-index="index" wx:for-item="item" bindtap="evaClick" data-index="{{item}}"></span>
-  <span class="gold">{{selectIndex}}.0</span>
-</view>
-
-  <view class='bottom' bindtap='submit'>
-    发表评价
+  <view class='title'>发表评论</view>
+  <view>
+    <span class="iconfont {{item>selectIndex?'icon-xingxingxian':'icon-xingxing'}}" wx:for="{{starList}}" wx:for-index="index" wx:for-item="item" bindtap="evaClick" data-index="{{item}}"></span>
   </view>
+
+
+</view>
+<textarea class="evaluate" placeholder='请输入评价' bindinput='getValue' maxlength='300'></textarea>
+<span class='option'>(限{{300-cursor}}字以内)</span>
+
+
+<view class='bottom' bindtap='submit'>
+  发表评价
+</view>

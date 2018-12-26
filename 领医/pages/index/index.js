@@ -121,7 +121,7 @@ Page({
   */
   toChanges() {
     wx.navigateTo({
-      url: `/pages/index/switchover/switchover?clinic_id=${this.data.clinic.clinic_id}`,
+      url: `/pages/index/switchover/switchover`,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

@@ -11,7 +11,7 @@ Page({
 
   onLoad: function (options) {
     app.ajax('POST',{
-      user_token:''
+      user_token:app.globalData.user_token
     },'Index/user_message_list',res=>{
       this.setData({
         messageList:res.data.data.map(res=>{

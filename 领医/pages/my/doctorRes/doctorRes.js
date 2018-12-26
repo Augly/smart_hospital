@@ -50,7 +50,8 @@ Page({
       doctor_id: this.data.doctor_id,     //医生id
       paging: this.data.pageNum,         //分页页数
       clinic_id: this.data.clinic_id        //诊所id
-    }, 'User/my_doctor_details', res => {
+    }, 'Index/choice_doctor_details', res => {
+      res.data.data.doctor.doctor_star = Math.ceil(res.data.data.doctor.doctor_star)
       this.setData({
         doctor: res.data.data,
         pageNum: 1 + this.data.pageNum
@@ -119,7 +120,7 @@ Page({
       doctor_id: this.data.doctor_id,     //医生id
       paging: this.data.pageNum,         //分页页数
       clinic_id: this.data.clinic_id        //诊所id
-    }, 'User/my_doctor_details', res => {
+    }, 'Index/choice_doctor_details', res => {
       wx.hideLoading()
       let alldata=this.data.doctor
       if(res.data.data.comment.length==0){

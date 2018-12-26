@@ -7,6 +7,7 @@ Page({
   data: {
     starList:[1,2,3,4,5],
     selectIndex:4,
+    cursor:0,
     content:''   //内容
   },
 
@@ -14,10 +15,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      doctor_id: options.id
+    })
   },
   getValue(e){
+    console.log(e)
     this.setData({
+      cursor: e.detail.cursor,
       content:e.detail.value
     })
   },
@@ -77,10 +82,10 @@ Page({
   },
   submit(){
     app.ajax('POST', {
-      doctor_id: options.id,
+      doctor_id: this.data.doctor_id,
       evaluation_count: this.data.content,
       evaluation_level: this.data.selectIndex,
-      user_token: ''
+      user_token: app.globalData.user_token
     }, 'User/doctor_evaluation', res => {
       wx.showToast({
         title: '评价成功',

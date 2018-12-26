@@ -9,7 +9,15 @@ Page({
     type: 1,
     allData: null,
     // show: false,
-    ImageHost: app.ImageHost
+    ImageHost: app.ImageHost,
+    sexList: [{
+      title: '男',
+      id: 1
+    }, {
+      title: '女',
+      id: 2
+    }],
+    sexIndex: 0
   },
 
   /**
@@ -21,10 +29,20 @@ Page({
     }, 'User/user_information', res => {
       this.setData({
         allData: res.data.data,
+        sexIndex: res.data.data.user_sex - 1,
         show: true
       })
     })
   },
+  //切换男女性别
+  bindPickerChangeSex(e) {
+    console.log(e)
+    this.setData({
+      sexIndex: e.detail.value
+    })
+  },
+  //切换年龄
+
   toMessage() {
     wx.navigateTo({
       url: '/pages/index/message/message',
@@ -32,6 +50,48 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+  },
+  //输入年龄
+  getAge(e) {
+    console.log(e)
+    let all = this.data.allData
+    all.user_age = this.checkAge(e.detail.value)
+    this.setData({
+      allData: all
+    })
+  },
+  //输入手机号
+  getPhone(e) {
+    let all = this.data.allData
+    all.user_phone = this.checkAge(e.detail.value)
+    this.setData({
+      allData: all
+    })
+  },
+  submit() {
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      user_nickname: this.data.allData.user_nickname,
+      user_portrait: this.data.allData.user_portrait,
+      user_sex:1+this.data.sexIndex,
+      user_age: this.data.allData.user_age
+    }, 'User/user_information_update', res => {
+      app.toast('修改个人资料成功!')
+      wx.navigateBack({
+        delta: 1,
+      })
+    })
+  },
+  checkAge(val) {
+    let value = parseInt(val)
+    if (val == 0) {
+      app.toast('年龄必须大于0')
+      return ''
+    } else if (val > 200) {
+      app.toast('请正确填写年龄')
+      return ''
+    }
+    return val
   },
   changesA() {
     wx.chooseImage({
@@ -47,13 +107,6 @@ Page({
           all.user_portrait = user_portrait
           this.setData({
             allData: all
-          })
-          app.ajax('POST', {
-            user_token: app.globalData.user_token,
-            user_nickname: this.data.allData.user_nickname,
-            user_portrait: this.data.allData.user_portrait,
-          }, 'User/user_information', res => {
-            app.toast('修改个人资料成功!')
           })
         }, res => {
 

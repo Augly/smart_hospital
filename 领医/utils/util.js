@@ -90,10 +90,11 @@ function timelist(time) {
     curYear = curDate.getFullYear(),
     curHour = curDate.getHours(),
     timeStr;
-  timeStr =  hour + ':' + minute;
-  // if (minute < 10) {
-  //   minute = '0' + minute
-  // }
+  
+  if (minute < 10) {
+    minute = '0' + minute
+  }
+  timeStr = hour + ':' + minute;
   // if (year < curYear) {
   //   // timeStr = year + '年' + month + '月' + day + '日' + hour + ':' + minute;
   //   timeStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;

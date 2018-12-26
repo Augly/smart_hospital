@@ -35,9 +35,9 @@
   </view>
 
 </view>
-<view class='allTime' wx:for="{{quantumList}}" wx:for-item="item" wx:for-index="index">
+<view class="allTime {{clickIndex==index?'clickActive':''}}" wx:for="{{quantumList}}" wx:for-item="item" wx:for-index="index" bindtap='clickTime' data-index='{{index}}' data-number='{{item.surplus_number}}'>
   <view class='time'>{{item.quantum_time}}~{{item.over_time}}</view>
-  <view class='sy'>剩余 {{item.surplus_number}}</view>
+  <view class='sy'>剩余 <text class="{{item.surplus_number==0?'corR':''}}">{{item.surplus_number}}</text> </view>
 </view>
   <view class='tip'>
       <view class='tipTitle'>挂号须知</view>

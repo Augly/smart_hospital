@@ -37,7 +37,6 @@ Component({
       }
     },
     del(){
-      console.log(this.data.myindex)
       const myEventDetail = {
         myindex: this.data.myindex
       } // detail对象，提供给事件监听函数

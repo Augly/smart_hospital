@@ -4,9 +4,10 @@
     <view class='res'>
       <view class='res_left'>
         <view class='d_name'>
-          {{doctor.information.doctor_name}}<text class='z_do'> {{doctor.information.subjects_name}}</text>
+          {{doctor.doctor.doctor.doctor_name}}
+          <text class='z_do'> {{doctor.doctor.doctor.doctor_rank}}</text>
         </view>
-        <view class='adder'> {{doctor.information.clinic}}</view>
+        <view class='adder'> {{doctor.doctor.doctor.clinic}}</view>
         <!-- <view class='buttonGroup'>
           <view class='look'>查看医生</view>
           <view class='ask'>快速询问</view>
@@ -14,11 +15,11 @@
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-          已回答 {{doctor.solve_number.solve_number}}位患者
+          已回答 {{doctor.solve.solve_number}}位患者
         </view>
         <view class='starGroup'>
           <span class="iconfont {{myindex<doctor.information.doctor_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
-          <view class='gold'>{{doctor.information.doctor_level}}.0</view>
+          <view class='gold'>{{doctor.doctor.doctor_star}}.0</view>
         </view>
       </view>
     </view>
@@ -27,7 +28,7 @@
   <view class='dataGroup'>
     <view class='dataItem'>
       <view class='dataNum'>
-        {{doctor.solve_number.solve_number}}
+        {{doctor.solve.solve_number}}
         <text class='popr'>位</text>
       </view>
       <view class='dataTitle'>
@@ -36,7 +37,7 @@
     </view>
     <view class='dataItem'>
       <view class='dataNum'>
-        {{doctor.solve_number.answer}}
+        {{doctor.solve.solve_number}}
         <text class='popr'>个</text>
       </view>
       <view class='dataTitle'>
@@ -47,7 +48,7 @@
       <view class='gh'>
         前往挂号
       </view>
-     <view class='ask' bindtap='tochat'>
+      <view class='ask' bindtap='tochat'>
         快速询问
       </view>
     </view>
@@ -60,13 +61,13 @@
     </view>
     <view class='tagGroup'>
       <!-- <text class='tag' wx:for="{{doctor.patentList}}" wx:for-index="index" wx:for-item="item"> {{item}}</text> -->
-      <text class='tag'> {{doctor.information.skilled_skill}}</text>
+      <text class='tag'> {{doctor.doctor.doctor.skilled_skill}}</text>
     </view>
     <view class='goodTTitle'>
       个人简介
     </view>
     <view class='describe'>
-      {{doctor.information.doctor_intro}}
+      {{doctor.doctor.doctor.doctor_intro}}
     </view>
   </view>
 
@@ -76,15 +77,15 @@
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-yiyuan1'></span>
-      <view class='item_res'>{{doctor.clinic.clinic_name}}</view>
+      <view class='item_res'>{{doctor.clinic_information.clinic_name}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-dianhua'></span>
-      <view class='item_res'>联系电话（手机）：{{doctor.clinic.clinic_phone}}</view>
+      <view class='item_res'>联系电话（手机）：{{doctor.clinic_information.clinic_phone}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-weizhi'></span>
-      <view class='item_res'>{{doctor.clinic.clinic_site}}</view>
+      <view class='item_res'>{{doctor.clinic_information.clinic_site}}</view>
     </view>
   </view>
 
@@ -92,7 +93,7 @@
     <view class='goodTTitle'>
       患者评价
     </view>
-     <view class='nodata' wx:if="{{doctor.comment.length==0}}">暂无评论</view>
+    <view class='nodata' wx:if="{{doctor.comment.length==0}}">暂无评论</view>
     <view class='describe' wx:if="{{doctor.comment.length>0}}">
       {{doctor.comment[0].comment_count}}
     </view>
@@ -110,5 +111,5 @@
       <view class='gold' style='color:#999999;margin-left:9rpx'> {{item.comment_level}}.0</view>
     </view>
   </view>
- 
+
 </view>

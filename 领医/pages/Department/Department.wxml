@@ -3,6 +3,8 @@
     <view class="switchover-head">
       <view class="switchover-img">
         <image src="https://lingyiil.dazhu-ltd.cn/public/static/program/images/zi02.png"></image>
+        
+       
       </view>
       <view class="switchover-text">
         <view class="switchover-headline switchover-headline-head">
@@ -17,7 +19,7 @@
           <view class="switchover-headline">{{value.subjects_name}}</view>
           <view class="switchover-subhead">
             <view class="switchover-subhead-c">擅长：
-              <span class='mintitle'>慢性胃炎</span>
+              <span class='mintitle'>{{value.subjects_skilled}}</span>
             </view>
           </view>
         </view>

@@ -21,10 +21,10 @@ Page({
     app.ajax('POST',{
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id
-    },'Index/select_subjects',res=>{
+    },'Index/subjects_list',res=>{
       console.log(res)
       this.setData({
-        clinicList: res.data.data.subjects,
+        clinicList: res.data.data,
         show:true
       })
     })
