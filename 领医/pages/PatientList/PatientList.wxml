@@ -1,4 +1,4 @@
-<view class='wrap' wx:if="{{list.length>0}}">
+<view class='wrap' wx:if="{{show&&list.length>0}}">
   <left-smooth bind:del='del' wx:for-index="index" wx:for="{{list}}" wx:key='' wx:for-item="item" myindex="{{item.patient_id}}">
     <view class="item_head {{selectIndex==item.patient_id?'item_head_select':''}}" bindtap='select' data-id="{{item.patient_id}}" data-index='{{index}}'>
       <image class='avater' src='{{item.patient_portrait}}'></image>
@@ -14,8 +14,9 @@
       </view>
     </view>
   </left-smooth>
+  <nodata title='当前暂无就诊人' mintitle='前往添加' bind:togo='togo' data-type='add' wx:if="{{list.length==0}}"></nodata>
 </view>
-<nodata title='当前暂无就诊人' mintitle='前往添加' bind:togo='togo' data-type='add' wx:if="{{list.length==0}}"></nodata>
+
 
 
 <!-- <view class='add' bindtap='addUser' data-type='add'>

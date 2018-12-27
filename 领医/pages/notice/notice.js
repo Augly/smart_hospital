@@ -6,13 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    res:null
+    res:null,
+    time:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      time: options.time
+    })
     app.ajax('POST',{
       user_message_id: options.id
     },'Index/message_unread_find',res=>{

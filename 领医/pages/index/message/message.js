@@ -64,8 +64,9 @@ onShow:function(){
   })
 },
   res(e){
+    let time = this.data.messageList[e.currentTarget.dataset.index].user_message_createtime
     wx.navigateTo({
-      url: `/pages/notice/notice?id=${e.currentTarget.dataset.id}`,
+      url: `/pages/notice/notice?id=${e.currentTarget.dataset.id}&time=${time}`,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

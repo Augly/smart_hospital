@@ -8,13 +8,16 @@ Page({
     ImageHost: app.ImageHost,
     select: 0,
     list: [],
-    selectIndex: 0
+    selectIndex: 0,
+    show:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    this.gitData()
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -25,7 +28,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    wx.getStorage({
+      key: 'user_token',
+      success: res => {
+        this.setData({
+          type: 0
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
+    })
     this.gitData()
+
   },
   togo() {
     wx.navigateTo({
@@ -48,7 +70,6 @@ Page({
             list: res.data.data
           })
           if (app.globalData.userId != '') {
-            console.log(app.globalData.userId)
             this.setData({
               selectIndex: app.globalData.userId.patient_id
             })

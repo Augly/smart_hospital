@@ -210,11 +210,21 @@ Page({
    * @params
    */
   toserch() {
-    wx.navigateTo({
-      url: `/pages/search/search?clinic_id=${this.data.clinic.clinic_id}`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    if (app.globalData.user_token != '') {
+      wx.navigateTo({
+        url: `/pages/search/search?clinic_id=${this.data.clinic.clinic_id}`,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   }
 })

@@ -127,3 +127,6 @@
   right: 0;
   bottom: 0;
 }
+.colorG{
+  color: rgba(99, 223, 197, 1)
+}

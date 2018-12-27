@@ -20,12 +20,12 @@ Page({
       formCode: e.detail.value
     })
   },
-  toindex(){
+  toindex() {
     wx.reLaunch({
       url: '/pages/index/index',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   //表单提交事件
@@ -42,11 +42,10 @@ Page({
             wx.setStorage({
               key: 'user_token',
               data: res.data.data.user_token,
-              success: res=> {
-                
+              success: res => {
                 wx.switchTab({
                   url: '/pages/index/index',
-                  success: function (res) { 
+                  success: function (res) {
                     app.toast('登陆成功!')
                   },
                   fail: function (res) { },
@@ -56,7 +55,7 @@ Page({
               fail: function (res) { },
               complete: function (res) { },
             })
-          }else{
+          } else {
             app.toast(res.data.msg)
           }
         })
@@ -66,7 +65,7 @@ Page({
     } else {
       app.toast('请输入正确的手机号!')
     }
-    
+
 
 
   },

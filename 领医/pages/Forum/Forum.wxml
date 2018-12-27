@@ -2,7 +2,7 @@
   <image class='list_logo' src='{{ImageHost}}{{item.lecture_cover}}'></image>
   <view class='list_Res'>
     <view class='title'>{{item.lecture_title}}</view>
-    <view class='res'>{{item.lecture_content}}</view>
+    <view class='res'>{{item.lecture_intro}}</view>
   </view>
   <view class='list_Other'>
     <view class='doctor_name'>{{item.lecture_doctor}}</view>

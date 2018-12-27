@@ -5,7 +5,7 @@
       <image class='avater' src='{{item.patient_portrait}}'></image>
       <view class='userRes'>
         <view class='name'>{{item.patient_realname}} <span class="iconfont {{item.patient_sex==1?'icon-nan':'icon-nv'}}"></span> </view>
-        <view class='age'>联系方式：{{item.patient_phone}}岁</view>
+        <view class='age'>联系方式：{{item.patient_phone}}</view>
         <view class='sex'>出生年月：{{item.patient_birthday}}</view>
       </view>
       <view class='change'>
