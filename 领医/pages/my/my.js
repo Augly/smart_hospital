@@ -24,6 +24,24 @@ Page({
         show: true
       })
     })
+    wx.getStorage({
+      key: 'user_token',
+      success: res => {
+        this.setData({
+          type: 0
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      },
+      complete: function (res) { console.log(res) },
+    })
   },
   toSetMy(){
     wx.navigateTo({

@@ -14,10 +14,10 @@
       </view>
     </view>
   </left-smooth>
-  <nodata title='当前暂无就诊人' mintitle='前往添加' bind:togo='togo' data-type='add' wx:if="{{list.length==0}}"></nodata>
+ 
 </view>
 
-
+ <nodata title='当前暂无就诊人' mintitle='前往添加' bind:togo='togo' data-type='add' wx:if="{{list.length==0}}"></nodata>
 
 <!-- <view class='add' bindtap='addUser' data-type='add'>
     增加就诊人

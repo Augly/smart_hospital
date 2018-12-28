@@ -2,8 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/setMy/setMy",
-    
-    
     "pages/subjects/subjects",
     "pages/clinic/clinic",
     "pages/clinicPro/clinicPro",

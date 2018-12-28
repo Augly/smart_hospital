@@ -45,7 +45,7 @@
       </view>
     </view>
     <view class='dataItem button'>
-      <view class='gh'>
+      <view class='gh' bindtap='togh'>
         前往挂号
       </view>
       <view class='ask' bindtap='tochat'>

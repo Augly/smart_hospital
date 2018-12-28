@@ -22,6 +22,23 @@ Page({
     })
     this.gitData()
   },
+  togh() {
+    if (app.globalData.user_token != '') {
+      wx.navigateTo({
+        url: '/pages/selsectPatient/selsectPatient?type=1',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+  },
   gitData(){
     app.ajax('POST', {
       user_token: app.globalData.user_token,    //用户令牌

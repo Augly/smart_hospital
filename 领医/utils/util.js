@@ -1,4 +1,5 @@
 //主域名
+const myapp=getApp()
 const https = "https://lingyiil.dazhu-ltd.cn/index.php/api/"
 
 /**
@@ -433,7 +434,7 @@ function ajax(Type, params, url, successData, errorData, completeData,imgurl) {
           mytoast(res.data.msg)
           if(res.data.code==-1){
             wx.clearStorage('user_token')
-            app.globalData.user_token = ''
+            myapp.globalData.user_token = ''
             wx.redirectTo({
               url: '/pages/login/index',
               success: function(res) {},

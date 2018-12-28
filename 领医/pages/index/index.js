@@ -8,13 +8,35 @@ Page({
     clinic_id: app.globalData.clinic_id,
     clinic_name: app.globalData.clinic_name,
     clinic_laboratory: app.globalData.clinic_laboratory,
-    lecture: []
+    lecture: [],
+    unread:0
   },
   onShow: function () {
     wx.setNavigationBarTitle({
       title: app.globalData.clinic_name,
       success: function (res) { },
       fail: function (res) { },
+      complete: function (res) { },
+    })
+    wx.getStorage({
+      key: 'user_token',
+      success: res => {
+        app.globalData.user_token = res.data
+        app.ajax('POST', {
+          user_token: res.data
+        }, 'Index/user_message_unread', (res) => {
+          if (res.data.code == 1) {
+            this.setData({
+              unread: res.data.data
+            })
+          } else {
+            app.toast(res.data.msg)
+          }
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+      },
       complete: function (res) { },
     })
   },
@@ -67,17 +89,7 @@ Page({
       }
     })
     //获取未读消息数
-    // app.ajax('POST', {
-    //   user_token:''
-    // }, 'Index/user_message_unread', (res) => {
-    //   if (res.data.code == 1) {
-    //     this.setData({
-    //       unread:res.data.data
-    //     })
-    //   }else{
-    //     app.toast(res.data.msg)
-    //   }
-    // })
+
     if (options.clinic_id) {
       app.clinic_id = options.clinic_id;
       app.clinic_name = options.clinic_name;
@@ -100,12 +112,15 @@ Page({
   */
   toMessges() {
     if (app.globalData.user_token!='') {
-      wx.navigateTo({
-        url: '/pages/index/message/message',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
+      // if(this.data.unread!=0){
+        wx.navigateTo({
+          url: '/pages/index/message/message',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      // }
+
     } else {
       wx.reLaunch({
         url: '/pages/login/index',

@@ -82,6 +82,7 @@
   font-weight: 400;
   color: rgba(173, 173, 173, 1);
   margin-top: 30rpx;
+  margin-bottom: 10rpx;
   margin-right: 20rpx;
 }
 

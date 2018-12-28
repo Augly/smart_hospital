@@ -131,7 +131,7 @@ Page({
       user_token: app.globalData.user_token,
       registration_id:e.currentTarget.dataset.id
     }, 'User/cancel_registration', res => {
-      let list = this.data.listed
+      let list = this.data.list
       list.splice(e.currentTarget.dataset.index,1)
       this.setData({
         list: list

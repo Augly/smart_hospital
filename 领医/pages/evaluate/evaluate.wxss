@@ -16,7 +16,7 @@
 }
 .option{
   position: absolute;
-  top: 380rpx;
+  top: 340rpx;
   right: 80rpx;
   font-size:20rpx;
 font-family:PingFang-SC-Regular;

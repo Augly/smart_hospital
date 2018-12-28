@@ -13,7 +13,6 @@ Page({
     app.ajax('POST',{
       user_token:app.globalData.user_token
     },'Index/user_message_list',res=>{
-      console.log(res.data.data)
       this.setData({
         messageList:res.data.data.map(res=>{
           res.user_message_createtime = app.configure.timeall(res.user_message_createtime)
