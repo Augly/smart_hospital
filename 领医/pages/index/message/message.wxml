@@ -7,7 +7,7 @@
         <view class='item_head'>
           <text class='time'>{{item.user_message_createtime}}</text>
           <!-- <text class='send'>发件人：总控后台</text> -->
-          <text class="type {{item.message_state==1?'colorG':''}}">{{item.message_state==1?'已读':'未读'}}</text>
+          <text class="type {{item.message_state==2?'colorG':''}}">{{item.message_state==1?'未读':'已读'}}</text>
         </view>
         <view class='item_content'>{{item.user_message_content}}</view>
       </view>

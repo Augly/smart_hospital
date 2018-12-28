@@ -98,10 +98,13 @@ Page({
         duration: 1000,
         mask: true,
         success: res => {
-          if (app.globalData.userId.patient_id = e.detail.myindex) {
-            wx.clearStorage('userId')
-            app.globalData.userId = ''
+          if (app.globalData.userId!=''){
+            if (app.globalData.userId.patient_id = e.detail.myindex) {
+              wx.clearStorage('userId')
+              app.globalData.userId = ''
+            }
           }
+         
           this.gitData()
         },
         fail: function (res) { },

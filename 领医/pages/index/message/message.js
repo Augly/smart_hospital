@@ -61,6 +61,16 @@ onShow:function(){
     fail: function (res) { },
     complete: function (res) { },
   })
+  app.ajax('POST', {
+    user_token: app.globalData.user_token
+  }, 'Index/user_message_list', res => {
+    this.setData({
+      messageList: res.data.data.map(res => {
+        res.user_message_createtime = app.configure.timeall(res.user_message_createtime)
+        return res
+      })
+    })
+  })
 },
   res(e){
     let time = this.data.messageList[e.currentTarget.dataset.index].user_message_createtime
