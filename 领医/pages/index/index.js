@@ -22,16 +22,27 @@ Page({
       key: 'user_token',
       success: res => {
         app.globalData.user_token = res.data
-        app.ajax('POST', {
-          user_token: res.data
-        }, 'Index/user_message_unread', (res) => {
-          if (res.data.code == 1) {
-            this.setData({
-              unread: res.data.data
-            })
-          } else {
-            app.toast(res.data.msg)
-          }
+        wx.request({
+          url: 'https://lingyiil.dazhu-ltd.cn/index.php/api/User/user_information',
+          data: {
+            user_token: app.globalData.user_token
+          },
+          method: 'POST',
+          success: res => {
+            console.log(res)
+            if (res.data.code == -1) {
+              wx.clearStorage('user_token')
+              app.globalData.user_token = ''
+              wx.redirectTo({
+                url: '/pages/login/index',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+              })
+            }
+          },
+          fail: function (res) { },
+          complete: function (res) { },
         })
       },
       fail: function (res) {
@@ -105,6 +116,27 @@ Page({
       clinic_name: app.globalData.clinic_name,
       clinic_laboratory: app.globalData.clinic_laboratory
     });
+
+    // if (app.globalData.user_token != '') {
+    //   app.ajax('POST', {
+    //     user_token: app.globalData.user_token
+    //   }, 'Index/user_message_unread', (res) => {
+    //     if (res.data.code == 1) {
+    //       this.setData({
+    //         unread: res.data.data
+    //       })
+    //     } else {
+    //       app.toast(res.data.msg)
+    //     }
+    //   })
+    // } else {
+    //   wx.reLaunch({
+    //     url: '/pages/login/index',
+    //     success: function (res) { },
+    //     fail: function (res) { },
+    //     complete: function (res) { },
+    //   })
+    // }
   },
   /**跳转去消息列表
   * @methon toMessges
@@ -135,12 +167,25 @@ Page({
   * @params
   */
   toChanges() {
-    wx.navigateTo({
-      url: `/pages/index/switchover/switchover`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    if (app.globalData.user_token != '') {
+      // if(this.data.unread!=0){
+      wx.navigateTo({
+        url: `/pages/index/switchover/switchover`,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+      // }
+
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   },
   /**跳转去预约挂号
    * @methon selsect
@@ -167,24 +212,50 @@ Page({
    * @params
    */
   toProduce() {
-    wx.navigateTo({
-      url: '/pages/introduce/introduce',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    if (app.globalData.user_token != '') {
+      // if(this.data.unread!=0){
+      wx.navigateTo({
+        url: '/pages/introduce/introduce',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+      // }
+
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   },
   /**跳转去医师讲堂
    * @methon ysjt
    * @params
    */
   ysjt() {
-    wx.navigateTo({
-      url: '/pages/Forum/Forum',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    if (app.globalData.user_token != '') {
+      // if(this.data.unread!=0){
+      wx.navigateTo({
+        url: '/pages/Forum/Forum',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+      // }
+
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+   
   },
   /**跳转去导诊台
    * @methon todao
@@ -212,12 +283,25 @@ Page({
   * @params
   */
   toRes(e) {
-    wx.navigateTo({
-      url: `/pages/ForumRes/ForumRes?id=${e.currentTarget.dataset.id}`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    if (app.globalData.user_token != '') {
+      // if(this.data.unread!=0){
+      wx.navigateTo({
+        url: `/pages/ForumRes/ForumRes?id=${e.currentTarget.dataset.id}`,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+      // }
+
+    } else {
+      wx.reLaunch({
+        url: '/pages/login/index',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   },
   /**
    * 去搜索页面

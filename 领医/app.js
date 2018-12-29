@@ -22,6 +22,28 @@ App({
       key: 'user_token',
       success: res => {
         this.globalData.user_token = res.data
+        wx.request({
+          url: 'https://lingyiil.dazhu-ltd.cn/index.php/api/User/user_information',
+          data: {
+            user_token: this.globalData.user_token
+          },
+          method: 'POST',
+          success: res => {
+            console.log(res)
+            if (res.data.code==-1){
+              wx.clearStorage('user_token')
+              this.globalData.user_token = ''
+              wx.redirectTo({
+                url: '/pages/login/index',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+              })
+            }
+          },
+          fail: function(res) {},
+          complete: function(res) {},
+        })
       },
       fail: function (res) {
         console.log(res)
