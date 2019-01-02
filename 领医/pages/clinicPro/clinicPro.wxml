@@ -8,7 +8,7 @@
 <!-- <block wx:for="{{imgUrls}}" wx:if="{{imgUrls.length<2}}">
   <image src="{{item}}" class="slide-image" />
 </block> -->
-<image src="{{allData.test_clinic.clinic_picture}}" class="slide-image" wx:if="{{allData.test_clinic.clinic_picture!=''}}"></image>
+<image src="{{ImageHost}}{{allData.test_clinic.clinic_picture}}" class="slide-image" wx:if="{{allData.test_clinic.clinic_picture!=''}}"></image>
 <view class='res'>
   <view class='res_list'>
     <span class='iconfont icon-yiyuan1'></span>{{allData.test_clinic.clinic_name==''?'未填写诊所名称':allData.test_clinic.clinic_name}}</view>

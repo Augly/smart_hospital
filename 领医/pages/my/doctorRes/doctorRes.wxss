@@ -32,7 +32,7 @@ page {
 }
 
 .res {
-  width: 550rpx;
+  width: 575rpx;
   height: 100%;
   display: flex;
   justify-content: space-between;
