@@ -1,5 +1,5 @@
 // pages/my/doctorRes/doctorRes.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -7,9 +7,9 @@ Page({
    */
   data: {
     starList: [1, 2, 3, 4, 5],
-    pageNum:1,
+    pageNum: 1,
     imgUrl: app.ImageHost,
-  },  
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -39,7 +39,7 @@ Page({
       })
     }
   },
-  gitData(){
+  gitData() {
     app.ajax('POST', {
       user_token: app.globalData.user_token,    //用户令牌
       doctor_id: this.data.doctor_id,     //医生id
@@ -53,7 +53,21 @@ Page({
       })
     })
   },
-
+  gitMore() {
+    app.ajax('POST', {
+      // user_token: app.globalData.user_token,    //用户令牌
+      doctor_id: this.data.doctor_id,     //医生id
+      paging: this.data.pageNum,         //分页页数
+      // clinic_id: this.data.clinic_id        //诊所id
+    }, 'Index/doctor_comment_page', res => {
+      let commont = this.data.doctor
+      commont.comment.concat(res.data.data.comment)
+      this.setData({
+        doctor: commont,
+        pageNum: 1 + this.data.pageNum
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -93,7 +107,7 @@ Page({
     wx.showNavigationBarLoading();
     // 隐藏导航栏加载框  
     this.setData({
-      pageNum:1
+      pageNum: 1
     })
     this.gitData()
     wx.hideNavigationBarLoading();
@@ -106,27 +120,27 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
       mask: true,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
     app.ajax('POST', {
-      user_token: app.globalData.user_token,    //用户令牌
+      // user_token: app.globalData.user_token,    //用户令牌
       doctor_id: this.data.doctor_id,     //医生id
       paging: this.data.pageNum,         //分页页数
-      clinic_id: this.data.clinic_id        //诊所id
-    }, 'Index/choice_doctor_details', res => {
+      // clinic_id: this.data.clinic_id        //诊所id
+    }, 'Index/doctor_comment_page', res => {
       wx.hideLoading()
-      let alldata=this.data.doctor
-      if(res.data.data.comment.length==0){
+      let commont = this.data.doctor
+      if (res.data.data.comment.length == 0) {
         wx.showToast({
           title: '暂无更多',
           mask: true,
         })
-      }else{
-        alldata.comment.concat(res.data.data.comment)
+      } else {
+        commont.comment.concat(res.data.data.comment)
         this.setData({
-          doctor:alldata,
+          doctor: commont,
           pageNum: 1 + this.data.pageNum
         })
       }
