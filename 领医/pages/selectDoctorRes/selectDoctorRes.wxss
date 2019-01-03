@@ -208,3 +208,6 @@ font-family:PingFang-SC-Bold;
 color:rgba(228,84,135,1);
 margin-left: 30rpx;
 }
+.red{
+  color: rgba(228, 84, 135, 1)
+}

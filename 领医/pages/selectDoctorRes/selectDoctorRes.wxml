@@ -25,7 +25,7 @@
     </view>
     <view class='itemOther' bindtap='toselect'>
       <view class='otherHead'>就诊人 </view>
-      <view class='otherData'>{{userid?userid.patient_realname:'请选择就诊人'}}
+      <view class="otherData {{userid?'':'res'}}">{{userid?userid.patient_realname:'请选择就诊人'}}
         <span class='iconfont icon-jiantou' style="margin-left: 10rpx;"></span>
       </view>
     </view>
