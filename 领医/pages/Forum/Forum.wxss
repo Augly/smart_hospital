@@ -36,13 +36,14 @@
 .res {
   margin-top: 18rpx;
   font-size: 20rpx;
+  line-height: 35rpx;
   font-family: PingFang-SC-Bold;
   font-weight: bold;
   color: rgba(153, 153, 153, 1);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 .list_Other{

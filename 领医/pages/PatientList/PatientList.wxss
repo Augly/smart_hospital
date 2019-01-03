@@ -26,6 +26,7 @@
   width: 350rpx;
   height: auto;
   margin-left: 20rpx;
+  line-height: 40rpx;
 }
 
 .name {

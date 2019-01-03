@@ -212,10 +212,10 @@ Page({
    */
   scope() {
 
-    if (this.data.imgUrl == '') {
-      app.toast('请上传头像')
-      return false
-    }
+    // if (this.data.imgUrl == '') {
+    //   app.toast('请上传头像')
+    //   return false
+    // }
     if (this.data.name == '') {
       app.toast('请输入姓名')
       return false
@@ -232,9 +232,11 @@ Page({
       app.toast('请输入手机号')
       return false
     }
-    if (this.data.patient_card_number == '') {
-      app.toast('请输入身份证号')
-      return false
+    if(this.data.selectIndex=='2'){
+      if (this.data.patient_card_number == '') {
+        app.toast('请输入身份证号')
+        return false
+      }
     }
     if (this.data.statusType == 'add'){
       var data={

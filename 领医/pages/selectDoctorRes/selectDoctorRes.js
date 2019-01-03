@@ -102,6 +102,11 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+    this.setData({
+      userid: app.globalData.userId,
+      subjects_id: app.globalData.subjects_id,
+      doctor_id: app.globalData.doctor_id,
+    })
     this.gitData()
   },
 
@@ -164,9 +169,12 @@ Page({
     })
   },
   allSure(){
-    wx.navigateBack({
-            delta: 1,
-          })
+    wx.navigateTo({
+      url: '/pages/Registration/Registration',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   /**
    * 选择就诊人

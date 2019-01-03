@@ -39,7 +39,7 @@
     <view class='title'>出生日期</view>
     <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05' value='{{patient_birthday}}' bindinput='getbirth'></input>
   </view>
-  <view >
+  <view wx:if="{{selectIndex=='2'}}">
     <view class='title'>身份证号码</view>
     <input class='name'  placeholder='请输入就诊人的身份证号' value='{{patient_card_number}}' bindinput='getID' bindfocus='bindfocus' bindblur='bindlur'></input>
   </view>

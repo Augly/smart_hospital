@@ -22,7 +22,7 @@
 </view> -->
 
 <view class='bottomIpt' style='bottom:{{height}}px'>
-  <input class='ipt' adjust-position='{{false}}' bindfocus='bindfocus' bindblur='bindblur' bindinput='getValue'></input>
+  <input class='ipt' adjust-position='{{false}}' bindfocus='bindfocus' bindblur='bindblur' bindinput='getValue' placeholder='请输入您需要咨询的问题'></input>
   <view class='send' bindtap='send'>
     <span class='iconfont icon-fasong'></span>
   </view>

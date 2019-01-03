@@ -25,7 +25,7 @@
             <text class='ks'>挂号类型: </text>
             <text class='z_do'>{{item.registration_status==1?'挂号':'到场'}} </text>
           </view> -->
-          <view class='d_k'>
+          <view class='d_k' style='line-height:30rpx;'>
             <text class='ks'>就诊人: </text>
             <text class='z_do'>{{item.registration_patient_name}}</text>
           </view>
