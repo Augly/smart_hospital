@@ -5,11 +5,13 @@
 .switchover-item {
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-between;
-  width: 642rpx;
+  width: 100%;
+  box-sizing: border-box;
+
   height: auto;
-  margin: 0rpx 54rpx;
-  padding: 25rpx 0rpx;
+  padding: 25rpx 54rpx;
   border-bottom: 1rpx solid rgba(0, 0, 0, 0.06);
 }
 
@@ -47,8 +49,9 @@
   content: '';
   position: absolute;
   left: 0;
+  top: 25rpx;
   width: 7rpx;
-  height:97rpx;
+  height:110rpx;
   background-color:RGBA(228, 84, 135, 1);
 }
 

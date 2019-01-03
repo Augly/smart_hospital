@@ -33,8 +33,9 @@ Page({
     this.setData({
       selectIndex: e.currentTarget.dataset.index,
     })
+    app.globalData.subjects_id = e.currentTarget.dataset.id 
     wx.navigateTo({
-      url: `/pages/selectDoctor/selectDoctor?subjects_id=${e.currentTarget.dataset.id}`,
+      url: `/pages/selectDoctor/selectDoctor`,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

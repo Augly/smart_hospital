@@ -13,6 +13,6 @@
       </view>
     </left-smooth>
   </view>
-  <view class='nodata' wx:if="{{messageList.length==0}}">暂无消息</view>
+  <nodata title='当前暂无通知消息'  wx:if="{{messageList.length==0}}"></nodata>
 </view>
 <image class='tochat'  src='/images/120896888757042458.png'></image>

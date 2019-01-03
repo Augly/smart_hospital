@@ -1,8 +1,8 @@
 page {
-  position: relative;
+  /* position: relative; */
   width: 100%;
-  height: 100%;
-  background-color: RGBA(252, 252, 252, 1);
+  /* overflow: hidden; */
+  background-color: RGBA(249, 249, 249, 1);
 }
 
 .slide-image {
@@ -33,7 +33,7 @@ page {
 }
 
 .ks {
-  padding: 25rpx 30rpx 33rpx 30rpx;
+  padding: 25rpx 30rpx 12rpx 30rpx;
   background-color: rgba(255, 255, 255, 1);
   margin-top: 30rpx;
 }
@@ -76,4 +76,31 @@ page {
   color: rgba(153, 153, 153, 1);
   line-height: 47rpx;
   margin-top: 30rpx;
+}
+
+.mytip{
+  font-size:24rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(153,153,153,1);
+margin-left: 20rpx;
+}
+.more{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 33rpx;
+}
+.more span{
+  font-size:22rpx;
+font-weight:normal;
+color:rgba(153,153,153,1);
+}
+.icon-iconfontarrows{
+    font-size:22rpx;
+font-weight:normal;
+color:rgba(153,153,153,1);
 }

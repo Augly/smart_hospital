@@ -44,6 +44,7 @@
 .banner-input{
   width: 330rpx;
   height: 60rpx;
+  line-height: 60rpx;
   padding-left: 86rpx;
   font-size: 20rpx;
   font-family: Adobe Heiti Std R;
@@ -144,18 +145,17 @@
   height: auto;
   overflow: hidden;
 }
+.icon{
+  width: 35rpx;
+  height: 25rpx;
+  margin-right: 8rpx;
+}
 .hot-title{
-  padding: 20rpx 0 20rpx 75rpx;
-  height:31rpx;
-  line-height: 31rpx;
-  font-size:31rpx;
+  padding: 20rpx 0rpx 20rpx 32rpx;
+ font-size:32rpx;
+ font-weight: bold;
   font-family:Adobe Heiti Std R;
-  font-weight:80700;
   color:rgba(51,51,51,1);
-  background-image:url(https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie09.png);
-  background-repeat: no-repeat;
-  background-size: 35rpx 25rpx;
-  background-position: 32rpx 24rpx;
   display: flex;
   align-items: center;
 }
@@ -166,7 +166,7 @@
   width: 330rpx;
   height: 205rpx;
   float: left;
-  margin: 21rpx 0 21rpx 30rpx;
+  margin: 0rpx 0 21rpx 30rpx;
   box-sizing: border-box;
   padding: 0 30rpx;
   background:rgba(255,255,255,1);

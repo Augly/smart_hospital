@@ -12,7 +12,7 @@
   <view class='res_list'>
     <span class='iconfont icon-yiyuan1'></span>{{hosRes.name}}</view>
   <view class='res_list'>
-    <span class='iconfont icon-dianhua'></span>联系电话（手机）：{{hosRes.tel}}</view>
+    <span class='iconfont icon-dianhua'></span>联系电话(手机):{{hosRes.tel}}</view>
   <view class='res_list'>
     <span class='iconfont icon-weizhi'></span>{{hosRes.adder}}</view>
 </view>
@@ -26,6 +26,6 @@
 </view>
 
 <view class='ks'>
-  <view class='title'>医院简介</view>
+  <view class='title'>关于我们</view>
   <view class='produce'>{{product}}</view>
 </view>

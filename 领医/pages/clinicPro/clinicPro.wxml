@@ -13,16 +13,21 @@
   <view class='res_list'>
     <span class='iconfont icon-yiyuan1'></span>{{allData.test_clinic.clinic_name==''?'未填写诊所名称':allData.test_clinic.clinic_name}}</view>
   <view class='res_list'>
-    <span class='iconfont icon-dianhua'></span>联系电话（手机）：{{allData.test_clinic.clinic_phone==''?'未填写电话':allData.test_clinic.clinic_phone}}</view>
+    <span class='iconfont icon-dianhua'></span>联系电话(手机):{{allData.test_clinic.clinic_phone==''?'未填写电话':allData.test_clinic.clinic_phone}}</view>
   <view class='res_list'>
     <span class='iconfont icon-weizhi'></span>{{allData.test_clinic.clinic_site==''?'未填写地址':allData.test_clinic.clinic_site}}</view>
 </view>
 
 
 <view class='ks'>
-  <view class='title'>科室</view>
+  <view class='title'>科室 <text class='mytip'>点击查看科室详情</text></view>
   <view class='taglist'>
-    <view class='tag' wx:for="{{allData.subjects}}" wx:for-item="item" wx:key='' wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
+    <view class='tag' wx:if="{{index<12&&!morelist}}" wx:for="{{allData.subjects}}" wx:for-item="item" wx:key='' wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
+    <view class='tag' wx:if="{{morelist}}" wx:for="{{allData.subjects}}" wx:for-item="item" wx:key='' wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
+  </view>
+  <view class='more' wx:if="{{!morelist}}" bindtap="getMore">
+    <span>展开全部科室</span>
+    <span class='iconfont icon-iconfontarrows'></span>
   </view>
 </view>
 

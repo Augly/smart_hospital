@@ -13,9 +13,25 @@ Page({
     patient_birthday: '',
     imgUrl: '',
     name: '',
+    height:0,
+    fixed:false,
     ImageHost: app.ImageHost
   },
-
+  bindfocus: function (e) {
+    this.setData({
+      height: -20,
+      fixed: false
+    })
+    console.log(this.data.fixed)
+  },
+  
+  bindlur: function(e) {
+    this.setData({
+      height: 0,
+      fixed:true
+    })
+    console.log(this.data.fixed)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

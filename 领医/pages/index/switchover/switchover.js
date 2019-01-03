@@ -28,12 +28,12 @@ Page({
     })
   },
   onShow: function() {
-    wx.setNavigationBarTitle({
-      title: '切换诊所',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    // wx.setNavigationBarTitle({
+    //   title: '切换诊所',
+    //   success: function(res) {},
+    //   fail: function(res) {},
+    //   complete: function(res) {},
+    // })
   },
   /**
    * 切换当前医院并记录值赋值给全局

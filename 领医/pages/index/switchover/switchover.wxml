@@ -21,7 +21,7 @@
             </view>
           </view>
           <view class="switchover-subhead">
-            <view class="switchover-subhead-b">诊所地址:
+            <view class="switchover-subhead-b">诊所地址：
               <span class='mintitle'>{{value.clinic_phone}}</span>
             </view>
           </view>

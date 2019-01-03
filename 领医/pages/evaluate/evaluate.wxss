@@ -16,7 +16,7 @@
 }
 .option{
   position: absolute;
-  top: 340rpx;
+  top: 387rpx;
   right: 80rpx;
   font-size:20rpx;
 font-family:PingFang-SC-Regular;
@@ -72,4 +72,10 @@ color:rgba(153,153,153,1);
   font-family: PingFang-SC-Regular;
   font-weight: 400;
   color: rgba(51, 51, 51, 1);
+  margin-bottom: 10rpx;
 }
+.title .iconfont{
+  font-size: 30rpx;
+  color: RGBA(94, 178, 255, 1);
+}
+

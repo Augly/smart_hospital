@@ -7,8 +7,8 @@ Page({
    */
   data: {
     value: '',
-    doctorList: ['王晶晶', '仇益阳'],
-    ks: ['外科', '外科专科', '外科', '外科专科', '外科', '外科专科', '外科', '外科专科'],
+    doctorList: [],
+    ks: [],
     colorList: ['rgba(255,245,245,1)', 'rgba(243, 249, 253, 1)', 'rgba(252, 252, 252, 1)', 'rgba(255, 248, 241, 1)', 'rgba(246, 247, 248, 1)', 'rgba(244, 251, 243, 1)', 'rgba(240, 252, 254, 1)', 'rgba(255, 251, 232, 1)']
   },
 
@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData()
+    // this.getData()
   },
   getData(){
     app.ajax('POST', {

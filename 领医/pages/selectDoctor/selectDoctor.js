@@ -18,12 +18,12 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      subjects_id: options.subjects_id
+      subjects_id: app.globalData.subjects_id
     })
     app.ajax('POST',{
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
-      subjects_id: options.subjects_id,
+      subjects_id: app.globalData.subjects_id,
       // office_time: new Date().getTime()
     },'Index/choice_doctor_list',res=>{
       this.setData({
@@ -140,9 +140,9 @@ Page({
    * 详情
    */
   toRes(e) {
-    console.log(e.currentTarget.dataset.id)
+    app.globalData.doctor_id = e.currentTarget.dataset.id 
     wx.navigateTo({
-      url: `/pages/selectDoctorRes/selectDoctorRes?doctor_id=${e.currentTarget.dataset.id}&office_time=${e.currentTarget.dataset.timeid}&subjects_id=${this.data.subjects_id}&date=${e.currentTarget.dataset.date}`,
+      url: `/pages/selectDoctorRes/selectDoctorRes`,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

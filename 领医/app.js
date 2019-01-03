@@ -81,6 +81,8 @@ App({
     clinic_id: '',
     clinic_name: '',
     clinic_laboratory: '',
-    userId:''
+    userId:'',
+    subjects_id:'',
+    doctor_id:''
   }
 })

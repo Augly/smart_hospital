@@ -15,16 +15,16 @@
       <image src='{{imgurl}}{{item.doctor_portrait}}' class='logo'></image>
       <view class='res'>
         <view class='res_left'>
-          <text class='d_name'>{{item.doctor_name}}</text>
+          <!-- <text class='d_name'>{{item.doctor_name}}</text> -->
           <view class='d_k'>
-            <text class='ks'>{{item.doctor_name}}</text>
-            <text class='z_do'>{{item.doctor_rank}} </text>
+            <text class='ks name'>{{item.doctor_name}}</text>
+            <text class='z_do'>{{item.subjects_name}} </text>
           </view>
           <view class='adder'>{{item.clinic_name}}</view>
-          <view class='d_k'>
+          <!-- <view class='d_k'>
             <text class='ks'>挂号类型: </text>
             <text class='z_do'>{{item.registration_status==1?'挂号':'到场'}} </text>
-          </view>
+          </view> -->
           <view class='d_k'>
             <text class='ks'>就诊人: </text>
             <text class='z_do'>{{item.registration_patient_name}}</text>
@@ -47,4 +47,14 @@
     </view>
   </view>
   <nodata wx:if="{{list.length==0}}" title='暂无已就诊记录' mintitle='请前往挂号' bind:togo='togo'></nodata>
+</view>
+
+<view class='mask' wx:if="{{mask}}">
+  <view class='maskContent'>
+    <image src='/images/20190103143105.png'></image>
+    <view class='optionGroup'>
+      <view class='sureAll' bindtap='sureCendel'>确  认</view>
+      <view class='cendelAll' bindtap='hideMask'>取  消</view>
+    </view>
+  </view>
 </view>

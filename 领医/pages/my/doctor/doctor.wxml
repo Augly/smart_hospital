@@ -4,12 +4,8 @@
     <image class='logo' src='{{imgUrl}}{{item.doctor_portrait}}'></image>
     <view class='res'>
       <view class='res_left'>
-        <view class='d_name'>
-          {{item.doctor_name}}
-        </view>
-        <view class='d_k'>
-          <text class='z_do'>擅长：{{item.doctor_skill}}</text>
-        </view>
+        <view class='d_name'>{{item.doctor_name}}</view>
+        <view class='d_k'><text class='z_do'>擅长：{{item.doctor_skill}}</text></view>
         <view class='adder'>{{item.clinic_name}}</view>
         <view class='buttonGroup'>
           <view class='look' bindtap='toRes' data-doctorid='{{item.doctor_id}}'>查看医生</view>
@@ -18,7 +14,7 @@
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-          已回答{{item.solve_number}}位患者
+          {{item.answer_number}}位患者已评星
         </view>
         <view class='starGroup'>
           <span class="iconfont {{myindex<item.evaluation_level?'icon-xingxing':'icon-xingxingxian'}}"   wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>

@@ -3,10 +3,7 @@
     <image class='logo' src="{{imgUrl}}{{doctor.doctor.doctor.doctor_portrait}}"></image>
     <view class='res'>
       <view class='res_left'>
-        <view class='d_name'>
-          {{doctor.doctor.doctor.doctor_name}}
-          <text class='z_do'> {{doctor.doctor.doctor.doctor_rank}}</text>
-        </view>
+        <view class='d_name'> {{doctor.doctor.doctor.doctor_name}} <text class='z_do'> {{doctor.doctor.doctor.doctor_rank}}</text></view>
         <view class='adder'> {{doctor.doctor.doctor.clinic}}</view>
         <!-- <view class='buttonGroup'>
           <view class='look'>查看医生</view>
@@ -15,7 +12,7 @@
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-          已回答 {{doctor.solve.solve_number}}位患者
+        {{doctor.solve.solve_number}}位患者已评星
         </view>
         <view class='starGroup'>
           <span class="iconfont {{myindex<doctor.doctor.doctor_star?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:key='' wx:for-index="myindex" wx:for-item="myitem"></span>
@@ -66,7 +63,7 @@
     <view class='goodTTitle'>
       个人简介
     </view>
-    <view class='describe'>
+    <view class='describe' style='margin-top:30rpx;'>
       {{doctor.doctor.doctor.doctor_intro}}
     </view>
   </view>
@@ -75,13 +72,13 @@
     <view class='goodTTitle'>
       诊所信息
     </view>
-    <view class='itemlist'>
+    <view class='itemlist' style='margin-top:50rpx;'>
       <span class='iconfont icon-yiyuan1'></span>
       <view class='item_res'>{{doctor.clinic_information.clinic_name}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-dianhua'></span>
-      <view class='item_res'>联系电话（手机）：{{doctor.clinic_information.clinic_phone}}</view>
+      <view class='item_res'>联系电话（手机）{{doctor.clinic_information.clinic_phone}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-weizhi'></span>
@@ -94,7 +91,7 @@
       患者评价
     </view>
     <view class='nodata' wx:if="{{doctor.comment.length==0}}">暂无评论</view>
-    <view class='describe' wx:if="{{doctor.comment.length>0}}">
+    <view class='describe' wx:if="{{doctor.comment.length>0}}" style="margin-top:50rpx;">
       {{doctor.comment[0].comment_count}}
     </view>
     <view class='starGroup' style='justify-content:flex-end;' wx:if="{{doctor.comment.length>0}}">

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "导诊台"
+  "navigationBarTitleText": "导诊台",
+  "usingComponents": {
+    "nodata": "/components/nodata/nodata"
+  }
 }

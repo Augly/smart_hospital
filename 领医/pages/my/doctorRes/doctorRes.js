@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    app.globalData.doctor_id = options.doctorId
     this.setData({
       doctor_id: options.doctorId,
       clinic_id: app.globalData.clinic_id,
@@ -25,7 +25,7 @@ Page({
   togh() {
     if (app.globalData.user_token != '') {
       wx.navigateTo({
-        url: '/pages/selsectPatient/selsectPatient?type=1',
+        url: '/pages/selectDoctorRes/selectDoctorRes',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

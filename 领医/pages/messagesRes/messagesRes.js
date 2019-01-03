@@ -69,7 +69,7 @@ Page({
   togh(){
     if (app.globalData.user_token != '') {
       wx.navigateTo({
-        url: '/pages/selsectPatient/selsectPatient?type=1',
+        url: '/pages/my/doctor/doctor',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

@@ -21,7 +21,9 @@
       </view>
       </view>
     </view>
-    <view class='nodata' wx:if="{{alldata.answer_people_name==''||alldata.answer_people_name==null||alldata.answer_people_name==undefined}}">
+    <!-- <view class='nodata' wx:if="{{alldata.answer_people_name==''||alldata.answer_people_name==null||alldata.answer_people_name==undefined}}">
       暂无回答 <text class='colb' bindtap='togh'>前去挂号</text>
-    </view>
+    </view> -->
 </view>
+
+<nodata title='暂无回答' mintitle='前往询问我的医生' bind:togo='togh' v-if="{{list.length==0}}" wx:if="{{alldata.answer_people_name==''||alldata.answer_people_name==null||alldata.answer_people_name==undefined}}"></nodata>

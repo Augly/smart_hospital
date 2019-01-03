@@ -12,12 +12,12 @@ Page({
     unread:0
   },
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title: app.globalData.clinic_name,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    // wx.setNavigationBarTitle({
+    //   title: app.globalData.clinic_name,
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
     wx.getStorage({
       key: 'user_token',
       success: res => {
@@ -193,7 +193,7 @@ Page({
   selsect() {
     if (app.globalData.user_token!='') {
       wx.navigateTo({
-        url: `/pages/index/switchover/switchover?clinic_id=${this.data.clinic.clinic_id}`,
+        url: `/pages/index/switchover/switchover`,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

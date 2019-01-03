@@ -11,7 +11,8 @@ Page({
     doctor: null,
     notice: null,
     index: 0,
-    clickIndex:0
+    clickIndex:0,
+    mask:false
   },
   GetDateStr(AddDayCount) {
     var dd = new Date();
@@ -52,8 +53,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       userid: app.globalData.userId,
-      subjects_id: options.subjects_id,
-      doctor_id: options.doctor_id,
+      subjects_id: app.globalData.subjects_id,
+      doctor_id: app.globalData.doctor_id,
     })
     this.gitData()
   },
@@ -148,14 +149,24 @@ Page({
       quantum_time: `${this.data.dataList[this.data.selectIndex].more} ${this.data.quantumList[this.data.clickIndex].quantum_time}`,
       patient_id: this.data.userid.patient_id
     }, 'Index/choice_registration', res => {
-      app.toast(res.data.msg, res => {
-        setTimeout(() => {
-          wx.navigateBack({
+      this.setData({
+        mask:true
+      })
+
+      // app.toast(res.data.msg, res => {
+      //   setTimeout(() => {
+      //     wx.navigateBack({
+      //       delta: 1,
+      //     })
+      //   })
+      // })
+
+    })
+  },
+  allSure(){
+    wx.navigateBack({
             delta: 1,
           })
-        })
-      })
-    })
   },
   /**
    * 选择就诊人

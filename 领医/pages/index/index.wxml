@@ -15,7 +15,7 @@
         切换诊所
       </view> -->
       <view class="banner-search" bindtap='toserch'>
-        <input class="banner-input" placeholder="搜索 医生 / 科室" placeholder-class="banner-input-placeholder"></input>
+        <view class="banner-input" >搜索 医生 / 科室</view>
       </view>
       <view class="banner-inform" bindtap='toMessges'>
         <view class='banner-inform bannerActive'>
@@ -49,7 +49,9 @@
   <view class="guide" bindtap='todao'></view>
 
   <view class="hot">
-    <view class="hot-title">热门知识</view>
+    <view class="hot-title">  
+      <image src='https://lingyiil.dazhu-ltd.cn/public/static/program/images/qie09.png' class='icon'></image>
+    热门知识</view>
     <view class="hot-gather">
       <view class="hot-g-item" wx:for="{{lecture}}" wx:for-item="item" wx:for-index="index" wx:key bindtap='toRes' data-id='{{item.lecture_id}}'>
         <image class="hot-g-img" src="{{ImageHost}}{{item.lecture_cover}}"></image>

@@ -1,4 +1,4 @@
-<view class='wrap'>
+<view class='wrap' style='margin-top:{{height}}px'>
   <view class='tabBar' wx-if="{{statusType!='change'}}">
     <view class="tabItem {{selectIndex=='1'?'tabActive':''}}" bindtap='selectType' data-index='1'>
       儿童就诊人
@@ -39,9 +39,9 @@
     <view class='title'>出生日期</view>
     <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05' value='{{patient_birthday}}' bindinput='getbirth'></input>
   </view>
-  <view>
+  <view >
     <view class='title'>身份证号码</view>
-    <input class='name' placeholder='请输入就诊人的身份证号' value='{{patient_card_number}}' bindinput='getID'></input>
+    <input class='name'  placeholder='请输入就诊人的身份证号' value='{{patient_card_number}}' bindinput='getID' bindfocus='bindfocus' bindblur='bindlur'></input>
   </view>
 
   <view class='add' bindtap='scope'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>

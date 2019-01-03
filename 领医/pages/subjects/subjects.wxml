@@ -15,4 +15,5 @@
         查看 <span class='iconfont icon-jiantou'></span>
       </view>
     </view>
+    <view class='nodata' wx:if="{{alldata.doctor.length==0}}">暂无医生数据</view>
 </view>

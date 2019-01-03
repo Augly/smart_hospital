@@ -103,8 +103,9 @@
   content: '';
   position: absolute;
   left: 0;
+  top: 28rpx;
   width: 7rpx;
-  height:97rpx;
+  height:104rpx;
   background-color:RGBA(228, 84, 135, 1);
 }
 

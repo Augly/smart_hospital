@@ -9,7 +9,9 @@ Page({
     ImageHost: app.ImageHost,
     selectIndex: 0,
     list: [],
-    show: false
+    show: false,
+    patient_id:'',
+    mask:false
   },
 
   /**
@@ -37,16 +39,31 @@ Page({
     })
   },
   del(e) {
+    this.setData({
+      mask:true,
+      patient_id:e.detail.myindex
+    })
+  },
+  hideMask(){
+    this.setData({
+      mask:false
+    })
+  },
+  sureCendel(){
+    this.setData({
+      mask:false
+    })
     app.ajax('POST', {
-      patient_id: e.detail.myindex //就诊人id
+      patient_id: this.data.patient_id //就诊人id
     }, 'User/patient_delete', res => {
+
       wx.showToast({
         title: res.data.msg,
         duration: 1000,
         mask: true,
-        success: res=> {
-          if (app.globalData.userId != ''){
-            if (app.globalData.userId.patient_id = e.detail.myindex) {
+        success: res => {
+          if (app.globalData.userId != '') {
+            if (app.globalData.userId.patient_id == this.data.patient_id) {
               wx.clearStorage('userId')
               app.globalData.userId = ''
             }

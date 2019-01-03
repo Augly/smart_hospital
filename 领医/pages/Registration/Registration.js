@@ -10,7 +10,10 @@ Page({
     statusType: 'waitIng',
     starList:[1,2,3,4,5],
     list: [],
-    imgurl: app.ImageHost
+    mask:false,
+    cendelId:0,
+    imgurl: app.ImageHost,
+    cendelIndex:0
   },
 
   /**
@@ -127,14 +130,28 @@ Page({
     })
   },
   cencel(e){
+    this.setData({
+      mask:true,
+      cendelIndex: e.currentTarget.dataset.index,
+      cendelId: e.currentTarget.dataset.id
+    })
+
+  },
+  hideMask(){
+    this.setData({
+      mask: false,
+    })
+  },
+  sureCendel(){
     app.ajax('POST', {
       user_token: app.globalData.user_token,
-      registration_id:e.currentTarget.dataset.id
+      registration_id: this.data.cendelId
     }, 'User/cancel_registration', res => {
       let list = this.data.list
-      list.splice(e.currentTarget.dataset.index,1)
+      list.splice(this.data.cendelIndex, 1)
       this.setData({
-        list: list
+        list: list,
+        mask:false
       })
     })
   },

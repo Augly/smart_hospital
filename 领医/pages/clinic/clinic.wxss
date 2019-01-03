@@ -47,8 +47,9 @@
   content: '';
   position: absolute;
   left: 0;
+  top:31rpx; 
   width: 7rpx;
-  height:97rpx;
+  height:98rpx;
   background-color:RGBA(228, 84, 135, 1);
 }
 

@@ -23,7 +23,7 @@
 }
 
 .res {
-  width: 550rpx;
+  width: 590rpx;
   height: 100%;
   display: flex;
   justify-content: space-between;

@@ -75,7 +75,9 @@ page {
   align-items: center;
   justify-content: space-between;
 }
-
+.item .iconfont{
+  font-size: 28rpx;
+}
 .left, .right {
   width: 50%;
   height: 100%;
