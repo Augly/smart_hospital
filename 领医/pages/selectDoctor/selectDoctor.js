@@ -24,8 +24,9 @@ Page({
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: app.globalData.subjects_id,
+      paging:10                         //加分页
       // office_time: new Date().getTime()
-    },'Index/choice_doctor_list',res=>{
+    },'Index/doctor_in_subjects',res=>{
       this.setData({
         doctorList: res.data.data.doctor
         // doctorList: res.data.data.doctor.map(res=>{
@@ -54,6 +55,11 @@ Page({
         //   return res
         // })
       })
+    })
+  },
+  togo(){
+    wx.navigateBack({
+      delta: 1,
     })
   },
   GetDateStr(AddDayCount) {

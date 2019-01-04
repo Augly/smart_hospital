@@ -32,3 +32,4 @@
 
   </view>
 </view>
+  <nodata title='该科室暂无医生' mintitle='选择其他科室' bind:togo='togo' v-if="{{doctorList.length==0}}"></nodata>

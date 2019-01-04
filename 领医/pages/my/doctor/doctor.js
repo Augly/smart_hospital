@@ -17,7 +17,7 @@ Page({
   onLoad: function(options) {
     app.ajax('POST',{
       user_token:app.globalData.user_token,
-      clinic_id:app.globalData.clinic_id
+      // clinic_id:app.globalData.clinic_id
     },'User/my_doctor',(res)=>{
       this.setData({
         list:res.data.data.map(item=>{
