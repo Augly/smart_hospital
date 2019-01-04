@@ -4,7 +4,7 @@
     <image class='logo' src='{{imgUrl}}{{item.doctor_portrait}}'></image>
     <view class='res'>
       <view class='res_left'>
-        <view class='d_name'>{{item.doctor_name}}</view>
+        <view class='d_name'>{{item.doctor_name}} <text class='zw'>{{item.doctor_rank}}</text></view>
         <view class='d_k'><text class='z_do'>擅长：{{item.doctor_skill}}</text></view>
         <view class='adder'>{{item.clinic_name}}</view>
         <view class='buttonGroup'>

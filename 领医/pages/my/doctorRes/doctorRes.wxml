@@ -1,10 +1,10 @@
 <view class='wrap'>
   <view class='item'>
-    <image class='logo' src="{{imgUrl}}{{doctor.doctor.doctor.doctor_portrait}}"></image>
+    <image class='logo' src="{{imgUrl}}{{doctor.information.doctor_portrait}}"></image>
     <view class='res'>
       <view class='res_left'>
-        <view class='d_name'> {{doctor.doctor.doctor.doctor_name}} <text class='z_do'> {{doctor.doctor.doctor.doctor_rank}}</text></view>
-        <view class='adder'> {{doctor.doctor.doctor.clinic}}</view>
+        <view class='d_name'> {{doctor.information.doctor_name}} <text class='z_do'> {{doctor.information.doctor_rank}}</text></view>
+        <view class='adder'> {{doctor.information.clinic}}</view>
         <!-- <view class='buttonGroup'>
           <view class='look'>查看医生</view>
           <view class='ask'>快速询问</view>
@@ -12,11 +12,11 @@
       </view>
       <view class='res_right'>
         <view class='res_right_title'>
-        {{doctor.solve.solve_number}}位患者已评星
+        {{doctor.solve_number.solve_number}}位患者已评星
         </view>
         <view class='starGroup'>
           <span class="iconfont {{myindex<doctor.doctor.doctor_star?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:key='' wx:for-index="myindex" wx:for-item="myitem"></span>
-          <view class='gold'>{{doctor.doctor.doctor_star}}.0</view>
+          <view class='gold'>{{doctor.solve_number.doctor_level}}.0</view>
         </view>
       </view>
     </view>
@@ -25,7 +25,7 @@
   <view class='dataGroup'>
     <view class='dataItem'>
       <view class='dataNum'>
-        {{doctor.solve.solve_number}}
+        {{doctor.solve_number.answer}}
         <text class='popr'>位</text>
       </view>
       <view class='dataTitle'>
@@ -34,7 +34,7 @@
     </view>
     <view class='dataItem'>
       <view class='dataNum'>
-        {{doctor.solve.solve_number}}
+        {{doctor.solve_number.solve_number}}
         <text class='popr'>个</text>
       </view>
       <view class='dataTitle'>
@@ -58,13 +58,13 @@
     </view>
     <view class='tagGroup'>
       <!-- <text class='tag' wx:for="{{doctor.patentList}}" wx:key='' wx:for-index="index" wx:for-item="item"> {{item}}</text> -->
-      <text class='tag'> {{doctor.doctor.doctor.skilled_skill}}</text>
+      <text class='tag'> {{doctor.information.skilled_skill}}</text>
     </view>
     <view class='goodTTitle'>
       个人简介
     </view>
     <view class='describe' style='margin-top:30rpx;'>
-      {{doctor.doctor.doctor.doctor_intro}}
+      {{doctor.information.doctor_intro}}
     </view>
   </view>
 
@@ -74,15 +74,15 @@
     </view>
     <view class='itemlist' style='margin-top:50rpx;'>
       <span class='iconfont icon-yiyuan1'></span>
-      <view class='item_res'>{{doctor.clinic_information.clinic_name}}</view>
+      <view class='item_res'>{{doctor.clinic.clinic_name}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-dianhua'></span>
-      <view class='item_res'>联系电话（手机）{{doctor.clinic_information.clinic_phone}}</view>
+      <view class='item_res'>联系电话（手机）{{doctor.clinic.clinic_phone}}</view>
     </view>
     <view class='itemlist'>
       <span class='iconfont icon-weizhi'></span>
-      <view class='item_res'>{{doctor.clinic_information.clinic_site}}</view>
+      <view class='item_res'>{{doctor.clinic.clinic_site}}</view>
     </view>
   </view>
 

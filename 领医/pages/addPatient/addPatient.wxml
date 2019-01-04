@@ -18,12 +18,13 @@
   <view>
     <view class='title'>姓名</view>
     <input class='name' placeholder='请填写就诊人姓名' value='{{name}}' bindinput='getName'></input>
-  </view>
+  </view>  
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
   <view>
     <view class='title'>年龄</view>
-    <input class='name' placeholder='请填写就诊人年龄' value='{{patient_age}}' bindinput='getAge'></input>
+    <view class='name'>{{patient_age}}</view>
   </view>
-
+</picker>
   <view>
     <view class='title'>性别</view>
     <view class='sexGroup'>
@@ -35,13 +36,15 @@
     <view class='title'>手机号 </view>
     <input class='name' placeholder='请填写就诊人手机号' value='{{patient_phone}}' bindinput='getphone'></input>
   </view>
-  <view>
-    <view class='title'>出生日期</view>
-    <input class='name' placeholder='请输入患者的出生日期:例：1996-10-05' value='{{patient_birthday}}' bindinput='getbirth'></input>
-  </view>
+  <picker mode="date" value="{{patient_birthday}}"  bindchange="bindDateChange">
+    <view>
+      <view class='title'>出生日期</view>
+      <view class='name'>{{patient_birthday}}</view>
+    </view>
+  </picker>
   <view wx:if="{{selectIndex=='2'}}">
     <view class='title'>身份证号码</view>
-    <input class='name'  placeholder='请输入就诊人的身份证号' value='{{patient_card_number}}' bindinput='getID' bindfocus='bindfocus' bindblur='bindlur'></input>
+    <input class='name' placeholder='请输入就诊人的身份证号' value='{{patient_card_number}}' bindinput='getID' bindfocus='bindfocus' bindblur='bindlur'></input>
   </view>
 
   <view class='add' bindtap='scope'>{{statusType=='add'?'添加就诊人':'修改就诊人'}}</view>

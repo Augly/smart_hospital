@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "nodata": "/components/nodata/nodata"
-  }
+  },
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
 }

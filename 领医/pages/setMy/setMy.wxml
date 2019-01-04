@@ -17,7 +17,7 @@
           <view class='itemTitle'>姓名</view>
         </view>
         <view class='right'>
-          <input class='name' value='{{allData.user_nickname}}' bindinput='getName'></input>
+          <input class='name' value='{{allData.user_nickname}}' bindinput='getName' placeholder='请在此处修改姓名'></input>
         </view>
       </view>
       <picker bindchange="bindPickerChangeSex" value="{{sexIndex}}" range="{{sexList}}" range-key='title'>
@@ -38,7 +38,7 @@
           <view class='itemTitle'>年龄</view>
         </view>
         <view class='right'>
-          <input class='name' value='{{allData.user_age}}' bindinput='getAge' type='number' maxlength='3'></input>
+          <input class='name' value='{{allData.user_age}}' bindinput='getAge' type='number' maxlength='3' placeholder='请在此处修改年龄'></input>
         </view>
       </view>
       <view class='item'>
@@ -47,7 +47,7 @@
           <view class='itemTitle'>我的手机</view>
         </view>
         <view class='right'>
-        <input class='name' value='{{allData.user_phone}}' bindinput='getPhone' type='number' maxlength='11'></input>
+        <input class='name' value='{{allData.user_phone}}' bindinput='getPhone' type='number' maxlength='11' placeholder='请在此处修改您的手机号'></input>
         </view>
       </view>
     </view>

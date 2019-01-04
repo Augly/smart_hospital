@@ -1,4 +1,4 @@
-<scroll-view style='width:100%;height:{{myheight}}px' scroll-y scroll-into-view="a{{myTop}}" scroll-with-animation class='chatWrap'>
+<scroll-view style='width:100%;height:{{myheight}}px' scroll-y scroll-into-view="a{{myTop}}" scroll-with-animation class='chatWrap'  bindscrolltoupper="bindscrolltoupper">
   <view class='list' wx:for="{{list}}" wx:key='' wx:for-index="index" wx:for-item="item" id='a{{index}}' bindtap='tores' data-id='{{item.inquiry_id}}'>
     <view class='content'>
       <view class='content_title'>
@@ -13,16 +13,8 @@
   </view>
   <view class='nodata' wx:if="{{list.length==0}}">暂无数据</view>
 </scroll-view>
-
-<!-- <view class='bottomIpt'>
-  <input class='ipt' bindinput='getValue'></input>
-  <view class='send' bindtap='send'>
-    <span class='iconfont icon-fasong'></span>
-  </view>
-</view> -->
-
 <view class='bottomIpt' style='bottom:{{height}}px'>
-  <input class='ipt' adjust-position='{{false}}' bindfocus='bindfocus' bindblur='bindblur' bindinput='getValue' placeholder='请输入您需要咨询的问题'></input>
+  <input class='ipt' adjust-position='{{false}}' bindfocus='bindfocus' bindblur='bindblur' bindinput='getValue' placeholder='请输入您需要咨询的问题' value='{{content}}'></input>
   <view class='send' bindtap='send'>
     <span class='iconfont icon-fasong'></span>
   </view>

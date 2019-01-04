@@ -6,16 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
+    array: [],
+    index:19,
     statusType: null,
     selectIndex: 1,
     sex: '1', //性别默认男
     alldata: null,
-    patient_birthday: '',
+    patient_birthday: '1996-02-01',
     imgUrl: '',
     name: '',
     height:0,
     fixed:false,
     ImageHost: app.ImageHost
+  },
+  bindPickerChange(e) {
+    let age = this.data.array[e.detail.value]
+    this.setData({
+      index: e.detail.value,
+      patient_age: age
+    })
   },
   bindfocus: function (e) {
     this.setData({
@@ -24,7 +33,11 @@ Page({
     })
     console.log(this.data.fixed)
   },
-  
+  bindDateChange(e) {
+    this.setData({
+      patient_birthday: e.detail.value
+    })
+  },
   bindlur: function(e) {
     this.setData({
       height: 0,
@@ -37,6 +50,17 @@ Page({
    */
   onLoad: function(options) {
     console.log(app.globalData.user_token)
+    let arr=[]
+    for(let s=1;s<101;s++){
+      arr.push(s)
+    }
+    this.setData({
+      array:arr,
+    })
+    let age = this.data.array[this.data.index]
+    this.setData({
+      patient_age: age
+    })
     //通过上一个页面传值接收type参数以此判断本页面事进行添加还是修改
     this.setData({
       statusType: options.type
@@ -109,11 +133,12 @@ Page({
   selectAVatr() {
     app.configure.chooseImage(res => {
       app.ajax('img', {}, 'upload/upload', res => {
+        app.toast('头像上传成功')
         this.setData({
           imgUrl: this.data.ImageHost + res.data
         })
       }, res => {
-
+        
       }, res => {
 
       }, res.tempFilePaths[0])
@@ -228,13 +253,13 @@ Page({
       app.toast('请输入年龄')
       return false
     }
-    if (this.data.patient_phone == '') {
-      app.toast('请输入手机号')
+    if (!(/^1(3|4|5|7|8)\d{9}$/.test(this.data.patient_phone))) {
+      app.toast('请输入正确的手机号')
       return false
     }
     if(this.data.selectIndex=='2'){
-      if (this.data.patient_card_number == '') {
-        app.toast('请输入身份证号')
+      if (!(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(this.data.patient_card_number))) {
+        app.toast('请输入正确的身份证号')
         return false
       }
     }

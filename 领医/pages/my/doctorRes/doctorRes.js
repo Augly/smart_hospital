@@ -45,12 +45,12 @@ Page({
       doctor_id: this.data.doctor_id,     //医生id
       paging: this.data.pageNum,         //分页页数
       clinic_id: this.data.clinic_id        //诊所id
-    }, 'Index/choice_doctor_details', res => {
-      res.data.data.doctor.doctor_star = Math.ceil(res.data.data.doctor.doctor_star)
+    }, 'User/my_doctor_details.html', res => {
+      res.data.data.solve_number.doctor_level = Math.ceil(res.data.data.solve_number.doctor_level)
       this.setData({
-        doctor: res.data.data,
-        pageNum: 1 + this.data.pageNum
+        doctor: res.data.data
       })
+      console.log(res.data.data)
     })
   },
   gitMore() {

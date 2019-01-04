@@ -10,7 +10,8 @@ Page({
     dataList: [],
     doctorList:[],
     subjects_id:0,
-    imgUrl: app.ImageHost
+    imgUrl: app.ImageHost,
+    paging:1
   },
 
   /**
@@ -24,7 +25,7 @@ Page({
       user_token:app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: app.globalData.subjects_id,
-      paging:10                         //加分页
+      paging:this.data.paging                         //加分页
       // office_time: new Date().getTime()
     },'Index/doctor_in_subjects',res=>{
       this.setData({
@@ -48,8 +49,10 @@ Page({
       subjects_id: this.data.subjects_id,
       office_time: this.data.dataList[e.currentTarget.dataset.index].value
     }, 'Index/choice_doctor_list', res => {
+      let s = this.data.paging
       this.setData({
-        doctorList: res.data.data.doctor
+        doctorList: res.data.data.doctor,
+        paging:1+s
         // doctorList: res.data.data.doctor.map(res => {
         //   res.office_time = app.time(res.office_time)
         //   return res
@@ -125,7 +128,37 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function () {  
+    wx.showNavigationBarLoading();
+    this.setData({
+      paging: 1
+    })
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      clinic_id: app.globalData.clinic_id,
+      subjects_id: app.globalData.subjects_id,
+      paging: this.data.paging                    //加分页
+    }, 'Index/doctor_in_subjects', res => {
+          wx.hideNavigationBarLoading();
+    // 停止下拉动作  
+    wx.stopPullDownRefresh();
+      wx.showLoading({
+        title: '正在刷新数据~',
+        mask: true,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+      setTimeout(() => {
+        wx.hideLoading()
+        this.setData({
+          doctorList: res.data.data.doctor,
+        })
+      }, 1500)
+    })  
+
+
+
 
   },
 
@@ -133,7 +166,33 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      clinic_id: app.globalData.clinic_id,
+      subjects_id: app.globalData.subjects_id,
+      paging: this.data.paging                    //加分页
+      // office_time: new Date().getTime()
+    }, 'Index/doctor_in_subjects', res => {
+      wx.showLoading({
+        title: '玩命加载中~',
+        mask: true,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+      setTimeout(() => {
+        wx.hideLoading()
+        let s = this.data.doctorList
+        if (res.data.data.doctor.length == 0) {
+          app.toast('暂无更多')
+        } else {
+          this.setData({
+            doctorList: s.concat(res.data.data.doctor),
+            paging: 1 + s
+          })
+        }
+      }, 1500)
+    })
   },
 
   /**

@@ -11,7 +11,7 @@
     <image class="headLogo" src='{{imgUrl}}{{item.doctor_portrait}}'></image>
       <view class='headTitle'>
         <view class='title'>{{item.doctor_name}}<span class='minTitle'>{{item.subjects_name}}</span><span class='minTitle'>{{item.doctor_position}}</span></view>
-        <view class='adder'>擅长：{{item.doctor_skilled.skilled_skill}}</view>
+        <view class='adder'>擅长：{{item.skilled_skill}}</view>
       </view>
       <view class="bottonGroup {{item.surplus_number.surplus_number==0?'colorR':''}}" bindtap='toRes' data-id='{{item.doctor_id}}' data-timeid='{{item.office_time_id}}' data-date="{{dataList[selectIndex].more}}">{{item.surplus_number.surplus_number==0?'无号可挂':'前往挂号'}}</view>
     </view>
@@ -25,11 +25,11 @@
     <view class='itemOther'>
       <view class='otherHead'>剩余号数</view>
       <view class='otherData'>
-        <span>{{item.surplus_number.surplus_number}}</span>
+        <span>{{item.surplus_number}}</span>
       </view>
     </view>
     </view>
 
   </view>
 </view>
-  <nodata title='该科室暂无医生' mintitle='选择其他科室' bind:togo='togo' v-if="{{doctorList.length==0}}"></nodata>
+  <nodata title='该科室暂无医生' mintitle='选择其他科室' bind:togo='togo' wx:if="{{doctorList.length==0}}"></nodata>

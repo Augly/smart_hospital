@@ -455,6 +455,7 @@ function ajax(Type, params, url, successData, errorData, completeData,imgurl) {
         success: (res) => {
           wx.hideLoading()
           var data=JSON.parse(res.data)
+          console.log(data)
           if (data.code == 1) {
             successData(data)
           } else {

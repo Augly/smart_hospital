@@ -12,13 +12,8 @@ Page({
     autoplay: false,
     interval: 1000,
     duration: 800,
-    hosRes: {
-      adder: '中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院',
-      tel: '17633369350',
-      name: '中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院中国天津市河北区第四铁路医院'
-    },
-    ks:["儿科","儿科"],
-    product:" 主任医师，技术1级，文职特技。原全军科学技术委员 会委员，现担任职务：沈阳军区专家组副组长、全军心 研所第一所长、全军心血管外科专业组主任委员会。第 二四军医大学教授、博士生导师。"
+    ks:[],
+    product:""
   },
 
   /**
@@ -28,15 +23,11 @@ Page({
     app.ajax('POST',{
 
     },'Index/clinic_intro',res=>{
+      console.log(res.data.data)
       this.setData({
-        ks: res.data.data[0].hot_department.split('，'),
-        product: res.data.data[0].clinic_introduce,
-        hosRes:{
-          adder: res.data.data[0].clinic_site,
-          tel: res.data.data[0].clinic_phone,
-          name: res.data.data[0].clinic_title
-        },
-        imgUrls: [this.data.ImageHost+res.data.data[0].banner]
+        ks: res.data.data.subjects,
+        product: res.data.data.datum,
+        imgUrls: [res.data.data.datum.organization_picture==''?'':this.data.ImageHost + res.data.data.datum.organization_picture]
       })
     })
   },

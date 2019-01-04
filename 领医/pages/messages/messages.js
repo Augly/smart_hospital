@@ -9,7 +9,7 @@ Page({
     height: 0,
     content: '',
     list: [],
-    pageNum:1
+    paging: 1
   },
 
   /**
@@ -22,18 +22,51 @@ Page({
   gitData() {
     app.ajax('POST', {
       user_token: app.globalData.user_token,
+      paging: this.data.paging
     }, 'Index/hospital_guide', res => {
-      this.setData({
-        list: res.data.data.inquiry.map(item => {
-          item.inquiry_time = app.configure.timeForm(item.inquiry_time)
-          return item
-        })
+      wx.showLoading({
+        title: '拼命加载中~',
+        mask: true,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
       })
-      setTimeout(() => {
-        this.setData({
-          myTop: this.data.list.length - 1,
-        })
-      }, 300)
+      setTimeout(data => {
+        wx.hideLoading()
+        let s = this.data.paging
+        if (res.data.data.inquiry.length > 0) {
+          if(s==1){
+            let list = res.data.data.inquiry.map(item => {
+              item.inquiry_time = app.configure.timeForm(item.inquiry_time)
+              return item
+            })
+            this.setData({
+              list: list.reverse(),
+              paging: 1 + s
+            })
+            setTimeout(() => {
+              this.setData({
+                myTop: this.data.list.length - 1,
+              })
+            }, 300)
+          }else{
+            let list = res.data.data.inquiry.map(item => {
+              item.inquiry_time = app.configure.timeForm(item.inquiry_time)
+              return item
+            })
+            let oldlist = this.data.list
+            this.setData({
+              list: list.concat(oldlist),
+              paging: 1 + s
+            })
+          }
+          
+        } else {
+          app.toast('暂无更多数据')
+        }
+      }, 1000)
+
+
     })
   },
   getHeight(h) {
@@ -91,7 +124,12 @@ Page({
         user_token: app.globalData.user_token,
         inquiry_count: this.data.content
       }, 'Index/hospital_guide_add', res => {
+        this.setData({
+          paging:1,
+          content: ''
+        })
         this.gitData()
+
       })
     } else {
       app.toast('请输入内容')
@@ -111,51 +149,13 @@ Page({
       complete: function (res) { },
     })
   },
+  //下拉加载更多
+  bindscrolltoupper: function () {
+    this.gitData()
+  },
   //下拉刷新
   onPullDownRefresh: function () {
-    console.log('--------下拉刷新-------');
-    // 显示顶部刷新图标
-    wx.showNavigationBarLoading();
-    // 隐藏导航栏加载框  
-    this.setData({
-      pageNum: 1
-    })
-    this.gitData()
-    wx.hideNavigationBarLoading();
-    // 停止下拉动作  
-    wx.stopPullDownRefresh();
-  },
-  //上拉加载
-  onReachBottom: function () {
-    console.log('--------触底加载-------');
-    // wx.showLoading({
-    //   title: '玩命加载中',
-    //   mask: true,
-    //   success: function (res) { },
-    //   fail: function (res) { },
-    //   complete: function (res) { },
-    // })
-    // app.ajax('POST', {
-    //   // user_token: app.globalData.user_token,    //用户令牌
-    //   doctor_id: this.data.doctor_id,     //医生id
-    //   paging: this.data.pageNum,         //分页页数
-    //   // clinic_id: this.data.clinic_id        //诊所id
-    // }, 'Index/doctor_comment_page', res => {
-    //   wx.hideLoading()
-    //   let commont = this.data.doctor
-    //   if (res.data.data.comment.length == 0) {
-    //     wx.showToast({
-    //       title: '暂无更多',
-    //       mask: true,
-    //     })
-    //   } else {
-    //     commont.comment.concat(res.data.data.comment)
-    //     this.setData({
-    //       doctor: commont,
-    //       pageNum: 1 + this.data.pageNum
-    //     })
-    //   }
-    // })
+   
   },
 
   /**

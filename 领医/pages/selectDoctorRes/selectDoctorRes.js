@@ -12,6 +12,7 @@ Page({
     notice: null,
     index: 0,
     clickIndex:0,
+    imgUrl: app.ImageHost,
     mask:false
   },
   GetDateStr(AddDayCount) {
