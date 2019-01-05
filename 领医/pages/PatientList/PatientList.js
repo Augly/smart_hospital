@@ -9,7 +9,7 @@ Page({
     select: 0,
     list: [],
     selectIndex: 0,
-    show:false
+    show: false
   },
 
   /**
@@ -34,27 +34,51 @@ Page({
         this.setData({
           type: 0
         })
+        app.globalData.user_token = res.data
+        wx.request({
+          url:
+            'https://lingyiil.dazhu-ltd.cn/index.php/api/User/user_information',
+          data: {
+            user_token: app.globalData.user_token
+          },
+          method: 'POST',
+          success: res => {
+            if (res.data.code == -1) {
+              wx.clearStorage('user_token')
+              app.globalData.user_token = ''
+              wx.redirectTo({
+                url: '/pages/login/index',
+                success: function(res) {},
+                fail: function(res) {},
+                complete: function(res) {}
+              })
+            }
+          },
+          fail: function(res) {},
+          complete: function(res) {}
+        })
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res)
         wx.reLaunch({
           url: '/pages/login/index',
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {}
         })
       },
-      complete: function (res) { console.log(res) },
+      complete: function(res) {
+        console.log(res)
+      }
     })
     this.gitData()
-
   },
   togo() {
     wx.navigateTo({
       url: `/pages/addPatient/addPatient?type=add`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {}
     })
   },
   gitData() {
@@ -90,27 +114,32 @@ Page({
     )
   },
   del(e) {
-    app.ajax('POST', {
-      patient_id: e.detail.myindex //就诊人id
-    }, 'User/patient_delete', res => {
-      wx.showToast({
-        title: res.data.msg,
-        duration: 1000,
-        mask: true,
-        success: res => {
-          if (app.globalData.userId!=''){
-            if (app.globalData.userId.patient_id = e.detail.myindex) {
-              wx.clearStorage('userId')
-              app.globalData.userId = ''
+    app.ajax(
+      'POST',
+      {
+        patient_id: e.detail.myindex //就诊人id
+      },
+      'User/patient_delete',
+      res => {
+        wx.showToast({
+          title: res.data.msg,
+          duration: 1000,
+          mask: true,
+          success: res => {
+            if (app.globalData.userId != '') {
+              if ((app.globalData.userId.patient_id = e.detail.myindex)) {
+                wx.clearStorage('userId')
+                app.globalData.userId = ''
+              }
             }
-          }
-         
-          this.gitData()
-        },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    })
+
+            this.gitData()
+          },
+          fail: function(res) {},
+          complete: function(res) {}
+        })
+      }
+    )
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -135,22 +164,21 @@ Page({
     wx.setStorage({
       key: 'userId',
       data: this.data.list[e.currentTarget.dataset.index],
-      success: res=>{
+      success: res => {
         app.globalData.userId = this.data.list[e.currentTarget.dataset.index]
         this.setData({
           selectIndex: this.data.list[e.currentTarget.dataset.index].patient_id
         })
         wx.navigateTo({
           url: `/pages/case/case?patient_id=${this.data.selectIndex}`,
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { }
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {}
         })
       },
       fail: function(res) {},
-      complete: function(res) {},
+      complete: function(res) {}
     })
-
   },
   /**
    * 用户点击右上角分享

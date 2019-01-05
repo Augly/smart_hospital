@@ -10,70 +10,74 @@ Page({
     selectIndex: 0,
     list: [],
     show: false,
-    patient_id:'',
-    mask:false
+    patient_id: '',
+    mask: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
-      type: options.type  //如果为1进行科室选择进行预约
+      type: options.type //如果为1进行科室选择进行预约
     })
-    if (this.data.type == 1 || this.data.type == 3){
+    if (this.data.type == 1 || this.data.type == 3) {
       wx.setNavigationBarTitle({
         title: '选择就诊人',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { }
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {}
       })
     }
   },
-  togo(){
+  togo() {
     wx.navigateTo({
       url: `/pages/addPatient/addPatient?type=add`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {}
     })
   },
   del(e) {
     this.setData({
-      mask:true,
-      patient_id:e.detail.myindex
+      mask: true,
+      patient_id: e.detail.myindex
     })
   },
-  hideMask(){
+  hideMask() {
     this.setData({
-      mask:false
+      mask: false
     })
   },
-  sureCendel(){
+  sureCendel() {
     this.setData({
-      mask:false
+      mask: false
     })
-    app.ajax('POST', {
-      patient_id: this.data.patient_id //就诊人id
-    }, 'User/patient_delete', res => {
-
-      wx.showToast({
-        title: res.data.msg,
-        duration: 1000,
-        mask: true,
-        success: res => {
-          if (app.globalData.userId != '') {
-            if (app.globalData.userId.patient_id == this.data.patient_id) {
-              wx.clearStorage('userId')
-              app.globalData.userId = ''
+    app.ajax(
+      'POST',
+      {
+        patient_id: this.data.patient_id //就诊人id
+      },
+      'User/patient_delete',
+      res => {
+        wx.showToast({
+          title: res.data.msg,
+          duration: 1000,
+          mask: true,
+          success: res => {
+            if (app.globalData.userId != '') {
+              if (app.globalData.userId.patient_id == this.data.patient_id) {
+                wx.clearStorage('userId')
+                app.globalData.userId = ''
+              }
             }
-          }
-          this.gitData()
-        },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    })
+            this.gitData()
+          },
+          fail: function(res) {},
+          complete: function(res) {}
+        })
+      }
+    )
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -111,40 +115,86 @@ Page({
       }
     )
   },
-  onReady: function () { },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-    this.gitData()
+  onShow: function() {
+    wx.setNavigationBarTitle({
+      title: '诊所列表',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {}
+    })
+    wx.getStorage({
+      key: 'user_token',
+      success: res => {
+        app.globalData.user_token = res.data
+        wx.request({
+          url:
+            'https://lingyiil.dazhu-ltd.cn/index.php/api/User/user_information',
+          data: {
+            user_token: app.globalData.user_token
+          },
+          method: 'POST',
+          success: res => {
+            if (res.data.code == -1) {
+              wx.clearStorage('user_token')
+              app.globalData.user_token = ''
+              wx.redirectTo({
+                url: '/pages/login/index',
+                success: function(res) {},
+                fail: function(res) {},
+                complete: function(res) {}
+              })
+            } else {
+              this.gitData()
+            }
+          },
+          fail: function(res) {},
+          complete: function(res) {}
+        })
+      },
+      fail: function(res) {
+        console.log(res)
+        wx.reLaunch({
+          url: '/pages/login/index',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {}
+        })
+      },
+      complete: function(res) {
+        console.log(res)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () { },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () { },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () { },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () { },
+  onShareAppMessage: function() {},
   select(e) {
     wx.setStorage({
       key: 'userId',
@@ -157,37 +207,38 @@ Page({
         if (this.data.type == '1') {
           wx.navigateTo({
             url: '/pages/Department/Department',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {}
           })
-        }else if(this.data.type == '3') {
+        } else if (this.data.type == '3') {
           wx.navigateBack({
-            delta: 1,
+            delta: 1
           })
         } else {
           wx.navigateTo({
-            url: `/pages/addPatient/addPatient?type=change&patient_id=${this.data.selectIndex}`,
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { }
+            url: `/pages/addPatient/addPatient?type=change&patient_id=${
+              this.data.selectIndex
+            }`,
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {}
           })
         }
       },
-      fail: function (res) { },
-      complete: function (res) { },
+      fail: function(res) {},
+      complete: function(res) {}
     })
-
   },
   addUser(event) {
     console.log(111)
     wx.navigateTo({
       url: `/pages/addPatient/addPatient?type=${
         event.currentTarget.dataset.type
-        }`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
+      }`,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {}
     })
   }
 })
