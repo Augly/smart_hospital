@@ -35,7 +35,7 @@ Page({
       res => {
         this.setData({
           allData: res.data.data,
-          sexIndex: res.data.data.user_sex - 1,
+          sexIndex: res.data.data.user_sex-1,
           show: true
         })
       }
@@ -82,7 +82,7 @@ Page({
         user_token: app.globalData.user_token,
         user_nickname: this.data.allData.user_nickname,
         user_portrait: this.data.allData.user_portrait,
-        user_sex: 1 + this.data.sexIndex,
+        user_sex:Number(this.data.sexIndex)+1,
         user_age: this.data.allData.user_age
       },
       'User/user_information_update',

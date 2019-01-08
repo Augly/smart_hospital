@@ -10,22 +10,22 @@
 </block>
 <view class='res'>
   <view class='res_list'>
-    <span class='iconfont icon-yiyuan1'></span>{{product.organization_name}}</view>
+    <span class='iconfont icon-yiyuan1'></span>{{product.introduce_name}}</view>
   <view class='res_list'>
-    <span class='iconfont icon-dianhua'></span>联系电话(手机):{{product.organization_phone}}</view>
+    <span class='iconfont icon-dianhua'></span>联系电话(手机):{{product.introduce_linkphone}}</view>
   <view class='res_list'>
-    <span class='iconfont icon-weizhi'></span>{{product.organization_phone}}</view>
+    <span class='iconfont icon-weizhi'></span>{{product.introduce_address}}</view>
 </view>
 
 
 <view class='ks'>
   <view class='title'>科室</view>
   <view class='taglist'>
-    <view class='tag' wx:for="{{ks}}" wx:for-item="item" wx:for-index="index">{{item.subjects_name}}</view>
+    <view class='tag' wx:for="{{ks}}" wx:for-item="item" wx:for-index="index">{{item}}</view>
   </view>
 </view>
 
 <view class='ks'>
   <view class='title'>关于我们</view>
-  <view class='produce'>{{product.organization_introduce}}</view>
+  <view class='produce'>{{product.introduce_regard}}</view>
 </view>

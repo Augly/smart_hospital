@@ -7,13 +7,13 @@
         <text class='zw'>心脏科</text>
         <text class='zw'>{{item.doctor_rank}}</text>
       </view>
-      <view class='res'>病情:{{item.history_content}}</view>
+      <view class='res'>病情:{{item.history_case}}</view>
     </view>
     <view class='buttonGroup'>
       <view class='date'>
         {{item.history_createtime}}
       </view>
-      <view class='lookCase' bindtap='lookCase' data-id='{{item.patient_id}}'>查看病历</view>
+      <view class='lookCase' bindtap='lookCase' data-id='{{item.history_id}}'>查看病历</view>
     </view>
   </view> 
   <nodata title='暂无我的病例' mintitle='预约挂号' bind:togo='togo' wx:if="{{list.length==0}}"></nodata>

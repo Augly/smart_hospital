@@ -1,4 +1,6 @@
 // pages/Report/Report.js
+var WxParse = require('../../wxParse/wxParse.js');
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      history_id: options.id
+    }, 'User/report_find', res => {
+      WxParse.wxParse('article', 'html', res.data.data.report_content, this, 0);
+    })
   },
 
   /**

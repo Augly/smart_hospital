@@ -1,4 +1,6 @@
-// pages/prescription/prescription.js
+// pages/Report/Report.js
+var WxParse = require('../../wxParse/wxParse.js');
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
+      history_id: options.id
+    }, 'User/prescription_find', res => {
+      WxParse.wxParse('article', 'html', res.data.data.prescription_content, this, 0);
+    })
   },
 
   /**
@@ -27,7 +34,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({
-      title: '查看处方',
+      title: '病例报告',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

@@ -1,22 +1,8 @@
-
-<view class='wrap'>
-  <view class='title'>北京领医怡乐儿童医院</view>
-  <view class='noticeGroup'>
-    <text class='name'>姓名 : 王陆</text>
-    <text class='name'>性别 : 男</text>
-    <text class='name'>年龄 : 9</text>
-  </view>
-  <view class='date'>
-    2018-09-08-14:02
-  </view>
-  <view>
-    <view class='mintitle'>药品处方：</view>
-    <view class='res'>
-      <view class='resList'>1.5%葡萄糖注射液      250ml :12.5gX1.0袋</view>
-      <view class='resList'>清开灵注射液                   10mlX4.0支      40ml</view>
+<import src="../../wxParse/wxParse.wxml" />
+  <view class='wrap'>
+    <view class='content' >
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </view>
   </view>
-</view>
 
-
-<image class='tochat' bindtap='tochat' src='/images/120896888757042458.png'></image>
+  <image class='tochat' src='/images/120896888757042458.png'></image>

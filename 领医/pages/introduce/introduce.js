@@ -25,9 +25,9 @@ Page({
     },'Index/clinic_intro',res=>{
       console.log(res.data.data)
       this.setData({
-        ks: res.data.data.subjects,
+        ks: res.data.data.datum.introduce_administrative,
         product: res.data.data.datum,
-        imgUrls: [res.data.data.datum.organization_picture==''?'':this.data.ImageHost + res.data.data.datum.organization_picture]
+        imgUrls: [res.data.data.datum.introduce_patternmaking == '' ? '' : this.data.ImageHost + res.data.data.datum.introduce_patternmaking]
       })
     })
   },

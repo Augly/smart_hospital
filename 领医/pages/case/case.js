@@ -89,8 +89,9 @@ Page({
 
   },
   lookCase(e){
+    console.log(e)
     wx.navigateTo({
-      url: '/pages/lookCase/lookCase?patient_id=' + e.currentTarget.dataset.patient_id,
+      url: '/pages/lookCase/lookCase?patientId=' + e.currentTarget.dataset.id,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

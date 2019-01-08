@@ -432,6 +432,16 @@ function ajax(Type, params, url, successData, errorData, completeData,imgurl) {
           successData(res)
         } else {
           mytoast(res.data.msg)
+          if (res.data.code == -1) {
+            wx.clearStorage('user_token')
+            wx.redirectTo({
+              url: '/pages/login/index',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          } 
+          
         }
       },
       error(res) {

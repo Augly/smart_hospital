@@ -115,6 +115,7 @@
   height: 405rpx;
   /* background-color: red; */
   position: fixed;
+  z-index: 0;
   right: 0;
   bottom: 0;
 }

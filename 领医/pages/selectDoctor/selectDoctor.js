@@ -188,7 +188,7 @@ Page({
         } else {
           this.setData({
             doctorList: s.concat(res.data.data.doctor),
-            paging: 1 + s
+            paging: 1 + this.data.paging
           })
         }
       }, 1500)

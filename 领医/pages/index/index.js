@@ -23,6 +23,7 @@ Page({
           },
           method: 'POST',
           success: res => {
+
             if (res.data.code == -1) {
               wx.clearStorage('user_token')
               app.globalData.user_token = ''
@@ -32,6 +33,34 @@ Page({
                 fail: function(res) {},
                 complete: function(res) {}
               })
+            }else{
+              if (res.data.code == 1) {
+                app.ajax('POST', {}, 'Index/Index', res => {
+                  if (res.data.code == 1) {
+                    res.data.data.lecture = res.data.data.lecture.map(item => {
+                      item.lecture_craetetime = app.time(item.lecture_craetetime)
+                      return item
+                    })
+                    wx.setNavigationBarTitle({
+                      title: res.data.data.clinic.clinic_name,
+                      success: function (res) { },
+                      fail: function (res) { },
+                      complete: function (res) { }
+                    })
+                    app.globalData.clinic_id = res.data.data.clinic.clinic_id
+                    app.globalData.clinic_name = res.data.data.clinic.clinic_name
+                    app.globalData.clinic_laboratory = res.data.data.clinic.hot_subjects
+                    this.setData({
+                      banner_list: res.data.data.banner,
+                      lecture: res.data.data.lecture,
+                      clinic: res.data.data.clinic,
+                      clinic_id: res.data.data.clinic.clinic_id,
+                      clinic_name: res.data.data.clinic.clinic_name,
+                      clinic_laboratory: res.data.data.clinic.hot_subjects
+                    })
+                  }
+                })
+              }
             }
           },
           fail: function(res) {},

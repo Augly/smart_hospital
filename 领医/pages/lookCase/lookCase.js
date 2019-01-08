@@ -1,3 +1,5 @@
+var WxParse = require('../../wxParse/wxParse.js');
+const app=getApp()
 Page({
 
   /**
@@ -11,11 +13,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      id: options.patientId
+    })
+    app.ajax('POST', {
+      user_token:app.globalData.user_token,
+      patient_id: options.patientId
+    }, 'User/history_find', res => {
+      WxParse.wxParse('article', 'html', res.data.data.history_content, this, 0);
+    })
   },
   prescription(){
     wx.navigateTo({
-      url: '/pages/prescription/prescription',
+      url: '/pages/prescription/prescription?id='+this.data.id,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -23,7 +33,7 @@ Page({
   },
   report() {
     wx.navigateTo({
-      url: '/pages/Report/Report',
+      url: '/pages/Report/Report?id=' + this.data.id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

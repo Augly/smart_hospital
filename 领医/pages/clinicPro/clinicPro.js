@@ -41,6 +41,7 @@ Page({
   },
   //去科室详情
   tores(e) {
+    app.globalData.subjects_id = e.currentTarget.dataset.subjectsid
     wx.navigateTo({
       url: `/pages/subjects/subjects?subjectsId=${e.currentTarget.dataset.subjectsid}`,
       success: function (res) { },

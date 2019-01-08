@@ -15,7 +15,7 @@
         {{doctor.solve_number.solve_number}}位患者已评星
         </view>
         <view class='starGroup'>
-          <span class="iconfont {{myindex<doctor.doctor.doctor_star?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:key='' wx:for-index="myindex" wx:for-item="myitem"></span>
+          <span class="iconfont {{myindex<doctor.solve_number.doctor_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:key='' wx:for-index="myindex" wx:for-item="myitem"></span>
           <view class='gold'>{{doctor.solve_number.doctor_level}}.0</view>
         </view>
       </view>
@@ -58,7 +58,7 @@
     </view>
     <view class='tagGroup'>
       <!-- <text class='tag' wx:for="{{doctor.patentList}}" wx:key='' wx:for-index="index" wx:for-item="item"> {{item}}</text> -->
-      <text class='tag'> {{doctor.information.skilled_skill}}</text>
+      <span class='tag'> {{doctor.information.skilled_skill}}</span>
     </view>
     <view class='goodTTitle'>
       个人简介
