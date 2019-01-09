@@ -45,16 +45,14 @@
 </view>
 <view class='tip'>
   <view class='tipTitle'>挂号须知</view>
-  <view class='tipContent'>{{notice.notice}}</view>
+  <view class='tipContent'>{{notice.config_value}}</view>
 </view>
 <view class='sureWrap'>
   <view class='sure' bindtap='sure'>确 认 预 约</view>
 </view>
-
-
 <view class='mask' wx:if="{{mask}}">
   <view class='maskContent'>
     <image src='/images/bak_yuechegong.png'></image>
-    <view class='maskSure' bindtap='allSure'>确  认</view>
+    <view class='maskSure' bindtap='allSure'>确 认</view>
   </view>
 </view>
