@@ -47,7 +47,8 @@
           <view class='itemTitle'>我的手机</view>
         </view>
         <view class='right'>
-        <input class='name' value='{{allData.user_phone}}' bindinput='getPhone' type='number' maxlength='11' placeholder='请在此处修改您的手机号'></input>
+          <!-- <input class='name' value='{{allData.user_phone}}' bindinput='getPhone' type='number' maxlength='11' placeholder='请在此处修改您的手机号'></input> -->
+          <view class='name'>{{allData.user_phone}}</view>
         </view>
       </view>
     </view>
