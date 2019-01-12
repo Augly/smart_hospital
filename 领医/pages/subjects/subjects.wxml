@@ -2,7 +2,7 @@
 <view class='content'>
   <view class='subName'>科室介绍</view>
   <view class='all'>
-    {{alldata.test_subjects.subjects_skilled==''?'未填写科室擅长疾病':alldata.test_subjects.subjects_skilled}}
+    {{alldata.test_subjects.subjects_details_presentation==''?'未填写科室介绍':alldata.test_subjects.subjects_details_presentation}}
   </view>
    <view class='subName' style='margin-top:10rpx;margin-bottom:10rpx;'>科室医生</view>
     <view class='list' wx:for="{{alldata.doctor}}" wx:key='' wx:for-index="index" wx:for-item="item" bindtap='toRes' data-id="{{item.doctor_id}}">
