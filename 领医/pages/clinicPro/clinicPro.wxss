@@ -51,7 +51,9 @@ page {
 }
 
 .tag {
-  width: 148rpx;
+  min-width: 148rpx;
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
   height: 50rpx;
   border: 2rpx solid rgba(230, 230, 230, 1);
   border-radius: 25rpx;

@@ -1,6 +1,6 @@
 <image class='banner' src='{{imgurl}}{{alldata.test_subjects.subjects_details_pic}}' wx:if="{{alldata.test_subjects.subjects_details_pic!=''}}"></image>
 <view class='content'>
-  <view class='subName'>科室擅长疾病</view>
+  <view class='subName'>科室介绍</view>
   <view class='all'>
     {{alldata.test_subjects.subjects_skilled==''?'未填写科室擅长疾病':alldata.test_subjects.subjects_skilled}}
   </view>
