@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     app.ajax('POST',{
       user_token: app.globalData.user_token,
-      clinic_id: app.globalData.clinic_id,
+      clinic_id: options.clinic_id,
       subjects_id: options.subjectsId
     },'Index/subjects_introduce',res=>{
       this.setData({

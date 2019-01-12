@@ -46,6 +46,7 @@ page {
 
 .taglist {
   margin-top: 23rpx;
+  padding-bottom: 20rpx;
   display: flex;
   flex-wrap: wrap;
 }
@@ -68,9 +69,9 @@ page {
  background:linear-gradient(180deg,rgba(246,246,246,1) 0%,rgba(233,233,233,1) 100%);
 }
 
-.tag:nth-child(4n) {
+/* .tag:nth-child(4n) {
   margin-right: 0rpx;
-}
+} */
 
 .produce {
   font-size: 28rpx;

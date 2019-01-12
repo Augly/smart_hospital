@@ -121,12 +121,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    wx.setNavigationBarTitle({
-      title: '诊所列表',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
-    })
     wx.getStorage({
       key: 'user_token',
       success: res => {

@@ -17,11 +17,11 @@
       <view class="switchover-item  {{selectIndex==index?'switchover-item-hover':''}}" wx:for="{{clinicList}}" wx:key='' wx:for-index="index" wx:for-item="value" bindtap='tochanges' data-name="{{value.subjects_name}}" data-index="{{index}}" data-id="{{value.subjects_id}}" >
         <view class='switchover-right'>
           <view class="switchover-headline">{{value.subjects_name}}</view>
-          <view class="switchover-subhead">
+          <!-- <view class="switchover-subhead">
             <view class="switchover-subhead-c">擅长：
               <span class='mintitle'>{{value.subjects_skilled}}</span>
             </view>
-          </view>
+          </view> -->
         </view>
         <view class='change'>
           选择

@@ -41,12 +41,12 @@ Page({
                       item.lecture_craetetime = app.time(item.lecture_craetetime)
                       return item
                     })
-                    wx.setNavigationBarTitle({
-                      title: res.data.data.clinic.clinic_name,
-                      success: function (res) { },
-                      fail: function (res) { },
-                      complete: function (res) { }
-                    })
+                    // wx.setNavigationBarTitle({
+                    //   title: res.data.data.clinic.clinic_name,
+                    //   success: function (res) { },
+                    //   fail: function (res) { },
+                    //   complete: function (res) { }
+                    // })
                     app.globalData.clinic_id = res.data.data.clinic.clinic_id
                     app.globalData.clinic_name = res.data.data.clinic.clinic_name
                     app.globalData.clinic_laboratory = res.data.data.clinic.hot_subjects
@@ -102,12 +102,12 @@ Page({
           item.lecture_craetetime = app.time(item.lecture_craetetime)
           return item
         })
-        wx.setNavigationBarTitle({
-          title: res.data.data.clinic.clinic_name,
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {}
-        })
+        // wx.setNavigationBarTitle({
+        //   title: res.data.data.clinic.clinic_name,
+        //   success: function(res) {},
+        //   fail: function(res) {},
+        //   complete: function(res) {}
+        // })
         app.globalData.clinic_id = res.data.data.clinic.clinic_id
         app.globalData.clinic_name = res.data.data.clinic.clinic_name
         app.globalData.clinic_laboratory = res.data.data.clinic.hot_subjects

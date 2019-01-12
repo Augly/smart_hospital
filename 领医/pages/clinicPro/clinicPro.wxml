@@ -25,7 +25,7 @@
     <view class='tag' wx:if="{{index<12&&!morelist}}" wx:for="{{allData.subjects}}" wx:for-item="item" wx:key='' wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
     <view class='tag' wx:if="{{morelist}}" wx:for="{{allData.subjects}}" wx:for-item="item" wx:key='' wx:for-index="index" data-subjectsId="{{item.subjects_id}}" bindtap='tores'>{{item.subjects_name==''?'未填写科室简介':item.subjects_name}}</view>
   </view>
-  <view class='more' wx:if="{{!morelist}}" bindtap="getMore">
+  <view class='more' wx:if="{{allData.subjects.length>12&&!morelist}}" bindtap="getMore">
     <span>展开全部科室</span>
     <span class='iconfont icon-iconfontarrows'></span>
   </view>

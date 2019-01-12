@@ -234,24 +234,39 @@ font-weight:bold;
 }
 
 .tagGroup {
-  margin-top: 32rpx;
+  margin-top: 20rpx;
   padding-top: 4rpx;
   padding-bottom: 50rpx;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tag {
-  padding: 9rpx 45rpx 9rpx 45rpx;
-  /* height: 52rpx; */
+  /* padding: 9rpx 30rpx 9rpx 30rpx;
   line-height: 52rpx;
   font-size: 28rpx;
   font-family: PingFang-SC-Bold;
-  /* font-weight:bold; */
   color: rgba(99, 223, 197, 1);
   box-sizing: border-box;
   border: 2rpx solid rgba(230, 230, 230, 1);
   border-radius: 54rpx;
   margin-right: 33rpx;
-    margin-top: 5rpx;
+    margin-top: 5rpx; */
+      min-width: 148rpx;
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+  height: 50rpx;
+  border: 2rpx solid rgba(230, 230, 230, 1);
+  border-radius: 25rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+   color: rgba(99, 223, 197, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 26rpx;
+   
+  margin-top: 17rpx;
 }
 
 .describe {
