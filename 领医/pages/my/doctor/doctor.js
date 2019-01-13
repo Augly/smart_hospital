@@ -55,7 +55,12 @@ Page({
   },
   //没有数据的跳页处理
   togo(){
-
+    wx.redirectTo({
+      url: '/pages/index/switchover/switchover',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   /**
    * 生命周期函数--监听页面卸载
@@ -98,9 +103,8 @@ Page({
     })
   },
   tochat(e) {
-    console.log(e.currentTarget.dataset.id) //此处为医生id
     wx.navigateTo({
-      url: '/pages/chat/chat',
+      url: '/pages/chat/chat?doctorId=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.name,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

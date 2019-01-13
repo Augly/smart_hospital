@@ -1,6 +1,7 @@
 {
 
   "backgroundColor": "#eeeeee",
+  "navigationBarTitleText": "通知列表",
   "usingComponents": {
     "left-smooth": "/components/left-smooth/left-smooth",
     "nodata": "/components/nodata/nodata"

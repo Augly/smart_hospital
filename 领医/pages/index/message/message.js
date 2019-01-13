@@ -55,12 +55,12 @@ del(e){
   })
 },
 onShow:function(){
-  wx.setNavigationBarTitle({
-    title: '消息列表',
-    success: function (res) { },
-    fail: function (res) { },
-    complete: function (res) { },
-  })
+  // wx.setNavigationBarTitle({
+  //   title: '消息列表',
+  //   success: function (res) { },
+  //   fail: function (res) { },
+  //   complete: function (res) { },
+  // })
   app.ajax('POST', {
     user_token: app.globalData.user_token
   }, 'Index/user_message_list', res => {

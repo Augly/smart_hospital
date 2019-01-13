@@ -8,7 +8,7 @@ Page({
   data: {
     myheight: '',
     textContent: '',
-    uid:1,
+    type:1,
     chatList:[{
       avtar:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544422030851&di=6f08e3e4bb29548302a95f5c4892f79c&imgtype=jpg&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D2177114997%2C30575453%26fm%3D214%26gp%3D0.jpg',
       content:'最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么最近好点儿了没有啊？按时吃药了么',
@@ -24,33 +24,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showLoading({
-    //   title: '正在链接...',
-    //   mask: true,
-    //   success: function (res) { },
-    //   fail: function (res) { },
-    //   complete: function (res) { },
-    // })
-    wx.showModal({
-      title: '敬请期待',
-      showCancel: true,
-      cancelText: '明白',
-      confirmText: '知道了',
-      success: function(res) {
-        wx.navigateBack({
-          delta: 1,
-        })
-      },
-      fail: function(res) {
-        wx.navigateBack({
-          delta: 1,
-        })
-      },
-      complete: function(res) {
-        wx.navigateBack({
-          delta: 1,
-        })
-      },
+    wx.showLoading({
+      title: '正在链接...',
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
     if (timeGroup) {
       clearInterval(timeGroup)
@@ -62,30 +41,25 @@ Page({
       })
     }
     var that = this
-    // let all = JSON.parse(app.globalData.getInfo)
-    all.create_time = app.time(new Date(all.create_time))
-    // wx.setNavigationBarTitle({
-    //   title: all.nickname,
-    // })
+    wx.setNavigationBarTitle({
+      title: options.name,
+    })
     this.setData({
-      // getInfo: all,
-      myId: app.globalData.userInfo.id
+      myId: app.globalData.user_token,
+      doctorId: options.doctorId
     })
 
     this.getHeight(118)
     wx.connectSocket({
-      url: 'wss://imtest.tuoketong.com/wss',
+      url: 'wss://114.115.205.226:8888',
     })
     wx.onSocketOpen(function (res) {
       wx.hideLoading()
       var jsonData = {
-        action: 'login',
-        client_type: 'm',
-        client_id: app.globalData.userInfo.id,
-        nickname: app.globalData.userInfo.nickname,
-        avatar: app.globalData.userInfo.avatar,
-        to_user_id: that.data.getInfo.id,
-        categories_id: that.data.getInfo.categorys_id
+        RequestCode: 10000,
+        token: app.globalData.user_token,
+        message:'请求登陆',
+        user_doctor_id: options.doctorId
       }
       wx.sendSocketMessage({
         data: JSON.stringify(jsonData),
@@ -98,72 +72,39 @@ Page({
     })
     wx.onSocketMessage(function (e) {
       var result = JSON.parse(e.data);
-      if (result.code == 1) {
-        if (result.action == 'login') {
+      if (result.status == 'success') {
+        if (result.ResponseCode == 10000) {
           app.configure.mytoast('连接成功!')
-          that.setData({
-            chats_id: result.chats_id
-          })
           if (timeGroup) {
             clearInterval(timeGroup)
             timeGroup = null
           }
-          timeGroup = setInterval(() => {
-            //发送消息
-            // wx.sendSocketMessage({
-            //   data: JSON.stringify({
-            //     from_user_id: app.globalData.userInfo.id, //自己的id
-            //     to_user_id: that.data.getInfo.id, //对方id
-            //     action: 'heartbeat',
-            //     content: '',
-            //     img: '', // 有就填，没有就空
-            //     chats_id: that.data.chats_id // 回话id 、房间号,房间号是从哪里来的？
-            //   }),
-            //   success: function (res) {
-
-            //   },
-            //   fail: function () {
-
-            //   },
-            //   complete: function () {
-
-            //   }
-            // })
-          }, 10000)
-        }
-        if (result.action == 'msg') {
-          if (result.msg_type == 'tips') {
-            app.configure.mytoast(result.msg)
-          } else {
-            if (result.msg != "对方没在线，请换一位律师") {
-              let list = {
-                time: app.configure.timeFormatNotime(result.creatTime * 1000),
-                avatar: result.avatar,
-                id: result.chats_id,
-                content: result.msg,
-                img: result.img,
-                nickName: result.nickname
-              }
-              let newList = that.data.chatList
-              newList.push(list),
-                that.setData({
-                  chatList: newList,
-                })
-              setTimeout(() => {
-                that.setData({
-                  myTop: newList.length - 1,
-                })
-              }, 300)
-            }
-
+        } else if (result.ResponseCode == 10002){
+          let list = {
+            // time: app.configure.timeFormatNotime(new Date().getTime()),
+            time: app.configure.timeFormatNotime(result.time),
+            avatar: app.globalData.userInfo.avatar,
+            id: result.user_doctor_id,
+            content: result.message,
+            img: '',
+            nickName: app.globalData.userInfo.nickname
           }
-        }
-      } else {
-        if (result.action == 'logout') {
-          app.configure.mytoast(result.msg)
-        } else {
+          let newList = that.data.chatList
+          newList.push(list),
+            that.setData({
+              chatList: newList,
+            })
+          setTimeout(() => {
+            that.setData({
+              myTop: newList.length - 1,
+            })
+          }, 300)
+        }else{
           app.configure.mytoast('链接失败!')
         }
+        
+      }else {
+        app.configure.mytoast(result.msg)
       }
     })
     wx.onSocketClose(function (res) {
@@ -218,20 +159,17 @@ Page({
     this.setData({
       textContent: e.detail.value
     })
-
   },
   //发送文字
   send() {
     let that = this
-    if (that.data.chats_id != undefined && that.data.chats_id != null && that.data.chats_id != '') {
+    if (that.data.myId != undefined && that.data.myId != null && that.data.myId != '') {
       if (that.data.textContent != '') {
         var jsonData = {
-          from_user_id: app.globalData.userInfo.id, //自己的id
-          to_user_id: that.data.getInfo.id, //对方id
-          action: 'msg',
-          content: that.data.textContent,
-          img: '', // 有就填，没有就空
-          chats_id: that.data.chats_id // 回话id 、房间号,房间号是从哪里来的？
+          RequestCode: 10000,
+          token: this.data.myId,
+          message: that.data.textContent,
+          user_doctor_id: this.data.doctorId
         }
         wx.sendSocketMessage({
           data: JSON.stringify(jsonData),
@@ -284,12 +222,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '医生问答',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    // wx.setNavigationBarTitle({
+    //   title: '医生问答',
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
   },
 
   /**

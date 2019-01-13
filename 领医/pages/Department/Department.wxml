@@ -1,6 +1,6 @@
 <view class="container" wx:if="{{show}}">
   <view class="switchover">
-    <view class="switchover-head">
+    <!-- <view class="switchover-head">
       <view class="switchover-img">
         <image src="https://lingyiil.dazhu-ltd.cn/public/static/program/images/zi02.png"></image>
         
@@ -12,7 +12,7 @@
         <view class="switchover-subhead switchover-subhead-head">
           <view class="switchover-subhead-b">热门科室：</view>{{clinic_laboratory}}</view>
       </view>
-    </view>
+    </view> -->
     <view class='content'>
       <view class="switchover-item  {{selectIndex==index?'switchover-item-hover':''}}" wx:for="{{clinicList}}" wx:key='' wx:for-index="index" wx:for-item="value" bindtap='tochanges' data-name="{{value.subjects_name}}" data-index="{{index}}" data-id="{{value.subjects_id}}" >
         <view class='switchover-right'>
