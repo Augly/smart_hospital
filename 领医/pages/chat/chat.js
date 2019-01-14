@@ -24,101 +24,117 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '正在链接...',
-      mask: true,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+    wx.showModal({
+      title: '提示',
+      content: '敬请期待',
+      showCancel: false,
+      cancelText: '',
+      cancelColor: '',
+      confirmText: '好的',
+      confirmColor: '',
+      success: function(res) {
+        wx.navigateBack({
+          delta: 1,
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
     })
-    if (timeGroup) {
-      clearInterval(timeGroup)
-      timeGroup = null
-      wx.closeSocket({
-        success: () => {
+    // wx.showLoading({
+    //   title: '正在链接...',
+    //   mask: true,
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
+    // if (timeGroup) {
+    //   clearInterval(timeGroup)
+    //   timeGroup = null
+    //   wx.closeSocket({
+    //     success: () => {
 
-        }
-      })
-    }
-    var that = this
-    wx.setNavigationBarTitle({
-      title: options.name,
-    })
-    this.setData({
-      myId: app.globalData.user_token,
-      doctorId: options.doctorId
-    })
+    //     }
+    //   })
+    // }
+    // var that = this
+    // wx.setNavigationBarTitle({
+    //   title: options.name,
+    // })
+    // this.setData({
+    //   myId: app.globalData.user_token,
+    //   doctorId: options.doctorId
+    // })
 
-    this.getHeight(118)
-    wx.connectSocket({
-      url: 'wss://114.115.205.226:8888',
-    })
-    wx.onSocketOpen(function (res) {
-      wx.hideLoading()
-      var jsonData = {
-        RequestCode: 10000,
-        token: app.globalData.user_token,
-        message:'请求登陆',
-        user_doctor_id: options.doctorId
-      }
-      wx.sendSocketMessage({
-        data: JSON.stringify(jsonData),
-        success: function (res) { },
-        fail: function () { },
-        complete: function () {
+    // this.getHeight(118)
+    // wx.connectSocket({
+    //   url: 'wss://114.115.205.226:8888',
+    // })
+    // wx.onSocketOpen(function (res) {
+    //   wx.hideLoading()
+    //   var jsonData = {
+    //     RequestCode: 10000,
+    //     token: app.globalData.user_token,
+    //     message:'请求登陆',
+    //     user_doctor_id: options.doctorId
+    //   }
+    //   wx.sendSocketMessage({
+    //     data: JSON.stringify(jsonData),
+    //     success: function (res) { },
+    //     fail: function () { },
+    //     complete: function () {
 
-        }
-      })
-    })
-    wx.onSocketMessage(function (e) {
-      var result = JSON.parse(e.data);
-      if (result.status == 'success') {
-        if (result.ResponseCode == 10000) {
-          app.configure.mytoast('连接成功!')
-          if (timeGroup) {
-            clearInterval(timeGroup)
-            timeGroup = null
-          }
-        } else if (result.ResponseCode == 10002){
-          let list = {
-            // time: app.configure.timeFormatNotime(new Date().getTime()),
-            time: app.configure.timeFormatNotime(result.time),
-            avatar: app.globalData.userInfo.avatar,
-            id: result.user_doctor_id,
-            content: result.message,
-            img: '',
-            nickName: app.globalData.userInfo.nickname
-          }
-          let newList = that.data.chatList
-          newList.push(list),
-            that.setData({
-              chatList: newList,
-            })
-          setTimeout(() => {
-            that.setData({
-              myTop: newList.length - 1,
-            })
-          }, 300)
-        }else{
-          app.configure.mytoast('链接失败!')
-        }
+    //     }
+    //   })
+    // })
+    // wx.onSocketMessage(function (e) {
+    //   var result = JSON.parse(e.data);
+    //   if (result.status == 'success') {
+    //     if (result.ResponseCode == 10000) {
+    //       app.configure.mytoast('连接成功!')
+    //       if (timeGroup) {
+    //         clearInterval(timeGroup)
+    //         timeGroup = null
+    //       }
+    //     } else if (result.ResponseCode == 10002){
+    //       let list = {
+    //         // time: app.configure.timeFormatNotime(new Date().getTime()),
+    //         time: app.configure.timeFormatNotime(result.time),
+    //         avatar: app.globalData.userInfo.avatar,
+    //         id: result.user_doctor_id,
+    //         content: result.message,
+    //         img: '',
+    //         nickName: app.globalData.userInfo.nickname
+    //       }
+    //       let newList = that.data.chatList
+    //       newList.push(list),
+    //         that.setData({
+    //           chatList: newList,
+    //         })
+    //       setTimeout(() => {
+    //         that.setData({
+    //           myTop: newList.length - 1,
+    //         })
+    //       }, 300)
+    //     }else{
+    //       app.configure.mytoast('链接失败!')
+    //     }
         
-      }else {
-        app.configure.mytoast(result.msg)
-      }
-    })
-    wx.onSocketClose(function (res) {
-      if (timeGroup) {
-        clearInterval(timeGroup)
-        timeGroup = null
-      }
-    })
-    wx.onSocketError(function (res) {
-      if (timeGroup) {
-        clearInterval(timeGroup)
-        timeGroup = null
-      }
-    })
+    //   }else {
+    //     app.configure.mytoast(result.msg)
+    //   }
+    // })
+    // wx.onSocketClose(function (res) {
+    //   if (timeGroup) {
+    //     clearInterval(timeGroup)
+    //     timeGroup = null
+    //   }
+    // })
+    // wx.onSocketError(function (res) {
+    //   if (timeGroup) {
+    //     clearInterval(timeGroup)
+    //     timeGroup = null
+    //   }
+    // })
   },
   /**
  * 获取系统高度

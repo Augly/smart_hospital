@@ -16,7 +16,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      doctor_id: options.id
+      doctor_id: options.id,
+      gid:options.gid
     })
   },
   getValue(e) {
@@ -84,6 +85,7 @@ Page({
     if (this.data.content != '') {
       app.ajax('POST', {
         doctor_id: this.data.doctor_id,
+        registration_id:this.data.gid,
         evaluation_count: this.data.content,
         evaluation_level: this.data.selectIndex,
         user_token: app.globalData.user_token

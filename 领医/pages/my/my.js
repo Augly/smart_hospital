@@ -277,7 +277,7 @@ Page({
   toRegistration() {
     if (app.globalData.user_token != '') {
       wx.navigateTo({
-        url: '/pages/Registration/Registration',
+        url: '/pages/Registration/Registration?statusType=waitIng',
         success: function(res) {},
         fail: function(res) {},
         complete: function(res) {}

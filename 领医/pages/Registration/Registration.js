@@ -11,6 +11,7 @@ Page({
     starList:[1,2,3,4,5],
     list: [],
     mask:false,
+    status: 'cendel',
     cendelId:0,
     imgurl: app.ImageHost,
     cendelIndex:0
@@ -20,12 +21,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.ajax('POST',{
-      user_token:app.globalData.user_token
-    },'User/not_diagnose',res=>{
-      console.log(res)
+    if (options.statusType==''){
+      this.all()
+    } else if (options.statusType == 'waitIng'){
+      this.waitIng()
+    }
+  },
+  all(){
+    this.setData({
+      statusType: ''
+    })
+    app.ajax('POST', {
+      user_token: app.globalData.user_token
+    }, 'User/user_registration_list', res => {
       this.setData({
-        list:res.data.data.map(item=>{
+        list: res.data.data.map(item => {
           item.evaluation_level = Math.ceil(item.evaluation_level)
           return item
         })
@@ -96,9 +106,6 @@ Page({
 
   },
   waitIng(){
-    // this.setData({
-    //   list:[]
-    // })
     this.setData({
       statusType: 'waitIng'
     })
@@ -114,9 +121,6 @@ Page({
     })
   },
   patiented(){
-    // this.setData({
-    //   list: []
-    // })
     this.setData({
       statusType: 'patiented'
     })
@@ -134,10 +138,18 @@ Page({
   cencel(e){
     this.setData({
       mask:true,
+      status: 'cendel',
       cendelIndex: e.currentTarget.dataset.index,
       cendelId: e.currentTarget.dataset.id
     })
-
+  },
+  del(e) {
+    this.setData({
+      mask: true,
+      status:'del',
+      cendelIndex: e.currentTarget.dataset.index,
+      cendelId: e.currentTarget.dataset.id
+    })
   },
   hideMask(){
     this.setData({
@@ -145,21 +157,36 @@ Page({
     })
   },
   sureCendel(){
-    app.ajax('POST', {
-      user_token: app.globalData.user_token,
-      registration_id: this.data.cendelId
-    }, 'User/cancel_registration', res => {
-      let list = this.data.list
-      list.splice(this.data.cendelIndex, 1)
-      this.setData({
-        list: list,
-        mask:false
+    if (this.data.status == "cendel"){
+      app.ajax('POST', {
+        user_token: app.globalData.user_token,
+        registration_id: this.data.cendelId
+      }, 'User/cancel_registration', res => {
+        let list = this.data.list
+        list.splice(this.data.cendelIndex, 1)
+        this.setData({
+          list: list,
+          mask: false
+        })
       })
-    })
+    }else{
+      app.ajax('POST', {
+        user_token: app.globalData.user_token,
+        registration_id: this.data.cendelId
+      }, 'User/user_registration_delete', res => {
+        let list = this.data.list
+        list.splice(this.data.cendelIndex, 1)
+        this.setData({
+          list: list,
+          mask: false
+        })
+      })
+    }
+
   },
   toEvent(e){
     wx.navigateTo({
-      url: `/pages/evaluate/evaluate?id=${e.currentTarget.dataset.id}`,
+      url: `/pages/evaluate/evaluate?id=${e.currentTarget.dataset.id}&gid=${e.currentTarget.dataset.gid}`,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

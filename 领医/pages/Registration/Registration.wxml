@@ -1,17 +1,21 @@
 <view class='wrap'>
   <view class='headGroup'>
     <view class='tabBar'>
-    <view class="tabItem {{statusType=='waitIng'?'tabActive':''}}" bindtap='waitIng'>
-      未就诊列表
-    </view>
-    <view class='line'></view>
-    <view class="tabItem {{statusType=='waitIng'?'':'tabActive'}}" bindtap='patiented'>
-      已就诊列表
+      <view class="tabItem {{statusType==''?'tabActive':''}}" bindtap='all'>
+        全部
+      </view>
+      <view class='line'></view>
+      <view class="tabItem {{statusType=='waitIng'?'tabActive':''}}" bindtap='waitIng'>
+        未就诊列表
+      </view>
+      <view class='line'></view>
+      <view class="tabItem {{statusType=='patiented'?'tabActive':''}}" bindtap='patiented'>
+        已就诊列表
+      </view>
     </view>
   </view>
-</view>
   <view class='content'>
-    <view class='item' wx:for="{{list}}" wx:key='' wx:for-item="item" :wx:for-index="index" wx:if="{{list.length>0}}">
+    <view class='item' wx:for="{{list}}" wx:key='' wx:for-item="item" :wx:for-index="index" wx:if="{{list.length>0&&statusType!=''}}">
       <image src='{{imgurl}}{{item.doctor_portrait}}' class='logo'></image>
       <view class='res'>
         <view class='res_left'>
@@ -31,7 +35,7 @@
           </view>
           <view class='buttonGroup'>
             <view class='look' bindtap='cencel' wx-if="{{statusType=='waitIng'}}" data-id='{{item.registration_id}}' data-index="{{index}}">取消预约</view>
-            <view class='ask' bindtap='toEvent' wx-if="{{statusType=='patiented'}}" data-id='{{item.doctor_id}}'>评价医生</view>
+            <view class='ask' bindtap='toEvent' wx-if="{{statusType=='patiented'&&item.comment_state==1}}" data-id='{{item.doctor_id}}' data-gid='{{item.registration_id}}'>评价医生</view>
           </view>
         </view>
         <view class='res_right'>
@@ -42,6 +46,43 @@
             <span class="iconfont {{myindex<item.evaluation_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
             <view class='gold'>{{item.evaluation_level}}.0</view>
           </view>
+          <view class='statusType'>就诊状态：{{item.registration_status==1?'已预约':item.registration_status==2?item.comment_state==1?'已完成':'已评价':'已取消'}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='item' wx:for="{{list}}" wx:key='' wx:for-item="item" :wx:for-index="index" wx:if="{{list.length>0&&statusType==''}}">
+      <image src='{{imgurl}}{{item.doctor_portrait}}' class='logo'></image>
+      <view class='res'>
+        <view class='res_left'>
+          <!-- <text class='d_name'>{{item.doctor_name}}</text> -->
+          <view class='d_k'>
+            <text class='ks name'>{{item.doctor_name}}</text>
+            <text class='z_do'>{{item.subjects_name}} </text>
+          </view>
+          <view class='adder'>{{item.clinic_name}}</view>
+          <!-- <view class='d_k'>
+            <text class='ks'>挂号类型: </text>
+            <text class='z_do'>{{item.registration_status==1?'挂号':'到场'}} </text>
+          </view> -->
+          <view class='d_k' style='line-height:30rpx;'>
+            <text class='ks'>就诊人: </text>
+            <text class='z_do'>{{item.registration_patient_name}}</text>
+          </view>
+          <view class='buttonGroup'>
+            <view class='look' bindtap='cencel' wx-if="{{item.registration_status==1}}" data-id='{{item.registration_id}}' data-index="{{index}}">取消预约</view>
+            <view class='ask' bindtap='toEvent' wx-if="{{item.registration_status==2&&item.comment_state==1}}" data-id='{{item.doctor_id}}' data-gid='{{item.registration_id}}'>评价医生</view>
+            <view class='look' bindtap='del' wx-if="{{item.registration_status==3}}" data-id='{{item.doctor_id}}' data-index="{{index}}">删除预约</view>
+          </view>
+        </view>
+        <view class='res_right'>
+          <view class='res_right_title'>
+            {{item.solve}}位患者已评星
+          </view>
+          <view class='starGroup'>
+            <span class="iconfont {{myindex<item.evaluation_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
+            <view class='gold'>{{item.evaluation_level}}.0</view>
+          </view>
+          <view class='statusType'>就诊状态：{{item.registration_status==1?'已预约':item.registration_status==2?item.comment_state==1?'已完成':'已评价':'已取消'}}</view>
         </view>
       </view>
     </view>
@@ -51,10 +92,10 @@
 
 <view class='mask' wx:if="{{mask}}">
   <view class='maskContent'>
-    <image src='/images/20190103143105.png'></image>
+    <image src='{{status=="cendel"?"/images/20190103143105.png":""}}'></image>
     <view class='optionGroup'>
-      <view class='sureAll' bindtap='sureCendel'>确  认</view>
-      <view class='cendelAll' bindtap='hideMask'>取  消</view>
+      <view class='sureAll' bindtap='sureCendel'>确 认</view>
+      <view class='cendelAll' bindtap='hideMask'>取 消</view>
     </view>
   </view>
 </view>
