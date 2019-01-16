@@ -61,12 +61,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '挂号列表',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    // wx.setNavigationBarTitle({
+    //   title: '挂号列表',
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
+    if (this.data.statusType == '') {
+      this.all()
+    } else if (this.data.statusType == 'waitIng') {
+      this.waitIng()
+    }else{
+      this.patiented()
+    }
   },
 
   /**
@@ -164,6 +171,7 @@ Page({
       }, 'User/cancel_registration', res => {
         let list = this.data.list
         list.splice(this.data.cendelIndex, 1)
+        app.configure.mytoast('已取消预约')
         this.setData({
           list: list,
           mask: false
@@ -176,6 +184,7 @@ Page({
       }, 'User/user_registration_delete', res => {
         let list = this.data.list
         list.splice(this.data.cendelIndex, 1)
+        app.configure.mytoast('已删除')
         this.setData({
           list: list,
           mask: false

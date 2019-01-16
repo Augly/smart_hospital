@@ -46,7 +46,7 @@
             <span class="iconfont {{myindex<item.evaluation_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
             <view class='gold'>{{item.evaluation_level}}.0</view>
           </view>
-          <view class='statusType'>就诊状态：{{item.registration_status==1?'已预约':item.registration_status==2?item.comment_state==1?'已完成':'已评价':'已取消'}}</view>
+          <view class='statusType'>就诊状态：{{item.registration_status==1?'已预约':item.registration_status==2?item.comment_state==1?'已完成':'已评价':item.registration_status==10?'已取消':'已删除'}}</view>
         </view>
       </view>
     </view>
@@ -71,7 +71,7 @@
           <view class='buttonGroup'>
             <view class='look' bindtap='cencel' wx-if="{{item.registration_status==1}}" data-id='{{item.registration_id}}' data-index="{{index}}">取消预约</view>
             <view class='ask' bindtap='toEvent' wx-if="{{item.registration_status==2&&item.comment_state==1}}" data-id='{{item.doctor_id}}' data-gid='{{item.registration_id}}'>评价医生</view>
-            <view class='look' bindtap='del' wx-if="{{item.registration_status==3}}" data-id='{{item.doctor_id}}' data-index="{{index}}">删除预约</view>
+            <view class='look' bindtap='del' wx-if="{{item.registration_status==10}}" data-id='{{item.registration_id}}' data-index="{{index}}">删除预约</view>
           </view>
         </view>
         <view class='res_right'>
@@ -82,7 +82,7 @@
             <span class="iconfont {{myindex<item.evaluation_level?'icon-xingxing':'icon-xingxingxian'}}" wx:for="{{starList}}" wx:for-index="myindex" wx:for-item="myitem"></span>
             <view class='gold'>{{item.evaluation_level}}.0</view>
           </view>
-          <view class='statusType'>就诊状态：{{item.registration_status==1?'已预约':item.registration_status==2?item.comment_state==1?'已完成':'已评价':'已取消'}}</view>
+          <view class='statusType'>就诊状态：{{item.registration_status==1?'已预约':item.registration_status==2?item.comment_state==1?'已完成':'已评价':item.registration_status==10?'已取消':'已删除'}}</view>
         </view>
       </view>
     </view>
@@ -92,7 +92,7 @@
 
 <view class='mask' wx:if="{{mask}}">
   <view class='maskContent'>
-    <image src='{{status=="cendel"?"/images/20190103143105.png":""}}'></image>
+    <image src='{{status=="cendel"?"/images/mmexport1547515446625.jpg":"/images/mmexport1547514368325.jpg"}}'></image>
     <view class='optionGroup'>
       <view class='sureAll' bindtap='sureCendel'>确 认</view>
       <view class='cendelAll' bindtap='hideMask'>取 消</view>
