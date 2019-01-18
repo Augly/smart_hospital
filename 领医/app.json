@@ -25,6 +25,7 @@
     "pages/prescription/prescription",
     "pages/Report/Report",
     "pages/my/doctorRes/doctorRes",
+    "pages/my/doctorResOther/doctorResOther",
     "pages/my/my",
     "pages/case/case",
     "pages/Registration/Registration",

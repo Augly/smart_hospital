@@ -3,8 +3,9 @@
     <image class='logo' src="{{imgUrl}}{{doctor.information.doctor_portrait}}"></image>
     <view class='res'>
       <view class='res_left'>
-        <view class='d_name'> {{doctor.information.doctor_name}} <text class='z_do'> {{doctor.information.doctor_rank}}</text></view>
-        <view class='adder'> {{doctor.information.clinic_name}}</view>
+        <view class='d_name'>{{doctor.information.doctor_name}} </view>
+        <view class='adder'><text class='z_do'> {{doctor.information.subjects_name}}</text> {{doctor.information.doctor_rank}}</view>
+        <view class='adder'>{{doctor.information.clinic_site}}</view>
         <!-- <view class='buttonGroup'>
           <view class='look'>查看医生</view>
           <view class='ask'>快速询问</view>
@@ -41,13 +42,13 @@
         已解决患者问题
       </view>
     </view>
-    <view class='dataItem button'>
+    <view class='dataItem'>
       <view class='gh' bindtap='togh'>
         前往挂号
       </view>
-      <view class='ask' bindtap='tochat'>
+      <!-- <view class='ask' bindtap='tochat'>
         快速询问
-      </view>
+      </view> -->
     </view>
   </view>
 

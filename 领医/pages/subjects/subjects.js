@@ -45,7 +45,7 @@ Page({
   },
   toRes(e) {
     wx.navigateTo({
-      url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.id,
+      url: '/pages/my/doctorResOther/doctorResOther?doctorId=' + e.currentTarget.dataset.id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
