@@ -187,7 +187,7 @@ Page({
   selsect() {
     if (app.globalData.user_token != '') {
       wx.navigateTo({
-        url: `/pages/index/switchover/switchover`,
+        url: `/pages/more/more`,
         success: function(res) {},
         fail: function(res) {},
         complete: function(res) {}

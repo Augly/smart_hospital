@@ -1,0 +1,32 @@
+<view class='head'>
+  <view class='head_item'>
+    <view class='item_title'>免排队</view>
+    <view class='item_mintitle'>省去烦躁的等待</view>
+  </view>
+  <view class='head_item'>
+    <view class='item_title'>省时</view>
+    <view class='item_mintitle'>去掉多余时间</view>
+  </view>
+  <view class='head_item'>
+    <view class='item_title'>方便</view>
+    <view class='item_mintitle'>合理安排日程</view>
+  </view>
+</view>
+<image src='/images/951075aff5d76197647fe0523ecd5d1.png' class='banner'></image>
+<view class='item_list'>
+  <view class='list_head'>超便捷诊前预约</view>
+  <view class='list_content'>了解患者的病情，病史，近期服药情况等，根据您的需求安排就诊时间。</view>
+</view>
+<view class='item_list'>
+  <view class='list_head'>全方面专业陪伴</view>
+  <view class='list_content'>到诊后，护士会先帮患者测量生命体征，记录患者的病情，既往史及家族史，并将基本信息有效的与医生进行沟通，陪同患者一起检查化验，协助您取药，并讲解服用方法，整理患者的电子病例。</view>
+</view>
+<view class='item_list'>
+  <view class='list_head'>专业化定期随访</view>
+  <view class='list_content'>根据患者的情况，定期电话随访病情变化及服药情况，提醒复诊时间，及定期检查时间。</view>
+</view>
+
+<view class='go' bindtap='go'>
+  预约入口
+  <span class='iconfont icon-jiantou'></span>
+</view>

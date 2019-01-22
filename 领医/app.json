@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/more/more",
+    
     "pages/setMy/setMy",
     "pages/subjects/subjects",
     "pages/clinic/clinic",
