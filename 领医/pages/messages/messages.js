@@ -27,15 +27,15 @@ Page({
       wx.showLoading({
         title: '拼命加载中~',
         mask: true,
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
       })
       setTimeout(data => {
         wx.hideLoading()
         let s = this.data.paging
         if (res.data.data.inquiry.length > 0) {
-          if(s==1){
+          if (s == 1) {
             let list = res.data.data.inquiry.map(item => {
               item.inquiry_time = app.configure.timeForm(item.inquiry_time)
               return item
@@ -49,7 +49,7 @@ Page({
                 myTop: this.data.list.length - 1,
               })
             }, 300)
-          }else{
+          } else {
             let list = res.data.data.inquiry.map(item => {
               item.inquiry_time = app.configure.timeForm(item.inquiry_time)
               return item
@@ -60,7 +60,7 @@ Page({
               paging: 1 + s
             })
           }
-          
+
         } else {
           app.toast('暂无更多数据')
         }
@@ -125,7 +125,7 @@ Page({
         inquiry_count: this.data.content
       }, 'Index/hospital_guide_add', res => {
         this.setData({
-          paging:1,
+          paging: 1,
           content: ''
         })
         this.gitData()
@@ -144,9 +144,9 @@ Page({
   tores(e) {
     wx.navigateTo({
       url: `/pages/messagesRes/messagesRes?id=${e.currentTarget.dataset.id}`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
   //下拉加载更多
@@ -155,13 +155,16 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh: function () {
-   
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   }
 })

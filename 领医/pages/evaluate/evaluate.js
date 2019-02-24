@@ -8,7 +8,7 @@ Page({
     starList: [1, 2, 3, 4, 5],
     selectIndex: 4,
     cursor: 0,
-    content: ''   //内容
+    content: '' //内容
   },
 
   /**
@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       doctor_id: options.id,
-      gid:options.gid
+      gid: options.gid
     })
   },
   getValue(e) {
@@ -74,7 +74,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   },
   evaClick(e) {
     this.setData({
@@ -85,7 +88,7 @@ Page({
     if (this.data.content != '') {
       app.ajax('POST', {
         doctor_id: this.data.doctor_id,
-        registration_id:this.data.gid,
+        registration_id: this.data.gid,
         evaluation_count: this.data.content,
         evaluation_level: this.data.selectIndex,
         user_token: app.globalData.user_token
@@ -101,11 +104,11 @@ Page({
               })
             }, 1000)
           },
-          fail: function (res) { },
-          complete: function (res) { },
+          fail: function (res) {},
+          complete: function (res) {},
         })
       })
-    }else{
+    } else {
       app.toast('请输入评价内容!')
     }
 

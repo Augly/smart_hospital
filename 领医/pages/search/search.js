@@ -1,5 +1,5 @@
 // pages/search/search.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -18,7 +18,7 @@ Page({
   onLoad: function (options) {
     // this.getData()
   },
-  getData(){
+  getData() {
     app.ajax('POST', {
       seek: this.data.value,
       clinic_id: app.globalData.clinic_id
@@ -33,9 +33,9 @@ Page({
   toRes(e) {
     wx.navigateTo({
       url: '/pages/my/doctorRes/doctorRes?doctorId=' + e.currentTarget.dataset.doctorid + '&clinic_id=' + e.currentTarget.dataset.clinicid + '&evaluation_level=' + e.currentTarget.dataset.level,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
   getValue(e) {
@@ -43,12 +43,12 @@ Page({
       value: e.detail.value
     })
   },
-  tosub(e){
+  tosub(e) {
     wx.navigateTo({
       url: `/pages/subjects/subjects?subjectsId=${e.currentTarget.dataset.id}`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -65,9 +65,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '搜索',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -103,7 +103,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   },
   scope() {
     if (this.data.value != '') {

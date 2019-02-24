@@ -11,15 +11,15 @@ Page({
     doctor: null,
     notice: null,
     index: 0,
-    clickIndex:0,
+    clickIndex: 0,
     imgUrl: app.ImageHost,
-    mask:false
+    mask: false
   },
   GetDateStr(AddDayCount) {
     var dd = new Date();
-    dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
+    dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期
     let y = dd.getFullYear();
-    let m = dd.getMonth() + 1;//获取当前月份的日期
+    let m = dd.getMonth() + 1; //获取当前月份的日期
     let d = dd.getDate();
     let w = dd.getDay();
     let s = dd.getTime();
@@ -41,8 +41,8 @@ Page({
       dataList: datalist
     })
   },
-  clickTime(e){
-    if (e.currentTarget.dataset.number!=0){
+  clickTime(e) {
+    if (e.currentTarget.dataset.number != 0) {
       this.setData({
         clickIndex: e.currentTarget.dataset.index
       })
@@ -99,9 +99,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '预约挂号',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
     this.setData({
       userid: app.globalData.userId,
@@ -143,7 +143,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   },
   //确认预约
   sure() {
@@ -156,7 +159,7 @@ Page({
       patient_id: this.data.userid.patient_id
     }, 'Index/choice_registration', res => {
       this.setData({
-        mask:true
+        mask: true
       })
 
       // app.toast(res.data.msg, res => {
@@ -169,12 +172,12 @@ Page({
 
     })
   },
-  allSure(){
+  allSure() {
     wx.navigateTo({
       url: '/pages/Registration/Registration',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
   /**
@@ -183,9 +186,9 @@ Page({
   toselect() {
     wx.navigateTo({
       url: '/pages/selsectPatient/selsectPatient?type=3',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   }
 })

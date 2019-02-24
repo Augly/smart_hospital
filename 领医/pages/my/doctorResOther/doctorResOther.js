@@ -25,23 +25,22 @@ Page({
     if (app.globalData.user_token != '') {
       wx.navigateTo({
         url: '/pages/selectDoctorRes/selectDoctorRes',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { }
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     } else {
       wx.reLaunch({
         url: '/pages/login/index',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { }
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     }
   },
   gitData() {
     app.ajax(
-      'POST',
-      {
+      'POST', {
         user_token: app.globalData.user_token, //用户令牌
         doctor_id: this.data.doctor_id, //医生id
         paging: this.data.pageNum, //分页页数
@@ -61,8 +60,7 @@ Page({
   },
   gitMore() {
     app.ajax(
-      'POST',
-      {
+      'POST', {
         // user_token: app.globalData.user_token,    //用户令牌
         doctor_id: this.data.doctor_id, //医生id
         paging: this.data.pageNum //分页页数
@@ -82,7 +80,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () { },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -90,21 +88,21 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '医生详情',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () { },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () { },
+  onUnload: function () {},
   //下拉刷新
   onPullDownRefresh: function () {
     console.log('--------下拉刷新-------')
@@ -125,13 +123,12 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
       mask: true,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
     app.ajax(
-      'POST',
-      {
+      'POST', {
         // user_token: app.globalData.user_token,    //用户令牌
         doctor_id: this.data.doctor_id, //医生id
         paging: this.data.pageNum //分页页数
@@ -160,13 +157,18 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () { },
+  onShareAppMessage: function () {
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
+  },
   tochat() {
     wx.navigateTo({
       url: '/pages/chat/chat',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { }
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
   }
 })

@@ -1,13 +1,13 @@
 // pages/notice/notice.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    res:null,
-    time:''
+    res: null,
+    time: ''
   },
 
   /**
@@ -17,11 +17,11 @@ Page({
     this.setData({
       time: options.time
     })
-    app.ajax('POST',{
+    app.ajax('POST', {
       user_message_id: options.id
-    },'Index/message_unread_find',res=>{
+    }, 'Index/message_unread_find', res => {
       this.setData({
-        res:res.data.data
+        res: res.data.data
       })
     })
   },
@@ -39,9 +39,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '通知详情',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -77,6 +77,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   }
 })

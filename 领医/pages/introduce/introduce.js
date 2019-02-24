@@ -1,5 +1,5 @@
 // pages/introduce/introduce.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -7,22 +7,22 @@ Page({
    */
   data: {
     imgUrls: [],
-    ImageHost:app.ImageHost,
+    ImageHost: app.ImageHost,
     indicatorDots: false,
     autoplay: false,
     interval: 1000,
     duration: 800,
-    ks:[],
-    product:""
+    ks: [],
+    product: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.ajax('POST',{
+    app.ajax('POST', {
 
-    },'Index/clinic_intro',res=>{
+    }, 'Index/clinic_intro', res => {
       console.log(res.data.data)
       this.setData({
         ks: res.data.data.datum.introduce_administrative,
@@ -45,9 +45,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '领医介绍',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -83,6 +83,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  }
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
+  },
 })

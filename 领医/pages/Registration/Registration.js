@@ -1,6 +1,5 @@
-
 // pages/Registration/Registration.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -8,26 +7,26 @@ Page({
    */
   data: {
     statusType: 'waitIng',
-    starList:[1,2,3,4,5],
+    starList: [1, 2, 3, 4, 5],
     list: [],
-    mask:false,
+    mask: false,
     status: 'cendel',
-    cendelId:0,
+    cendelId: 0,
     imgurl: app.ImageHost,
-    cendelIndex:0
+    cendelIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.statusType==''){
+    if (options.statusType == '') {
       this.all()
-    } else if (options.statusType == 'waitIng'){
+    } else if (options.statusType == 'waitIng') {
       this.waitIng()
     }
   },
-  all(){
+  all() {
     this.setData({
       statusType: ''
     })
@@ -42,12 +41,12 @@ Page({
       })
     })
   },
-  togo(){
+  togo() {
     wx.navigateTo({
       url: '/pages/index/switchover/switchover',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
   /**
@@ -71,7 +70,7 @@ Page({
       this.all()
     } else if (this.data.statusType == 'waitIng') {
       this.waitIng()
-    }else{
+    } else {
       this.patiented()
     }
   },
@@ -110,15 +109,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   },
-  waitIng(){
+  waitIng() {
     this.setData({
       statusType: 'waitIng'
     })
-    app.ajax('POST',{
+    app.ajax('POST', {
       user_token: app.globalData.user_token
-    },'User/not_diagnose',res=>{
+    }, 'User/not_diagnose', res => {
       this.setData({
         list: res.data.data.map(item => {
           item.evaluation_level = Math.ceil(item.evaluation_level)
@@ -127,7 +129,7 @@ Page({
       })
     })
   },
-  patiented(){
+  patiented() {
     this.setData({
       statusType: 'patiented'
     })
@@ -142,9 +144,9 @@ Page({
       })
     })
   },
-  cencel(e){
+  cencel(e) {
     this.setData({
-      mask:true,
+      mask: true,
       status: 'cendel',
       cendelIndex: e.currentTarget.dataset.index,
       cendelId: e.currentTarget.dataset.id
@@ -153,18 +155,18 @@ Page({
   del(e) {
     this.setData({
       mask: true,
-      status:'del',
+      status: 'del',
       cendelIndex: e.currentTarget.dataset.index,
       cendelId: e.currentTarget.dataset.id
     })
   },
-  hideMask(){
+  hideMask() {
     this.setData({
       mask: false,
     })
   },
-  sureCendel(){
-    if (this.data.status == "cendel"){
+  sureCendel() {
+    if (this.data.status == "cendel") {
       app.ajax('POST', {
         user_token: app.globalData.user_token,
         registration_id: this.data.cendelId
@@ -177,7 +179,7 @@ Page({
           mask: false
         })
       })
-    }else{
+    } else {
       app.ajax('POST', {
         user_token: app.globalData.user_token,
         registration_id: this.data.cendelId
@@ -193,12 +195,12 @@ Page({
     }
 
   },
-  toEvent(e){
+  toEvent(e) {
     wx.navigateTo({
       url: `/pages/evaluate/evaluate?id=${e.currentTarget.dataset.id}&gid=${e.currentTarget.dataset.gid}`,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   }
 })

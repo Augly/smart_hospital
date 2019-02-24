@@ -1,12 +1,12 @@
 // pages/case/case.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[],
+    list: [],
     imgUrl: app.ImageHost
   },
 
@@ -14,12 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.ajax('POST',{
-      user_token:app.globalData.user_token,
+    app.ajax('POST', {
+      user_token: app.globalData.user_token,
       patient_id: options.patient_id
-    },'User/history_list',res=>{
+    }, 'User/history_list', res => {
       this.setData({
-        list:res.data.data.map(item=>{
+        list: res.data.data.map(item => {
           item.history_createtime = app.time(item.history_createtime)
           return item
         })
@@ -33,12 +33,12 @@ Page({
   onReady: function () {
 
   },
-  togo(){
+  togo() {
     wx.navigateTo({
       url: '/pages/index/switchover/switchover',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
   /**
@@ -47,9 +47,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '病例管理',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
 
   },
@@ -86,23 +86,26 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   },
-  lookCase(e){
+  lookCase(e) {
     console.log(e)
     wx.navigateTo({
       url: '/pages/lookCase/lookCase?patientId=' + e.currentTarget.dataset.id,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
-  select(){
+  select() {
     wx.navigateTo({
       url: "/pages/selsectPatient/selsectPatient?changes=1",
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   }
 })

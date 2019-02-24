@@ -1,12 +1,12 @@
 // pages/Forum/Forum.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[],
+    list: [],
     ImageHost: app.ImageHost
   },
 
@@ -14,9 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.ajax('POST', {},'Index/doctor_article',(res)=>{
+    app.ajax('POST', {}, 'Index/doctor_article', (res) => {
       this.setData({
-        list:res.data.data.map(res=>{
+        list: res.data.data.map(res => {
           res.lecture_craetetime = app.time(res.lecture_craetetime)
           return res
         })
@@ -37,9 +37,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '医生讲堂',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -75,14 +75,17 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   },
   toRes(e) {
     wx.navigateTo({
       url: `/pages/ForumRes/ForumRes?id=${e.currentTarget.dataset.id}`,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 })

@@ -1,6 +1,6 @@
 // pages/ForumRes/ForumRes.js
 var WxParse = require('../../wxParse/wxParse.js');
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -15,9 +15,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
-    app.ajax('POST',{
-      lecture_id:options.id
-    },'Introduce/classroom_details',res=>{
+    app.ajax('POST', {
+      lecture_id: options.id
+    }, 'Introduce/classroom_details', res => {
       console.log(res)
       WxParse.wxParse('article', 'html', res.data.data.lecture_content, this, 0);
     })
@@ -36,9 +36,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '讲堂详情',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {},
     })
   },
 
@@ -74,6 +74,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
   }
 })

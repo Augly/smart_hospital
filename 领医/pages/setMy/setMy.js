@@ -9,8 +9,7 @@ Page({
     allData: null,
     // show: false,
     ImageHost: app.ImageHost,
-    sexList: [
-      {
+    sexList: [{
         title: '男',
         id: 1
       },
@@ -25,17 +24,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     app.ajax(
-      'POST',
-      {
+      'POST', {
         user_token: app.globalData.user_token
       },
       'User/user_information',
       res => {
         this.setData({
           allData: res.data.data,
-          sexIndex: res.data.data.user_sex-1,
+          sexIndex: res.data.data.user_sex - 1,
           show: true
         })
       }
@@ -53,9 +51,9 @@ Page({
   toMessage() {
     wx.navigateTo({
       url: '/pages/index/message/message',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
   },
   //输入年龄
@@ -77,12 +75,11 @@ Page({
   },
   submit() {
     app.ajax(
-      'POST',
-      {
+      'POST', {
         user_token: app.globalData.user_token,
         user_nickname: this.data.allData.user_nickname,
         user_portrait: this.data.allData.user_portrait,
-        user_sex:Number(this.data.sexIndex)+1,
+        user_sex: Number(this.data.sexIndex) + 1,
         user_age: this.data.allData.user_age
       },
       'User/user_information_update',
@@ -115,8 +112,7 @@ Page({
         // var tempFilePaths = res.tempFilePaths
         let all = this.data.allData
         app.ajax(
-          'img',
-          {},
+          'img', {},
           'upload/upload',
           res => {
             let user_portrait = res.data
@@ -135,12 +131,12 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     wx.getStorage({
       key: 'user_token',
       success: res => {
@@ -149,8 +145,7 @@ Page({
         })
         app.globalData.user_token = res.data
         wx.request({
-          url:
-            'https://lingyiil.dazhu-ltd.cn/index.php/api/User/user_information',
+          url: 'https://lingyiil.dazhu-ltd.cn/index.php/api/User/user_information',
           data: {
             user_token: app.globalData.user_token
           },
@@ -161,26 +156,26 @@ Page({
               app.globalData.user_token = ''
               wx.redirectTo({
                 url: '/pages/login/index',
-                success: function(res) {},
-                fail: function(res) {},
-                complete: function(res) {}
+                success: function (res) {},
+                fail: function (res) {},
+                complete: function (res) {}
               })
             }
           },
-          fail: function(res) {},
-          complete: function(res) {}
+          fail: function (res) {},
+          complete: function (res) {}
         })
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res)
         wx.reLaunch({
           url: '/pages/login/index',
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {}
+          success: function (res) {},
+          fail: function (res) {},
+          complete: function (res) {}
         })
       },
-      complete: function(res) {
+      complete: function (res) {
         console.log(res)
       }
     })
@@ -194,8 +189,7 @@ Page({
   },
   send() {
     app.ajax(
-      'POST',
-      {
+      'POST', {
         user_token: app.globalData.user_token,
         user_nickname: this.data.allData.user_nickname,
         user_portrait: this.data.allData.user_portrait
@@ -209,36 +203,41 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {},
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {},
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {},
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
+  onReachBottom: function () {},
   out() {
     wx.clearStorage('user_token')
     app.globalData.user_token = ''
     wx.switchTab({
       url: '/pages/index/index',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
+      success: function (res) {},
+      fail: function (res) {},
+      complete: function (res) {}
     })
   },
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {},
+  onShareAppMessage: function () {
+    return {
+      title: '领医智慧医院',
+      path: '/pages/index/index'
+    }
+  },
   /**就诊人管理
    * @methon toPatient
    */
@@ -246,16 +245,16 @@ Page({
     if (app.globalData.user_token != '') {
       wx.navigateTo({
         url: '/pages/selsectPatient/selsectPatient?type=2',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {}
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     } else {
       wx.reLaunch({
         url: '/pages/login/index',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {}
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     }
   },
@@ -266,16 +265,16 @@ Page({
     if (app.globalData.user_token != '') {
       wx.navigateTo({
         url: '/pages/Registration/Registration',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {}
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     } else {
       wx.reLaunch({
         url: '/pages/login/index',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {}
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     }
   },
@@ -286,16 +285,16 @@ Page({
     if (app.globalData.user_token != '') {
       wx.navigateTo({
         url: '/pages/my/doctor/doctor',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {}
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     } else {
       wx.reLaunch({
         url: '/pages/login/index',
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {}
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {}
       })
     }
   }
