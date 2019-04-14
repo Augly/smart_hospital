@@ -25,7 +25,7 @@ Page({
       user_token: app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: app.globalData.subjects_id,
-      paging: this.data.paging //加分页
+      paging: this.data.paging                         //加分页
       // office_time: new Date().getTime()
     }, 'Index/doctor_in_subjects', res => {
       this.setData({
@@ -67,9 +67,9 @@ Page({
   },
   GetDateStr(AddDayCount) {
     var dd = new Date();
-    dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期
+    dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
     let y = dd.getFullYear();
-    let m = dd.getMonth() + 1; //获取当前月份的日期
+    let m = dd.getMonth() + 1;//获取当前月份的日期
     let d = dd.getDate();
     let w = dd.getDay();
     let s = dd.getTime();
@@ -105,9 +105,9 @@ Page({
   onShow: function () {
     wx.setNavigationBarTitle({
       title: '选择医生',
-      success: function (res) {},
-      fail: function (res) {},
-      complete: function (res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 
@@ -137,7 +137,7 @@ Page({
       user_token: app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: app.globalData.subjects_id,
-      paging: this.data.paging //加分页
+      paging: this.data.paging                    //加分页
     }, 'Index/doctor_in_subjects', res => {
       wx.hideNavigationBarLoading();
       // 停止下拉动作  
@@ -145,9 +145,9 @@ Page({
       wx.showLoading({
         title: '正在刷新数据~',
         mask: true,
-        success: function (res) {},
-        fail: function (res) {},
-        complete: function (res) {},
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
       })
       setTimeout(() => {
         wx.hideLoading()
@@ -170,15 +170,15 @@ Page({
       user_token: app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: app.globalData.subjects_id,
-      paging: this.data.paging //加分页
+      paging: this.data.paging                    //加分页
       // office_time: new Date().getTime()
     }, 'Index/doctor_in_subjects', res => {
       wx.showLoading({
         title: '玩命加载中~',
         mask: true,
-        success: function (res) {},
-        fail: function (res) {},
-        complete: function (res) {},
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
       })
       setTimeout(() => {
         wx.hideLoading()
@@ -199,10 +199,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return {
-      title: '领医智慧医院',
-      path: '/pages/index/index'
-    }
+
   },
   /**
    * 详情
@@ -211,9 +208,9 @@ Page({
     app.globalData.doctor_id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/selectDoctorRes/selectDoctorRes`,
-      success: function (res) {},
-      fail: function (res) {},
-      complete: function (res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }
 

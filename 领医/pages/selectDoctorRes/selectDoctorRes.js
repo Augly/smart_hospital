@@ -11,7 +11,7 @@ Page({
     doctor: null,
     notice: null,
     index: 0,
-    clickIndex: 0,
+    clickIndex: null,
     imgUrl: app.ImageHost,
     mask: false
   },
@@ -42,10 +42,13 @@ Page({
     })
   },
   clickTime(e) {
-    if (e.currentTarget.dataset.number != 0) {
+    console.log(e.currentTarget.dataset.number)
+    if (e.currentTarget.dataset.number != '0') {
       this.setData({
         clickIndex: e.currentTarget.dataset.index
       })
+    }else{
+      app.toast('没有预约名额')
     }
   },
   /**
@@ -57,12 +60,13 @@ Page({
       subjects_id: app.globalData.subjects_id,
       doctor_id: app.globalData.doctor_id,
     })
-    this.gitData()
+    // this.gitData()
   },
   selectDay(e) {
     this.setData({
       selectIndex: e.currentTarget.dataset.index
     })
+    this.git_init()
   },
   bindPickerChange(e) {
     this.setData({
@@ -73,26 +77,32 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log()
+
+
+  },
+  git_init(){
     app.ajax('POST', {
       user_token: app.globalData.user_token,
       clinic_id: app.globalData.clinic_id,
       subjects_id: this.data.subjects_id,
       doctor_id: this.data.doctor_id,
+      office_time: parseInt(this.data.dataList[this.data.selectIndex].value / 1000)
+      // office_time: 1555209168
+      
     }, 'Index/select_time', res => {
       this.setData({
         doctor: res.data.data.doctor,
         notice: res.data.data.notice,
-        timeList: res.data.data.office_time.map(item => {
-          item.office_start_time = app.configure.timelist(item.office_start_time)
-          item.office_over_time = app.configure.timelist(item.office_over_time)
-          return item
-        }),
+        // timeList: res.data.data.office_time.map(item => {
+        //   item.office_start_time = app.configure.timelist(item.office_start_time)
+        //   item.office_over_time = app.configure.timelist(item.office_over_time)
+        //   return item
+        // }),
+        timeList: res.data.data.office_time,
         quantumList: res.data.data.quantum
       })
     })
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -109,6 +119,7 @@ Page({
       doctor_id: app.globalData.doctor_id,
     })
     this.gitData()
+    this.git_init()
   },
 
   /**
@@ -150,27 +161,33 @@ Page({
   },
   //确认预约
   sure() {
-    app.ajax('POST', {
-      user_token: app.globalData.user_token,
-      clinic_id: app.globalData.clinic_id,
-      subjects_id: this.data.subjects_id,
-      doctor_id: this.data.doctor_id,
-      quantum_time: `${this.data.dataList[this.data.selectIndex].more} ${this.data.quantumList[this.data.clickIndex].quantum_time}`,
-      patient_id: this.data.userid.patient_id
-    }, 'Index/choice_registration', res => {
-      this.setData({
-        mask: true
+    if (this.data.clickIndex){
+      app.ajax('POST', {
+        user_token: app.globalData.user_token,
+        clinic_id: app.globalData.clinic_id,
+        subjects_id: this.data.subjects_id,
+        doctor_id: this.data.doctor_id,
+        quantum_time: `${this.data.dataList[this.data.selectIndex].more} ${this.data.quantumList[this.data.clickIndex].quantum_time}`,
+        time_quantum_id: this.data.quantumList[this.data.clickIndex].time_quantum_id,
+        patient_id: this.data.userid.patient_id
+      }, 'Index/choice_registration', res => {
+        this.setData({
+          mask: true
+        })
+
+        // app.toast(res.data.msg, res => {
+        //   setTimeout(() => {
+        //     wx.navigateBack({
+        //       delta: 1,
+        //     })
+        //   })
+        // })
+
       })
+    }else{
+      app.toast('请选择预约时段')
+    }
 
-      // app.toast(res.data.msg, res => {
-      //   setTimeout(() => {
-      //     wx.navigateBack({
-      //       delta: 1,
-      //     })
-      //   })
-      // })
-
-    })
   },
   allSure() {
     wx.navigateTo({

@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="background-image:url(http://www.kiss-me.top/lingyi/login.png)">
+<view class="container" style="background-image:url(http://mywx.zzvlm.com/lingyi/login.png)">
 
   <view class="market">
     <view class="market-main">北京领医</view>

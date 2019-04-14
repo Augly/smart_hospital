@@ -22,12 +22,12 @@
         <span>{{item.office_time}}</span>
       </view>
     </view>
-    <view class='itemOther'>
+    <!-- <view class='itemOther'>
       <view class='otherHead'>剩余号数</view>
       <view class='otherData'>
         <span>{{item.surplus_number}}</span>
       </view>
-    </view>
+    </view> -->
     </view>
 
   </view>
