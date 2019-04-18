@@ -14,18 +14,20 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.patientId
+      id: options.patientId,
+      hsid: options.hsid
     })
     app.ajax('POST', {
       user_token: app.globalData.user_token,
-      patient_id: options.patientId
+      patient_id: options.patientId,
+      history_id:options.hsid
     }, 'User/history_find', res => {
       WxParse.wxParse('article', 'html', res.data.data.history_content, this, 0);
     })
   },
   prescription() {
     wx.navigateTo({
-      url: '/pages/prescription/prescription?id=' + this.data.id,
+      url: '/pages/cf/cf?id=' + this.data.id + '&hsid=' + this.data.hsid,
       success: function (res) {},
       fail: function (res) {},
       complete: function (res) {},
@@ -33,7 +35,7 @@ Page({
   },
   report() {
     wx.navigateTo({
-      url: '/pages/Report/Report?id=' + this.data.id,
+      url: '/pages/bl/bl?id=' + this.data.id+'&hsid='+this.data.hsid,
       success: function (res) {},
       fail: function (res) {},
       complete: function (res) {},

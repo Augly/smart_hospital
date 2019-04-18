@@ -64,6 +64,7 @@ Page({
   },
   selectDay(e) {
     this.setData({
+      clickIndex:null,
       selectIndex: e.currentTarget.dataset.index
     })
     this.git_init()
@@ -161,7 +162,7 @@ Page({
   },
   //确认预约
   sure() {
-    if (this.data.clickIndex){
+    if (this.data.clickIndex!=null){
       app.ajax('POST', {
         user_token: app.globalData.user_token,
         clinic_id: app.globalData.clinic_id,
@@ -187,7 +188,6 @@ Page({
     }else{
       app.toast('请选择预约时段')
     }
-
   },
   allSure() {
     wx.navigateTo({

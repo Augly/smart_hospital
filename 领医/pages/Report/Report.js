@@ -16,8 +16,10 @@ Page({
   onLoad: function (options) {
     app.ajax('POST', {
       user_token: app.globalData.user_token,
-      history_id: options.id
-    }, 'User/report_find', res => {
+      report_id: options.report_id,
+      id: options.id,
+      patient_id: options.patient_id
+    }, 'User/report_detail', res => {
       WxParse.wxParse('article', 'html', res.data.data.report_content, this, 0);
     })
   },

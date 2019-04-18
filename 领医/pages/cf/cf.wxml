@@ -1,0 +1,20 @@
+
+<view class='wrap'>
+  <view class='item' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key=''>
+    <!-- <image class='avater' src='{{imgUrl}}{{item.doctor_portrait}}'></image> -->
+    <view class='userRes'>
+      <view class='name'>{{item.doctor_name}}
+        <!-- <text class='zw'>科室</text>
+        <text class='zw'>{{item.subjects_name}}</text> -->
+      </view>
+      <view class='res'>科室:{{item.subjects_name}}</view>
+    </view>
+    <view class='buttonGroup'>
+      <view class='date'>
+        {{item.prescription_createtime}}
+      </view>
+      <view class='lookCase' bindtap='lookCase' data-id='{{item.id}}' data-patient_id="{{item.patient_id}}" data-history_id="{{item.history_id}}">查看处方</view>
+    </view>
+  </view> 
+  <nodata title='暂无我的病例' mintitle='预约挂号' bind:togo='togo' wx:if="{{list.length==0}}"></nodata>
+</view>

@@ -16,8 +16,10 @@ Page({
   onLoad: function (options) {
     app.ajax('POST', {
       user_token: app.globalData.user_token,
-      history_id: options.id
-    }, 'User/prescription_find', res => {
+      history_id: options.history_id,
+      id: options.id,
+      patient_id: options.patient_id
+    }, 'User/prescription_detail', res => {
       WxParse.wxParse('article', 'html', res.data.data.prescription_content, this, 0);
     })
   },

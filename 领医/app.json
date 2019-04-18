@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/bl/bl",
+    "pages/cf/cf",
+    
     "pages/more/more",
     
     "pages/setMy/setMy",

@@ -7,24 +7,21 @@ Page({
    */
   data: {
     list: [],
-    imgUrl: app.ImageHost,
-    paging: 1
+    imgUrl: app.ImageHost
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  // user_token: app.globalData.user_token,
-  // patient_id: options.patient_id,
   onLoad: function (options) {
     app.ajax('POST', {
       user_token: app.globalData.user_token,
-      patient_id: options.patient_id,
-      paging: this.data.paging
-    }, 'User/history_list', res => {
+      history_id: options.hsid,
+      paging: 1
+    }, 'User/prescription_list', res => {
       this.setData({
         list: res.data.data.map(item => {
-          item.history_createtime = app.time(item.history_createtime)
+          item.prescription_createtime = app.time(item.prescription_createtime)
           return item
         })
       })
@@ -98,7 +95,7 @@ Page({
   lookCase(e) {
     console.log(e)
     wx.navigateTo({
-      url: '/pages/lookCase/lookCase?patientId=' + e.currentTarget.dataset.pid + '&hsid=' + e.currentTarget.dataset.id,
+      url: '/pages/prescription/prescription?id=' + e.currentTarget.dataset.id + '&patient_id=' + e.currentTarget.dataset.patient_id + '&history_id=' + e.currentTarget.dataset.history_id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
